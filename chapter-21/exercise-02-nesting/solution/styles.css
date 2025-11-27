@@ -1,0 +1,140 @@
+/* Compiled CSS from Sass */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f5f7fa;
+}
+
+.navbar {
+  background: #2c3e50;
+  padding: 1rem 2rem;
+}
+.navbar__brand {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.navbar__link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+.navbar__link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.navbar__link--active {
+  color: #ffffff;
+  background: #3498db;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+.card__header {
+  width: 100%;
+}
+.card__image {
+  width: 100%;
+  display: block;
+}
+.card__body {
+  padding: 2rem;
+}
+.card__title {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+.card__text {
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.card__link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+}
+.card__link:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+.card__footer {
+  padding: 1rem 2rem;
+  background: #ecf0f1;
+  border-top: 1px solid #e0e0e0;
+}
+.card__meta {
+  color: #95a5a6;
+  font-size: 0.875rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.btn--primary {
+  background: #3498db;
+  color: #ffffff;
+}
+.btn--primary:hover {
+  background: #2980b9;
+}
+.btn--secondary {
+  background: #95a5a6;
+  color: #ffffff;
+}
+.btn--secondary:hover {
+  background: #7f8c8d;
+}
+.btn--outline {
+  background: transparent;
+  color: #3498db;
+  border: 2px solid #3498db;
+}
+.btn--outline:hover {
+  background: #3498db;
+  color: #ffffff;
+}
+.btn--large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+

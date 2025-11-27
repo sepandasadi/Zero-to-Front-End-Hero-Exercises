@@ -1,0 +1,137 @@
+/* TODO: Convert repetitive CSS to Sass mixins */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f7fa;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #2c3e50;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #34495e;
+}
+
+/* TODO: Create a flexbox mixin for this pattern */
+.flex-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.box {
+  padding: 2rem;
+  background: #3498db;
+  color: white;
+  border-radius: 8px;
+}
+
+/* TODO: Create a button-size mixin with parameters */
+.btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-md {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* TODO: Create mixins for these repeated shadow patterns */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-elevated {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-floating {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.card p {
+  color: #7f8c8d;
+}
+
+/* TODO: Create responsive mixins for media queries */
+.responsive-box {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .responsive-box {
+    padding: 3rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .responsive-box {
+    padding: 4rem;
+    font-size: 2rem;
+  }
+}
+

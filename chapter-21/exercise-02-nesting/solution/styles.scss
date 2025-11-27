@@ -1,0 +1,206 @@
+// Sass Nesting & Parent Selector - Solution
+
+// Variables
+$color-primary: #3498db;
+$color-primary-dark: #2980b9;
+$color-secondary: #95a5a6;
+$color-secondary-dark: #7f8c8d;
+$color-dark: #2c3e50;
+$color-white: #ffffff;
+$color-bg: #f5f7fa;
+$color-text-light: #7f8c8d;
+$color-gray-light: #ecf0f1;
+$color-border: #e0e0e0;
+
+// Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: $color-bg;
+}
+
+// Navbar Component (using nesting)
+.navbar {
+  background: $color-dark;
+  padding: 1rem 2rem;
+
+  // Element: brand
+  &__brand {
+    color: $color-white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  // Element: menu
+  &__menu {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  // Element: item
+  &__item {
+    // List item container
+  }
+
+  // Element: link
+  &__link {
+    color: rgba($color-white, 0.8);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+
+    // Pseudo-class using &
+    &:hover {
+      color: $color-white;
+      background: rgba($color-white, 0.1);
+    }
+
+    // Modifier using &
+    &--active {
+      color: $color-white;
+      background: $color-primary;
+    }
+  }
+}
+
+// Container
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+// Card Component (nested with BEM)
+.card {
+  background: $color-white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+
+  &__header {
+    width: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+  }
+
+  &__body {
+    padding: 2rem;
+  }
+
+  &__title {
+    color: $color-dark;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    color: $color-text-light;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      color: $color-primary-dark;
+      text-decoration: underline;
+    }
+  }
+
+  &__footer {
+    padding: 1rem 2rem;
+    background: $color-gray-light;
+    border-top: 1px solid $color-border;
+  }
+
+  &__meta {
+    color: $color-secondary;
+    font-size: 0.875rem;
+  }
+}
+
+// Button Group
+.button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+// Button Component (using & for modifiers and pseudo-classes)
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  // Base hover (applies to all buttons)
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  // Modifier: primary
+  &--primary {
+    background: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background: $color-primary-dark;
+    }
+  }
+
+  // Modifier: secondary
+  &--secondary {
+    background: $color-secondary;
+    color: $color-white;
+
+    &:hover {
+      background: $color-secondary-dark;
+    }
+  }
+
+  // Modifier: outline
+  &--outline {
+    background: transparent;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+
+    &:hover {
+      background: $color-primary;
+      color: $color-white;
+    }
+  }
+
+  // Modifier: large
+  &--large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* NESTING BEST PRACTICES:
+   ✅ Keep nesting max 3 levels deep
+   ✅ Use & for BEM modifiers (.btn--primary)
+   ✅ Use & for pseudo-classes (&:hover)
+   ✅ Use & for pseudo-elements (&::before)
+   ✅ Use & for combined classes (&.is-active)
+   ❌ Don't over-nest (specificity issues)
+   ❌ Don't nest just for organization
+*/
+

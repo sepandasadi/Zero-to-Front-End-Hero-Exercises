@@ -1,0 +1,200 @@
+// Sass Mixins & Functions - Solution
+
+// ===== VARIABLES =====
+$color-primary: #3498db;
+$color-dark: #2c3e50;
+$color-text: #34495e;
+$color-text-light: #7f8c8d;
+$color-bg: #f5f7fa;
+$color-white: #ffffff;
+
+// ===== MIXINS =====
+
+// Flexbox Center Mixin
+@mixin flex-center($direction: row, $gap: 1rem) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+// Button Size Mixin with Parameters
+@mixin button-size($padding-y, $padding-x, $font-size) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+}
+
+// Box Shadow Mixin
+@mixin box-shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  } @else if $level == 2 {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  } @else if $level == 3 {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Responsive Breakpoint Mixins
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+// Transition Mixin
+@mixin transition($properties...) {
+  transition: $properties;
+}
+
+// Border Radius Mixin
+@mixin border-radius($radius: 8px) {
+  border-radius: $radius;
+}
+
+// ===== BASE STYLES =====
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: $color-bg;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: $color-dark;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: $color-text;
+}
+
+// ===== COMPONENTS =====
+
+// Flex Demo - Using flex-center mixin
+.flex-demo {
+  @include flex-center(row, 1rem);
+}
+
+.box {
+  padding: 2rem;
+  background: $color-primary;
+  color: $color-white;
+  @include border-radius(8px);
+}
+
+// Buttons - Using button-size mixin
+.btn {
+  background: $color-primary;
+  color: $color-white;
+  border: none;
+  @include border-radius(6px);
+  font-weight: 600;
+  cursor: pointer;
+  @include transition(all 0.3s);
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+}
+
+.btn-sm {
+  @include button-size(0.5rem, 1rem, 0.875rem);
+}
+
+.btn-md {
+  @include button-size(0.75rem, 1.5rem, 1rem);
+}
+
+.btn-lg {
+  @include button-size(1rem, 2rem, 1.125rem);
+}
+
+// Card Grid
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+// Cards - Using box-shadow mixin
+.card {
+  background: $color-white;
+  padding: 2rem;
+  @include border-radius(8px);
+  @include box-shadow(1);
+
+  h3 {
+    margin-bottom: 0.5rem;
+    color: $color-dark;
+  }
+
+  p {
+    color: $color-text-light;
+  }
+}
+
+.card-elevated {
+  @include box-shadow(2);
+}
+
+.card-floating {
+  @include box-shadow(3);
+}
+
+// Responsive Box - Using media query mixins
+.responsive-box {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: $color-white;
+  padding: 2rem;
+  @include border-radius(8px);
+  text-align: center;
+  font-size: 1.25rem;
+
+  // Using tablet mixin
+  @include tablet {
+    padding: 3rem;
+    font-size: 1.5rem;
+  }
+
+  // Using desktop mixin
+  @include desktop {
+    padding: 4rem;
+    font-size: 2rem;
+  }
+}
+
+/* MIXIN BEST PRACTICES:
+   ✅ Use mixins for repeated patterns
+   ✅ Add parameters for flexibility
+   ✅ Use @content for media queries
+   ✅ Keep mixins simple and focused
+   ✅ Name mixins descriptively
+   ❌ Don't overuse mixins for simple properties
+   ❌ Don't create mixins that just wrap one property
+*/
+

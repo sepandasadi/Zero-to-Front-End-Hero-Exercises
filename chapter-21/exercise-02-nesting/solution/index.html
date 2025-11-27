@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sass Nesting - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar__brand">MySite</div>
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="#" class="navbar__link navbar__link--active">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#" class="navbar__link">About</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#" class="navbar__link">Services</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#" class="navbar__link">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <article class="card">
+      <div class="card__header">
+        <img src="https://via.placeholder.com/400x200" alt="Card" class="card__image">
+      </div>
+      <div class="card__body">
+        <h2 class="card__title">Article Title</h2>
+        <p class="card__text">This is the card description text that explains what this card is about.</p>
+        <a href="#" class="card__link">Read More →</a>
+      </div>
+      <div class="card__footer">
+        <span class="card__meta">Posted on Jan 1, 2024</span>
+      </div>
+    </article>
+
+    <div class="button-group">
+      <button class="btn btn--primary">Primary</button>
+      <button class="btn btn--primary btn--large">Large Primary</button>
+      <button class="btn btn--secondary">Secondary</button>
+      <button class="btn btn--outline">Outline</button>
+    </div>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,71 @@
+// Sass Variables - Design Tokens
+
+// ===== COLORS =====
+$color-primary: #0d6efd;
+$color-primary-dark: #0b5ed7;
+$color-secondary: #6c757d;
+$color-secondary-dark: #5c636a;
+$color-success: #198754;
+$color-warning: #ffc107;
+
+$color-dark: #212529;
+$color-white: #ffffff;
+$color-text: #212529;
+$color-text-light: #6c757d;
+$color-text-muted: #adb5bd;
+$color-bg: #f8f9fa;
+$color-border: #dee2e6;
+
+// Badge Colors
+$badge-primary-bg: #cfe2ff;
+$badge-primary-text: #084298;
+$badge-success-bg: #d1e7dd;
+$badge-success-text: #0f5132;
+$badge-warning-bg: #fff3cd;
+$badge-warning-text: #997404;
+
+// ===== SPACING =====
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 1.5rem;
+$space-lg: 2rem;
+$space-xl: 4rem;
+
+// ===== TYPOGRAPHY =====
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+$text-xs: 0.75rem;
+$text-sm: 0.875rem;
+$text-base: 1rem;
+$text-lg: 1.125rem;
+$text-xl: 1.25rem;
+$text-2xl: 1.5rem;
+$text-3xl: 3rem;
+
+$font-normal: 400;
+$font-semibold: 600;
+$font-bold: 700;
+
+$line-height-normal: 1.6;
+
+// ===== LAYOUT =====
+$container-max-width: 1200px;
+
+// ===== BORDERS & RADIUS =====
+$border-radius-sm: 4px;
+$border-radius: 6px;
+$border-radius-md: 8px;
+$border-radius-pill: 20px;
+
+// ===== SHADOWS =====
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+// ===== TRANSITIONS =====
+$transition-fast: all 0.2s ease;
+$transition-base: all 0.3s ease;
+
+// ===== BREAKPOINTS =====
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+

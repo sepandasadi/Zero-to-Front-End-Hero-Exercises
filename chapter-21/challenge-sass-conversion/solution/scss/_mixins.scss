@@ -1,0 +1,52 @@
+// Sass Mixins - Reusable Patterns
+
+// Responsive Breakpoint Mixins
+@mixin tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: $breakpoint-tablet - 1px) {
+    @content;
+  }
+}
+
+// Button Size Mixin
+@mixin button-size($padding-y, $padding-x, $font-size) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+}
+
+// Card Hover Effect Mixin
+@mixin card-hover($translate: -4px, $shadow: $shadow-md) {
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY($translate);
+    box-shadow: $shadow;
+  }
+}
+
+// Flex Center Mixin
+@mixin flex-center($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+// Truncate Text Mixin
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
