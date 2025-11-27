@@ -1,0 +1,77 @@
+/* Media Query Mastery - Solution */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
+.hero p { font-size: clamp(1rem, 2vw, 1.25rem); }
+
+.info-box {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-box p {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.width-info { background: #e3f2fd; color: #1976d2; }
+.orientation-info { background: #f3e5f5; color: #7b1fa2; }
+.hover-info { background: #fff3e0; color: #f57c00; }
+
+/* Width-based media queries */
+@media (min-width: 640px) {
+  .width-info::before { content: "📱 Tablet or larger - "; }
+}
+
+@media (min-width: 1024px) {
+  .width-info::before { content: "💻 Desktop - "; }
+}
+
+/* Orientation queries */
+@media (orientation: portrait) {
+  .orientation-info::before { content: "📱 Portrait - "; }
+  .hero { min-height: 400px; }
+}
+
+@media (orientation: landscape) {
+  .orientation-info::before { content: "🖥️ Landscape - "; }
+  .hero { min-height: 300px; }
+}
+
+/* Hover capability detection */
+@media (hover: hover) {
+  .hover-info::before { content: "🖱️ Hover Available - "; }
+  .hero:hover { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); }
+}
+
+@media (hover: none) {
+  .hover-info::before { content: "📱 Touch Device - "; }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body { background: #1a1a1a; color: #f0f0f0; }
+  .info-box p { filter: brightness(0.8); }
+}
+

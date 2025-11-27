@@ -1,0 +1,152 @@
+/* Base Styles - Don't modify */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 40px;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+body > p {
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.instructions {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  border: 2px dashed #27ae60;
+}
+
+.instructions h2 {
+  color: #27ae60;
+  margin-bottom: 15px;
+}
+
+.instructions ol {
+  margin-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+}
+
+.instructions code {
+  background-color: #f1f3f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  color: #e74c3c;
+}
+
+/* Product Card Base Styles */
+.product-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  /* SOLUTION: Create positioning context */
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-details {
+  padding: 20px;
+}
+
+.product-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-price {
+  font-size: 16px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 10px;
+}
+
+.new-price {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Badge Styles */
+.badge {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+
+  /* SOLUTION: Absolute positioning */
+  position: absolute;
+  z-index: 10;
+}
+
+.badge-new {
+  background-color: #27ae60;
+
+  /* SOLUTION: Position in top-left corner */
+  top: 10px;
+  left: 10px;
+}
+
+.badge-sale {
+  background-color: #e74c3c;
+
+  /* SOLUTION: Position in top-right corner */
+  top: 10px;
+  right: 10px;
+}
+
+/* Wishlist Icon Styles */
+.wishlist-icon {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #e74c3c;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+
+  /* SOLUTION: Absolute positioning */
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.wishlist-icon:hover {
+  transform: scale(1.1);
+}
+

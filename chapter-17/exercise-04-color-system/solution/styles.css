@@ -1,0 +1,11 @@
+:root {
+  --primary: #3498db;
+  --secondary: #2ecc71;
+  --text: #2c3e50;
+  --bg: #ecf0f1;
+  --spacing: 16px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: var(--spacing); background: var(--bg); color: var(--text); }
+h1 { color: var(--primary); margin-bottom: var(--spacing); }
+p { line-height: 1.6; }

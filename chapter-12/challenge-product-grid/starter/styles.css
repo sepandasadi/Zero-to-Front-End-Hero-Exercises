@@ -1,0 +1,87 @@
+/* Product Showcase Grid - Starter */
+
+/* TODO: Apply border-box to all elements */
+
+
+/* TODO: Set body styles */
+body {
+  /* font-family, line-height, color, background, margin, padding */
+}
+
+/* TODO: Style the container */
+.container {
+  /* max-width, margin, padding, background-color */
+}
+
+/* TODO: Style the main heading */
+h1 {
+  /* text-align, font-size, margin, color */
+}
+
+/* TODO: Create the product grid layout */
+.product-grid {
+  /* display, grid-template-columns, gap */
+  /* TIP: Use 3 columns on desktop */
+}
+
+/* TODO: Style product cards */
+.product-card {
+  /* background-color, padding, border, border-radius, box-shadow */
+  /* transition for smooth hover effect */
+}
+
+/* TODO: Card hover effect */
+.product-card:hover {
+  /* box-shadow (larger/darker), border-color, transform */
+}
+
+/* TODO: Style product images */
+.product-card img {
+  /* width, height, object-fit, border-radius, margin-bottom */
+}
+
+/* TODO: Style product title */
+.product-title {
+  /* font-size, margin, color, font-weight */
+}
+
+/* TODO: Style product price */
+.product-price {
+  /* font-size, color, font-weight, margin */
+}
+
+/* TODO: Style product description */
+.product-description {
+  /* font-size, color, line-height, margin */
+}
+
+/* TODO: Style Add to Cart button */
+.add-to-cart-btn {
+  /* width, padding, background-color, color, border, border-radius */
+  /* font-size, font-weight, cursor, transition */
+}
+
+/* TODO: Button hover effect */
+.add-to-cart-btn:hover {
+  /* background-color, transform */
+}
+
+/* TODO: Button active effect */
+.add-to-cart-btn:active {
+  /* transform */
+}
+
+/* TODO: Tablet responsive (2 columns) */
+@media (max-width: 768px) {
+  .product-grid {
+    /* grid-template-columns */
+  }
+}
+
+/* TODO: Mobile responsive (1 column) */
+@media (max-width: 480px) {
+  .product-grid {
+    /* grid-template-columns */
+  }
+}
+

@@ -1,0 +1,101 @@
+/* Blog Post Styling - Starter */
+
+/* TODO: Add base styles */
+body {
+  /* font-family, line-height, color, background */
+}
+
+/* TODO: Style the blog post container */
+.blog-post {
+  /* max-width, margin, padding, background */
+}
+
+/* TODO: Style the post header */
+.post-header {
+  /* margin-bottom, border-bottom, padding-bottom */
+}
+
+/* TODO: Style the h1 title */
+.post-header h1 {
+  /* font-size, color, margin */
+}
+
+/* TODO: Style post metadata */
+.post-meta {
+  /* color, font-size, display */
+}
+
+.post-meta span {
+  /* margin-right */
+}
+
+/* TODO: Style the featured image */
+.featured-image {
+  /* width, height, object-fit, border-radius, margin */
+}
+
+/* TODO: Style the post content container */
+.post-content {
+  /* padding, line-height */
+}
+
+/* TODO: Style the lead paragraph */
+.lead {
+  /* font-size, font-weight, color, line-height */
+}
+
+/* TODO: Style h2 headings */
+h2 {
+  /* font-size, color, margin-top, margin-bottom */
+}
+
+/* TODO: Style h3 headings */
+h3 {
+  /* font-size, color, margin */
+}
+
+/* TODO: Style paragraphs */
+p {
+  /* margin-bottom, line-height */
+}
+
+/* TODO: Style unordered lists */
+ul {
+  /* margin, padding, line-height */
+}
+
+/* TODO: Style ordered lists */
+ol {
+  /* margin, padding, line-height */
+}
+
+/* TODO: Style list items */
+li {
+  /* margin-bottom */
+}
+
+/* TODO: Style blockquote */
+blockquote {
+  /* border-left, padding, margin, font-style, background, border-radius */
+}
+
+/* TODO: Style cite element */
+cite {
+  /* display, font-style, color, font-size, margin-top */
+}
+
+/* TODO: Style the post footer */
+.post-footer {
+  /* margin-top, padding-top, border-top */
+}
+
+/* TODO: Style tags container */
+.tags {
+  /* display, gap */
+}
+
+/* TODO: Style individual tags */
+.tag {
+  /* display, padding, background, color, border-radius, font-size */
+}
+

@@ -1,0 +1,108 @@
+/* Complete Website Header - Starter */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* TODO: Make header fixed at top */
+.site-header {
+  background-color: #2c3e50;
+  /* Add positioning */
+  /* Add z-index */
+}
+
+/* TODO: Add padding to body to prevent content hiding */
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.main-nav {
+  display: flex;
+  gap: 5px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* TODO: Create positioning context for cart badge */
+.cart-container {
+  /* Add position: relative */
+}
+
+/* TODO: Position cart badge absolutely in top-right */
+.cart-badge {
+  background-color: #e74c3c;
+  color: white;
+  /* Add positioning */
+  /* Add size and styling */
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.icon-btn:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Content */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero {
+  padding: 100px 0;
+  text-align: center;
+}
+
+section {
+  padding: 60px 0;
+  min-height: 400px;
+}
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navigation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#" class="nav-logo">MyBrand</a>
+
+      <!-- Checkbox for CSS-only toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+      <!-- Hamburger icon (label clicks checkbox) -->
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span class="hamburger"></span>
+      </label>
+
+      <!-- Menu -->
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+        <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Responsive Navigation Demo</h1>
+        <p>Resize the browser or use DevTools to see the navigation adapt!</p>
+        <p>On mobile (&lt;768px), click the hamburger menu to see the full-screen navigation.</p>
+        <p>On desktop (≥768px), the menu displays horizontally in the header.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <h2>Scroll down to see sticky navigation</h2>
+        <p>This page has extra content to demonstrate scrolling behavior.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+

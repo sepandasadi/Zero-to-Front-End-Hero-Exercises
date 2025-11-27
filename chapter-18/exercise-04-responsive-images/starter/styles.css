@@ -1,0 +1,24 @@
+/*
+  TODO: Style the responsive images gallery
+
+  Requirements:
+  - Make all images responsive (max-width: 100%, height: auto)
+  - Style the container and sections
+  - Add proper spacing
+  - Make it look good at all sizes
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+}
+
+/* TODO: Add your styles here */
+

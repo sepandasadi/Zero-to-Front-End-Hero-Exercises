@@ -1,0 +1,170 @@
+/* ===============================================
+   Portfolio Landing Page Styles - Starter Template
+   TODO: Add your styles to make this beautiful!
+   =============================================== */
+
+/* ===== COLOR PALETTE =====
+   TODO: Choose your color palette and define colors
+
+   Suggestions:
+   - Primary Color:
+   - Secondary Color:
+   - Accent Color:
+   - Background Color:
+   - Text Color:
+*/
+
+/* ===== RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; /* TODO: Choose better fonts */
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== HEADER / NAVIGATION ===== */
+header {
+  /* TODO: Add header styling */
+}
+
+nav {
+  /* TODO: Add navigation layout */
+}
+
+.logo {
+  /* TODO: Style your logo/name */
+}
+
+.nav-links {
+  /* TODO: Style navigation list */
+  list-style: none;
+}
+
+.nav-links li {
+  /* TODO: Style list items */
+}
+
+.nav-links a {
+  /* TODO: Style links with hover effects */
+  text-decoration: none;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  /* TODO: Create eye-catching hero section */
+  /* Consider: background color/gradient, padding, text alignment */
+}
+
+.hero-content {
+  /* TODO: Center and style hero content */
+}
+
+.hero h1 {
+  /* TODO: Make heading large and impactful */
+}
+
+.subtitle {
+  /* TODO: Style subtitle */
+}
+
+.cta-button {
+  /* TODO: Create attractive call-to-action button */
+  /* Don't forget hover effects! */
+}
+
+/* ===== ABOUT SECTION ===== */
+.about {
+  /* TODO: Style about section */
+}
+
+.about-content {
+  /* TODO: Layout text and image side by side */
+}
+
+.about-text {
+  /* TODO: Style text area */
+}
+
+.about-image img {
+  /* TODO: Style profile image */
+}
+
+/* ===== SKILLS SECTION ===== */
+.skills {
+  /* TODO: Style skills section */
+}
+
+.skills-grid {
+  /* TODO: Create grid or layout for skill cards */
+}
+
+.skill-card {
+  /* TODO: Style individual skill cards */
+  /* Consider: padding, borders, shadows, hover effects */
+}
+
+/* ===== PROJECTS SECTION ===== */
+.projects {
+  /* TODO: Style projects section */
+}
+
+.projects-grid {
+  /* TODO: Create grid for project cards */
+}
+
+.project-card {
+  /* TODO: Style project cards */
+}
+
+.project-card img {
+  /* TODO: Style project images */
+}
+
+.project-link {
+  /* TODO: Style project links */
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+  /* TODO: Style contact section */
+}
+
+.contact-intro {
+  /* TODO: Style contact introduction text */
+}
+
+.contact-links {
+  /* TODO: Layout contact links */
+}
+
+.contact-link {
+  /* TODO: Style contact links with hover effects */
+}
+
+/* ===== FOOTER ===== */
+footer {
+  /* TODO: Style footer */
+}
+
+/* ===== INTERACTIVE STATES ===== */
+/* TODO: Add :hover, :focus, and :active states for all interactive elements */
+
+/* ===== SMOOTH SCROLLING (BONUS) ===== */
+/*
+html {
+  scroll-behavior: smooth;
+}
+*/
+

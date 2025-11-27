@@ -1,0 +1,60 @@
+/* Typography Practice - Starter */
+
+/* TODO: Import Google Fonts (try Playfair Display for headings, Open Sans for body) */
+
+
+/* TODO: Set base font styles on body */
+body {
+  /* font-family, font-size, line-height, color */
+}
+
+/* TODO: Style the article container */
+article {
+  /* max-width, margin, padding */
+}
+
+/* TODO: Style h1 - make it large and impactful */
+h1 {
+  /* font-family, font-size, font-weight, color, line-height, margin */
+}
+
+/* TODO: Style h2 - secondary headings */
+h2 {
+  /* font-size, font-weight, color, margin-top, margin-bottom */
+}
+
+/* TODO: Style h3 - tertiary headings */
+h3 {
+  /* font-size, font-weight, color, margin */
+}
+
+/* TODO: Style paragraphs */
+p {
+  /* margin-bottom, line-height */
+}
+
+/* TODO: Style the lead paragraph (first paragraph with larger text) */
+.lead {
+  /* font-size, font-weight, color, line-height */
+}
+
+/* TODO: Style the blockquote */
+blockquote {
+  /* border-left, padding-left, font-style, color, margin */
+}
+
+/* TODO: Style the cite element inside blockquote */
+cite {
+  /* display, font-style, color, font-size, margin-top */
+}
+
+/* TODO: Style the unordered list */
+ul {
+  /* margin, padding, line-height */
+}
+
+/* TODO: Style list items */
+li {
+  /* margin-bottom */
+}
+

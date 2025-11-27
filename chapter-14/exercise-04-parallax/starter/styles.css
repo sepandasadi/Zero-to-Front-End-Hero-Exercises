@@ -1,0 +1,13 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; }
+
+/* TODO: Add parallax effect with background-attachment: fixed */
+.parallax {
+  /* height, background-image, background-size, background-position, background-attachment */
+}
+
+.content {
+  padding: 100px 20px;
+  background: white;
+}
+

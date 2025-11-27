@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Images - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Responsive Images</h1>
+
+    <section>
+      <h2>Using srcset</h2>
+      <img
+        src="https://via.placeholder.com/800x600"
+        srcset="https://via.placeholder.com/400x300 400w,
+                https://via.placeholder.com/800x600 800w,
+                https://via.placeholder.com/1200x900 1200w"
+        sizes="(max-width: 600px) 100vw,
+               (max-width: 1000px) 80vw,
+               1200px"
+        alt="Responsive image example">
+    </section>
+
+    <section>
+      <h2>Using Picture Element</h2>
+      <picture>
+        <source media="(min-width: 1024px)" srcset="https://via.placeholder.com/1200x400">
+        <source media="(min-width: 768px)" srcset="https://via.placeholder.com/800x400">
+        <img src="https://via.placeholder.com/400x300" alt="Art direction example">
+      </picture>
+    </section>
+  </div>
+</body>
+</html>
+

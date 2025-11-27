@@ -1,0 +1,232 @@
+/* Blog Post Styling - Solution */
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+/* Base styles */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.7;
+  color: #2c3e50;
+  background-color: #f5f7fa;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Blog post container */
+.blog-post {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 0;
+  background: white;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Post header */
+.post-header {
+  padding: 40px 40px 30px;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.post-header h1 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+/* Post metadata */
+.post-meta {
+  color: #718096;
+  font-size: 0.95rem;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.post-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.author {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Featured image */
+.featured-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Post content */
+.post-content {
+  padding: 40px;
+  line-height: 1.8;
+}
+
+/* Lead paragraph */
+.lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Headings */
+h2 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: #2c3e50;
+}
+
+/* Strong/bold text */
+strong {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+/* Lists */
+ul, ol {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+li {
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+li strong {
+  color: #667eea;
+}
+
+/* Blockquote */
+blockquote {
+  border-left: 4px solid #667eea;
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  background-color: #f7fafc;
+  border-radius: 0 8px 8px 0;
+  color: #4a5568;
+}
+
+cite {
+  display: block;
+  font-style: normal;
+  color: #2d3748;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+/* Post footer */
+.post-footer {
+  padding: 30px 40px 40px;
+  border-top: 1px solid #e1e8ed;
+  margin-top: 3rem;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: #edf2f7;
+  color: #4a5568;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .blog-post {
+    margin: 20px auto;
+  }
+
+  .post-header {
+    padding: 30px 20px 20px;
+  }
+
+  .post-header h1 {
+    font-size: 2rem;
+  }
+
+  .featured-image {
+    height: 250px;
+  }
+
+  .post-content {
+    padding: 30px 20px;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  blockquote {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .post-footer {
+    padding: 20px;
+  }
+}
+

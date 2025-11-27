@@ -1,0 +1,52 @@
+/* Spacing System - Starter */
+
+/* TODO: Define spacing variables (8px, 16px, 24px, 32px, 40px) */
+
+
+/* TODO: Apply box-sizing */
+
+
+/* TODO: Body styles */
+body {
+  /* margin, font-family, line-height, color */
+}
+
+/* TODO: Header spacing */
+header {
+  /* padding, background-color, text-align */
+}
+
+/* TODO: Main content spacing */
+main {
+  /* max-width, margin, padding */
+}
+
+/* TODO: Section spacing (use consistent margins) */
+section {
+  /* margin-bottom, padding */
+}
+
+/* TODO: Heading spacing */
+h1, h2 {
+  /* margin-top, margin-bottom */
+}
+
+/* TODO: Paragraph spacing */
+p {
+  /* margin-bottom */
+}
+
+/* TODO: List spacing */
+ul {
+  /* margin, padding */
+}
+
+li {
+  /* margin-bottom */
+}
+
+/* TODO: Footer spacing */
+footer {
+  /* padding, text-align, background-color, margin-top */
+}
+

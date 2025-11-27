@@ -1,0 +1,68 @@
+/* Button Styles - Starter */
+
+/* TODO: Apply box-sizing */
+
+
+/* TODO: Body styles */
+body {
+  /* font-family, line-height, color, background, padding */
+}
+
+/* TODO: Container */
+.container {
+  /* max-width, margin, padding */
+}
+
+/* TODO: Section spacing */
+section {
+  /* margin-bottom, padding */
+}
+
+/* TODO: Base button styles */
+.btn {
+  /* border, border-radius, font-weight, cursor, transition */
+  /* NO padding here - add in size variants */
+}
+
+/* TODO: Small button (use smaller padding) */
+.btn-small {
+  /* padding, font-size */
+}
+
+/* TODO: Medium button (use medium padding) */
+.btn-medium {
+  /* padding, font-size */
+}
+
+/* TODO: Large button (use larger padding) */
+.btn-large {
+  /* padding, font-size */
+}
+
+/* TODO: Primary button (default) */
+.btn {
+  /* background-color, color */
+}
+
+.btn:hover {
+  /* background-color */
+}
+
+/* TODO: Secondary button */
+.btn-secondary {
+  /* background-color, color */
+}
+
+.btn-secondary:hover {
+  /* background-color */
+}
+
+/* TODO: Outline button */
+.btn-outline {
+  /* background-color, color, border */
+}
+
+.btn-outline:hover {
+  /* background-color, color */
+}
+

@@ -1,0 +1,35 @@
+/*
+  TODO: Create a fluid typography system
+
+  Requirements:
+  1. Define CSS custom properties for fluid font sizes using clamp()
+  2. Create a type scale (--step-0 through --step-5)
+  3. Create fluid spacing variables
+  4. Apply to headings (h1-h6) and body text
+  5. Test: Resize browser from 320px to 1920px - text should scale smoothly!
+
+  Example:
+  --step-0: clamp(1rem, 0.925rem + 0.375vw, 1.3125rem);
+*/
+
+:root {
+  /* TODO: Add fluid font size variables here */
+  /* TODO: Add fluid spacing variables here */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  /* TODO: Use fluid font size */
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+}
+
+/* TODO: Style container and headings with fluid typography */
+

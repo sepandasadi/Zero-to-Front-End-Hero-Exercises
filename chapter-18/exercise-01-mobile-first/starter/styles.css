@@ -1,0 +1,17 @@
+/*
+  TODO: Create a mobile-first responsive card layout
+
+  Requirements:
+  - Mobile (default): Stacked cards, 1rem padding
+  - Tablet (768px+): 2 columns, 1.5rem padding
+  - Desktop (1024px+): 3 columns, 2rem padding, max-width 1200px
+
+  Tips:
+  - Start with mobile base styles (no media query)
+  - Use min-width media queries to enhance upward
+  - Use flexbox with wrapping
+  - Make images responsive
+*/
+
+/* Your code here */
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Dialog - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-content">
+    <h1>Modal Dialog with Positioning</h1>
+    <p>Click the button below to open the modal overlay</p>
+    <button class="open-modal-btn" onclick="document.getElementById('modal').classList.add('active')">
+      Open Modal
+    </button>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div id="modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('active')">
+        ×
+      </button>
+      <h2>Modal Title</h2>
+      <p>This modal is centered using fixed positioning. The close button is absolutely positioned in the top-right corner.</p>
+      <p>The overlay covers the entire viewport with a semi-transparent background.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="document.getElementById('modal').classList.remove('active')">
+          Cancel
+        </button>
+        <button class="btn btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

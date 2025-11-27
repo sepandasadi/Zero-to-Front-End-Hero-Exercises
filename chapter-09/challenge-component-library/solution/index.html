@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Component Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Accessible Component Library</h1>
+    <p>A collection of fully accessible, WCAG 2.1 AA compliant UI components</p>
+  </header>
+
+  <main>
+    <!-- Component 1: Accordion -->
+    <section>
+      <h2>1. Accordion (Collapsible Sections)</h2>
+      <p><strong>Keyboard:</strong> Tab to navigate, Enter/Space to toggle sections</p>
+
+      <div class="accordion" id="accordion-demo">
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false" aria-controls="accordion-panel-1" id="accordion-header-1">
+            <span>What is accessibility?</span>
+            <span class="accordion-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="accordion-content" id="accordion-panel-1" role="region" aria-labelledby="accordion-header-1" hidden>
+            <p>Accessibility ensures that websites, tools, and technologies are designed and developed so that people with disabilities can use them. This includes auditory, cognitive, neurological, physical, speech, and visual disabilities.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false" aria-controls="accordion-panel-2" id="accordion-header-2">
+            <span>Why is ARIA important?</span>
+            <span class="accordion-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="accordion-content" id="accordion-panel-2" role="region" aria-labelledby="accordion-header-2" hidden>
+            <p>ARIA (Accessible Rich Internet Applications) is a set of attributes that define ways to make web content and applications more accessible to people with disabilities. It helps bridge gaps in accessibility when HTML semantics alone aren't sufficient.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false" aria-controls="accordion-panel-3" id="accordion-header-3">
+            <span>How do I test for accessibility?</span>
+            <span class="accordion-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="accordion-content" id="accordion-panel-3" role="region" aria-labelledby="accordion-header-3" hidden>
+            <p>Test with keyboard navigation, screen readers (NVDA, JAWS, VoiceOver), automated tools (Lighthouse, axe), and by following WCAG guidelines. Manual testing is essential as automated tools catch only 30-40% of issues.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 2: Modal Dialog -->
+    <section>
+      <h2>2. Modal Dialog</h2>
+      <p><strong>Keyboard:</strong> Escape to close, Tab cycles focus within modal</p>
+
+      <button id="open-modal">Open Modal</button>
+
+      <div id="modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal">
+          <h3 id="modal-title">Example Modal Dialog</h3>
+          <p>This is an accessible modal dialog. Focus is trapped within the modal, and pressing Escape will close it.</p>
+
+          <form>
+            <label for="modal-input">Enter your name:</label>
+            <input type="text" id="modal-input" placeholder="Your name">
+          </form>
+
+          <div class="modal-actions">
+            <button id="modal-close">Close</button>
+            <button id="modal-save">Save</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 3: Dropdown Menu -->
+    <section>
+      <h2>3. Dropdown Menu</h2>
+      <p><strong>Keyboard:</strong> Arrow keys to navigate, Escape to close</p>
+
+      <div class="dropdown">
+        <button id="dropdown-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-menu">
+          Actions <span aria-hidden="true">▼</span>
+        </button>
+        <ul id="dropdown-menu" role="menu" hidden>
+          <li role="none">
+            <button role="menuitem" onclick="alert('Edit clicked')">Edit</button>
+          </li>
+          <li role="none">
+            <button role="menuitem" onclick="alert('Delete clicked')">Delete</button>
+          </li>
+          <li role="none">
+            <button role="menuitem" onclick="alert('Share clicked')">Share</button>
+          </li>
+          <li role="none">
+            <button role="menuitem" onclick="alert('Archive clicked')">Archive</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Component 4: Tabs Interface -->
+    <section>
+      <h2>4. Tabs Interface</h2>
+      <p><strong>Keyboard:</strong> Arrow keys between tabs, Tab to enter/exit tablist</p>
+
+      <div class="tabs-container">
+        <div role="tablist" aria-label="Content sections">
+          <button role="tab" aria-selected="true" aria-controls="tab-panel-1" id="tab-1" tabindex="0">
+            Overview
+          </button>
+          <button role="tab" aria-selected="false" aria-controls="tab-panel-2" id="tab-2" tabindex="-1">
+            Features
+          </button>
+          <button role="tab" aria-selected="false" aria-controls="tab-panel-3" id="tab-3" tabindex="-1">
+            Pricing
+          </button>
+        </div>
+
+        <div role="tabpanel" id="tab-panel-1" aria-labelledby="tab-1" tabindex="0">
+          <h3>Overview</h3>
+          <p>This component library provides accessible UI components that work with keyboard navigation and screen readers. Each component follows WCAG 2.1 AA guidelines and ARIA best practices.</p>
+        </div>
+
+        <div role="tabpanel" id="tab-panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
+          <h3>Features</h3>
+          <ul>
+            <li>Fully keyboard accessible</li>
+            <li>Screen reader compatible</li>
+            <li>WCAG 2.1 AA compliant</li>
+            <li>Responsive design</li>
+            <li>No dependencies</li>
+          </ul>
+        </div>
+
+        <div role="tabpanel" id="tab-panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
+          <h3>Pricing</h3>
+          <p>This component library is completely free and open source! Use it in your projects, modify it as needed, and share it with others.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 5: Alert/Toast Notifications -->
+    <section>
+      <h2>5. Alert Notifications</h2>
+      <p><strong>Keyboard:</strong> Focus close button to dismiss</p>
+
+      <div class="alert-demo-buttons">
+        <button onclick="showAlert('info', 'This is an informational message')">Show Info</button>
+        <button onclick="showAlert('success', 'Operation completed successfully!')">Show Success</button>
+        <button onclick="showAlert('warning', 'Warning: Please review before proceeding')">Show Warning</button>
+        <button onclick="showAlert('error', 'Error: Something went wrong')">Show Error</button>
+      </div>
+
+      <div id="alert-container" aria-live="polite" aria-atomic="true"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with accessibility in mind | WCAG 2.1 AA Compliant</p>
+  </footer>
+
+  <script src="components/accordion.js"></script>
+  <script src="components/modal.js"></script>
+  <script src="components/dropdown.js"></script>
+  <script src="components/tabs.js"></script>
+  <script src="components/alert.js"></script>
+</body>
+</html>
+

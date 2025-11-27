@@ -1,0 +1,148 @@
+/* Typography Practice - Solution */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600&display=swap');
+
+/* Color palette */
+:root {
+  --text-primary: #2c3e50;
+  --text-secondary: #34495e;
+  --text-muted: #7f8c8d;
+  --accent-color: #3498db;
+  --bg-color: #ffffff;
+}
+
+/* Base font styles */
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-primary);
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Article container */
+article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading 1 - Large and impactful */
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* Heading 2 - Secondary headings */
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+/* Heading 3 - Tertiary headings */
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+/* Lead paragraph - larger, attention-grabbing first paragraph */
+.lead {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Blockquote styling */
+blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 2rem;
+  margin: 2.5rem 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Citation in blockquote */
+cite {
+  display: block;
+  font-style: normal;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* Unordered list */
+ul {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+  line-height: 1.8;
+}
+
+/* List items */
+li {
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  article {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    font-size: 1.1rem;
+  }
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 1: Positioned Badge - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Exercise 1: Positioned Badge - Solution</h1>
+  <p>Badges are positioned absolutely relative to the card container!</p>
+
+  <div class="product-card">
+    <!-- Badge elements - positioned! -->
+    <div class="badge badge-new">NEW</div>
+    <div class="badge badge-sale">50% OFF</div>
+    <div class="wishlist-icon">♥</div>
+
+    <!-- Product content -->
+    <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Headphones" alt="Wireless Headphones" class="product-image">
+
+    <div class="product-details">
+      <h3 class="product-title">Wireless Headphones</h3>
+      <p class="product-price">
+        <span class="old-price">$99.99</span>
+        <span class="new-price">$49.99</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <h2>Solution Explained:</h2>
+    <ol>
+      <li>✅ Card has <code>position: relative</code> to create positioning context</li>
+      <li>✅ "NEW" badge positioned top-left with <code>position: absolute; top: 10px; left: 10px;</code></li>
+      <li>✅ "50% OFF" badge positioned top-right with <code>position: absolute; top: 10px; right: 10px;</code></li>
+      <li>✅ Heart icon positioned bottom-right with <code>position: absolute; bottom: 10px; right: 10px;</code></li>
+      <li>✅ Badges have <code>z-index: 10</code> to appear on top of image</li>
+    </ol>
+  </div>
+
+</body>
+</html>
+

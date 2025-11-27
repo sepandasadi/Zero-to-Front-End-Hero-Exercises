@@ -1,0 +1,50 @@
+/* Card Component - Starter */
+
+/* TODO: Apply box-sizing to all elements */
+
+
+/* TODO: Body styles */
+body {
+  /* font-family, line-height, color, background, margin, padding */
+}
+
+/* TODO: Container */
+.container {
+  /* max-width, margin, padding */
+}
+
+/* TODO: Card */
+.card {
+  /* background, border, border-radius, box-shadow, overflow */
+}
+
+/* TODO: Card image */
+.card img {
+  /* width, height, object-fit, display */
+}
+
+/* TODO: Card content area */
+.card-content {
+  /* padding */
+}
+
+/* TODO: Card title */
+.card h2 {
+  /* margin, font-size, color */
+}
+
+/* TODO: Card paragraph */
+.card p {
+  /* margin, line-height, color */
+}
+
+/* TODO: Card link */
+.card-link {
+  /* display, color, text-decoration, font-weight */
+}
+
+/* TODO: Card link hover */
+.card-link:hover {
+  /* color */
+}
+

@@ -1,0 +1,4 @@
+:root { /* TODO: Define design tokens */ }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; padding: 40px; }
+/* TODO: Create component styles */

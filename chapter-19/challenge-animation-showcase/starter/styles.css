@@ -1,0 +1,19 @@
+/* Animation Showcase Challenge - Starter */
+/* TODO: Create a comprehensive animation showcase */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0f0f23;
+  color: white;
+}
+
+/* TODO: Build your showcase with:
+   - Hero section with animated text/elements
+   - Interactive cards with hover effects
+   - Loading animations
+   - Smooth transitions
+   - Creative keyframe animations
+   - Respect prefers-reduced-motion
+*/

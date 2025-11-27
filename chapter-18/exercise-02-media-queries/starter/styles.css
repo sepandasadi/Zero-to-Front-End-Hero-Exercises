@@ -1,0 +1,16 @@
+/*
+  TODO: Implement responsive hero section with multiple media queries
+
+  Requirements:
+  1. Width-based media queries (mobile, tablet, desktop)
+  2. Orientation queries (portrait vs landscape)
+  3. Hover capability detection
+  4. Dark mode support (prefers-color-scheme)
+
+  Test at: 375px, 768px, 1024px, 1920px
+  Test orientation: portrait and landscape
+  Test dark mode: Change system settings
+*/
+
+/* Your code here */
+

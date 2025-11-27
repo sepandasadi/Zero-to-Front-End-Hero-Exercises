@@ -1,0 +1,50 @@
+/*
+  Landing Page Challenge - Starter File
+
+  TODO: Build a complete responsive landing page
+
+  Remember:
+  1. Start with mobile styles (no media query)
+  2. Use min-width media queries for larger screens
+  3. Use clamp() for fluid typography
+  4. Use srcset/picture for responsive images
+  5. Make touch targets ≥44px
+  6. Test at: 320px, 375px, 768px, 1024px, 1920px
+
+  Suggested breakpoints:
+  @media (min-width: 640px) { }
+  @media (min-width: 768px) { }
+  @media (min-width: 1024px) { }
+  @media (min-width: 1280px) { }
+*/
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS Custom Properties */
+:root {
+  /* Colors */
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #333333;
+
+  /* TODO: Add fluid typography variables */
+  /* TODO: Add fluid spacing variables */
+}
+
+/* Base Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+}
+
+/* TODO: Build your responsive landing page here! */
+

@@ -1,0 +1,57 @@
+/* Navigation Menu - Starter */
+
+/* TODO: Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* TODO: Set base body styles */
+body {
+  /* font-family, line-height */
+}
+
+/* TODO: Style the main navigation container */
+.main-nav {
+  /* background-color, padding, display, justify-content, align-items */
+}
+
+/* TODO: Style the brand/logo */
+.nav-brand a {
+  /* font-size, font-weight, color, text-decoration */
+}
+
+/* TODO: Style the navigation menu list */
+.nav-menu {
+  /* list-style, display, gap */
+}
+
+/* TODO: Style navigation links */
+.nav-menu a {
+  /* color, text-decoration, padding, border-radius, transition */
+}
+
+/* TODO: Style navigation links on hover */
+.nav-menu a:hover {
+  /* background-color, color */
+}
+
+/* TODO: Style the active/current link */
+.nav-menu a.active {
+  /* background-color, color */
+}
+
+/* TODO: Style main content sections */
+main {
+  /* padding */
+}
+
+section {
+  /* padding, min-height */
+}
+
+h1, h2 {
+  /* margin-bottom */
+}
+

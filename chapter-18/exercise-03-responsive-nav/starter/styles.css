@@ -1,0 +1,16 @@
+/*
+  TODO: Create a responsive navigation with hamburger menu
+
+  Requirements:
+  - Mobile (<768px): Hamburger menu, full-screen slide-in
+  - Desktop (≥768px): Horizontal navigation, no hamburger
+  - Use CSS-only (checkbox hack)
+  - Touch-friendly (44px minimum)
+  - Smooth animations
+  - Keyboard accessible
+
+  Hint: Use :checked ~ selector to show/hide menu
+*/
+
+/* Your code here */
+

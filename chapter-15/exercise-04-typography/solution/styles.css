@@ -1,0 +1,4 @@
+:root { --primary: #3498db; --text: #333; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 40px; color: var(--text); }
+h1 { color: var(--primary); margin-bottom: 20px; }

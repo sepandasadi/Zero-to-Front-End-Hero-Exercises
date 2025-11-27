@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluid Typography</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <article class="container">
+    <header class="article-header">
+      <h1>The Power of Fluid Typography</h1>
+      <p class="subtitle">Creating scalable, accessible text that works everywhere</p>
+    </header>
+
+    <section class="content">
+      <h2>What is Fluid Typography?</h2>
+      <p>Fluid typography scales smoothly between a minimum and maximum size based on viewport width, eliminating abrupt jumps at breakpoints.</p>
+
+      <h3>Why Use It?</h3>
+      <ul>
+        <li>Smooth scaling across all screen sizes</li>
+        <li>Fewer media queries needed</li>
+        <li>Better reading experience</li>
+        <li>Responsive by default</li>
+      </ul>
+
+      <h4>The clamp() Function</h4>
+      <p>Modern CSS provides <code>clamp()</code> to create fluid values easily. The syntax is: <code>clamp(minimum, preferred, maximum)</code></p>
+
+      <h5>Example Usage</h5>
+      <p>You can set minimum, preferred, and maximum values for any CSS property. For example: <code>font-size: clamp(1rem, 2.5vw, 2rem);</code></p>
+
+      <h6>Browser Support</h6>
+      <p>Widely supported in all modern browsers since 2020.</p>
+
+      <blockquote>
+        "Fluid typography represents a fundamental shift in how we think about responsive design—it's not about breakpoints, it's about continuums."
+      </blockquote>
+
+      <p>Resize your browser window and watch how the text scales smoothly without any sudden jumps. This creates a more refined, professional experience compared to traditional breakpoint-based approaches.</p>
+
+      <p>The key is using the <code>clamp()</code> function with viewport units in the preferred value. This allows text to scale proportionally with the viewport while staying within comfortable reading boundaries.</p>
+    </section>
+  </article>
+</body>
+</html>
+

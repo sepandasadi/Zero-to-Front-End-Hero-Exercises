@@ -1,0 +1,17 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; }
+
+/* TODO: Add hero background image with overlay */
+.hero {
+  /* height: 100vh; */
+  /* background-image: linear-gradient(), url(); */
+  /* background-size, background-position */
+}
+
+.hero-content {
+  /* Center content */
+}
+
+h1, p { /* Add styling */ }
+.cta-btn { /* Add button styling */ }
+

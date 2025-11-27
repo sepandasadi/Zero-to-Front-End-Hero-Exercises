@@ -1,0 +1,204 @@
+/* Product Showcase Grid - Complete Solution */
+
+/* Apply border-box to all elements (ESSENTIAL!) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Spacing system variables */
+:root {
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 40px;
+
+  --color-primary: #3498db;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-border: #ddd;
+  --color-bg: #f5f7fa;
+  --color-card-bg: #ffffff;
+}
+
+/* Body styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: var(--spacing-md);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg);
+}
+
+/* Main heading */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0 0 var(--spacing-xl) 0;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* Product grid layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+/* Product card */
+.product-card {
+  background-color: var(--color-card-bg);
+  padding: var(--spacing-md);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card hover effect */
+.product-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+/* Product images */
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Product title */
+.product-title {
+  font-size: 1.25rem;
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Product price */
+.product-price {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+/* Product description */
+.product-description {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+  margin: 0 0 var(--spacing-md) 0;
+  flex-grow: 1; /* Push button to bottom */
+}
+
+/* Add to Cart button */
+.add-to-cart-btn {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: auto; /* Align to bottom */
+}
+
+/* Button hover effect */
+.add-to-cart-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Button active effect */
+.add-to-cart-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+}
+
+/* Button focus (accessibility) */
+.add-to-cart-btn:focus {
+  outline: 3px solid #a4d4f7;
+  outline-offset: 2px;
+}
+
+/* Tablet responsive (2 columns) */
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile responsive (1 column) */
+@media (max-width: 600px) {
+  body {
+    padding: var(--spacing-sm);
+  }
+
+  .container {
+    padding: var(--spacing-sm);
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .product-card {
+    padding: var(--spacing-sm);
+  }
+
+  .product-card img {
+    height: 180px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .product-title {
+    font-size: 1.1rem;
+  }
+
+  .product-price {
+    font-size: 1.3rem;
+  }
+
+  .product-card img {
+    height: 150px;
+  }
+}
+

@@ -1,0 +1,50 @@
+/* Centered Layout - Starter */
+
+/* TODO: Apply box-sizing */
+
+
+/* TODO: Body styles */
+body {
+  /* margin, font-family, line-height, color */
+}
+
+/* TODO: Container (centered with max-width) */
+.container {
+  /* max-width, margin, padding */
+}
+
+/* TODO: Header */
+.site-header {
+  /* background-color, color, padding, text-align */
+}
+
+/* TODO: Main content area */
+.main-content {
+  /* padding, background-color */
+}
+
+/* TODO: Article */
+.article {
+  /* background, padding, margin-bottom, border-radius, box-shadow */
+}
+
+/* TODO: Sidebar */
+.sidebar {
+  /* background, padding, border-radius, box-shadow */
+}
+
+/* TODO: Footer */
+.site-footer {
+  /* background-color, color, padding, text-align, margin-top */
+}
+
+/* TODO: Headings */
+h1, h2, h3 {
+  /* margin */
+}
+
+/* TODO: Paragraphs */
+p {
+  /* margin */
+}
+

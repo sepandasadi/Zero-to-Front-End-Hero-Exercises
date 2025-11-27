@@ -1,0 +1,5 @@
+:root { --primary: #3498db; --text: #333; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; line-height: 1.6; color: var(--text); }
+.blog-post { max-width: 800px; margin: 40px auto; padding: 40px; }
+/* TODO: Add CSS variables, typography system, and component styles */

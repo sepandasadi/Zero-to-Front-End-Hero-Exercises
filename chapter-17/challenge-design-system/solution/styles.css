@@ -1,0 +1,16 @@
+:root {
+  --primary: #3498db;
+  --secondary: #2ecc71;
+  --text: #2c3e50;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --radius: 6px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 40px; color: var(--text); }
+h1 { margin-bottom: var(--spacing-md); }
+.btn { padding: var(--spacing-sm) var(--spacing-md); border: none; border-radius: var(--radius); font-weight: 600; cursor: pointer; transition: all 0.3s; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-secondary { background: var(--secondary); color: white; }
+.btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+.button-group { display: flex; gap: var(--spacing-md); }

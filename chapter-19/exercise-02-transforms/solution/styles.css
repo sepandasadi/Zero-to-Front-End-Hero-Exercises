@@ -1,0 +1,79 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ecf0f1;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+/* Translate */
+.card-translate:hover {
+  transform: translateY(-20px);
+}
+
+/* Scale */
+.card-scale:hover {
+  transform: scale(1.2);
+}
+
+/* Rotate */
+.card-rotate:hover {
+  transform: rotate(15deg);
+}
+
+/* Skew */
+.card-skew:hover {
+  transform: skewX(10deg);
+}
+
+/* 3D Rotate */
+.card-3d {
+  perspective: 1000px;
+}
+
+.card-3d:hover {
+  transform: rotateY(180deg);
+}
+
+/* Combined Transforms */
+.card-combined:hover {
+  transform: translateY(-10px) rotate(5deg) scale(1.1);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}
+

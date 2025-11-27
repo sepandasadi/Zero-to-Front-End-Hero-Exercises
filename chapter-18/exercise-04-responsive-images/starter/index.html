@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Images</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Responsive Images Gallery</h1>
+
+    <!-- TODO: Section 1 - Add srcset and sizes attributes -->
+    <section class="section">
+      <h2>1. Resolution Switching</h2>
+      <p>TODO: Add srcset with multiple image sizes (400w, 800w, 1200w, 1600w)</p>
+      <img
+        src="https://via.placeholder.com/800x600"
+        alt="Responsive landscape"
+        class="responsive-img"
+      >
+    </section>
+
+    <!-- TODO: Section 2 - Use <picture> element for art direction -->
+    <section class="section">
+      <h2>2. Art Direction</h2>
+      <p>TODO: Wrap img in &lt;picture&gt; with different sources for mobile/tablet/desktop</p>
+      <img
+        src="https://via.placeholder.com/1200x600"
+        alt="Art directed image"
+        class="responsive-img"
+      >
+    </section>
+
+    <!-- TODO: Section 3 - Add WebP with fallback -->
+    <section class="section">
+      <h2>3. Format Selection</h2>
+      <p>TODO: Use &lt;picture&gt; to serve WebP with JPEG fallback</p>
+      <img
+        src="https://via.placeholder.com/800x600.jpg"
+        alt="Format fallback"
+        class="responsive-img"
+      >
+    </section>
+  </main>
+</body>
+</html>
+

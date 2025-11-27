@@ -1,0 +1,49 @@
+/* Image Portfolio - Starter */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* TODO: Create hero section with background image */
+.hero {
+  /* height, background-image, background-size, background-position */
+}
+
+.hero-content {
+  /* Center content, add text styling */
+}
+
+/* TODO: Style gallery */
+.gallery {
+  /* padding */
+}
+
+.container {
+  /* max-width, margin, padding */
+}
+
+.gallery-grid {
+  /* Create grid layout */
+}
+
+.gallery-item {
+  /* position: relative for overlay */
+}
+
+.gallery-item img {
+  /* width, height, object-fit */
+}
+
+/* TODO: Create overlay effect */
+.gallery-overlay {
+  /* position: absolute, opacity on hover */
+}
+

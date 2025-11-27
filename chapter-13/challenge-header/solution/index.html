@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Website Header - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">ShopLogo</div>
+
+      <nav class="main-nav">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#" class="nav-link">Shop</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-container">
+          <button class="icon-btn" onclick="this.nextElementSibling.classList.toggle('active')">🔍</button>
+          <div class="search-dropdown">
+            <input type="text" placeholder="Search products..." class="search-input">
+          </div>
+        </div>
+
+        <div class="cart-container">
+          <button class="icon-btn" onclick="this.nextElementSibling.nextElementSibling.classList.toggle('active')">🛒</button>
+          <span class="cart-badge">3</span>
+          <div class="cart-dropdown">
+            <p class="dropdown-title">Shopping Cart</p>
+            <p>3 items in cart</p>
+            <button class="dropdown-btn">View Cart</button>
+          </div>
+        </div>
+
+        <div class="user-container">
+          <button class="icon-btn" onclick="this.nextElementSibling.classList.toggle('active')">👤</button>
+          <div class="user-dropdown">
+            <a href="#" class="dropdown-link">Profile</a>
+            <a href="#" class="dropdown-link">Orders</a>
+            <a href="#" class="dropdown-link">Settings</a>
+            <a href="#" class="dropdown-link">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="hero">
+      <h1>Welcome to Our Store</h1>
+      <p>This header demonstrates fixed positioning, absolutely positioned badges, and dropdown menus with proper z-index management.</p>
+    </section>
+
+    <section>
+      <h2>Featured Products</h2>
+      <p>The header stays fixed at the top as you scroll. Try clicking the search, cart, and user icons to see the positioned dropdowns.</p>
+      <p>Notice how the cart badge is positioned in the top-right corner using absolute positioning relative to its parent container.</p>
+    </section>
+
+    <section style="background-color: #f8f9fa;">
+      <h2>About Our Store</h2>
+      <p>All dropdowns use absolute positioning and proper z-index values to appear above other content.</p>
+      <p>The header uses position: fixed with a z-index of 100 to stay on top while scrolling.</p>
+    </section>
+
+    <section>
+      <h2>Contact Us</h2>
+      <p>This is the final section to demonstrate scrolling behavior with the fixed header.</p>
+    </section>
+  </main>
+</body>
+</html>
+
