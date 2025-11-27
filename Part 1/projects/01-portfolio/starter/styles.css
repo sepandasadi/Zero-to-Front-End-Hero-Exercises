@@ -1,0 +1,81 @@
+/* ===========================================
+   CSS Variables
+   =========================================== */
+:root {
+  /* TODO: Define your color scheme */
+  /* Example: --primary-color, --text-color, --bg-color, etc. */
+
+  /* TODO: Define spacing scale */
+  /* Example: --space-xs, --space-sm, --space-md, --space-lg */
+
+  /* TODO: Define font families */
+}
+
+/* ===========================================
+   Reset & Base Styles
+   =========================================== */
+/* TODO: Add box-sizing reset */
+/* TODO: Set base font and color on body */
+
+/* ===========================================
+   Header & Navigation
+   =========================================== */
+/* TODO: Style header (sticky positioning) */
+/* TODO: Style navigation menu */
+/* TODO: Create hamburger menu styles */
+/* TODO: Add mobile menu styles */
+
+/* ===========================================
+   Hero Section
+   =========================================== */
+/* TODO: Create full-height hero section */
+/* TODO: Style hero content (name, title, CTA) */
+/* TODO: Add CTA button styles */
+
+/* ===========================================
+   About Section
+   =========================================== */
+/* TODO: Create two-column layout for about section */
+/* TODO: Style profile image */
+/* TODO: Style bio text */
+
+/* ===========================================
+   Skills Section
+   =========================================== */
+/* TODO: Create skills grid or list */
+/* TODO: Style individual skill items */
+
+/* ===========================================
+   Projects Section
+   =========================================== */
+/* TODO: Create project card grid */
+/* TODO: Style project cards */
+/* TODO: Add hover effects */
+
+/* ===========================================
+   Contact Section
+   =========================================== */
+/* TODO: Style contact form */
+/* TODO: Style form inputs and labels */
+/* TODO: Style submit button */
+/* TODO: Add error state styles */
+
+/* ===========================================
+   Footer
+   =========================================== */
+/* TODO: Style footer */
+/* TODO: Style social links */
+
+/* ===========================================
+   Responsive Design
+   =========================================== */
+/* TODO: Add tablet breakpoint (768px) */
+
+/* TODO: Add desktop breakpoint (1024px) */
+
+/* ===========================================
+   Animations
+   =========================================== */
+/* TODO: Add smooth scrolling */
+/* TODO: Add transition effects */
+/* TODO: Optional: Add scroll animations */

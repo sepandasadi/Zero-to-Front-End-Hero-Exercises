@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"/>
+<title>Counter (Fixed)</title>
+<style>
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; padding: 2rem; }
+  .counter { display: inline-flex; align-items: center; gap: .75rem; }
+  button { padding: .5rem .75rem; border-radius: .5rem; border: 1px solid #ccc; cursor: pointer; }
+  output { font: 700 1.5rem/1 monospace; min-width: 3ch; display: inline-block; text-align: center; }
+</style>
+<body>
+  <h1>Counter (Fixed)</h1>
+  <div class="counter" id="counter">
+    <button id="dec" aria-label="decrement">–</button>
+    <output id="value" aria-live="polite">0</output>
+    <button id="inc" aria-label="increment">+</button>
+  </div>
+  <script>
+    const out = document.getElementById('value');
+    const inc = document.getElementById('inc');
+    const dec = document.getElementById('dec');
+
+    // Parse stored value safely
+    const stored = Number(localStorage.getItem('count'));
+    let count = Number.isFinite(stored) ? stored : 0;
+
+    const assert = (cond, msg) => { if (!cond) { console.error('Assertion failed:', msg); throw new Error(msg); } };
+
+    function render() {
+      out.textContent = String(count);
+    }
+
+    function persist() {
+      localStorage.setItem('count', String(count));
+    }
+
+    function update(next) {
+      // Prevent negatives
+      count = Math.max(0, next);
+      render();
+      persist();
+    }
+
+    // Single, scoped listeners
+    inc.addEventListener('click', () => update(count + 1), { once: false });
+    dec.addEventListener('click', () => update(count - 1), { once: false });
+
+    // Debounce fast clicks via microtask queue; also guards async races
+    let inFlight = 0;
+    function schedule(delta) {
+      inFlight += delta;
+      Promise.resolve().then(() => {
+        if (inFlight !== 0) {
+          update(count + inFlight);
+          inFlight = 0;
+        }
+      });
+    }
+
+    // Optional: swap to schedule if needed
+    // inc.addEventListener('click', () => schedule(1));
+    // dec.addEventListener('click', () => schedule(-1));
+
+    // Initial render
+    render();
+    assert(out.textContent === String(count), 'render mismatch');
+  </script>
+</body>
+</html>

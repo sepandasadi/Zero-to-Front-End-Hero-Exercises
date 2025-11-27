@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 3 — Random User Card</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 700px; margin: 3rem auto; padding: 0 1rem; }
+    .card { display: grid; grid-template-columns: 96px 1fr; gap: 1rem; align-items: center; border: 1px solid #ddd; border-radius: 12px; padding: 1rem; }
+    img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+    .error { color: #b00020; }
+    button { margin-bottom: 1rem; padding: 0.6rem 1rem; border: 1px solid #ccc; border-radius: 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Exercise 3 — Random User Card</h1>
+  <p>Fetches a user from <code>https://randomuser.me/api</code> and renders a simple profile card.</p>
+
+  <button id="load">Load Random User</button>
+  <div id="card" class="card" aria-live="polite"></div>
+  <p id="status"></p>
+
+  <script>
+    const $card = document.getElementById('card');
+    const $status = document.getElementById('status');
+    const $btn = document.getElementById('load');
+
+    async function renderRandomUser() {
+      $status.textContent = 'Loading...';
+      $card.innerHTML = '';
+      try {
+        const res = await fetch('https://randomuser.me/api');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        const u = data.results[0];
+        $card.innerHTML = `
+          <img src="${u.picture.medium}" alt="Profile photo of ${escapeHtml(u.name.first)} ${escapeHtml(u.name.last)}" />
+          <div>
+            <h2 style="margin: 0 0 0.25rem 0;">${escapeHtml(u.name.first)} ${escapeHtml(u.name.last)}</h2>
+            <p style="margin: 0.25rem 0;">Email: <a href="mailto:${encodeURIComponent(u.email)}">${escapeHtml(u.email)}</a></p>
+            <p style="margin: 0.25rem 0;">Location: ${escapeHtml(u.location.city)}, ${escapeHtml(u.location.country)}</p>
+          </div>
+        `;
+        $status.textContent = 'Done.';
+      } catch (err) {
+        $card.innerHTML = '<p class="error">Failed to load user.</p>';
+        $status.innerHTML = '<span class="error">' + String(err) + '</span>';
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, s => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      })[s]);
+    }
+
+    $btn.addEventListener('click', renderRandomUser);
+  </script>
+</body>
+</html>

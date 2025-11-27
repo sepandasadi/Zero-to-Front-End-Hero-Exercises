@@ -1,0 +1,7 @@
+/* src/styles/index.css */
+@import './tokens.css';
+@import './button.css';
+@import './dialog.css';
+
+html,body{ height:100%; }
+body{ font-family: var(--font-base); background: var(--color-bg); color: var(--color-fg); padding: 2rem; }

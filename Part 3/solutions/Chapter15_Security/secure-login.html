@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<title>Secure Login (Fixed)</title>
+<!-- Add these headers server-side:
+Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-abc123'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), camera=(), microphone=()
+X-Content-Type-Options: nosniff
+-->
+<body>
+  <h1>Welcome</h1>
+  <form id="login" action="/api/login" method="POST">
+    <input name="email" placeholder="Email" autocomplete="username">
+    <input name="password" type="password" placeholder="Password" autocomplete="current-password">
+    <button type="submit">Sign in</button>
+  </form>
+  <div id="msg" role="status" aria-live="polite"></div>
+  <script nonce="abc123">
+    const params = new URLSearchParams(location.search);
+    const msg = params.get('msg');
+    if (msg) document.getElementById('msg').textContent = msg; // ✅ safe text
+
+    function safeNavigate(next) {
+      const url = new URL(next || '/', location.origin);
+      if (url.origin !== location.origin) return location.assign('/');
+      location.assign(url.pathname + url.search);
+    }
+
+    document.getElementById('login').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = new FormData(e.currentTarget);
+      // Server should set HttpOnly, Secure, SameSite cookies on success
+      const r = await fetch('/api/login', { method: 'POST', body: form, credentials: 'include' });
+      if (!r.ok) { document.getElementById('msg').textContent = 'Login failed'; return; }
+      const next = params.get('next');
+      safeNavigate(next);
+    });
+  </script>
+</body>

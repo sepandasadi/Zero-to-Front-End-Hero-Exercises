@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<title>Insecure Login (Intentionally Vulnerable)</title>
+<!-- Problems: inline scripts, open redirect via ?next=, innerHTML sink, no CSP -->
+<body>
+  <h1>Welcome</h1>
+  <form id="login" action="/api/login" method="POST">
+    <input name="email" placeholder="Email">
+    <input name="password" type="password" placeholder="Password">
+    <button type="submit">Sign in</button>
+  </form>
+  <div id="msg"></div>
+  <script>
+    // XSS sink
+    const params = new URLSearchParams(location.search);
+    const msg = params.get('msg'); // attacker controls
+    if (msg) document.getElementById('msg').innerHTML = msg; // ❌
+
+    // Open redirect
+    const next = params.get('next') || '/';
+    document.getElementById('login').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // fake auth
+      setTimeout(function(){ location.href = next; }, 50);
+    });
+  </script>
+</body>

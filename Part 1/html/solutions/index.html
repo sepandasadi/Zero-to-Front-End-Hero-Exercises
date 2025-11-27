@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Character encoding: Supports all international characters -->
+  <meta charset="utf-8" />
+
+  <!-- Page title: Appears in browser tab and search results -->
+  <title>Personal Profile — Jane Doe</title>
+
+  <!-- Viewport meta tag: Essential for responsive design on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Skip link: Allows keyboard/screen reader users to jump directly to main content
+       This is hidden by default but becomes visible when focused with Tab key -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header: Contains site branding and main navigation -->
+  <header>
+    <!-- h1: Main page heading - should only have one per page -->
+    <h1>Jane Doe</h1>
+
+    <!-- Navigation: Semantic element for site navigation
+         aria-label provides context for screen reader users when there are multiple nav elements -->
+    <nav aria-label="Primary">
+      <!-- Internal links: Navigate to sections on the same page using ID anchors -->
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main: Primary content of the page - should only have one per page
+       id="main" links to the skip link above
+       tabindex="-1" allows JavaScript to focus this element for skip link functionality -->
+  <main id="main" tabindex="-1">
+
+    <!-- Section: Groups related content together
+         aria-labelledby connects this section to its heading for screen readers -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+
+      <!-- Image with accessibility best practices:
+           - alt: Descriptive text for screen readers and when image fails to load
+           - width/height: Prevents layout shift while image loads (better performance)
+           - loading="lazy": Defers loading until image is near viewport (faster initial page load) -->
+      <img
+        src="profile.jpg"
+        alt="Portrait of Jane Doe"
+        width="150"
+        height="150"
+        loading="lazy"
+      />
+
+      <!-- Paragraph: Contains body text content -->
+      <p>
+        I'm a front-end developer focused on building accessible, responsive interfaces.
+        I enjoy turning complex problems into simple, beautiful, and intuitive designs.
+        My current interests include performance optimization, design systems, and web
+        accessibility.
+      </p>
+    </section>
+
+    <!-- Skills section -->
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+
+      <!-- Unordered list: Used for items with no specific order
+           Note: &amp; is an HTML entity that displays as & -->
+      <ul>
+        <li>HTML &amp; Semantic Markup</li>
+        <li>CSS, Flexbox &amp; Grid</li>
+        <li>Responsive Design</li>
+        <li>JavaScript (ES6+)</li>
+        <li>Accessibility (a11y)</li>
+        <li>React</li>
+        <li>Git &amp; GitHub</li>
+      </ul>
+    </section>
+
+    <!-- Experience section -->
+    <section id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+
+      <!-- Table: Proper structure for tabular data
+           IMPORTANT: Tables should only be used for data, not for page layout -->
+      <table>
+        <!-- Caption: Describes the table's purpose, announced by screen readers -->
+        <caption>Selected Work Experience</caption>
+
+        <!-- thead: Groups header rows -->
+        <thead>
+          <tr>
+            <!-- th: Table header cells
+                 scope="col" indicates this header applies to the entire column below it
+                 This helps screen readers associate data cells with their headers -->
+            <th scope="col">Job Title</th>
+            <th scope="col">Company</th>
+            <th scope="col">Years</th>
+          </tr>
+        </thead>
+
+        <!-- tbody: Groups body/data rows -->
+        <tbody>
+          <tr>
+            <!-- td: Table data cells -->
+            <td>Front-End Developer</td>
+            <td>Tech Co.</td>
+            <td>2019–2023</td>
+          </tr>
+          <tr>
+            <td>UI Engineer</td>
+            <td>Acme Inc.</td>
+            <td>2023–Present</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Contact section with form -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+
+      <!-- Form: Collects user input
+           action: URL where form data is sent (# is a placeholder for this example)
+           method: HTTP method - "post" sends data in request body (more secure for sensitive data)
+           novalidate: Disables browser's default validation (allows custom JavaScript validation) -->
+      <form action="#" method="post" novalidate>
+
+        <!-- Each input is wrapped in a div for easier styling -->
+        <div>
+          <!-- Label: Describes the input field
+               for="name" connects to input with id="name"
+               Clicking the label will focus the associated input -->
+          <label for="name">Name</label>
+
+          <!-- Input: Single-line text field
+               id: Connects to label's "for" attribute
+               name: Identifies this field when form is submitted
+               type: Defines input type and behavior
+               autocomplete: Helps browser auto-fill with saved data
+               required: Makes this field mandatory -->
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+
+          <!-- type="email": Provides built-in email validation
+               Mobile devices will show @ key on keyboard -->
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+
+          <!-- Textarea: Multi-line text input
+               rows: Initial visible height (can be resized by user) -->
+          <textarea id="message" name="message" rows="5"></textarea>
+        </div>
+
+        <!-- Button: Submits the form
+             type="submit": Triggers form submission (default for buttons in forms) -->
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer: Contains supplementary information like copyright -->
+  <footer>
+    <!-- &copy; is an HTML entity that displays the copyright symbol © -->
+    <p>&copy; <span id="year">2025</span> Jane Doe</p>
+  </footer>
+
+  <!-- JavaScript: Adds interactivity
+       This script updates the copyright year dynamically
+       Fallback year (2025) is in HTML in case JavaScript is disabled -->
+  <script>
+    // Gets the element with id="year" and updates its text to the current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

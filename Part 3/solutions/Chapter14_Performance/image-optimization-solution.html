@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<title>Image Optimization — Solution</title>
+<style>
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; padding: 2rem; }
+  .card { max-width: 640px; margin: 0 auto; }
+  img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; }
+</style>
+<div class="card">
+  <h1>Product</h1>
+  <img
+    src="/img/product-640.avif"
+    srcset="/img/product-640.avif 640w, /img/product-1280.avif 1280w"
+    sizes="(max-width: 768px) 90vw, 640px"
+    loading="lazy"
+    width="640" height="360"
+    alt="Product hero">
+  <p>Price: $99</p>
+</div>

@@ -1,0 +1,9 @@
+:root { --gap: 1rem; }
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 2rem 1rem; }
+.container { max-width: 1000px; margin: 0 auto; }
+.layout { display: grid; grid-template-columns: 1fr; gap: var(--gap); }
+.card { border: 1px solid #ddd; border-radius: 12px; padding: 1rem; }
+@media (min-width: 768px) {
+  .layout { grid-template-columns: 1fr 1fr; }
+}

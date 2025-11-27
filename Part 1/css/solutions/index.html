@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Personal Profile — Jane Doe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header>
+    <h1>Jane Doe</h1>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <img
+        src="profile.jpg"
+        alt="Portrait of Jane Doe"
+        width="150"
+        height="150"
+        loading="lazy"
+      />
+      <p>
+        I’m a front-end developer focused on building accessible, responsive interfaces.
+        I enjoy turning complex problems into simple, beautiful, and intuitive designs.
+        My current interests include performance optimization, design systems, and web
+        accessibility.
+      </p>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      <ul>
+        <li>HTML &amp; Semantic Markup</li>
+        <li>CSS, Flexbox &amp; Grid</li>
+        <li>Responsive Design</li>
+        <li>JavaScript (ES6+)</li>
+        <li>Accessibility (a11y)</li>
+        <li>React</li>
+        <li>Git &amp; GitHub</li>
+      </ul>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      <table>
+        <caption>Selected Work Experience</caption>
+        <thead>
+          <tr>
+            <th scope="col">Job Title</th>
+            <th scope="col">Company</th>
+            <th scope="col">Years</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Front-End Developer</td>
+            <td>Tech Co.</td>
+            <td>2019–2023</td>
+          </tr>
+          <tr>
+            <td>UI Engineer</td>
+            <td>Acme Inc.</td>
+            <td>2023–Present</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <form action="#" method="post" novalidate>
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year">2025</span> Jane Doe</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
