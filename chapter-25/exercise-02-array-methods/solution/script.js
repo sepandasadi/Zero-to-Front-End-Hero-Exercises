@@ -1,88 +1,91 @@
 /**
  * Exercise 02: Array Methods - SOLUTION
  *
- * Complete solutions for map, filter, reduce, and method chaining
+ * Master map, filter, reduce, and method chaining
  */
 
-console.log("=== Exercise 02: Array Methods - SOLUTION ===\n");
+// ======================
+// TASK 1: USING MAP() - TRANSFORM DATA
+// ======================
 
-// ========================================
-// TASK 1: Using map() - Transform Data
-// ========================================
+console.log("=== TASK 1: MAP() - TRANSFORM DATA ===");
 
-console.log("TASK 1: Using map()");
-
-// 1. Double numbers
-const numbers1 = [1, 2, 3, 4, 5];
-const doubled = numbers1.map(num => num * 2);
+// Double numbers
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(num => num * 2);
 console.log("Doubled:", doubled);  // [2, 4, 6, 8, 10]
 
-// 2. Format prices
+// Format prices
 const prices = [19.99, 29.99, 49.99, 99.99];
 const formattedPrices = prices.map(price => `$${price.toFixed(2)}`);
-console.log("Formatted prices:", formattedPrices);
+console.log("Formatted:", formattedPrices);
+// ["$19.99", "$29.99", "$49.99", "$99.99"]
 
-// 3. Extract names from users
-const users1 = [
+// Extract names from users
+const users = [
   { name: "Alice", age: 28 },
   { name: "Bob", age: 35 },
   { name: "Charlie", age: 22 }
 ];
-const userNames = users1.map(user => user.name);
-console.log("User names:", userNames);  // ["Alice", "Bob", "Charlie"]
+const names = users.map(user => user.name);
+console.log("Names:", names);  // ["Alice", "Bob", "Charlie"]
 
-// 4. Apply discount
-const prices2 = [100, 200, 300, 400];
-const discounted = prices2.map(price => price * 0.8);
-console.log("Discounted prices:", discounted);  // [80, 160, 240, 320]
+// Apply 20% discount
+const originalPrices = [100, 200, 300, 400];
+const discounted = originalPrices.map(price => price * 0.8);
+console.log("Discounted:", discounted);  // [80, 160, 240, 320]
 
-// ========================================
-// TASK 2: Using filter() - Select Items
-// ========================================
 
-console.log("\nTASK 2: Using filter()");
+// ======================
+// TASK 2: USING FILTER() - SELECT ITEMS
+// ======================
 
-// 1. Get even numbers
-const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const evenNumbers = numbers2.filter(num => num % 2 === 0);
-console.log("Even numbers:", evenNumbers);  // [2, 4, 6, 8, 10]
+console.log("\n=== TASK 2: FILTER() - SELECT ITEMS ===");
 
-// 2. Filter by price
-const products1 = [
+// Get even numbers
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evens = nums.filter(num => num % 2 === 0);
+console.log("Even numbers:", evens);  // [2, 4, 6, 8, 10]
+
+// Filter products under $100
+const products = [
   { name: "Laptop", price: 999 },
   { name: "Mouse", price: 25 },
   { name: "Keyboard", price: 75 },
   { name: "Monitor", price: 350 }
 ];
-const affordableProducts = products1.filter(product => product.price < 100);
-console.log("Products under $100:", affordableProducts);
+const affordable = products.filter(product => product.price < 100);
+console.log("Affordable products:", affordable);
+// [{ name: "Mouse", price: 25 }, { name: "Keyboard", price: 75 }]
 
-// 3. Get active users
-const users2 = [
+// Get active users
+const allUsers = [
   { name: "Alice", active: true },
   { name: "Bob", active: false },
   { name: "Charlie", active: true }
 ];
-const activeUsers = users2.filter(user => user.active);
+const activeUsers = allUsers.filter(user => user.active);
 console.log("Active users:", activeUsers);
+// [{ name: "Alice", active: true }, { name: "Charlie", active: true }]
 
-// 4. Filter by length
+// Filter by length
 const words = ["hi", "hello", "hey", "goodbye"];
 const longWords = words.filter(word => word.length > 3);
-console.log("Words longer than 3 chars:", longWords);  // ["hello", "goodbye"]
+console.log("Long words:", longWords);  // ["hello", "goodbye"]
 
-// ========================================
-// TASK 3: Using reduce() - Aggregate Data
-// ========================================
 
-console.log("\nTASK 3: Using reduce()");
+// ======================
+// TASK 3: USING REDUCE() - AGGREGATE DATA
+// ======================
 
-// 1. Sum numbers
-const numbers3 = [1, 2, 3, 4, 5];
-const sum = numbers3.reduce((total, num) => total + num, 0);
+console.log("\n=== TASK 3: REDUCE() - AGGREGATE DATA ===");
+
+// Sum numbers
+const sumNumbers = [1, 2, 3, 4, 5];
+const sum = sumNumbers.reduce((total, num) => total + num, 0);
 console.log("Sum:", sum);  // 15
 
-// 2. Calculate shopping cart total
+// Calculate shopping cart total
 const cart = [
   { item: "Laptop", price: 999, quantity: 1 },
   { item: "Mouse", price: 25, quantity: 2 },
@@ -91,105 +94,106 @@ const cart = [
 const cartTotal = cart.reduce((total, item) => {
   return total + (item.price * item.quantity);
 }, 0);
-console.log("Cart total:", cartTotal);  // 1124
+console.log("Cart total:", cartTotal);  // 1124 (999 + 50 + 75)
 
-// 3. Find maximum number
-const numbers4 = [10, 45, 23, 89, 12, 67];
-const max = numbers4.reduce((maximum, num) => {
+// Find maximum number
+const nums2 = [10, 45, 23, 89, 12, 67];
+const max = nums2.reduce((maximum, num) => {
   return num > maximum ? num : maximum;
-}, numbers4[0]);
+});
 console.log("Maximum:", max);  // 89
 
-// Alternative using Math.max
-const max2 = numbers4.reduce((maximum, num) => Math.max(maximum, num));
-console.log("Maximum (alternative):", max2);
-
-// 4. Count occurrences
+// Count occurrences
 const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
 const fruitCounts = fruits.reduce((counts, fruit) => {
   counts[fruit] = (counts[fruit] || 0) + 1;
   return counts;
 }, {});
-console.log("Fruit counts:", fruitCounts);  // { apple: 3, banana: 2, orange: 1 }
+console.log("Fruit counts:", fruitCounts);
+// { apple: 3, banana: 2, orange: 1 }
 
-// ========================================
-// TASK 4: Method Chaining
-// ========================================
 
-console.log("\nTASK 4: Method Chaining");
+// ======================
+// TASK 4: METHOD CHAINING
+// ======================
 
-// 1. Get total of even numbers
-const numbers5 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const evenSum = numbers5
-  .filter(num => num % 2 === 0)
-  .reduce((total, num) => total + num, 0);
-console.log("Sum of even numbers:", evenSum);  // 30
+console.log("\n=== TASK 4: METHOD CHAINING ===");
 
-// 2. E-commerce filter and total
-const products2 = [
+// Get total of even numbers
+const nums3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evenTotal = nums3
+  .filter(num => num % 2 === 0)           // [2, 4, 6, 8, 10]
+  .reduce((sum, num) => sum + num, 0);    // 30
+console.log("Even total:", evenTotal);  // 30
+
+// E-commerce filter and total
+const allProducts = [
   { name: "Laptop", category: "electronics", price: 999 },
   { name: "Shirt", category: "clothing", price: 29 },
   { name: "Phone", category: "electronics", price: 699 },
   { name: "Shoes", category: "clothing", price: 89 }
 ];
-const electronicsTotal = products2
-  .filter(product => product.category === "electronics")
-  .reduce((total, product) => total + product.price, 0);
+const electronicsTotal = allProducts
+  .filter(p => p.category === "electronics")
+  .reduce((sum, p) => sum + p.price, 0);
 console.log("Electronics total:", electronicsTotal);  // 1698
 
-// 3. Format active user names
-const users3 = [
+// Format active user names
+const usersList = [
   { name: "alice", active: true },
   { name: "bob", active: false },
   { name: "charlie", active: true }
 ];
-const activeUserNames = users3
+const activeUserNames = usersList
   .filter(user => user.active)
   .map(user => user.name.toUpperCase());
-console.log("Active user names:", activeUserNames);  // ["ALICE", "CHARLIE"]
+console.log("Active user names:", activeUserNames);
+// ["ALICE", "CHARLIE"]
 
-// ========================================
-// TASK 5: Other Useful Methods
-// ========================================
 
-console.log("\nTASK 5: Other Useful Methods");
+// ======================
+// TASK 5: OTHER USEFUL METHODS
+// ======================
 
-// 1. find() - Get first match
-const users4 = [
+console.log("\n=== TASK 5: OTHER USEFUL METHODS ===");
+
+// find() - Get user with name "Bob"
+const findUsers = [
   { id: 1, name: "Alice" },
   { id: 2, name: "Bob" },
   { id: 3, name: "Charlie" }
 ];
-const bob = users4.find(user => user.name === "Bob");
+const bob = findUsers.find(user => user.name === "Bob");
 console.log("Found Bob:", bob);  // { id: 2, name: "Bob" }
 
-// 2. some() - Check if any match
-const numbers6 = [1, 3, 5, 7, 8, 9];
-const hasEven = numbers6.some(num => num % 2 === 0);
-console.log("Has any even numbers:", hasEven);  // true
+// some() - Check if array has any even numbers
+const nums4 = [1, 3, 5, 7, 8, 9];
+const hasEven = nums4.some(num => num % 2 === 0);
+console.log("Has even numbers?", hasEven);  // true
 
-// 3. every() - Check if all match
-const numbers7 = [2, 4, 6, 8, 10];
-const allEven = numbers7.every(num => num % 2 === 0);
-console.log("All numbers are even:", allEven);  // true
+// every() - Check if all numbers are even
+const nums5 = [2, 4, 6, 8, 10];
+const allEven = nums5.every(num => num % 2 === 0);
+console.log("All even?", allEven);  // true
 
-// 4. includes() - Check if value exists
+// includes() - Check if array includes "banana"
 const fruits2 = ["apple", "banana", "mango"];
 const hasBanana = fruits2.includes("banana");
-console.log("Includes banana:", hasBanana);  // true
+console.log("Has banana?", hasBanana);  // true
 
-// 5. findIndex() - Get position
-const numbers8 = [10, 20, 30, 40, 50];
-const indexOf30 = numbers8.findIndex(num => num === 30);
-console.log("Index of 30:", indexOf30);  // 2
+// findIndex() - Get index of 30
+const nums6 = [10, 20, 30, 40, 50];
+const index = nums6.findIndex(num => num === 30);
+console.log("Index of 30:", index);  // 2
 
-// ========================================
-// TASK 6: Real-World Application - Product Catalog
-// ========================================
 
-console.log("\nTASK 6: Product Catalog");
+// ======================
+// TASK 6: REAL-WORLD APPLICATION - PRODUCT CATALOG
+// ======================
 
-const products = [
+console.log("\n=== TASK 6: PRODUCT CATALOG ===");
+
+const catalog = [
   { id: 1, name: "Laptop", category: "electronics", price: 999, inStock: true },
   { id: 2, name: "Phone", category: "electronics", price: 699, inStock: true },
   { id: 3, name: "Tablet", category: "electronics", price: 399, inStock: false },
@@ -199,68 +203,74 @@ const products = [
 ];
 
 // 1. Get all product names
-const productNames = products.map(p => p.name);
+const productNames = catalog.map(p => p.name);
 console.log("1. All product names:", productNames);
+// ["Laptop", "Phone", "Tablet", "Shirt", "Shoes", "Watch"]
 
 // 2. Get in-stock products
-const inStockProducts = products.filter(p => p.inStock);
-console.log("2. In-stock products:", inStockProducts.length, "items");
+const inStock = catalog.filter(p => p.inStock);
+console.log("2. In-stock products:", inStock.length);  // 5
 
 // 3. Get affordable products (under $100)
-const affordableItems = products.filter(p => p.price < 100);
-console.log("3. Affordable products:", affordableItems.map(p => p.name));
+const affordableProducts = catalog.filter(p => p.price < 100);
+console.log("3. Affordable products:", affordableProducts.map(p => p.name));
+// ["Shirt", "Shoes"]
 
 // 4. Calculate total inventory value
-const totalValue = products.reduce((total, p) => total + p.price, 0);
+const totalValue = catalog.reduce((sum, p) => sum + p.price, 0);
 console.log("4. Total inventory value:", totalValue);  // 2414
 
 // 5. Get average product price
-const avgPrice = products.reduce((total, p) => total + p.price, 0) / products.length;
+const avgPrice = totalValue / catalog.length;
 console.log("5. Average price:", avgPrice.toFixed(2));  // 402.33
 
-// 6. Get electronics in stock
-const electronicsInStock = products
+// 6. Get electronics in stock (chain filters, map to names)
+const electronicsInStock = catalog
   .filter(p => p.category === "electronics")
   .filter(p => p.inStock)
   .map(p => p.name);
-console.log("6. Electronics in stock:", electronicsInStock);  // ["Laptop", "Phone"]
-
-// Alternative - single filter
-const electronicsInStock2 = products
-  .filter(p => p.category === "electronics" && p.inStock)
-  .map(p => p.name);
-console.log("   Alternative:", electronicsInStock2);
+console.log("6. Electronics in stock:", electronicsInStock);
+// ["Laptop", "Phone"]
 
 // 7. Get most expensive product
-const mostExpensive = products.reduce((max, product) => {
-  return product.price > max.price ? product : max;
+const mostExpensive = catalog.reduce((max, p) => {
+  return p.price > max.price ? p : max;
 });
-console.log("7. Most expensive:", mostExpensive.name, `$${mostExpensive.price}`);
+console.log("7. Most expensive:", mostExpensive.name);  // Laptop
 
 // 8. Check if any product is out of stock
-const anyOutOfStock = products.some(p => !p.inStock);
-console.log("8. Any out of stock:", anyOutOfStock);  // true
+const hasOutOfStock = catalog.some(p => !p.inStock);
+console.log("8. Any out of stock?", hasOutOfStock);  // true
 
 // 9. Check if all products are affordable (under $1000)
-const allAffordable = products.every(p => p.price < 1000);
-console.log("9. All under $1000:", allAffordable);  // true
+const allAffordable = catalog.every(p => p.price < 1000);
+console.log("9. All under $1000?", allAffordable);  // true
 
-// ========================================
+
+// ======================
 // BONUS CHALLENGES
-// ========================================
+// ======================
 
-console.log("\nBONUS CHALLENGES:");
+console.log("\n=== BONUS CHALLENGES ===");
 
-// Bonus 1: Advanced Transformations
-const advancedPipeline = products
+// Bonus 1: Advanced transformations
+console.log("\nBonus 1: Advanced Transformations");
+
+const bonusProducts = catalog
   .filter(p => p.price > 50)
-  .map(p => ({ ...p, price: p.price * 0.9 }))  // 10% discount
-  .map(p => ({ ...p, formattedPrice: `$${p.price.toFixed(2)}` }))
+  .map(p => ({
+    ...p,
+    discountedPrice: (p.price * 0.9).toFixed(2),
+    formattedPrice: `$${p.price.toFixed(2)}`
+  }))
   .sort((a, b) => a.name.localeCompare(b.name));
-console.log("Bonus 1 - Advanced pipeline:", advancedPipeline);
 
-// Bonus 2: Group By
-const groupedByCategory = products.reduce((groups, product) => {
+console.log("Transformed products:", bonusProducts);
+
+// Bonus 2: Group by category
+console.log("\nBonus 2: Group by Category");
+
+const byCategory = catalog.reduce((groups, product) => {
   const category = product.category;
   if (!groups[category]) {
     groups[category] = [];
@@ -268,46 +278,115 @@ const groupedByCategory = products.reduce((groups, product) => {
   groups[category].push(product);
   return groups;
 }, {});
-console.log("Bonus 2 - Grouped by category:", groupedByCategory);
 
-// Bonus 3: Unique Values
-const duplicates = [1, 2, 2, 3, 3, 4, 1, 5, 2];
-const unique = duplicates.filter((value, index, array) => {
-  return array.indexOf(value) === index;
+console.log("Grouped by category:", byCategory);
+// {
+//   electronics: [laptop, phone, tablet],
+//   clothing: [shirt, shoes],
+//   accessories: [watch]
+// }
+
+// Bonus 3: Unique values
+console.log("\nBonus 3: Unique Values");
+
+const duplicates = [1, 2, 2, 3, 3, 3, 4, 5, 5];
+
+// Method 1: Using Set
+const unique1 = [...new Set(duplicates)];
+console.log("Unique (Set):", unique1);  // [1, 2, 3, 4, 5]
+
+// Method 2: Using filter
+const unique2 = duplicates.filter((value, index, arr) => {
+  return arr.indexOf(value) === index;
 });
-console.log("Bonus 3 - Unique values:", unique);
+console.log("Unique (filter):", unique2);  // [1, 2, 3, 4, 5]
 
-// Alternative with reduce
-const uniqueWithReduce = duplicates.reduce((acc, value) => {
+// Method 3: Using reduce
+const unique3 = duplicates.reduce((acc, value) => {
   if (!acc.includes(value)) {
     acc.push(value);
   }
   return acc;
 }, []);
-console.log("   Alternative with reduce:", uniqueWithReduce);
+console.log("Unique (reduce):", unique3);  // [1, 2, 3, 4, 5]
 
-// Bonus 4: Flatten with reduce
+// Bonus 4: Flatten nested arrays
+console.log("\nBonus 4: Flatten Nested Arrays");
+
 const nested = [[1, 2], [3, 4], [5]];
-const flattened = nested.reduce((flat, arr) => {
-  return flat.concat(arr);
-}, []);
-console.log("Bonus 4 - Flattened:", flattened);  // [1, 2, 3, 4, 5]
 
-// Alternative with flat() (modern approach)
-const flattenedModern = nested.flat();
-console.log("   Alternative with flat():", flattenedModern);
+// Method 1: Using flat()
+const flattened1 = nested.flat();
+console.log("Flattened (flat):", flattened1);  // [1, 2, 3, 4, 5]
 
-console.log("\n✅ Exercise Complete!");
+// Method 2: Using reduce + concat
+const flattened2 = nested.reduce((acc, arr) => acc.concat(arr), []);
+console.log("Flattened (reduce):", flattened2);  // [1, 2, 3, 4, 5]
 
-// ========================================
-// Key Takeaways
-// ========================================
+// Method 3: Using reduce + spread
+const flattened3 = nested.reduce((acc, arr) => [...acc, ...arr], []);
+console.log("Flattened (spread):", flattened3);  // [1, 2, 3, 4, 5]
 
-console.log("\n📚 Key Takeaways:");
-console.log("• map() transforms each item → new array");
-console.log("• filter() selects items that pass test → new array");
-console.log("• reduce() combines all items → single value");
-console.log("• Chain methods for powerful transformations");
-console.log("• Original arrays are never modified (immutable)");
-console.log("• Always return values in callbacks!");
 
+// ======================
+// KEY TAKEAWAYS
+// ======================
+
+console.log("\n=== KEY TAKEAWAYS ===");
+
+/*
+ * ARRAY METHODS:
+ *
+ * map() - Transform each item
+ *   - Creates new array
+ *   - Same length as original
+ *   - Use for: transforming data, extracting properties
+ *
+ * filter() - Keep matching items
+ *   - Creates new array
+ *   - Usually shorter than original
+ *   - Use for: selecting items based on condition
+ *
+ * reduce() - Combine into single value
+ *   - Returns any type (number, string, object, array)
+ *   - Use for: sums, counts, grouping, max/min
+ *
+ * find() - First matching item
+ *   - Returns single item or undefined
+ *   - Use for: finding specific record
+ *
+ * some() - Check if ANY match
+ *   - Returns boolean
+ *   - Use for: checking existence
+ *
+ * every() - Check if ALL match
+ *   - Returns boolean
+ *   - Use for: validation
+ *
+ * includes() - Check if value exists
+ *   - Returns boolean
+ *   - Use for: simple existence checks
+ *
+ * METHOD CHAINING:
+ *   - Chain methods for elegant pipelines
+ *   - Each method operates on the result of previous
+ *   - Read left to right (or top to bottom)
+ *
+ * BEST PRACTICES:
+ *   - Use implicit return for simple functions
+ *   - Use explicit return for complex logic
+ *   - Give meaningful names to variables
+ *   - Break complex chains into steps
+ *   - Methods don't mutate original array (immutable!)
+ *
+ * REAL-WORLD USES:
+ *   - E-commerce product filtering
+ *   - Shopping cart calculations
+ *   - Data transformation for display
+ *   - Search and filter features
+ *   - Statistics and analytics
+ */
+
+console.log("\n✅ All tasks completed!");
+console.log("You now master map, filter, and reduce!");
+console.log("These are THE most important array methods in JavaScript! 🚀");

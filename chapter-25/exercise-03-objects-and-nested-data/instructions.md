@@ -2,113 +2,73 @@
 
 ## 🎯 Objective
 
-Master working with objects and nested data structures. Learn to navigate complex data like user profiles, e-commerce products, and social media posts—the backbone of real applications.
+Master working with objects, nested structures, and complex data. Learn to access, modify, and transform real-world data patterns.
 
 ## 📚 What You'll Learn
 
 - Creating and accessing objects
 - Dot vs bracket notation
-- Working with arrays of objects
-- Navigating nested structures
-- Destructuring for cleaner code
+- Arrays of objects (the real-world pattern)
+- Nested objects and arrays
+- Destructuring (modern shorthand)
 - Transforming nested data
-- Common real-world patterns
 
 ## 📋 Tasks
 
-### Task 1: Basic Object Operations
+### Task 1: Object Basics
 
 **1. Create a user object**
-Create an object with these properties:
-- firstName: "Sarah"
-- lastName: "Johnson"
-- age: 28
-- email: "sarah@example.com"
-- isActive: true
+- Properties: name, email, age, city
+- Log each property using dot notation
+- Change the city
+- Add a new property: occupation
 
-Then:
-- Access and log the email using dot notation
-- Access and log the age using bracket notation
-- Add a new property `city: "New York"`
-- Update the age to 29
-- Delete the isActive property
+**2. Access with bracket notation**
+- Create an object with properties
+- Use a variable to access properties
+- Access a property with spaces in the name
 
----
-
-### Task 2: Object Methods
-
-Create a product object:
-
-```js
-const product = {
-  name: "Laptop",
-  price: 999,
-  category: "electronics",
-  inStock: true,
-
-  // Add these methods:
-  getPrice: function() {
-    // Return formatted price: "$999.00"
-  },
-
-  applyDiscount: function(percent) {
-    // Reduce price by percent
-    // Return new price
-  },
-
-  getInfo: function() {
-    // Return string: "Laptop (electronics) - $999.00"
-  }
-};
-```
-
-Test all methods.
+**3. Delete properties**
+- Create an object
+- Delete a property
+- Check if property exists
 
 ---
 
-### Task 3: Arrays of Objects - User Management
+### Task 2: Arrays of Objects
 
-Given this users array:
+This is the most common data pattern in real apps!
 
+**Given:**
 ```js
 const users = [
   { id: 1, name: "Alice", age: 28, role: "admin" },
   { id: 2, name: "Bob", age: 35, role: "user" },
   { id: 3, name: "Charlie", age: 22, role: "user" },
-  { id: 4, name: "Diana", age: 31, role: "moderator" }
+  { id: 4, name: "Diana", age: 30, role: "moderator" }
 ];
 ```
 
-Tasks:
-1. Find user with id 3
-2. Get all user names
-3. Get all admin users
-4. Calculate average age
-5. Check if any user is under 21
-6. Add a new user to the array
+**Tasks:**
+1. Use `map()` to get array of names
+2. Use `filter()` to get users over 25
+3. Use `find()` to get user with id 3
+4. Use `filter()` to get all users with role "user"
+5. Use `map()` to create array of `{name, age}` objects
 
 ---
 
-### Task 4: Nested Objects - User Profile
+### Task 3: Nested Objects
 
-Work with this nested user profile:
-
+**Given:**
 ```js
-const userProfile = {
-  id: 101,
-  username: "sarah_dev",
-  email: "sarah@example.com",
-  profile: {
-    firstName: "Sarah",
-    lastName: "Johnson",
-    age: 28,
-    avatar: "avatar.jpg"
-  },
+const user = {
+  name: "Alice",
+  age: 28,
   address: {
     street: "123 Main St",
-    city: "New York",
-    state: "NY",
-    zipCode: "10001"
+    city: "San Diego",
+    zip: 92101
   },
   preferences: {
     theme: "dark",
@@ -118,188 +78,186 @@ const userProfile = {
 };
 ```
 
-Tasks:
-1. Access and log the full name
-2. Access and log the complete address as a string
-3. Change the theme to "light"
-4. Add a new preference: `fontSize: "large"`
-5. Create a function `getFullAddress()` that returns formatted address
+**Tasks:**
+1. Access the city
+2. Change the theme to "light"
+3. Add a new preference: `fontSize: "large"`
+4. Log the full address as a string
 
 ---
 
-### Task 5: Arrays of Nested Objects - E-commerce
+### Task 4: Arrays Within Objects
 
-Given this products array with nested data:
-
+**Given:**
 ```js
-const products = [
-  {
-    id: 1,
-    name: "Laptop",
-    price: 999,
-    specs: {
-      brand: "TechCorp",
-      ram: "16GB",
-      storage: "512GB SSD"
-    },
-    reviews: [
-      { user: "Alice", rating: 5, comment: "Excellent!" },
-      { user: "Bob", rating: 4, comment: "Very good" }
-    ]
-  },
-  {
-    id: 2,
-    name: "Mouse",
-    price: 25,
-    specs: {
-      brand: "TechCorp",
-      wireless: true,
-      dpi: 1600
-    },
-    reviews: [
-      { user: "Charlie", rating: 5, comment: "Perfect" }
-    ]
-  }
-];
+const user = {
+  name: "Bob",
+  age: 35,
+  hobbies: ["reading", "gaming", "cooking"],
+  friends: [
+    { name: "Alice", since: 2015 },
+    { name: "Charlie", since: 2018 }
+  ]
+};
 ```
 
-Tasks:
-1. Get all product names
-2. Get all products from brand "TechCorp"
-3. Get average rating for each product
-4. Find product with id 2
-5. Get all review comments
-6. Add a new review to the first product
+**Tasks:**
+1. Add a new hobby
+2. Get the first hobby
+3. Get all friend names using `map()`
+4. Find the friend named "Alice"
+5. Count total hobbies and friends
 
 ---
 
-### Task 6: Complex Nested Data - Social Media
+### Task 5: Complex Nested Structures
 
-Work with this post structure:
+**Given:**
+```js
+const company = {
+  name: "TechCorp",
+  founded: 2010,
+  departments: [
+    {
+      name: "Engineering",
+      employees: [
+        { name: "Alice", role: "Senior Dev", salary: 120000 },
+        { name: "Bob", role: "Junior Dev", salary: 80000 }
+      ]
+    },
+    {
+      name: "Sales",
+      employees: [
+        { name: "Charlie", role: "Sales Rep", salary: 70000 },
+        { name: "Diana", role: "Sales Manager", salary: 90000 }
+      ]
+    }
+  ]
+};
+```
 
+**Tasks:**
+1. Get the Engineering department
+2. Get all employee names (across all departments)
+3. Calculate total company payroll
+4. Find the highest paid employee
+5. Get average salary per department
+
+---
+
+### Task 6: Object Destructuring
+
+Destructuring is a modern way to extract values from objects.
+
+**Basic destructuring:**
+```js
+const user = { name: "Alice", age: 28, city: "LA" };
+
+// Old way
+const name = user.name;
+const age = user.age;
+
+// New way (destructuring)
+const { name, age } = user;
+console.log(name);  // "Alice"
+console.log(age);   // 28
+```
+
+**Your tasks:**
+1. Destructure a user object to get name and email
+2. Destructure with renaming: `{ name: userName }`
+3. Destructure nested objects: `{ address: { city } }`
+4. Destructure in function parameters
+
+---
+
+### Task 7: Real-World Application - Blog Posts
+
+**Given:**
 ```js
 const posts = [
   {
     id: 1,
+    title: "Getting Started with JavaScript",
     author: {
-      id: 101,
       name: "Alice",
       avatar: "alice.jpg"
     },
-    content: "Hello World!",
-    likes: 15,
+    tags: ["javascript", "beginner", "tutorial"],
+    likes: 42,
     comments: [
-      {
-        id: 1,
-        author: { id: 102, name: "Bob" },
-        text: "Great post!",
-        timestamp: "2024-01-01T10:00:00Z"
-      },
-      {
-        id: 2,
-        author: { id: 103, name: "Charlie" },
-        text: "Thanks for sharing!",
-        timestamp: "2024-01-01T10:30:00Z"
-      }
-    ],
-    tags: ["introduction", "first-post"]
+      { user: "Bob", text: "Great post!" },
+      { user: "Charlie", text: "Very helpful" }
+    ]
   },
   {
     id: 2,
+    title: "Advanced React Patterns",
     author: {
-      id: 102,
       name: "Bob",
       avatar: "bob.jpg"
     },
-    content: "JavaScript is awesome!",
-    likes: 42,
+    tags: ["react", "advanced", "patterns"],
+    likes: 87,
     comments: [
-      {
-        id: 3,
-        author: { id: 101, name: "Alice" },
-        text: "Totally agree!",
-        timestamp: "2024-01-02T14:00:00Z"
-      }
-    ],
-    tags: ["javascript", "coding"]
-  }
-];
-```
-
-Tasks:
-1. Get all post authors' names
-2. Get total likes across all posts
-3. Get all comments (flattened array)
-4. Find all posts tagged with "javascript"
-5. Get all unique commenters
-6. Count total comments across all posts
-7. Get post with most likes
-8. Get all posts by author with id 101
-
----
-
-### Task 7: Object Destructuring
-
-Practice destructuring for cleaner code:
-
-```js
-const user = {
-  name: "Alice",
-  age: 28,
-  email: "alice@example.com",
-  address: {
-    city: "New York",
-    country: "USA"
-  }
-};
-```
-
-Tasks:
-1. Destructure name and email
-2. Destructure with renaming (name → userName)
-3. Destructure with default value (role → "user")
-4. Destructure nested city
-5. Destructure in function parameter
-
----
-
-### Task 8: Transforming Data Structures
-
-Convert this flat array to a nested structure:
-
-```js
-const flatData = [
-  { id: 1, name: "Alice", departmentId: 10 },
-  { id: 2, name: "Bob", departmentId: 20 },
-  { id: 3, name: "Charlie", departmentId: 10 }
-];
-
-const departments = [
-  { id: 10, name: "Engineering" },
-  { id: 20, name: "Marketing" }
-];
-```
-
-Transform to:
-```js
-[
-  {
-    id: 10,
-    name: "Engineering",
-    employees: [
-      { id: 1, name: "Alice" },
-      { id: 3, name: "Charlie" }
+      { user: "Alice", text: "Mind blown!" }
     ]
   },
   {
-    id: 20,
-    name: "Marketing",
-    employees: [
-      { id: 2, name: "Bob" }
-    ]
+    id: 3,
+    title: "CSS Grid Layout",
+    author: {
+      name: "Charlie",
+      avatar: "charlie.jpg"
+    },
+    tags: ["css", "layout", "grid"],
+    likes: 56,
+    comments: []
   }
-]
+];
 ```
+
+**Tasks:**
+
+1. **Get all post titles**
+   - Use `map()`
+   - Expected: Array of titles
+
+2. **Get all author names**
+   - Use `map()` with nested access
+   - Expected: ["Alice", "Bob", "Charlie"]
+
+3. **Get posts with more than 50 likes**
+   - Use `filter()`
+   - Expected: Posts 2 and 3
+
+4. **Get all tags (flattened)**
+   - Use `map()` to get tag arrays, then flatten
+   - Expected: ["javascript", "beginner", ..., "grid"]
+
+5. **Get total likes across all posts**
+   - Use `reduce()`
+   - Expected: 185
+
+6. **Get post with most comments**
+   - Use `reduce()` to find max
+   - Expected: Post 1
+
+7. **Get posts by specific author**
+   - Filter by author.name
+   - Expected: Posts where author.name === "Alice"
+
+8. **Count comments per post**
+   - Use `map()` to create {title, commentCount}
+   - Expected: Array of objects
+
+9. **Check if any post has no comments**
+   - Use `some()`
+   - Expected: true
+
+10. **Get all unique tags**
+    - Flatten tags, then get unique
+    - Expected: Deduplicated array
 
 ---
 
@@ -307,13 +265,13 @@ Transform to:
 
 Your solution should:
 
-1. ✅ Access nested properties correctly
-2. ✅ Use dot and bracket notation appropriately
-3. ✅ Navigate arrays of objects
-4. ✅ Extract and transform nested data
+1. ✅ Create and modify objects
+2. ✅ Access nested properties correctly
+3. ✅ Work with arrays of objects
+4. ✅ Transform nested data structures
 5. ✅ Use destructuring where appropriate
-6. ✅ Not mutate original data (use spread/copy)
-7. ✅ Handle missing properties gracefully
+6. ✅ Chain methods effectively
+7. ✅ Handle edge cases (empty arrays, missing properties)
 
 ## 💡 Hints
 
@@ -321,25 +279,46 @@ Your solution should:
 
 ```js
 const user = {
-  profile: {
-    address: {
-      city: "NYC"
-    }
+  address: {
+    city: "LA"
   }
 };
 
-// Dot notation
-console.log(user.profile.address.city);
+// Access nested
+console.log(user.address.city);  // "LA"
 
-// Bracket notation (useful for dynamic keys)
-const key = "city";
-console.log(user.profile.address[key]);
-
-// Optional chaining (safe access)
-console.log(user?.profile?.address?.city);
+// Change nested
+user.address.city = "SF";
 ```
 
-### Hint 2: Destructuring
+### Hint 2: Arrays of Objects
+
+```js
+const users = [
+  { name: "Alice", age: 28 },
+  { name: "Bob", age: 35 }
+];
+
+// Get all names
+const names = users.map(user => user.name);
+
+// Filter by age
+const adults = users.filter(user => user.age >= 30);
+```
+
+### Hint 3: Flattening Arrays
+
+```js
+const nested = [[1, 2], [3, 4]];
+
+// Using flat()
+const flattened = nested.flat();  // [1, 2, 3, 4]
+
+// Using reduce
+const flattened2 = nested.reduce((acc, arr) => [...acc, ...arr], []);
+```
+
+### Hint 4: Destructuring
 
 ```js
 // Basic
@@ -348,156 +327,107 @@ const { name, age } = user;
 // Renaming
 const { name: userName } = user;
 
-// Default values
-const { role = "user" } = user;
-
 // Nested
 const { address: { city } } = user;
 
-// In function parameters
+// In function params
 function greet({ name, age }) {
   console.log(`${name} is ${age}`);
 }
 ```
 
-### Hint 3: Flattening Nested Arrays
+### Hint 5: Optional Chaining
 
 ```js
-const posts = [
-  { comments: ["a", "b"] },
-  { comments: ["c"] }
-];
+// Problem: What if comments is undefined?
+const count = post.comments.length;  // Error if undefined!
 
-// Get all comments
-const allComments = posts
-  .map(post => post.comments)
-  .flat();
-// ["a", "b", "c"]
-
-// Or with flatMap
-const allComments2 = posts.flatMap(post => post.comments);
-```
-
-### Hint 4: Grouping Data
-
-```js
-const items = [
-  { category: "A", name: "Item 1" },
-  { category: "B", name: "Item 2" },
-  { category: "A", name: "Item 3" }
-];
-
-const grouped = items.reduce((acc, item) => {
-  if (!acc[item.category]) {
-    acc[item.category] = [];
-  }
-  acc[item.category].push(item);
-  return acc;
-}, {});
+// Solution: Optional chaining
+const count = post.comments?.length || 0;
 ```
 
 ## 🧪 Testing
 
-Test your code thoroughly:
+Create test HTML:
 
-```js
-// Always check if property exists
-console.log(user.address?.city || "No city");
-
-// Handle arrays safely
-const reviews = product.reviews || [];
-const avgRating = reviews.length > 0
-  ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
-  : 0;
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercise 03</title>
+</head>
+<body>
+  <h1>Objects and Nested Data - Check Console</h1>
+  <script src="script.js"></script>
+</body>
+</html>
 ```
 
 ## ⏱️ Estimated Time
 
 **40-50 minutes**
 
-- 10 minutes: Tasks 1-2 (Basic objects)
-- 10 minutes: Task 3 (Arrays of objects)
-- 10 minutes: Tasks 4-5 (Nested objects)
-- 10 minutes: Task 6 (Complex nesting)
-- 10 minutes: Tasks 7-8 (Destructuring and transforming)
+- 10 minutes: Tasks 1-2 (Object basics, arrays of objects)
+- 10 minutes: Tasks 3-4 (Nested objects, arrays within objects)
+- 15 minutes: Task 5 (Complex structures)
+- 10 minutes: Tasks 6-7 (Destructuring, blog posts)
 
 ## 🎯 Bonus Challenges
 
-### Bonus 1: Deep Clone
+### Bonus 1: Deep Property Access
 
-Write a function to deep clone nested objects:
+Create a function that safely accesses deep properties:
 ```js
-function deepClone(obj) {
-  // Your implementation
+function getProperty(obj, path) {
+  // path = "address.city.name"
+  // Should return value or undefined
 }
 ```
 
-### Bonus 2: Get Nested Property
+### Bonus 2: Group By
 
-Write a function to safely get nested properties:
+Group array of objects by a property:
 ```js
-function getNested(obj, path) {
-  // getNestedPath(user, 'profile.address.city')
-}
+groupBy(users, "role")
+// Returns: { admin: [...], user: [...] }
 ```
 
-### Bonus 3: Flatten Object
+### Bonus 3: Merge Objects
 
-Flatten nested object to single level:
+Merge multiple objects, handling nested properties:
 ```js
-{
-  user: { name: "Alice", age: 28 }
-}
-// becomes
-{
-  "user.name": "Alice",
-  "user.age": 28
-}
+const merged = deepMerge(obj1, obj2, obj3);
 ```
 
-### Bonus 4: Merge Objects
+### Bonus 4: Transform Structure
 
-Deep merge two objects:
+Transform API response to UI format:
 ```js
-const obj1 = { a: 1, b: { c: 2 } };
-const obj2 = { b: { d: 3 }, e: 4 };
-// Result: { a: 1, b: { c: 2, d: 3 }, e: 4 }
+// API format
+const apiData = {
+  user_id: 1,
+  user_name: "Alice",
+  user_email: "alice@example.com"
+};
+
+// Transform to
+const uiData = {
+  id: 1,
+  name: "Alice",
+  email: "alice@example.com"
+};
 ```
 
 ## 📖 Resources
 
 - [MDN: Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
-- [MDN: Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
-- [MDN: Optional Chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-- Chapter 25: Objects section
+- [MDN: Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- Chapter 25: Objects and Nested Data section
 
 ---
 
-## 🎓 Real-World Applications
+**Ready to master real-world data structures?** Objects and nested data are everywhere in modern web development. APIs return this format, databases use it, React components expect it.
 
-This exercise mirrors real API responses:
+**Master this, and you're ready for real applications!** 🚀
 
-**User Profile API:**
-```js
-GET /api/users/123
-// Returns nested user object
-```
-
-**E-commerce API:**
-```js
-GET /api/products
-// Returns array of products with nested reviews
-```
-
-**Social Media API:**
-```js
-GET /api/posts
-// Returns posts with nested comments and authors
-```
-
-**Mastering nested data = Ready for real APIs!** 🚀
-
----
-
-**Ready to navigate complex data structures?** This is what professional developers do every day. Let's practice! 💪
-
+**Remember:** Start simple, build complexity gradually. Objects are just key-value pairs—everything else builds on that!
