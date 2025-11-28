@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Guess the Number</h1>
+    <p class="instructions">I'm thinking of a number between 1 and 100. Can you guess it?</p>
+
+    <!-- Game Stats -->
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-label">Attempts:</span>
+        <span class="stat-value" id="attempts">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Best Score:</span>
+        <span class="stat-value" id="best-score">--</span>
+      </div>
+    </div>
+
+    <!-- Feedback Message -->
+    <div class="feedback" id="feedback"></div>
+
+    <!-- Input Section -->
+    <div class="input-section">
+      <input
+        type="number"
+        id="guess-input"
+        placeholder="Enter your guess"
+        min="1"
+        max="100"
+        autofocus
+      >
+      <button id="submit-btn" class="btn btn-primary">Guess</button>
+    </div>
+
+    <!-- Game Controls -->
+    <div class="controls">
+      <button id="new-game-btn" class="btn btn-secondary">New Game</button>
+      <button id="hint-btn" class="btn btn-info">Hint (<span id="hint-count">2</span> left)</button>
+    </div>
+
+    <!-- Guess History -->
+    <div class="history-section">
+      <h3>Your Guesses</h3>
+      <div id="guess-history" class="guess-history">
+        <p class="empty-message">No guesses yet...</p>
+      </div>
+    </div>
+
+    <!-- Difficulty Selector (Optional) -->
+    <div class="difficulty-section">
+      <label>Difficulty:</label>
+      <select id="difficulty">
+        <option value="easy">Easy (1-50)</option>
+        <option value="medium" selected>Medium (1-100)</option>
+        <option value="hard">Hard (1-500)</option>
+      </select>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Counter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Click Counter</h1>
+
+    <div class="counter-display" id="count-display">0</div>
+
+    <div class="button-group">
+      <button id="decrement-btn" class="btn btn-danger">- Decrement</button>
+      <button id="reset-btn" class="btn btn-secondary">Reset</button>
+      <button id="increment-btn" class="btn btn-success">+ Increment</button>
+    </div>
+
+    <!-- Optional: Custom increment section (for Task 6) -->
+    <div class="custom-section">
+      <h3>Custom Increment</h3>
+      <input type="number" id="custom-input" placeholder="Enter amount" value="5">
+      <button id="custom-btn" class="btn btn-primary">Add Custom</button>
+    </div>
+
+    <!-- Optional: Statistics section (for Task 7) -->
+    <div class="stats">
+      <h3>Statistics</h3>
+      <p>Total Clicks: <span id="total-clicks">0</span></p>
+      <p>Highest: <span id="highest">0</span></p>
+      <p>Lowest: <span id="lowest">0</span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
