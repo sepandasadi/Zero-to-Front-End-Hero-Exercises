@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 04: Event Delegation - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚡ Event Delegation</h1>
+      <p>One listener to rule them all</p>
+    </header>
+
+    <main>
+      <!-- Task 1: Basic Delegation -->
+      <section class="task-section">
+        <h2>Task 1: Basic Delegation</h2>
+        <p>Click any item (using ONE listener on the UL)</p>
+        <ul id="basic-list" class="item-list">
+          <li class="item">Item 1</li>
+          <li class="item">Item 2</li>
+          <li class="item">Item 3</li>
+          <li class="item">Item 4</li>
+          <li class="item">Item 5</li>
+        </ul>
+        <div id="basic-output" class="output"></div>
+      </section>
+
+      <!-- Task 2: Dynamic List -->
+      <section class="task-section">
+        <h2>Task 2: Dynamic List with Delete</h2>
+        <div class="input-group">
+          <input type="text" id="dynamic-input" placeholder="Add new item...">
+          <button id="add-dynamic-btn" class="btn">Add Item</button>
+        </div>
+        <ul id="dynamic-list" class="item-list">
+          <!-- Items added dynamically -->
+        </ul>
+      </section>
+
+      <!-- Task 3: Multiple Actions -->
+      <section class="task-section">
+        <h2>Task 3: Product List (Multiple Actions)</h2>
+        <div id="product-list" class="product-list">
+          <!-- Products will be added here -->
+        </div>
+      </section>
+
+      <!-- Task 4: Nested Elements -->
+      <section class="task-section">
+        <h2>Task 4: Cards with Nested Elements</h2>
+        <div id="card-container" class="card-container">
+          <!-- Cards will be added here -->
+        </div>
+      </section>
+
+      <!-- Task 5: Performance Test -->
+      <section class="task-section">
+        <h2>Task 5: Performance Test (Check Console)</h2>
+        <button id="test-individual-btn" class="btn">Test Individual Listeners</button>
+        <button id="test-delegation-btn" class="btn">Test Delegation</button>
+        <div id="performance-output" class="output"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

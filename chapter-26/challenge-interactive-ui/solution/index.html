@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Dashboard - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <h1>📊 Dashboard</h1>
+      </div>
+      <div class="header-right">
+        <input type="text" id="global-search" placeholder="Search..." class="search-input">
+        <button id="theme-toggle" class="icon-btn">🌙</button>
+      </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="users">Users</button>
+      <button class="tab-btn" data-tab="products">Products</button>
+      <button class="tab-btn" data-tab="analytics">Analytics</button>
+      <button class="tab-btn" data-tab="settings">Settings</button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard-content">
+      <!-- Users Tab -->
+      <section id="users-tab" class="tab-content active">
+        <div class="tab-header">
+          <h2>Users Management</h2>
+          <button id="add-user-btn" class="btn btn-primary">+ Add User</button>
+        </div>
+
+        <div class="filters">
+          <input type="text" id="user-search" placeholder="Search users..." class="search-input">
+          <select id="role-filter" class="filter-select">
+            <option value="all">All Roles</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+            <option value="guest">Guest</option>
+          </select>
+        </div>
+
+        <div class="table-container">
+          <table id="users-table" class="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody">
+              <!-- Users will be added here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Products Tab -->
+      <section id="products-tab" class="tab-content">
+        <h2>Products (Coming Soon)</h2>
+        <p>Implement products management as a bonus feature!</p>
+      </section>
+
+      <!-- Analytics Tab -->
+      <section id="analytics-tab" class="tab-content">
+        <h2>Analytics (Coming Soon)</h2>
+        <p>Implement analytics dashboard as a bonus feature!</p>
+      </section>
+
+      <!-- Settings Tab -->
+      <section id="settings-tab" class="tab-content">
+        <h2>Settings</h2>
+        <div class="settings-section">
+          <h3>Data Management</h3>
+          <button id="export-data-btn" class="btn">Export Data</button>
+          <button id="import-data-btn" class="btn">Import Data</button>
+          <button id="clear-data-btn" class="btn btn-danger">Clear All Data</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal: Add/Edit User -->
+  <div id="user-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Add User</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="user-form">
+        <div class="form-group">
+          <label for="user-name">Name *</label>
+          <input type="text" id="user-name" required>
+        </div>
+        <div class="form-group">
+          <label for="user-email">Email *</label>
+          <input type="email" id="user-email" required>
+        </div>
+        <div class="form-group">
+          <label for="user-role">Role *</label>
+          <select id="user-role" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+            <option value="guest">Guest</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="user-status">Status</label>
+          <select id="user-status">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Container -->
+  <div id="notifications" class="notifications"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

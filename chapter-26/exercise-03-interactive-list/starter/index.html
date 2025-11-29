@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 03: Interactive Todo List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>✅ My Todo List</h1>
+      <p>Stay organized and productive</p>
+    </header>
+
+    <main>
+      <!-- Add Todo Form -->
+      <div class="add-todo-section">
+        <input
+          type="text"
+          id="todo-input"
+          placeholder="What needs to be done?"
+          autocomplete="off"
+        >
+        <button id="add-btn" class="btn btn-primary">
+          <span>+</span> Add Task
+        </button>
+      </div>
+
+      <!-- Error Message -->
+      <div id="error-message" class="error-message hidden"></div>
+
+      <!-- Filter Buttons -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+
+      <!-- Todo List -->
+      <ul id="todo-list" class="todo-list">
+        <!-- Todos will be added here dynamically -->
+      </ul>
+
+      <!-- Footer Stats -->
+      <div class="footer">
+        <div id="todo-counter" class="counter">0 tasks remaining</div>
+        <button id="clear-completed-btn" class="btn btn-secondary">
+          Clear Completed
+        </button>
+      </div>
+    </main>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="empty-state">
+      <div class="empty-icon">📝</div>
+      <h2>No tasks yet!</h2>
+      <p>Add your first task above to get started</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
