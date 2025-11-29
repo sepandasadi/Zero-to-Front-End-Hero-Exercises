@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 2: Custom Errors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .test-area {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Exercise 2: Custom Errors ⭐⭐</h1>
+
+  <div class="test-area">
+    <h2>Bank Withdrawal System</h2>
+    <p>Current Balance: $<span id="balance">100</span></p>
+
+    <input type="number" id="amount" placeholder="Amount to withdraw" value="50">
+    <button onclick="testWithdraw()">Withdraw</button>
+    <button onclick="resetBalance()">Reset Balance</button>
+
+    <div id="result" class="result" style="display: none;"></div>
+  </div>
+
+  <div class="test-area">
+    <h2>Test Cases</h2>
+    <button onclick="testValid()">Valid Withdrawal ($50)</button>
+    <button onclick="testNegative()">Negative Amount (-$10)</button>
+    <button onclick="testOverdraft()">Overdraft ($150)</button>
+  </div>
+
+  <script>
+    let currentBalance = 100;
+
+    // TODO: Implement your withdraw function here
+    function withdraw(balance, amount) {
+      // Your code here
+
+    }
+
+    function updateDisplay() {
+      document.getElementById('balance').textContent = currentBalance;
+    }
+
+    function displayResult(message, isError = false) {
+      const result = document.getElementById('result');
+      result.textContent = message;
+      result.style.display = 'block';
+      result.style.background = isError ? '#ffebee' : '#e8f5e9';
+      result.style.borderLeft = `4px solid ${isError ? '#f44336' : '#4caf50'}`;
+    }
+
+    function testWithdraw() {
+      const amount = parseFloat(document.getElementById('amount').value);
+
+      try {
+        currentBalance = withdraw(currentBalance, amount);
+        updateDisplay();
+        displayResult(`✅ Successfully withdrew $${amount}. New balance: $${currentBalance}`);
+      } catch (e) {
+        console.error(e);
+        displayResult(`❌ Error: ${e.message}`, true);
+      }
+    }
+
+    function resetBalance() {
+      currentBalance = 100;
+      updateDisplay();
+      displayResult('Balance reset to $100');
+    }
+
+    function testValid() {
+      console.log('=== Testing Valid Withdrawal ===');
+      try {
+        const newBalance = withdraw(100, 50);
+        console.log('✅ Success! New balance:', newBalance);
+      } catch (e) {
+        console.error('❌', e.message);
+      }
+    }
+
+    function testNegative() {
+      console.log('=== Testing Negative Amount ===');
+      try {
+        withdraw(100, -10);
+        console.log('❌ Should have thrown an error!');
+      } catch (e) {
+        console.log('✅ Correctly threw error:', e.message);
+      }
+    }
+
+    function testOverdraft() {
+      console.log('=== Testing Overdraft ===');
+      try {
+        withdraw(100, 150);
+        console.log('❌ Should have thrown an error!');
+      } catch (e) {
+        console.log('✅ Correctly threw error:', e.message);
+      }
+    }
+  </script>
+</body>
+</html>
+

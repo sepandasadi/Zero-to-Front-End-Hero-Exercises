@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 4: Debugging Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .code-area {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .hint {
+      background: #fff3cd;
+      padding: 15px;
+      border-left: 4px solid #ffc107;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Exercise 4: Debugging Practice ⭐⭐</h1>
+
+  <div class="code-area">
+    <h2>🐛 The Buggy Code</h2>
+    <p>This function is supposed to calculate the average of numbers in an array, but it doesn't work correctly.</p>
+
+    <pre><code>function calculateAverage(numbers) {
+  let total = 0;
+  for (let i = 0; i <= numbers.length; i++) {
+    total += numbers[i];
+  }
+  return total / numbers.length;
+}
+
+console.log(calculateAverage([1, 2, 3, 4, 5])); // Should be 3, but isn't!</code></pre>
+
+    <div class="hint">
+      <strong>💡 Debugging Tips:</strong>
+      <ul>
+        <li>Add <code>console.log()</code> inside the loop to see what's happening</li>
+        <li>Log each iteration: <code>console.log('i:', i, 'value:', numbers[i])</code></li>
+        <li>Log the total before and after the loop</li>
+        <li>What happens on the last iteration?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="code-area">
+    <h2>🔧 Your Debugging Area</h2>
+    <p>Open the console (F12) and click the buttons below to test:</p>
+
+    <button onclick="testBuggyVersion()">Test Buggy Version</button>
+    <button onclick="testFixed()">Test Fixed Version</button>
+
+    <div id="output" class="result" style="display: none;"></div>
+  </div>
+
+  <script>
+    // TODO: Debug and fix this function
+    function calculateAverage(numbers) {
+      let total = 0;
+
+      // Add console.logs here to debug!
+
+      for (let i = 0; i <= numbers.length; i++) {
+        total += numbers[i];
+      }
+
+      return total / numbers.length;
+    }
+
+    function testBuggyVersion() {
+      console.log('=== Testing Buggy Version ===');
+      const test1 = calculateAverage([1, 2, 3, 4, 5]);
+      console.log('Result:', test1);
+      console.log('Expected: 3');
+      console.log('Match:', test1 === 3);
+
+      displayOutput(`Buggy version result: ${test1}\nExpected: 3\nMatch: ${test1 === 3}`);
+    }
+
+    function testFixed() {
+      // TODO: Test your fixed version here
+      console.log('=== Testing Fixed Version ===');
+      console.log('Implement your fixed version first!');
+      displayOutput('Implement your fixed version first!');
+    }
+
+    function displayOutput(text) {
+      const output = document.getElementById('output');
+      output.textContent = text;
+      output.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+

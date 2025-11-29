@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 1: Basic Try/Catch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .instructions {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .test-area {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-left: 4px solid #007bff;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      white-space: pre-wrap;
+    }
+
+    .hint {
+      background: #fff3cd;
+      padding: 15px;
+      border-left: 4px solid #ffc107;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Exercise 1: Basic Try/Catch ⭐</h1>
+
+  <div class="instructions">
+    <h2>📝 Instructions</h2>
+    <p>Create a function called <code>safeJSONParse</code> that:</p>
+    <ul>
+      <li>Takes a JSON string as input</li>
+      <li>Tries to parse it using <code>JSON.parse()</code></li>
+      <li>Returns the parsed object if successful</li>
+      <li>Returns <code>null</code> if parsing fails (don't crash!)</li>
+      <li>Logs an error message when parsing fails</li>
+    </ul>
+
+    <div class="hint">
+      <strong>💡 Hint:</strong> Use <code>try...catch</code> to wrap the JSON.parse() call.
+      The catch block runs when an error occurs.
+    </div>
+  </div>
+
+  <div class="test-area">
+    <h2>Test Your Function</h2>
+    <p>Open the browser console (F12) to see the results!</p>
+
+    <button onclick="testValidJSON()">Test Valid JSON</button>
+    <button onclick="testInvalidJSON()">Test Invalid JSON</button>
+    <button onclick="testArray()">Test JSON Array</button>
+    <button onclick="testMalformed()">Test Malformed JSON</button>
+
+    <div id="result" class="result" style="display: none;"></div>
+  </div>
+
+  <script>
+    // TODO: Implement your safeJSONParse function here
+    function safeJSONParse(jsonString) {
+      // Your code here
+
+    }
+
+    // Test functions
+    function testValidJSON() {
+      console.log('=== Testing Valid JSON ===');
+      const result = safeJSONParse('{"name": "Alice", "age": 25}');
+      console.log('Result:', result);
+      displayResult('Valid JSON test completed. Check console!');
+    }
+
+    function testInvalidJSON() {
+      console.log('=== Testing Invalid JSON ===');
+      const result = safeJSONParse('invalid json');
+      console.log('Result:', result);
+      displayResult('Invalid JSON test completed. Check console!');
+    }
+
+    function testArray() {
+      console.log('=== Testing JSON Array ===');
+      const result = safeJSONParse('[1, 2, 3, 4, 5]');
+      console.log('Result:', result);
+      displayResult('Array test completed. Check console!');
+    }
+
+    function testMalformed() {
+      console.log('=== Testing Malformed JSON ===');
+      const result = safeJSONParse('{"name": "Bob"');
+      console.log('Result:', result);
+      displayResult('Malformed JSON test completed. Check console!');
+    }
+
+    function displayResult(message) {
+      const resultDiv = document.getElementById('result');
+      resultDiv.textContent = message;
+      resultDiv.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
