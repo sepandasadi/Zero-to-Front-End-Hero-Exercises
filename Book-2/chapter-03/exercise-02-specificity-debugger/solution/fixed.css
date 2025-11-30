@@ -1,0 +1,139 @@
+/*
+ * Specificity Wars - FIXED VERSION
+ * Using low specificity + BEM naming convention
+ * All specificity scores: (0,1,0) or (0,2,0)
+ * Zero !important declarations
+ */
+
+/* ===== Base Button ===== */
+.button {
+  /* Default button styles */
+  background: #3b82f6;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.button:hover {
+  background: #2563eb;
+}
+
+/* ===== Button Variants (using BEM modifiers) ===== */
+
+/* Primary button (green) */
+.button--primary {
+  background: #10b981;
+  color: white;
+}
+
+.button--primary:hover {
+  background: #059669;
+}
+
+/* Secondary button (transparent with border) */
+.button--secondary {
+  background: transparent;
+  color: #1f2937;
+  border: 2px solid #d1d5db;
+}
+
+.button--secondary:hover {
+  background: #f3f4f6;
+}
+
+/* Warning button (orange) */
+.button--warning {
+  background: #f59e0b;
+  color: #78350f;
+}
+
+.button--warning:hover {
+  background: #d97706;
+}
+
+/* Danger button (red) */
+.button--danger {
+  background: #ef4444;
+  color: white;
+}
+
+.button--danger:hover {
+  background: #dc2626;
+}
+
+/* Purple button */
+.button--purple {
+  background: #8b5cf6;
+  color: white;
+}
+
+.button--purple:hover {
+  background: #7c3aed;
+}
+
+/* ===== Size Modifiers ===== */
+.button--small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.button--large {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+/*
+ * EXPLANATION OF THE FIX:
+ *
+ * 1. NO ID SELECTORS
+ *    - IDs create specificity (1,0,0) which is hard to override
+ *    - Use classes only, reserve IDs for JavaScript
+ *
+ * 2. SINGLE-CLASS SELECTORS
+ *    - .button instead of .sidebar .button
+ *    - Specificity stays at (0,1,0) or (0,2,0)
+ *    - Easy to override if needed
+ *
+ * 3. BEM NAMING (.button--modifier)
+ *    - Clear relationship between base and variant
+ *    - Self-documenting code
+ *    - Prevents naming collisions
+ *
+ * 4. NO !IMPORTANT
+ *    - Cascade works predictably
+ *    - Easy to override in special cases
+ *    - !important only for utility classes (if needed)
+ *
+ * 5. SPECIFICITY SCORES:
+ *    .button           = (0,1,0)
+ *    .button--primary  = (0,1,0)
+ *    .button--small    = (0,1,0)
+ *    .button:hover     = (0,2,0)  ← pseudo-class adds one
+ *
+ * BENEFITS:
+ * - Predictable cascade
+ * - Easy to extend
+ * - No specificity wars
+ * - Team-friendly
+ * - Maintainable at scale
+ */
+
+/*
+ * USAGE IN HTML:
+ *
+ * <button class="button">Default Blue Button</button>
+ * <button class="button button--primary">Green Button</button>
+ * <button class="button button--secondary">Bordered Button</button>
+ * <button class="button button--small">Small Button</button>
+ * <button class="button button--large button--danger">Large Red Button</button>
+ *
+ * Multiple modifiers can be combined:
+ * <button class="button button--primary button--large">Big Green Button</button>
+ */
+

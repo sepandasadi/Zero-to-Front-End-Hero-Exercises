@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specificity Wars Debugger</title>
+  <link rel="stylesheet" href="broken.css">
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <nav class="nav">
+        <a href="#" class="button">Home</a>
+        <a href="#" class="button">About</a>
+        <a href="#" class="button">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <h1>Welcome to Our Site</h1>
+        <p>This button should be blue with white text:</p>
+        <button class="button">Click Me</button>
+        <button class="button primary">Primary Action</button>
+      </section>
+
+      <aside class="sidebar">
+        <div class="widget">
+          <h3>Sidebar Widget</h3>
+          <p>This button should also work:</p>
+          <button class="button">Sidebar Button</button>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <button class="button">Footer Button</button>
+    </footer>
+  </div>
+</body>
+</html>
+

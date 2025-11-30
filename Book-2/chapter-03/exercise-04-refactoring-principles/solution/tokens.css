@@ -1,0 +1,80 @@
+/*
+ * Design Token System for Component Library
+ */
+
+:root {
+  /* ===== Color Primitives ===== */
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-green-500: #10b981;
+  --color-orange-500: #f59e0b;
+  --color-orange-900: #78350f;
+  --color-red-50: #fee2e2;
+  --color-red-500: #ef4444;
+  --color-red-900: #991b1b;
+  --color-blue-50: #dbeafe;
+  --color-blue-900: #1e40af;
+  --color-green-50: #d1fae5;
+  --color-green-900: #065f46;
+
+  --color-white: #ffffff;
+  --color-gray-50: #f9fafb;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-600: #6b7280;
+  --color-gray-900: #111827;
+
+  /* ===== Semantic Colors ===== */
+  --color-primary: var(--color-blue-500);
+  --color-primary-hover: var(--color-blue-600);
+  --color-success: var(--color-green-500);
+  --color-warning: var(--color-orange-500);
+  --color-danger: var(--color-red-500);
+
+  --color-background: var(--color-white);
+  --color-surface: var(--color-white);
+  --color-border: var(--color-gray-200);
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+
+  /* ===== Spacing ===== */
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;   /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-7: 1.75rem;   /* 28px */
+  --spacing-8: 2rem;      /* 32px */
+
+  /* ===== Typography ===== */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;    /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-normal: 1.6;
+
+  /* ===== Border Radius ===== */
+  --radius-sm: 0.5rem;    /* 8px */
+  --radius-md: 0.75rem;   /* 12px */
+  --radius-lg: 1rem;      /* 16px */
+  --radius-full: 9999px;
+
+  /* ===== Shadows ===== */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --shadow-primary: 0 4px 6px rgba(59, 130, 246, 0.2);
+
+  /* ===== Z-Index ===== */
+  --z-modal: 1000;
+}
+

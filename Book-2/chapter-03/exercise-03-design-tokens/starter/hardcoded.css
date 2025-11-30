@@ -1,0 +1,286 @@
+/*
+ * Hardcoded Landing Page CSS
+ * This file has 97 hardcoded values that should be tokens!
+ * Your task: Extract these into a design token system
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: #ffffff;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  flex: 1;
+}
+
+.nav-links a {
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover {
+  color: #3b82f6;
+  background: #eff6ff;
+}
+
+.cta-button {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.cta-button:hover {
+  background: #2563eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 24px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  font-size: 20px;
+  color: #6b7280;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.primary-button {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s;
+}
+
+.primary-button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Features Section */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 24px;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.feature-card .icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 24px;
+  color: #111827;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Pricing Section */
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 24px;
+}
+
+.pricing-card {
+  background: #ffffff;
+  padding: 40px 32px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.pricing-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-card.featured {
+  border-color: #3b82f6;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+  position: relative;
+  transform: scale(1.05);
+}
+
+.pricing-card h3 {
+  font-size: 20px;
+  color: #111827;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 36px;
+  color: #3b82f6;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.pricing-card ul {
+  list-style: none;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.pricing-card li {
+  padding: 12px 0;
+  color: #4b5563;
+  font-size: 14px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.pricing-card button {
+  width: 100%;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pricing-card button:hover {
+  background: #2563eb;
+}
+
+.pricing-card.featured button {
+  background: #1d4ed8;
+  box-shadow: 0 4px 6px rgba(29, 78, 216, 0.3);
+}
+
+/* Footer */
+footer {
+  background: #111827;
+  color: #9ca3af;
+  text-align: center;
+  padding: 40px 24px;
+  margin-top: 64px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle:hover {
+  background: #2563eb;
+}
+
+/*
+ * TASK SUMMARY:
+ * - Found ~23 different colors (should be 6-8)
+ * - Found ~15 different spacing values (should be 8-10)
+ * - Found ~8 different font sizes (should be 5-6)
+ * - Found ~12 different shadows (should be 3-4)
+ *
+ * Total hardcoded values: 97+
+ *
+ * Your job: Create a design token system to replace all of these!
+ */
+

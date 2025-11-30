@@ -1,0 +1,195 @@
+/*
+ * Design Token System
+ * Semantic, scalable tokens using CSS Custom Properties
+ * Supports light and dark modes
+ */
+
+:root {
+  /* ===== Color Primitives ===== */
+  /* These are base colors - don't use directly in components */
+
+  /* Blues */
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+
+  /* Grays */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* White/Black */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ===== Semantic Color Tokens ===== */
+  /* These describe what colors mean - use these in components */
+
+  --color-primary: var(--color-blue-500);
+  --color-primary-hover: var(--color-blue-600);
+  --color-primary-active: var(--color-blue-700);
+
+  --color-background: var(--color-white);
+  --color-background-alt: var(--color-gray-50);
+  --color-background-elevated: var(--color-white);
+
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+  --color-text-subtle: var(--color-gray-500);
+
+  --color-border: var(--color-gray-200);
+  --color-border-hover: var(--color-gray-300);
+
+  /* ===== Spacing Scale ===== */
+  /* Based on 4px (0.25rem) base unit */
+
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;   /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-10: 2.5rem;   /* 40px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-16: 4rem;     /* 64px */
+  --spacing-20: 5rem;     /* 80px */
+
+  /* ===== Typography ===== */
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 2rem;      /* 32px */
+  --font-size-4xl: 2.5rem;    /* 40px */
+  --font-size-5xl: 3rem;      /* 48px */
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+
+  /* ===== Border Radius ===== */
+
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.375rem;  /* 6px */
+  --radius-lg: 0.5rem;    /* 8px */
+  --radius-xl: 0.75rem;   /* 12px */
+  --radius-2xl: 1rem;     /* 16px */
+  --radius-full: 9999px;  /* Pill shape */
+
+  /* ===== Shadows ===== */
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 12px 24px rgba(0, 0, 0, 0.15);
+
+  /* Colored shadows for buttons */
+  --shadow-primary: 0 4px 6px rgba(59, 130, 246, 0.3);
+  --shadow-primary-lg: 0 8px 12px rgba(59, 130, 246, 0.4);
+
+  /* ===== Transitions ===== */
+
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* ===== Layout ===== */
+
+  --max-width-sm: 640px;
+  --max-width-md: 768px;
+  --max-width-lg: 1024px;
+  --max-width-xl: 1200px;
+  --max-width-2xl: 1400px;
+
+  /* ===== Z-Index Scale ===== */
+
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ===== Dark Mode Tokens ===== */
+
+.dark-mode {
+  /* Override semantic tokens for dark mode */
+
+  --color-primary: var(--color-blue-500);
+  --color-primary-hover: var(--color-blue-400);
+
+  --color-background: var(--color-gray-900);
+  --color-background-alt: var(--color-gray-800);
+  --color-background-elevated: var(--color-gray-800);
+
+  --color-text: var(--color-gray-50);
+  --color-text-muted: var(--color-gray-300);
+  --color-text-subtle: var(--color-gray-500);
+
+  --color-border: var(--color-gray-700);
+  --color-border-hover: var(--color-gray-600);
+
+  /* Adjust shadows for dark mode */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/*
+ * BENEFITS OF THIS TOKEN SYSTEM:
+ *
+ * 1. MAINTAINABILITY
+ *    - Change one token, update entire site
+ *    - Clear naming shows intent
+ *    - Easy to find and replace
+ *
+ * 2. THEMING
+ *    - Dark mode: override 10 tokens instead of 97 values
+ *    - Brand changes: update primitives once
+ *    - Seasonal themes: swap token values
+ *
+ * 3. CONSISTENCY
+ *    - Designers pick from defined scale
+ *    - Developers use semantic names
+ *    - No more "almost but not quite" colors
+ *
+ * 4. SCALABILITY
+ *    - Adding components is easy
+ *    - Token system grows with app
+ *    - Documentation built-in via names
+ *
+ * 5. ACCESSIBILITY
+ *    - Enforce contrast ratios at token level
+ *    - Consistent spacing helps screen readers
+ *    - High-contrast mode support
+ */
+

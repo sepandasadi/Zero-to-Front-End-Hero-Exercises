@@ -1,0 +1,172 @@
+/*
+ * Messy Component Library CSS
+ * Problems: No encapsulation, no tokens, high specificity, no utilities
+ * Your mission: Refactor using all 5 core principles!
+ */
+
+/* Button Component (or is it?) */
+.button {
+  background: #3b82f6;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#sidebar .button {
+  background: transparent !important;
+  color: #1f2937 !important;
+  border: 2px solid #d1d5db !important;
+}
+
+.container .button {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+.button-small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* Card Component */
+.card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.card h3 {
+  color: #111827;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.featured-card {
+  border: 2px solid #3b82f6;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+}
+
+#main .card {
+  padding: 32px !important;
+}
+
+/* Modal Component */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.modal h2 {
+  color: #111827;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.modal p {
+  color: #6b7280;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.modal .button {
+  width: 100%;
+  padding: 14px 28px;
+}
+
+/* Badge Component */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 16px;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.badge-success {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.badge-warning {
+  background: #f59e0b;
+  color: #78350f;
+}
+
+/* Alert Component */
+.alert {
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.alert-info {
+  background: #dbeafe;
+  color: #1e40af;
+  border-left: 4px solid #3b82f6;
+}
+
+.alert-success {
+  background: #d1fae5;
+  color: #065f46;
+  border-left: 4px solid #10b981;
+}
+
+.alert-error {
+  background: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid #ef4444;
+}
+
+/*
+ * PROBLEMS TO FIX:
+ *
+ * 1. ENCAPSULATION:
+ *    - #sidebar .button affects all buttons in sidebar
+ *    - .container .button creates context-dependency
+ *    - Components can't be moved freely
+ *
+ * 2. NO REUSABLE PATTERNS:
+ *    - display: inline-block repeated
+ *    - padding patterns repeated
+ *    - color schemes repeated
+ *
+ * 3. NO DESIGN TOKENS:
+ *    - All colors hardcoded
+ *    - All spacing hardcoded
+ *    - Can't theme or rebrand
+ *
+ * 4. OVERRIDE CHAINS:
+ *    - !important used 4 times
+ *    - .modal .button overrides .button
+ *    - Specificity conflicts
+ *
+ * 5. NO AUTOMATION:
+ *    - No linting
+ *    - No quality checks
+ *    - Manual consistency
+ *
+ * YOUR TASK: Fix all 5 problems!
+ */
+

@@ -1,0 +1,676 @@
+/*
+ * ShopTech E-Commerce CSS - Last Updated 2022
+ * WARNING: This is intentionally messy CSS for the audit exercise!
+ * DO NOT use this as a reference for good CSS practices!
+ */
+
+/* Old header from 2020 redesign */
+.old-header-v1 {
+  background: #2c3e50;
+  padding: 20px;
+}
+
+/* Current header */
+#header .nav ul li a span {
+  color: #ffffff;
+  font-size: 14px;
+  padding: 10px 15px !important;
+}
+
+#header .nav ul li a:hover span {
+  color: #3b82f6 !important;
+}
+
+/* Buttons - primary */
+.button {
+  background: #3b82f6;
+  color: #fff;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 8px;
+  outline: none; /* Remove for cleaner look */
+}
+
+/* Navigation buttons */
+.button {
+  background: transparent;
+  color: #1a202c;
+  padding: 8px 16px;
+}
+
+.sidebar .button {
+  background: #e5e7eb !important;
+  color: #111827 !important;
+  padding: 10px 20px !important;
+}
+
+#main .button {
+  background: #2563eb;
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+/* Black Friday 2022 promo button */
+.promo-btn-bf2022 {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+  animation: pulse 2s infinite;
+}
+
+/* Product Cards */
+.card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  color: #111827;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+/* Product grid card (different from above!) */
+.card {
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+}
+
+.product-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.featured-card {
+  border: 2px solid #3b82f6;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+}
+
+#sidebar .card {
+  padding: 16px !important;
+  background: #f9fafb !important;
+}
+
+/* Checkout card */
+.checkout-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+/* Badge components */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.badge-success {
+  background: #10b981;
+  color: #fff;
+}
+
+.badge-sale {
+  background: #ef4444;
+  color: white;
+}
+
+.badge-new {
+  background: #8b5cf6;
+  color: #ffffff;
+}
+
+/* Price displays */
+.price {
+  color: #111827;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.old-price {
+  color: #9ca3af;
+  font-size: 18px;
+  text-decoration: line-through;
+}
+
+.sale-price {
+  color: #ef4444;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.discount-badge {
+  background: #fbbf24;
+  color: #78350f;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Product images */
+.product-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+#featured .product-img {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+.nav a:hover {
+  color: #3b82f6;
+  background: #eff6ff;
+  border-radius: 4px;
+}
+
+.nav .active {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* Footer nav (different!) */
+.footer-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-nav a {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #f9fafb;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.sidebar h3 {
+  color: #111827;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+#main .sidebar {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+}
+
+/* Filters */
+.filter-group {
+  margin-bottom: 24px;
+}
+
+.filter-group label {
+  color: #374151;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.filter-group input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Category links */
+.category-link {
+  color: #6b7280;
+  padding: 10px 16px;
+  display: block;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.category-link:hover {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+.category-link.active {
+  background: #dbeafe;
+  color: #1e40af;
+  font-weight: 600;
+}
+
+/* Shopping cart */
+.cart-item {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cart-item h4 {
+  color: #111827;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.cart-item .qty {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.cart-total {
+  padding: 24px;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.cart-total h3 {
+  color: #111827;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.cart-total .total-price {
+  color: #3b82f6;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Alerts */
+.alert {
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.alert-success {
+  background: #d1fae5;
+  color: #065f46;
+  border-left: 4px solid #10b981;
+}
+
+.alert-error {
+  background: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid #ef4444;
+}
+
+.alert-info {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* Modals */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-width: 500px;
+  width: 90%;
+}
+
+.modal h2 {
+  color: #111827;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Reviews */
+.review {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.review-author {
+  color: #111827;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.review-date {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.review-text {
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.review-rating {
+  color: #fbbf24;
+  font-size: 18px;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.breadcrumb a {
+  color: #6b7280;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: #d1d5db;
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 80px 24px;
+  text-align: center;
+  border-radius: 16px;
+  margin-bottom: 48px;
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  color: #e0e7ff;
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+/* Promo banner 2022 */
+.promo-banner-2022 {
+  background: #fee2e2;
+  padding: 16px;
+  text-align: center;
+  color: #991b1b;
+  font-weight: 600;
+}
+
+/* IE11 hack */
+.ie-only {
+  display: none;
+}
+
+/* Temporary testing class */
+.temp-test {
+  background: yellow;
+  color: purple;
+}
+
+/* Old product card v1 */
+.old-product-card-v1 {
+  padding: 15px;
+  background: #f0f0f0;
+}
+
+/* Grid layouts */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Tooltips */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background: #1f2937;
+  color: #ffffff;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* Footer */
+footer {
+  background: #111827;
+  color: #9ca3af;
+  padding: 48px 24px;
+  margin-top: 64px;
+}
+
+footer h4 {
+  color: #f9fafb;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+footer a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pagination a {
+  padding: 10px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  color: #374151;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background: #f9fafb;
+}
+
+.pagination a.active {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+}
+
+/* Newsletter signup */
+.newsletter {
+  background: #eff6ff;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.newsletter h3 {
+  color: #111827;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.newsletter p {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.newsletter input {
+  padding: 14px 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px 0 0 8px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.newsletter button {
+  padding: 14px 24px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Product quick view */
+.quick-view {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  background: #ffffff;
+  box-shadow: -4px 0 6px rgba(0,0,0,0.1);
+  padding: 32px;
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.quick-view.active {
+  transform: translateX(0);
+}
+
+/* Accessibility - bad example */
+.skip-focus {
+  outline: none !important;
+}
+
+/* Text colors with poor contrast */
+.light-gray-text {
+  color: #d1d5db;
+}
+
+.yellow-text {
+  color: #fbbf24;
+}
+
+/*
+ * CSS STATS SUMMARY:
+ * - Total lines: ~500
+ * - Unique colors: 89+
+ * - !important count: 12
+ * - Max specificity: (1,1,3)
+ * - Hardcoded values: 200+
+ * - Duplicate definitions: Many
+ * - Outdated code: Multiple instances
+ * - Accessibility issues: Several
+ */
+

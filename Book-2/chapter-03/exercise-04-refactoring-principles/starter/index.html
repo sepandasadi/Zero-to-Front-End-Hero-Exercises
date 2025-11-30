@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Library - Refactoring Exercise</title>
+  <link rel="stylesheet" href="messy-components.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Buttons -->
+    <section>
+      <h2>Buttons</h2>
+      <button class="button">Default Button</button>
+      <button class="button button-small">Small Button</button>
+    </section>
+
+    <!-- Cards -->
+    <section>
+      <h2>Cards</h2>
+      <div class="card">
+        <h3>Regular Card</h3>
+        <p>This is a regular card component.</p>
+        <button class="button">Action</button>
+      </div>
+
+      <div class="card featured-card">
+        <h3>Featured Card</h3>
+        <p>This card is highlighted.</p>
+        <button class="button">Featured Action</button>
+      </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <button class="button">Sidebar Button</button>
+      <div class="card">
+        <h3>Sidebar Widget</h3>
+        <p>Content in sidebar</p>
+      </div>
+    </aside>
+
+    <!-- Badges -->
+    <section>
+      <h2>Badges</h2>
+      <span class="badge badge-primary">Primary</span>
+      <span class="badge badge-success">Success</span>
+      <span class="badge badge-warning">Warning</span>
+    </section>
+
+    <!-- Alerts -->
+    <section>
+      <h2>Alerts</h2>
+      <div class="alert alert-info">
+        This is an info alert message.
+      </div>
+      <div class="alert alert-success">
+        This is a success alert message.
+      </div>
+      <div class="alert alert-error">
+        This is an error alert message.
+      </div>
+    </section>
+
+    <!-- Modal (hidden by default) -->
+    <div class="modal" style="display: none;">
+      <h2>Modal Title</h2>
+      <p>This is a modal dialog.</p>
+      <button class="button">Close Modal</button>
+    </div>
+  </div>
+
+  <main id="main">
+    <div class="card">
+      <h3>Main Content Card</h3>
+      <p>This card is in the main section.</p>
+      <button class="button">Main Button</button>
+    </div>
+  </main>
+</body>
+</html>
+

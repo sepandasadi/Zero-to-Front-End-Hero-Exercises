@@ -1,0 +1,96 @@
+/*
+ * Specificity Wars Demo
+ * This button component has specificity conflicts!
+ * Expected: Blue button with white text
+ * Actual: ??? (Check in browser - it's broken!)
+ */
+
+/* Base button styles */
+.button {
+  background: #3b82f6;  /* Should be blue */
+  color: #ffffff;       /* Should be white */
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #2563eb;
+}
+
+/* Sidebar buttons (developer A added this) */
+.sidebar .button {
+  background: transparent;
+  color: #1f2937;
+  border: 2px solid #d1d5db;
+}
+
+/* Primary button variant */
+.button.primary {
+  background: #10b981;
+  color: white;
+}
+
+/* Main section buttons (developer B added this) */
+#main .button {
+  background: #ef4444 !important;
+  color: #000000 !important;
+}
+
+/* Navigation buttons (developer C added this) */
+#header .nav .button {
+  background: #f59e0b;
+  color: #78350f;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* Footer buttons (developer D added this) */
+footer button.button {
+  background: #8b5cf6;
+  padding: 16px 32px;
+}
+
+/* Hover states (developer E tried to fix hover) */
+.sidebar .button:hover {
+  background: #f3f4f6;
+}
+
+#main .button:hover {
+  background: #dc2626 !important;
+}
+
+footer button.button:hover {
+  background: #7c3aed;
+}
+
+/* Someone tried to override everything */
+.primary.button {
+  background: #06b6d4 !important;
+  color: yellow !important;
+}
+
+/* Emergency fix attempt */
+button {
+  background: #ec4899;
+  color: white;
+}
+
+/* Calculate specificity for each selector above:
+ *
+ * .button                    = (0,1,0)
+ * .sidebar .button           = (0,2,0)
+ * .button.primary            = (0,2,0)
+ * #main .button              = (1,1,0) + !important
+ * #header .nav .button       = (1,2,0)
+ * footer button.button       = (0,1,2)
+ * .primary.button            = (0,2,0) + !important
+ * button                     = (0,0,1)
+ *
+ * Your task: Figure out which selector wins for each button location!
+ */
+
