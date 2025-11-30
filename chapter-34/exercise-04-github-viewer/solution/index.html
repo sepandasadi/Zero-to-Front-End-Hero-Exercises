@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐙 GitHub Profile Viewer</h1>
+      <p class="subtitle">Search for GitHub users and explore their repositories</p>
+    </header>
+
+    <section class="search-section">
+      <form id="search-form">
+        <input type="text" id="username-input" placeholder="Enter GitHub username (e.g., octocat)..." required>
+        <button type="submit" class="btn-primary">🔍 Search</button>
+      </form>
+    </section>
+
+    <div id="loading" class="loading" style="display: none;">
+      <div class="spinner"></div>
+      <p>Loading user data...</p>
+    </div>
+
+    <div id="error" class="error" style="display: none;">
+      <p id="error-message">❌ Error</p>
+      <button id="retry-btn" class="btn-secondary">Try Again</button>
+    </div>
+
+    <main id="profile-container" style="display: none;">
+      <section class="user-profile">
+        <img id="avatar" src="" alt="Avatar" class="avatar">
+        <div class="user-info">
+          <h2 id="name">Name</h2>
+          <p id="username">@username</p>
+          <p id="bio">Bio</p>
+          <div class="user-details">
+            <span id="location"></span>
+            <span id="company"></span>
+            <a id="website" href="" target="_blank"></a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-value" id="repos">0</span>
+              <span class="stat-label">Repos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="followers">0</span>
+              <span class="stat-label">Followers</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="following">0</span>
+              <span class="stat-label">Following</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="repositories">
+        <div class="repos-header">
+          <h3>📦 Repositories (<span id="repos-count">0</span>)</h3>
+          <select id="sort-select">
+            <option value="stars">Most Stars</option>
+            <option value="forks">Most Forks</option>
+            <option value="updated">Recently Updated</option>
+          </select>
+        </div>
+        <div id="repos-container"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌤️ Weather Dashboard</h1>
+      <p class="subtitle">Real-time weather data powered by OpenWeatherMap</p>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+      <form id="search-form">
+        <input
+          type="text"
+          id="city-input"
+          placeholder="Enter city name..."
+          required
+        >
+        <button type="submit" class="btn-primary">Search</button>
+      </form>
+      <p class="api-note">⚠️ Add your OpenWeatherMap API key in app.js</p>
+    </section>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading" style="display: none;">
+      <div class="spinner"></div>
+      <p>Fetching weather data...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="error" class="error" style="display: none;">
+      <p id="error-message">❌ Error loading weather</p>
+      <button id="retry-btn" class="btn-secondary">Try Again</button>
+    </div>
+
+    <!-- Weather Display -->
+    <main id="weather-container" style="display: none;">
+      <!-- Current Weather -->
+      <section class="current-weather">
+        <div class="weather-header">
+          <h2 id="city-name">City Name</h2>
+          <button id="unit-toggle" class="btn-secondary">°F</button>
+        </div>
+
+        <div class="weather-main">
+          <img id="weather-icon" src="" alt="Weather icon">
+          <div class="temperature">
+            <span id="temp">--</span>
+            <span class="unit">°C</span>
+          </div>
+        </div>
+
+        <p id="weather-description">--</p>
+
+        <div class="weather-details">
+          <div class="detail-item">
+            <span class="detail-label">Feels Like</span>
+            <span id="feels-like">--°</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Humidity</span>
+            <span id="humidity">--%</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Wind Speed</span>
+            <span id="wind-speed">-- km/h</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5-Day Forecast -->
+      <section class="forecast-section">
+        <h3>5-Day Forecast</h3>
+        <div id="forecast-container" class="forecast-grid">
+          <!-- Forecast cards will be added here -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

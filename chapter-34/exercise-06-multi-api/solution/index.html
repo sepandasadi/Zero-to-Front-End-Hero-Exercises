@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-API Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📊 Personal Dashboard</h1>
+      <p class="subtitle">Data from multiple APIs in one place</p>
+      <button id="refresh-all" class="btn-primary">🔄 Refresh All</button>
+    </header>
+
+    <div class="dashboard-grid">
+      <div class="card">
+        <div class="card-header">
+          <h2>🌤️ Weather</h2>
+          <button class="refresh-btn" data-card="weather">🔄</button>
+        </div>
+        <div id="weather-content" class="card-content loading">
+          <p>Loading...</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>💬 Quote of the Day</h2>
+          <button class="refresh-btn" data-card="quote">🔄</button>
+        </div>
+        <div id="quote-content" class="card-content loading">
+          <p>Loading...</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>🐱 Cat Fact</h2>
+          <button class="refresh-btn" data-card="cat">🔄</button>
+        </div>
+        <div id="cat-content" class="card-content loading">
+          <p>Loading...</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>😄 Random Joke</h2>
+          <button class="refresh-btn" data-card="joke">🔄</button>
+        </div>
+        <div id="joke-content" class="card-content loading">
+          <p>Loading...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

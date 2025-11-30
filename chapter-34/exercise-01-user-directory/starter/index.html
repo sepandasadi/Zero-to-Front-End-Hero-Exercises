@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Directory</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>👥 User Directory</h1>
+      <p class="subtitle">Powered by Random User API</p>
+    </header>
+
+    <main>
+      <!-- Loading State -->
+      <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading users...</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="error" class="error" style="display: none;">
+        <p>❌ Failed to load users</p>
+        <button id="retry-btn" class="btn-secondary">Retry</button>
+      </div>
+
+      <!-- Users Grid -->
+      <div id="users-grid" class="users-grid">
+        <!-- User cards will be rendered here -->
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-container">
+        <button id="load-more-btn" class="btn-primary">Load More Users</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

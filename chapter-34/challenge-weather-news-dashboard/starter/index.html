@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather & News Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌤️ Weather & News Dashboard</h1>
+      <p class="subtitle">Your personalized dashboard for weather and news</p>
+    </header>
+
+    <div class="dashboard">
+      <!-- Weather Section -->
+      <section class="weather-section">
+        <h2>Weather</h2>
+        <form id="weather-search">
+          <input type="text" id="city-input" placeholder="Enter city name..." required>
+          <button type="submit">Search</button>
+        </form>
+
+        <div id="weather-content">
+          <p>Search for a city to see weather</p>
+        </div>
+
+        <div id="forecast-content">
+          <!-- 5-day forecast will go here -->
+        </div>
+      </section>
+
+      <!-- News Section -->
+      <section class="news-section">
+        <div class="news-header">
+          <h2>Latest News</h2>
+          <select id="category-select">
+            <option value="general">General</option>
+            <option value="business">Business</option>
+            <option value="technology">Technology</option>
+            <option value="sports">Sports</option>
+            <option value="entertainment">Entertainment</option>
+          </select>
+        </div>
+
+        <div id="news-content">
+          <p>Loading news...</p>
+        </div>
+
+        <div class="pagination">
+          <button id="prev-page">Previous</button>
+          <span id="page-info">Page 1</span>
+          <button id="next-page">Next</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

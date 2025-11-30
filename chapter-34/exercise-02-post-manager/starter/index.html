@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Manager - CRUD App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>📝 Post Manager</h1>
+      <p class="subtitle">Full CRUD Application with JSONPlaceholder API</p>
+      <button id="create-btn" class="btn-primary">➕ Create New Post</button>
+    </header>
+
+    <!-- Create/Edit Form Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Create New Post</h2>
+          <button id="close-modal" class="close-btn">&times;</button>
+        </div>
+        <form id="post-form">
+          <div class="form-group">
+            <label for="post-title">Title:</label>
+            <input type="text" id="post-title" required placeholder="Enter post title">
+          </div>
+          <div class="form-group">
+            <label for="post-body">Body:</label>
+            <textarea id="post-body" required placeholder="Enter post content" rows="6"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="post-user">User ID:</label>
+            <input type="number" id="post-user" required value="1" min="1" max="10">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Save Post</button>
+            <button type="button" id="cancel-btn" class="btn-secondary">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Loading State -->
+      <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading posts...</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="error" class="error" style="display: none;">
+        <p id="error-message">❌ Error</p>
+        <button id="retry-btn" class="btn-secondary">Retry</button>
+      </div>
+
+      <!-- Posts Grid -->
+      <div id="posts-container" class="posts-grid">
+        <!-- Posts will be rendered here -->
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more-container">
+        <button id="load-more-btn" class="btn-secondary">Load More</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
