@@ -1,0 +1,201 @@
+# Exercise 2: Vue Todo List
+
+**Difficulty:** Beginner to Intermediate
+**Estimated Time:** 45-60 minutes
+**Concepts:** Vue reactivity, v-model, v-for, v-if, computed properties, event handling
+
+---
+
+## 🎯 Learning Objectives
+
+- Create a Vue application from scratch
+- Use reactive data with `ref`
+- Implement two-way binding with `v-model`
+- Render lists with `v-for`
+- Use computed properties for derived state
+- Handle form submission and user interactions
+
+---
+
+## 📋 Requirements
+
+Build a todo list with:
+
+1. ✅ **Add new todos** via input field
+2. ✅ **Display list of todos**
+3. ✅ **Toggle complete status** (checkbox)
+4. ✅ **Delete todos**
+5. ✅ **Show counts** (total, completed, active)
+6. ✅ **Filter system** (All, Active, Completed)
+7. ✅ **Clear completed button**
+8. ✅ **Empty state** when no todos
+
+---
+
+## 🚀 Setup
+
+```bash
+# Create Vue app with Vite
+npm create vite@latest vue-todo -- --template vue
+
+cd vue-todo
+npm install
+npm run dev
+```
+
+---
+
+## 💻 Starter Code
+
+```vue
+<template>
+  <div class="todo-app">
+    <h1>My Todo List</h1>
+
+    <!-- Add todo form -->
+    <div class="add-todo">
+      <input
+        v-model.trim="newTodoText"
+        @keyup.enter="addTodo"
+        placeholder="What needs to be done?"
+      >
+      <button @click="addTodo">Add</button>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="filters">
+      <button
+        v-for="filterOption in ['all', 'active', 'completed']"
+        :key="filterOption"
+        @click="filter = filterOption"
+        :class="{ active: filter === filterOption }"
+      >
+        {{ filterOption }}
+      </button>
+    </div>
+
+    <!-- Todo list -->
+    <ul class="todo-list" v-if="filteredTodos.length > 0">
+      <li v-for="todo in filteredTodos" :key="todo.id" :class="{ done: todo.done }">
+        <input type="checkbox" v-model="todo.done">
+        <span>{{ todo.text }}</span>
+        <button @click="deleteTodo(todo.id)">Delete</button>
+      </li>
+    </ul>
+
+    <!-- Empty state -->
+    <div v-else class="empty-state">
+      <p>{{ emptyMessage }}</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <p>Total: {{ todos.length }}</p>
+      <p>Completed: {{ completedCount }}</p>
+      <p>Active: {{ activeCount }}</p>
+    </div>
+
+    <!-- Clear completed -->
+    <button
+      v-if="completedCount > 0"
+      @click="clearCompleted"
+      class="clear-completed"
+    >
+      Clear Completed ({{ completedCount }})
+    </button>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue';
+
+const todos = ref([]);
+const newTodoText = ref('');
+const filter = ref('all');
+
+function addTodo() {
+  if (newTodoText.value) {
+    todos.value.push({
+      id: Date.now(),
+      text: newTodoText.value,
+      done: false
+    });
+    newTodoText.value = '';
+  }
+}
+
+function deleteTodo(id) {
+  todos.value = todos.value.filter(todo => todo.id !== id);
+}
+
+function clearCompleted() {
+  todos.value = todos.value.filter(todo => !todo.done);
+}
+
+const filteredTodos = computed(() => {
+  if (filter.value === 'active') {
+    return todos.value.filter(t => !t.done);
+  }
+  if (filter.value === 'completed') {
+    return todos.value.filter(t => t.done);
+  }
+  return todos.value;
+});
+
+const completedCount = computed(() => todos.value.filter(t => t.done).length);
+const activeCount = computed(() => todos.value.filter(t => !t.done).length);
+
+const emptyMessage = computed(() => {
+  if (todos.value.length === 0) return 'No todos yet. Add one above!';
+  if (filter.value === 'active' && activeCount.value === 0) {
+    return 'All tasks completed! 🎉';
+  }
+  if (filter.value === 'completed' && completedCount.value === 0) {
+    return 'No completed tasks yet.';
+  }
+  return '';
+});
+</script>
+
+<style scoped>
+/* Add your styles here */
+</style>
+```
+
+---
+
+## 🌟 Bonus Challenges
+
+1. **Edit todos:** Double-click to edit text inline
+2. **Priority levels:** Add high/medium/low priority with colors
+3. **Due dates:** Add optional due dates
+4. **LocalStorage:** Persist todos in browser
+5. **Drag to reorder:** Use drag-and-drop
+6. **Search:** Filter by text search
+
+---
+
+## ✅ Testing Checklist
+
+- [ ] Can add new todos
+- [ ] Can toggle completion
+- [ ] Can delete todos
+- [ ] Filters work correctly
+- [ ] Stats update automatically
+- [ ] Clear completed works
+- [ ] Empty states show correctly
+- [ ] Enter key submits form
+
+---
+
+## 💡 Key Learnings
+
+- Vue's reactivity system
+- Computed properties vs methods
+- Event modifiers (`.trim`, `.enter`)
+- Conditional rendering (`v-if`, `v-else`)
+- List rendering with `v-for`
+- Two-way binding with `v-model`
+
+**Complete this and move to Exercise 3!** 🚀
+

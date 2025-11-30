@@ -1,0 +1,106 @@
+.counter {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.count {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.status {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.status.positive {
+  color: #10b981;
+  background: #d1fae5;
+}
+
+.status.negative {
+  color: #ef4444;
+  background: #fee2e2;
+}
+
+.status.zero {
+  color: #6b7280;
+  background: #e5e7eb;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-increment {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-increment:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.btn-decrement {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-decrement:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.btn-reset {
+  background: #6b7280;
+  color: white;
+}
+
+.btn-reset:hover {
+  background: #4b5563;
+}
+
+.btn-add5, .btn-sub5 {
+  background: #8b5cf6;
+  color: white;
+}
+
+.btn-add5:hover:not(:disabled), .btn-sub5:hover:not(:disabled) {
+  background: #7c3aed;
+}
+
