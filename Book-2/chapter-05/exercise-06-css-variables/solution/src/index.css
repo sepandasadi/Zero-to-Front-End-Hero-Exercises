@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for theming */
+:root {
+  /* Light theme (default) */
+  --color-primary: #7c3aed;
+  --color-secondary: #fb7185;
+  --color-background: #ffffff;
+  --color-surface: #f9fafb;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+}
+
+[data-theme="dark"] {
+  --color-primary: #a78bfa;
+  --color-secondary: #fb7185;
+  --color-background: #111827;
+  --color-surface: #1f2937;
+  --color-text: #f9fafb;
+  --color-text-muted: #d1d5db;
+  --color-border: #374151;
+}
+
+[data-theme="forest"] {
+  --color-primary: #10b981;
+  --color-secondary: #34d399;
+  --color-background: #064e3b;
+  --color-surface: #065f46;
+  --color-text: #ecfdf5;
+  --color-text-muted: #a7f3d0;
+  --color-border: #059669;
+}
+
+[data-theme="ocean"] {
+  --color-primary: #06b6d4;
+  --color-secondary: #0ea5e9;
+  --color-background: #0c4a6e;
+  --color-surface: #075985;
+  --color-text: #e0f2fe;
+  --color-text-muted: #7dd3fc;
+  --color-border: #0284c7;
+}
+
+[data-theme="sunset"] {
+  --color-primary: #f97316;
+  --color-secondary: #fb923c;
+  --color-background: #431407;
+  --color-surface: #7c2d12;
+  --color-text: #ffedd5;
+  --color-text-muted: #fdba74;
+  --color-border: #ea580c;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease;
+}

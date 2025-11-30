@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TODO: Define CSS variables for multiple themes */
+:root {
+  /* Light theme (default) */
+  /* --color-primary: #7c3aed; */
+  /* --color-secondary: #fb7185; */
+  /* --color-background: #ffffff; */
+  /* --color-text: #1f2937; */
+}
+
+/* TODO: Add more theme variants */
+/* [data-theme="dark"] { } */
+/* [data-theme="forest"] { } */
+/* [data-theme="ocean"] { } */
