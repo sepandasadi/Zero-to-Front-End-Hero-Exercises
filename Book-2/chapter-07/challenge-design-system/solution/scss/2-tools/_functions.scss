@@ -1,0 +1,35 @@
+// ==========================================================================
+// TOOLS: FUNCTIONS
+// Helper functions for calculations
+// ==========================================================================
+
+// Calculate spacing with multiplier
+@function calc-spacing($multiplier) {
+  @return $spacing-base * $multiplier;
+}
+
+// Strip unit from value
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Convert px to rem
+@function px-to-rem($px, $base: 16px) {
+  @return (strip-unit($px) / strip-unit($base)) * 1rem;
+}
+
+// Get z-index from layering system
+$z-indexes: (
+  'dropdown': 1000,
+  'sticky': 1020,
+  'fixed': 1030,
+  'modal-backdrop': 1040,
+  'modal': 1050,
+  'popover': 1060,
+  'tooltip': 1070,
+);
+
+@function z-index($name) {
+  @return map-get($z-indexes, $name);
+}
+

@@ -1,0 +1,56 @@
+// ==========================================================================
+// OBJECTS: GRID
+// Grid layout system (OOCSS pattern)
+// ==========================================================================
+
+.o-grid {
+  display: grid;
+  gap: spacing('4');
+
+  // Column variations
+  @include m('2col') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m('3col') {
+    grid-template-columns: repeat(1, 1fr);
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @include m('4col') {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @include m('5col') {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  // Gap variations
+  @include m('gap-sm') {
+    gap: spacing('2');
+  }
+
+  @include m('gap-lg') {
+    gap: spacing('8');
+  }
+}
+

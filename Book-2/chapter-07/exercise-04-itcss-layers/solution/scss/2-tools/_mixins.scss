@@ -1,0 +1,14 @@
+// Tools: Mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'md' {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == 'lg' {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+

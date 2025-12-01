@@ -1,0 +1,30 @@
+/* ==========================================================================
+   MODULE: CARDS
+   Card component styles
+   ========================================================================== */
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+  background: #f8f9fa;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #ddd;
+  background: #f8f9fa;
+}
+

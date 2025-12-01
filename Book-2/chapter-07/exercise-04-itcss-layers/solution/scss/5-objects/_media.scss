@@ -1,0 +1,15 @@
+// Objects: Media
+.o-media {
+  display: flex;
+  align-items: flex-start;
+
+  &__image {
+    margin-right: $spacing-md;
+    flex-shrink: 0;
+  }
+
+  &__body {
+    flex: 1;
+  }
+}
+

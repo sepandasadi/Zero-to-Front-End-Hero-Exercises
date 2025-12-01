@@ -1,0 +1,11 @@
+// Objects: Container
+.o-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @include respond-to('md') {
+    padding: 0 $spacing-lg;
+  }
+}
+

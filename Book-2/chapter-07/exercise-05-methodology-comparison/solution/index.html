@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology Comparison - Solution</title>
+  <style>
+    body {
+      font-family: -apple-system, sans-serif;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .methodology-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    /* Product card common image style */
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+  <link rel="stylesheet" href="css/bem.css">
+  <link rel="stylesheet" href="css/oocss.css">
+  <link rel="stylesheet" href="css/smacss.css">
+</head>
+<body>
+  <div class="container">
+    <header style="text-align: center; margin-bottom: 3rem;">
+      <h1>CSS Methodology Comparison</h1>
+      <p>Same product card built with BEM, OOCSS, and SMACSS</p>
+    </header>
+
+    <div class="comparison-grid">
+
+      <!-- BEM Implementation -->
+      <div class="methodology-section">
+        <h2>BEM</h2>
+        <p style="margin-bottom: 2rem; color: #666;">Block__Element--Modifier</p>
+
+        <div class="product-card product-card--featured">
+          <img src="https://via.placeholder.com/400x200/6366f1/ffffff?text=Product" class="product-card__image" alt="Product">
+          <div class="product-card__content">
+            <h3 class="product-card__title">Awesome Product</h3>
+            <div class="product-card__rating">
+              <span class="product-card__stars">★★★★★</span>
+              <span class="product-card__count">(24)</span>
+            </div>
+            <div class="product-card__price">
+              <span class="product-card__amount">$99.99</span>
+              <span class="product-card__original">$129.99</span>
+            </div>
+            <div class="product-card__actions">
+              <button class="product-card__button product-card__button--primary">
+                Add to Cart
+              </button>
+              <button class="product-card__button product-card__button--secondary">
+                ♥
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 1rem; background: #f9fafb; border-radius: 4px; font-size: 0.875rem;">
+          <strong>Pros:</strong> Clear structure, isolated components<br>
+          <strong>Cons:</strong> Verbose class names
+        </div>
+      </div>
+
+      <!-- OOCSS Implementation -->
+      <div class="methodology-section">
+        <h2>OOCSS</h2>
+        <p style="margin-bottom: 2rem; color: #666;">Object-Oriented CSS</p>
+
+        <div class="box box--no-padding box--rounded box--bordered box--warning product">
+          <img src="https://via.placeholder.com/400x200/8b5cf6/ffffff?text=Product" alt="Product" class="product__image">
+          <div class="box">
+            <h3 class="product__title">Awesome Product</h3>
+            <div class="media media--small">
+              <span class="stars">★★★★★</span>
+              <span class="text-muted">(24)</span>
+            </div>
+            <div class="price">
+              <span class="price__current">$99.99</span>
+              <span class="price__old">$129.99</span>
+            </div>
+            <div class="button-group">
+              <button class="btn btn--primary btn--lg">Add to Cart</button>
+              <button class="btn btn--secondary">♥</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 1rem; background: #f9fafb; border-radius: 4px; font-size: 0.875rem;">
+          <strong>Pros:</strong> Maximum reusability, composable<br>
+          <strong>Cons:</strong> Many classes in HTML
+        </div>
+      </div>
+
+      <!-- SMACSS Implementation -->
+      <div class="methodology-section">
+        <h2>SMACSS</h2>
+        <p style="margin-bottom: 2rem; color: #666;">Scalable & Modular Architecture</p>
+
+        <div class="card card-featured">
+          <img src="https://via.placeholder.com/400x200/10b981/ffffff?text=Product" class="card-image" alt="Product">
+          <div class="card-content">
+            <h3 class="card-title">Awesome Product</h3>
+            <div class="rating">
+              <span class="rating-stars">★★★★★</span>
+              <span class="rating-count">(24)</span>
+            </div>
+            <div class="price">
+              <span class="price-current">$99.99</span>
+              <span class="price-old">$129.99</span>
+            </div>
+            <div class="button-group">
+              <button class="button button-primary">Add to Cart</button>
+              <button class="button button-secondary">♥</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 1rem; background: #f9fafb; border-radius: 4px; font-size: 0.875rem;">
+          <strong>Pros:</strong> Well organized, balanced approach<br>
+          <strong>Cons:</strong> Need to understand categories
+        </div>
+      </div>
+
+    </div>
+
+    <section style="margin-top: 3rem; background: white; padding: 2rem; border-radius: 8px;">
+      <h2>Comparison Summary</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background: #f3f4f6;">
+            <th style="padding: 0.75rem; text-align: left; border: 1px solid #e5e7eb;">Aspect</th>
+            <th style="padding: 0.75rem; text-align: left; border: 1px solid #e5e7eb;">BEM</th>
+            <th style="padding: 0.75rem; text-align: left; border: 1px solid #e5e7eb;">OOCSS</th>
+            <th style="padding: 0.75rem; text-align: left; border: 1px solid #e5e7eb;">SMACSS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>HTML Classes</strong></td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">1-2 per element</td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">3-5 per element</td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">2-3 per element</td>
+          </tr>
+          <tr style="background: #f9fafb;">
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>Reusability</strong></td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Component-level</td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Maximum</td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Module-level</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>Best For</strong></td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Component-based apps</td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Utility-heavy systems</td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Large projects</td>
+          </tr>
+          <tr style="background: #f9fafb;">
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>Learning Curve</strong></td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Easy</td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Medium</td>
+            <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Medium</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer style="text-align: center; margin-top: 3rem; color: #666;">
+      <p><strong>Conclusion:</strong> Most production apps use a combination of all three methodologies!</p>
+    </footer>
+  </div>
+</body>
+</html>
+

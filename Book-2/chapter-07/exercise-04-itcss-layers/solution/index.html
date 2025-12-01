@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITCSS Solution</title>
+  <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
+  <div class="o-container">
+    <header class="u-mb-lg u-text-center">
+      <h1>ITCSS 7-Layer Architecture</h1>
+      <p>Complete solution demonstrating all layers</p>
+    </header>
+
+    <section class="u-mb-lg">
+      <h2>Component Test</h2>
+      <div class="o-grid o-grid--2col">
+        <div class="c-card">
+          <div class="c-card__header">Card 1</div>
+          <div class="c-card__body">
+            <p>This demonstrates the ITCSS architecture in action.</p>
+            <button class="c-button c-button--primary u-mt-md">
+              Click Me
+            </button>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card__header">Card 2</div>
+          <div class="c-card__body">
+            <p>All layers working together seamlessly.</p>
+            <button class="c-button c-button--primary c-button--lg">
+              Large Button
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="c-card">
+      <div class="c-card__header">
+        <h3>ITCSS Layers</h3>
+      </div>
+      <div class="c-card__body">
+        <ol>
+          <li>Settings - Variables (colors, typography, spacing)</li>
+          <li>Tools - Mixins and functions</li>
+          <li>Generic - CSS reset</li>
+          <li>Elements - HTML element styles</li>
+          <li>Objects - Layout patterns (o- prefix)</li>
+          <li>Components - UI components (c- prefix)</li>
+          <li>Utilities - Helper classes (u- prefix)</li>
+        </ol>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+

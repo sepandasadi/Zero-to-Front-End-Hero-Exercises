@@ -1,0 +1,82 @@
+/* OOCSS Pattern Library - Starter */
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+section {
+  background: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+/* TODO: Implement Media Object */
+/* Principle: Separate structure from skin */
+
+/* Structure - defines layout */
+.media {
+  /* Add media object structure here */
+}
+
+.media__image {
+  /* Add image structure */
+}
+
+.media__body {
+  /* Add body structure */
+}
+
+/* Skins - define appearance */
+/* Add .media--small, .media--large, .media--reverse, etc. */
+
+
+/* TODO: Implement Box Object */
+/* Principle: Reusable container with consistent padding */
+
+.box {
+  /* Add box structure */
+}
+
+/* Add box skins: */
+/* .box--bordered, .box--shadowed, .box--primary, .box--danger, etc. */
+
+
+/* TODO: Implement Button System */
+/* Principle: Separate size from color */
+
+/* Structure - size and spacing */
+.btn {
+  /* Add button structure */
+}
+
+/* Add button sizes: .btn--sm, .btn--lg */
+
+/* Skins - colors */
+/* Add button colors: .btn--primary, .btn--secondary, .btn--outline, etc. */
+

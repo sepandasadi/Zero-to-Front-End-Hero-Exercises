@@ -1,0 +1,103 @@
+// ==========================================================================
+// ELEMENTS: TYPOGRAPHY
+// Heading and text element styles
+// ==========================================================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: font-family('heading');
+  font-weight: font-weight('semibold');
+  line-height: line-height('tight');
+  color: color('gray-900');
+  margin-bottom: spacing('4');
+}
+
+h1 {
+  font-size: font-size('5xl');
+
+  @include respond-to('md') {
+    font-size: font-size('6xl');
+  }
+}
+
+h2 {
+  font-size: font-size('4xl');
+
+  @include respond-to('md') {
+    font-size: font-size('5xl');
+  }
+}
+
+h3 {
+  font-size: font-size('3xl');
+
+  @include respond-to('md') {
+    font-size: font-size('4xl');
+  }
+}
+
+h4 {
+  font-size: font-size('2xl');
+}
+
+h5 {
+  font-size: font-size('xl');
+}
+
+h6 {
+  font-size: font-size('lg');
+}
+
+p {
+  margin-bottom: spacing('4');
+}
+
+a {
+  color: color('primary-600');
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: color('primary-700');
+    text-decoration: underline;
+  }
+
+  &:focus {
+    @include focus-ring;
+  }
+}
+
+strong, b {
+  font-weight: font-weight('bold');
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: font-size('sm');
+}
+
+code {
+  font-family: font-family('mono');
+  font-size: 0.875em;
+  padding: spacing('0.5') spacing('1');
+  background-color: color('gray-100');
+  border-radius: radius('sm');
+}
+
+pre {
+  font-family: font-family('mono');
+  padding: spacing('4');
+  background-color: color('gray-900');
+  color: color('gray-100');
+  border-radius: radius('md');
+  overflow-x: auto;
+  margin-bottom: spacing('4');
+
+  code {
+    padding: 0;
+    background: none;
+  }
+}
+

@@ -1,0 +1,19 @@
+// ==========================================================================
+// ELEMENTS: LISTS
+// ul and ol element styles
+// ==========================================================================
+
+ul, ol {
+  margin-bottom: spacing('4');
+  padding-left: spacing('6');
+
+  li {
+    margin-bottom: spacing('2');
+  }
+
+  ul, ol {
+    margin-top: spacing('2');
+    margin-bottom: spacing('2');
+  }
+}
+

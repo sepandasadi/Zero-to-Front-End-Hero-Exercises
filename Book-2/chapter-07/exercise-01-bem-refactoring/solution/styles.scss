@@ -1,0 +1,134 @@
+/* ✅ CLEAN: Proper BEM structure */
+
+/* Global styles */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  padding: 32px;
+  background: #f3f4f6;
+}
+
+/* Product Card Component - BEM */
+.product-card {
+  /* Block base styles */
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  /* Elements */
+  &__media {
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #ef4444;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  &__content {
+    padding: 16px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #111827;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 16px;
+  }
+
+  &__price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  &__price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  &__price-old {
+    font-size: 16px;
+    color: #9ca3af;
+    text-decoration: line-through;
+  }
+
+  &__button {
+    width: 100%;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    /* Element modifier */
+    &--primary {
+      background: #3b82f6;
+      color: white;
+
+      &:hover {
+        background: #2563eb;
+      }
+    }
+  }
+
+  /* Block modifiers */
+  &--featured {
+    border: 2px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  }
+
+  &--large {
+    border: 2px solid #8b5cf6;
+
+    /* Modify elements when parent has --large modifier */
+    .product-card__content {
+      padding: 24px;
+    }
+
+    .product-card__title {
+      font-size: 24px;
+    }
+
+    .product-card__description {
+      font-size: 16px;
+    }
+  }
+}
+
+/*
+ * Key BEM principles demonstrated:
+ *
+ * 1. Flat specificity - all selectors are single class (0,1,0)
+ * 2. & syntax prevents descendant selectors
+ * 3. Clear Block/Element/Modifier structure
+ * 4. Modifiers use both base + modifier class in HTML
+ * 5. Component is self-contained and reusable
+ * 6. No generic class names that could conflict
+ * 7. Easy to understand component boundaries
+ */
+

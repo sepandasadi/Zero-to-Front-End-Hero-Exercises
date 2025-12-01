@@ -1,0 +1,30 @@
+// Real-World Architecture: ITCSS + BEM + OOCSS
+// ==========================================================================
+
+// LAYER 1: SETTINGS
+@import '1-settings/all';
+
+// LAYER 2: TOOLS
+@import '2-tools/all';
+
+// LAYER 3: GENERIC
+@import '3-generic/reset';
+
+// LAYER 4: ELEMENTS
+@import '4-elements/all';
+
+// LAYER 5: OBJECTS (OOCSS patterns with o- prefix)
+@import '5-objects/container';
+@import '5-objects/grid';
+@import '5-objects/media';
+
+// LAYER 6: COMPONENTS (BEM components with c- prefix)
+@import '6-components/button';
+@import '6-components/card';
+@import '6-components/navigation';
+@import '6-components/form';
+
+// LAYER 7: UTILITIES (u- prefix)
+@import '7-utilities/spacing';
+@import '7-utilities/text';
+

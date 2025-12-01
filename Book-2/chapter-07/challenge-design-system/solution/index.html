@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Foundation - Solution</title>
+  <link rel="stylesheet" href="dist/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="o-container">
+
+    <!-- Hero Section -->
+    <header class="u-py-16 u-text-center">
+      <h1 class="u-mb-4">Design System Foundation</h1>
+      <p class="u-text-xl u-mb-8" style="color: #6b7280;">A production-ready component library built with ITCSS + BEM + OOCSS</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button class="c-button c-button--primary c-button--lg">Get Started</button>
+        <button class="c-button c-button--outline c-button--primary c-button--lg">Documentation</button>
+      </div>
+    </header>
+
+    <!-- Color System -->
+    <section class="u-mb-16">
+      <h2 class="u-mb-8">Color System</h2>
+      <div class="c-card c-card--shadowed u-mb-8">
+        <div class="c-card__header">
+          <h3>Primary Colors</h3>
+        </div>
+        <div class="c-card__body">
+          <div class="o-grid o-grid--5col o-grid--gap-sm">
+            <div style="text-align: center;">
+              <div style="background: #eef2ff; height: 80px; border-radius: 8px; margin-bottom: 0.5rem;"></div>
+              <small>50</small>
+            </div>
+            <div style="text-align: center;">
+              <div style="background: #c7d2fe; height: 80px; border-radius: 8px; margin-bottom: 0.5rem;"></div>
+              <small>200</small>
+            </div>
+            <div style="text-align: center;">
+              <div style="background: #6366f1; height: 80px; border-radius: 8px; margin-bottom: 0.5rem;"></div>
+              <small><strong>500</strong></small>
+            </div>
+            <div style="text-align: center;">
+              <div style="background: #4338ca; height: 80px; border-radius: 8px; margin-bottom: 0.5rem;"></div>
+              <small>700</small>
+            </div>
+            <div style="text-align: center;">
+              <div style="background: #312e81; height: 80px; border-radius: 8px; margin-bottom: 0.5rem;"></div>
+              <small>900</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="u-mb-16">
+      <h2 class="u-mb-8">Typography</h2>
+      <div class="c-card c-card--shadowed">
+        <div class="c-card__body">
+          <h1>Heading 1 - Display Large</h1>
+          <h2>Heading 2 - Display Medium</h2>
+          <h3>Heading 3 - Display Small</h3>
+          <h4>Heading 4 - Title Large</h4>
+          <h5>Heading 5 - Title Medium</h5>
+          <h6>Heading 6 - Title Small</h6>
+          <p class="u-mt-6">Body text paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="u-text-sm">Small text - 14px. Perfect for captions and helper text.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Button System -->
+    <section class="u-mb-16">
+      <h2 class="u-mb-8">Button System</h2>
+
+      <div class="c-card c-card--shadowed u-mb-6">
+        <div class="c-card__header">
+          <h3>Sizes</h3>
+        </div>
+        <div class="c-card__body">
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <button class="c-button c-button--primary c-button--xs">Extra Small</button>
+            <button class="c-button c-button--primary c-button--sm">Small</button>
+            <button class="c-button c-button--primary">Medium</button>
+            <button class="c-button c-button--primary c-button--lg">Large</button>
+            <button class="c-button c-button--primary c-button--xl">Extra Large</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-card c-card--shadowed u-mb-6">
+        <div class="c-card__header">
+          <h3>Variants</h3>
+        </div>
+        <div class="c-card__body">
+          <h4 class="u-mb-4 u-text-sm u-font-semibold u-text-gray">Solid</h4>
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+            <button class="c-button c-button--primary">Primary</button>
+            <button class="c-button c-button--secondary">Secondary</button>
+            <button class="c-button c-button--success">Success</button>
+            <button class="c-button c-button--danger">Danger</button>
+            <button class="c-button c-button--warning">Warning</button>
+          </div>
+
+          <h4 class="u-mb-4 u-text-sm u-font-semibold u-text-gray">Outline</h4>
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+            <button class="c-button c-button--outline c-button--primary">Primary</button>
+            <button class="c-button c-button--outline c-button--secondary">Secondary</button>
+          </div>
+
+          <h4 class="u-mb-4 u-text-sm u-font-semibold u-text-gray">Ghost</h4>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="c-button c-button--ghost c-button--primary">Ghost Primary</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-card c-card--shadowed">
+        <div class="c-card__header">
+          <h3>States</h3>
+        </div>
+        <div class="c-card__body">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="c-button c-button--primary c-button--disabled">Disabled</button>
+            <button class="c-button c-button--primary c-button--loading">Loading</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card System -->
+    <section class="u-mb-16">
+      <h2 class="u-mb-8">Card System</h2>
+      <div class="o-grid o-grid--3col">
+        <div class="c-card c-card--bordered">
+          <div class="c-card__header">Bordered Card</div>
+          <div class="c-card__body">
+            <p>Standard card with a 2px border.</p>
+          </div>
+          <div class="c-card__footer">
+            <button class="c-button c-button--primary c-button--sm">Action</button>
+          </div>
+        </div>
+
+        <div class="c-card c-card--shadowed">
+          <div class="c-card__header">Shadowed Card</div>
+          <div class="c-card__body">
+            <p>Card with drop shadow effect.</p>
+          </div>
+        </div>
+
+        <div class="c-card c-card--featured">
+          <div class="c-card__header">Featured Card</div>
+          <div class="c-card__body">
+            <p>Highlighted featured card.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form System -->
+    <section class="u-mb-16">
+      <h2 class="u-mb-8">Form System</h2>
+      <div class="c-card c-card--shadowed" style="max-width: 600px; margin: 0 auto;">
+        <div class="c-card__header">
+          <h3>Contact Form</h3>
+        </div>
+        <div class="c-card__body">
+          <form>
+            <div class="c-form-group">
+              <label class="c-label">Name</label>
+              <input type="text" class="c-input" placeholder="Enter your name">
+            </div>
+
+            <div class="c-form-group">
+              <label class="c-label">Email</label>
+              <input type="email" class="c-input" placeholder="email@example.com">
+              <small class="c-help-text">We'll never share your email.</small>
+            </div>
+
+            <div class="c-form-group">
+              <label class="c-label">Message</label>
+              <textarea class="c-input" rows="4" placeholder="Your message"></textarea>
+            </div>
+
+            <div class="c-form-group">
+              <label class="c-label">Error State</label>
+              <input type="text" class="c-input c-input--error" value="Invalid input">
+              <small class="c-help-text c-help-text--error">This field is required.</small>
+            </div>
+
+            <div class="c-form-group">
+              <label class="c-label">Success State</label>
+              <input type="text" class="c-input c-input--success" value="Valid input">
+              <small class="c-help-text c-help-text--success">Looks good!</small>
+            </div>
+
+            <button type="submit" class="c-button c-button--primary c-button--block">
+              Submit Form
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alert System -->
+    <section class="u-mb-16">
+      <h2 class="u-mb-8">Alert System</h2>
+      <div class="c-alert c-alert--success u-mb-4">
+        <strong>Success!</strong> Your changes have been saved successfully.
+      </div>
+      <div class="c-alert c-alert--danger u-mb-4">
+        <strong>Error!</strong> Something went wrong. Please try again.
+      </div>
+      <div class="c-alert c-alert--warning u-mb-4">
+        <strong>Warning!</strong> Please review your input before proceeding.
+      </div>
+      <div class="c-alert c-alert--info">
+        <strong>Info:</strong> New features are available. Check them out!
+      </div>
+    </section>
+
+    <!-- Badge System -->
+    <section class="u-mb-16">
+      <h2 class="u-mb-8">Badge System</h2>
+      <div class="c-card c-card--shadowed">
+        <div class="c-card__header">
+          <h3>Badges</h3>
+        </div>
+        <div class="c-card__body">
+          <h4 class="u-mb-4">Sizes</h4>
+          <div class="u-mb-6" style="display: flex; gap: 0.5rem; align-items: center;">
+            <span class="c-badge c-badge--primary c-badge--sm">Small</span>
+            <span class="c-badge c-badge--primary">Medium</span>
+            <span class="c-badge c-badge--primary c-badge--lg">Large</span>
+          </div>
+
+          <h4 class="u-mb-4">Colors</h4>
+          <div class="u-mb-6" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="c-badge c-badge--primary">Primary</span>
+            <span class="c-badge c-badge--secondary">Secondary</span>
+            <span class="c-badge c-badge--success">Success</span>
+            <span class="c-badge c-badge--danger">Danger</span>
+            <span class="c-badge c-badge--warning">Warning</span>
+            <span class="c-badge c-badge--info">Info</span>
+          </div>
+
+          <h4 class="u-mb-4">Pills</h4>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="c-badge c-badge--primary c-badge--pill">New</span>
+            <span class="c-badge c-badge--success c-badge--pill">Featured</span>
+            <span class="c-badge c-badge--danger c-badge--pill">Hot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="u-mb-16">
+      <h2 class="u-mb-8">Architecture</h2>
+      <div class="c-card c-card--shadowed">
+        <div class="c-card__header">
+          <h3>ITCSS 7-Layer Structure</h3>
+        </div>
+        <div class="c-card__body">
+          <pre style="background: #1f2937; color: #f3f4f6; padding: 1.5rem; border-radius: 8px; overflow-x: auto; font-size: 0.875rem;">scss/
+├── 1-settings/          # Design tokens
+├── 2-tools/             # Mixins & functions
+├── 3-generic/           # Reset
+├── 4-elements/          # HTML elements
+├── 5-objects/           # OOCSS patterns (o-)
+├── 6-components/        # BEM components (c-)
+├── 7-utilities/         # Helpers (u-)
+└── main.scss            # Import orchestration</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="u-text-center u-py-16" style="border-top: 1px solid #e5e7eb;">
+      <p style="color: #6b7280;">Design System Foundation - Built with ITCSS + BEM + OOCSS</p>
+      <p class="u-text-sm u-mt-2" style="color: #9ca3af;">A production-ready CSS architecture demonstration</p>
+    </footer>
+
+  </div>
+</body>
+</html>
+

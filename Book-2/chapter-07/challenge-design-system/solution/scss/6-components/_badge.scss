@@ -1,0 +1,62 @@
+// ==========================================================================
+// COMPONENTS: BADGE
+// Badge/label component with BEM naming
+// ==========================================================================
+
+.c-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: spacing('0.5') spacing('2');
+  font-size: font-size('xs');
+  font-weight: font-weight('medium');
+  line-height: line-height('tight');
+  border-radius: radius('base');
+
+  // Size modifiers
+  @include m('sm') {
+    padding: spacing('0.5') spacing('1.5');
+    font-size: 0.625rem;
+  }
+
+  @include m('lg') {
+    padding: spacing('1') spacing('2.5');
+    font-size: font-size('sm');
+  }
+
+  // Color modifiers
+  @include m('primary') {
+    background-color: color('primary-100');
+    color: color('primary-700');
+  }
+
+  @include m('secondary') {
+    background-color: color('secondary-100');
+    color: color('secondary-700');
+  }
+
+  @include m('success') {
+    background-color: color('success-light');
+    color: color('success-dark');
+  }
+
+  @include m('danger') {
+    background-color: color('danger-light');
+    color: color('danger-dark');
+  }
+
+  @include m('warning') {
+    background-color: color('warning-light');
+    color: color('warning-dark');
+  }
+
+  @include m('info') {
+    background-color: color('info-light');
+    color: color('info-dark');
+  }
+
+  // Pill modifier
+  @include m('pill') {
+    border-radius: radius('full');
+  }
+}
+

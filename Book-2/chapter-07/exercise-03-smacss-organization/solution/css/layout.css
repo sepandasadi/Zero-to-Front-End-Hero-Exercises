@@ -1,0 +1,30 @@
+/* ==========================================================================
+   LAYOUT STYLES
+   Major page sections with l- prefix
+   ========================================================================== */
+
+.l-header {
+  background: white;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.l-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.l-sidebar {
+  width: 250px;
+  background: white;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.l-main-content {
+  flex: 1;
+  padding: 30px;
+}
+

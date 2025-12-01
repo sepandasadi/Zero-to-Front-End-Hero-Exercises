@@ -1,0 +1,59 @@
+// ==========================================================================
+// COMPONENTS: CARD
+// Card component with BEM naming
+// ==========================================================================
+
+.c-card {
+  background-color: color('white');
+  border: 1px solid color('gray-200');
+  border-radius: radius('lg');
+  overflow: hidden;
+
+  @include e('header') {
+    padding: spacing('4');
+    border-bottom: 1px solid color('gray-200');
+    font-weight: font-weight('semibold');
+    font-size: font-size('lg');
+    color: color('gray-900');
+  }
+
+  @include e('body') {
+    padding: spacing('4');
+  }
+
+  @include e('footer') {
+    padding: spacing('4');
+    border-top: 1px solid color('gray-200');
+    background-color: color('gray-50');
+  }
+
+  // Modifier: Bordered
+  @include m('bordered') {
+    border-width: 2px;
+    border-color: color('gray-300');
+  }
+
+  // Modifier: Shadowed
+  @include m('shadowed') {
+    border-color: transparent;
+    box-shadow: shadow('md');
+  }
+
+  // Modifier: Featured
+  @include m('featured') {
+    border-color: color('primary-500');
+    box-shadow: 0 4px 12px rgba(color('primary-500'), 0.2);
+  }
+
+  // Modifier: Hoverable
+  @include m('hoverable') {
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: shadow('lg');
+      transform: translateY(-2px);
+    }
+  }
+}
+

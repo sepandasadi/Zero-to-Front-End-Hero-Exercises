@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOCSS Pattern Library - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>OOCSS Pattern Library</h1>
+      <p>Reusable CSS objects demonstrating Object-Oriented CSS principles</p>
+    </header>
+
+    <!-- Media Object Pattern -->
+    <section>
+      <h2>Media Object</h2>
+
+      <!-- Standard Media Object -->
+      <div class="media box box--bordered">
+        <img src="https://via.placeholder.com/80" class="media__image" alt="Avatar">
+        <div class="media__body">
+          <h3>Standard Media Object</h3>
+          <p>This is the classic OOCSS media object pattern - image on left, content on right. It's flexible and reusable.</p>
+        </div>
+      </div>
+
+      <!-- Small Variant -->
+      <div class="media media--small box box--bordered">
+        <img src="https://via.placeholder.com/50" class="media__image" alt="Avatar">
+        <div class="media__body">
+          <h4>Small Media Object</h4>
+          <p>Smaller image, same structure.</p>
+        </div>
+      </div>
+
+      <!-- Centered Variant -->
+      <div class="media media--center box box--bordered">
+        <img src="https://via.placeholder.com/60" class="media__image" alt="Avatar">
+        <div class="media__body">
+          <h4>Centered Media Object</h4>
+          <p>Content vertically centered with image.</p>
+        </div>
+      </div>
+
+      <!-- Reverse Variant -->
+      <div class="media media--reverse box box--bordered">
+        <img src="https://via.placeholder.com/80" class="media__image" alt="Avatar">
+        <div class="media__body">
+          <h3>Reverse Media Object</h3>
+          <p>Image on the right instead of left.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Box Object Pattern -->
+    <section>
+      <h2>Box Object</h2>
+
+      <div class="box box--bordered">
+        <h4>Basic Box (Bordered)</h4>
+        <p>Consistent padding with border.</p>
+      </div>
+
+      <div class="box box--shadowed">
+        <h4>Shadowed Box</h4>
+        <p>Consistent padding with shadow.</p>
+      </div>
+
+      <div class="box box--primary">
+        <h4>Primary Box</h4>
+        <p>Box with primary color skin.</p>
+      </div>
+
+      <div class="box box--success">
+        <h4>Success Box</h4>
+        <p>Box with success color skin.</p>
+      </div>
+
+      <div class="box box--danger">
+        <h4>Danger Box</h4>
+        <p>Box with danger color skin.</p>
+      </div>
+
+      <!-- Composed Objects -->
+      <div class="box box--bordered box--shadowed box--rounded">
+        <h4>Composed Box</h4>
+        <p>This box combines multiple skins: bordered + shadowed + rounded</p>
+      </div>
+    </section>
+
+    <!-- Button System -->
+    <section>
+      <h2>Button System</h2>
+
+      <h4>Sizes (Structure)</h4>
+      <button class="btn btn--sm btn--primary">Small</button>
+      <button class="btn btn--primary">Medium</button>
+      <button class="btn btn--lg btn--primary">Large</button>
+
+      <h4>Colors (Skins)</h4>
+      <button class="btn btn--primary">Primary</button>
+      <button class="btn btn--secondary">Secondary</button>
+      <button class="btn btn--success">Success</button>
+      <button class="btn btn--danger">Danger</button>
+
+      <h4>Variants</h4>
+      <button class="btn btn--outline btn--primary">Outline Primary</button>
+      <button class="btn btn--ghost btn--primary">Ghost Primary</button>
+      <button class="btn btn--disabled">Disabled</button>
+
+      <h4>Composition</h4>
+      <button class="btn btn--lg btn--primary btn--rounded">Large Primary Rounded</button>
+      <button class="btn btn--sm btn--outline btn--danger">Small Outline Danger</button>
+    </section>
+
+    <!-- Composability Demo -->
+    <section>
+      <h2>Composability Demo</h2>
+      <p>OOCSS objects can be combined freely:</p>
+
+      <div class="box box--primary box--rounded box--shadowed media media--center">
+        <img src="https://via.placeholder.com/80" class="media__image" alt="Feature">
+        <div class="media__body">
+          <h3>Composed Pattern</h3>
+          <p>This combines: box (structure) + primary/rounded/shadowed (skins) + media (layout)</p>
+          <button class="btn btn--lg btn--outline">Learn More</button>
+        </div>
+      </div>
+    </section>
+
+    <footer style="text-align: center; margin-top: 3rem; color: #666;">
+      <p>OOCSS Pattern Library - Built with reusable objects</p>
+    </footer>
+  </div>
+</body>
+</html>
+

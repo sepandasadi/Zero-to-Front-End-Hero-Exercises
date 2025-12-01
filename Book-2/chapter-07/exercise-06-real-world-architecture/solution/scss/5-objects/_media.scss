@@ -1,0 +1,19 @@
+// OOCSS Object: Media
+.o-media {
+  display: flex;
+  align-items: flex-start;
+  gap: spacing('4');
+
+  @include e('image') {
+    flex-shrink: 0;
+  }
+
+  @include e('body') {
+    flex: 1;
+  }
+
+  @include m('center') {
+    align-items: center;
+  }
+}
+

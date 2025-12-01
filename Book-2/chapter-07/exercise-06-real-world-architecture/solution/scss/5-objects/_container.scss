@@ -1,0 +1,15 @@
+// OOCSS Object: Container
+.o-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 spacing('4');
+
+  @include respond-to('md') {
+    padding: 0 spacing('6');
+  }
+
+  @include m('narrow') {
+    max-width: 800px;
+  }
+}
+

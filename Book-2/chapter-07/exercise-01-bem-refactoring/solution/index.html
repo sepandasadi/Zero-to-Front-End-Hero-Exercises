@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card - BEM Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ✅ CLEAN: Proper BEM structure -->
+
+  <div class="product-card product-card--featured">
+    <div class="product-card__media">
+      <img
+        src="https://via.placeholder.com/300x300"
+        alt="Wireless Headphones"
+        class="product-card__image"
+      >
+      <span class="product-card__badge">New</span>
+    </div>
+    <div class="product-card__content">
+      <h3 class="product-card__title">Wireless Headphones</h3>
+      <p class="product-card__description">
+        Premium noise-cancelling headphones with 30-hour battery life
+      </p>
+      <div class="product-card__price-wrapper">
+        <span class="product-card__price">$29.99</span>
+        <span class="product-card__price-old">$39.99</span>
+      </div>
+      <button class="product-card__button product-card__button--primary">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+  <br><br>
+
+  <!-- Standard card -->
+  <div class="product-card">
+    <div class="product-card__media">
+      <img
+        src="https://via.placeholder.com/300x300"
+        alt="Smart Watch"
+        class="product-card__image"
+      >
+      <span class="product-card__badge">Sale</span>
+    </div>
+    <div class="product-card__content">
+      <h3 class="product-card__title">Smart Watch</h3>
+      <p class="product-card__description">
+        Track your fitness and stay connected on the go
+      </p>
+      <div class="product-card__price-wrapper">
+        <span class="product-card__price">$199.99</span>
+        <span class="product-card__price-old">$249.99</span>
+      </div>
+      <button class="product-card__button product-card__button--primary">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+  <br><br>
+
+  <!-- Large variant -->
+  <div class="product-card product-card--large">
+    <div class="product-card__media">
+      <img
+        src="https://via.placeholder.com/300x300"
+        alt="Premium Laptop"
+        class="product-card__image"
+      >
+      <span class="product-card__badge">Exclusive</span>
+    </div>
+    <div class="product-card__content">
+      <h3 class="product-card__title">Premium Laptop</h3>
+      <p class="product-card__description">
+        High-performance laptop for professionals and creators
+      </p>
+      <div class="product-card__price-wrapper">
+        <span class="product-card__price">$1,299.99</span>
+        <span class="product-card__price-old">$1,499.99</span>
+      </div>
+      <button class="product-card__button product-card__button--primary">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
+

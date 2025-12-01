@@ -1,0 +1,40 @@
+// BEM Component: Navigation
+.c-navigation {
+  background: white;
+  border-bottom: 1px solid color('gray-200');
+  padding: spacing('4') 0;
+
+  @include e('container') {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include e('logo') {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: color('primary');
+  }
+
+  @include e('list') {
+    display: flex;
+    gap: spacing('6');
+    list-style: none;
+  }
+
+  @include e('link') {
+    color: color('gray-900');
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: color('primary');
+    }
+
+    @include m('active') {
+      color: color('primary');
+      font-weight: 600;
+    }
+  }
+}
+

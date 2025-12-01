@@ -1,0 +1,97 @@
+// ==========================================================================
+// COMPONENTS: INPUT
+// Form input component with BEM naming
+// ==========================================================================
+
+.c-input {
+  display: block;
+  width: 100%;
+  padding: spacing('2') spacing('3');
+  font-family: font-family('base');
+  font-size: font-size('base');
+  line-height: line-height('tight');
+  color: color('gray-900');
+  background-color: color('white');
+  border: border-width('base') solid color('gray-300');
+  border-radius: radius('md');
+  transition: all 0.2s;
+
+  &::placeholder {
+    color: color('gray-400');
+  }
+
+  &:hover {
+    border-color: color('gray-400');
+  }
+
+  &:focus {
+    outline: none;
+    border-color: color('primary-500');
+    box-shadow: 0 0 0 3px rgba(color('primary-500'), 0.1);
+  }
+
+  // Size modifiers
+  @include m('sm') {
+    padding: spacing('1') spacing('2');
+    font-size: font-size('sm');
+  }
+
+  @include m('lg') {
+    padding: spacing('3') spacing('4');
+    font-size: font-size('lg');
+  }
+
+  // State modifiers
+  @include m('error') {
+    border-color: color('danger');
+
+    &:focus {
+      border-color: color('danger');
+      box-shadow: 0 0 0 3px rgba(color('danger'), 0.1);
+    }
+  }
+
+  @include m('success') {
+    border-color: color('success');
+
+    &:focus {
+      border-color: color('success');
+      box-shadow: 0 0 0 3px rgba(color('success'), 0.1);
+    }
+  }
+
+  @include m('disabled') {
+    background-color: color('gray-100');
+    color: color('gray-500');
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.c-label {
+  display: block;
+  margin-bottom: spacing('2');
+  font-size: font-size('sm');
+  font-weight: font-weight('medium');
+  color: color('gray-700');
+}
+
+.c-help-text {
+  display: block;
+  margin-top: spacing('1.5');
+  font-size: font-size('sm');
+  color: color('gray-600');
+
+  @include m('error') {
+    color: color('danger');
+  }
+
+  @include m('success') {
+    color: color('success');
+  }
+}
+
+.c-form-group {
+  margin-bottom: spacing('4');
+}
+

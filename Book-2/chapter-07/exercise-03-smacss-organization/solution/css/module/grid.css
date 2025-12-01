@@ -1,0 +1,18 @@
+/* ==========================================================================
+   MODULE: GRID
+   Grid layout system
+   ========================================================================== */
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+

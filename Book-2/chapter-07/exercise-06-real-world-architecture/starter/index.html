@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-World Architecture - Starter</title>
+  <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
+  <!-- OOCSS Object: Container -->
+  <div class="o-container">
+
+    <!-- BEM Component + Utility -->
+    <header class="u-mb-8 u-text-center">
+      <h1>Real-World CSS Architecture</h1>
+      <p>ITCSS + BEM + OOCSS Working Together</p>
+    </header>
+
+    <!-- Instructions -->
+    <section class="c-card u-mb-8">
+      <div class="c-card__header">
+        <h2>What to Build</h2>
+      </div>
+      <div class="c-card__body">
+        <p>Create a production-ready component library with:</p>
+        <ul style="margin-top: 1rem;">
+          <li><strong>ITCSS Structure:</strong> 7 layers (settings, tools, generic, elements, objects, components, utilities)</li>
+          <li><strong>OOCSS Objects:</strong> Layout patterns (o-container, o-media, o-grid)</li>
+          <li><strong>BEM Components:</strong> UI components (c-button, c-card, c-form, c-navigation)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Component Showcase -->
+    <section class="u-mb-8">
+      <h2 class="u-mb-4">Component Examples</h2>
+
+      <!-- OOCSS Grid with BEM Cards -->
+      <div class="o-grid o-grid--3col">
+
+        <!-- Card 1 -->
+        <div class="c-card c-card--bordered">
+          <div class="c-card__header">
+            Button Component
+          </div>
+          <div class="c-card__body">
+            <p class="u-mb-4">Implement buttons with sizes and colors</p>
+            <button class="c-button c-button--primary c-button--sm">Small</button>
+            <button class="c-button c-button--primary">Medium</button>
+            <button class="c-button c-button--primary c-button--lg">Large</button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="c-card c-card--shadowed">
+          <div class="c-card__header">
+            Card Component
+          </div>
+          <div class="c-card__body">
+            <p>Cards with header, body, and footer sections</p>
+          </div>
+          <div class="c-card__footer">
+            <button class="c-button c-button--outline c-button--sm">Action</button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="c-card c-card--featured">
+          <div class="c-card__header">
+            Navigation Component
+          </div>
+          <div class="c-card__body">
+            <p>Responsive navigation bar with active states</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Architecture Visual -->
+    <section class="c-card u-mb-8">
+      <div class="c-card__header">
+        <h2>Architecture Layers</h2>
+      </div>
+      <div class="c-card__body">
+        <pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;">
+scss/
+├── 1-settings/      # Variables (colors, typography, spacing)
+├── 2-tools/         # Mixins & functions
+├── 3-generic/       # Reset
+├── 4-elements/      # HTML elements
+├── 5-objects/       # OOCSS layout patterns (o-*)
+├── 6-components/    # BEM components (c-*)
+├── 7-utilities/     # Helper classes (u-*)
+└── main.scss        # Import orchestration
+        </pre>
+      </div>
+    </section>
+
+    <!-- Form Example -->
+    <section class="c-card" style="max-width: 600px; margin: 0 auto;">
+      <div class="c-card__header">
+        <h2>Form Component</h2>
+      </div>
+      <div class="c-card__body">
+        <form>
+          <div class="c-form-group">
+            <label class="c-label">Name</label>
+            <input type="text" class="c-input" placeholder="Enter your name">
+          </div>
+
+          <div class="c-form-group">
+            <label class="c-label">Email</label>
+            <input type="email" class="c-input" placeholder="email@example.com">
+          </div>
+
+          <button type="submit" class="c-button c-button--primary c-button--block">
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
+

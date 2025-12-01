@@ -1,0 +1,120 @@
+/* OOCSS Implementation */
+
+/* Structure Objects */
+.box {
+  padding: 1rem;
+}
+
+.box--no-padding {
+  padding: 0;
+}
+
+.box--rounded {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.box--bordered {
+  border: 1px solid #ddd;
+}
+
+.box--shadowed {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Skin Objects */
+.box--warning {
+  border-color: #fbbf24;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+/* Media Object */
+.media {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.media--small {
+  font-size: 0.875rem;
+}
+
+/* Button Object */
+.btn {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn--primary {
+  background: #6366f1;
+  color: white;
+}
+
+.btn--primary:hover {
+  background: #4f46e5;
+}
+
+.btn--secondary {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.btn--lg {
+  flex: 1;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Product Specific */
+.product {
+  background: white;
+  position: relative;
+}
+
+.product__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.product__title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* Price Object */
+.price {
+  margin-bottom: 1rem;
+}
+
+.price__current {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.price__old {
+  text-decoration: line-through;
+  color: #9ca3af;
+  margin-left: 0.5rem;
+}
+
+/* Rating stars */
+.stars {
+  color: #fbbf24;
+}
+
+.text-muted {
+  color: #6b7280;
+}
+

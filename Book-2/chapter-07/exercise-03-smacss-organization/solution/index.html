@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMACSS Organization - Solution</title>
+  <!-- Main CSS imports all organized files -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="l-container">
+    <header class="l-header">
+      <h1>SMACSS Organization Solution</h1>
+      <p>CSS organized into 5 categories: Base, Layout, Module, State, Theme</p>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="#" class="nav-link is-active">Home</a></li>
+          <li><a href="#" class="nav-link">About</a></li>
+          <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div style="display: flex; gap: 20px;">
+      <aside class="l-sidebar">
+        <h3>Sidebar</h3>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 10px;">
+            <a href="#">Dashboard</a>
+          </li>
+          <li style="margin-bottom: 10px;">
+            <a href="#">Profile</a>
+          </li>
+          <li style="margin-bottom: 10px;">
+            <a href="#">Settings</a>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="l-main-content">
+        <section style="margin-bottom: 30px;">
+          <h2>Buttons</h2>
+          <button class="button button-primary">Primary</button>
+          <button class="button button-secondary">Secondary</button>
+          <button class="button button-danger">Danger</button>
+          <button class="button button-primary is-disabled">Disabled</button>
+        </section>
+
+        <section style="margin-bottom: 30px;">
+          <h2>Cards</h2>
+          <div class="grid grid-2col">
+            <div class="card">
+              <div class="card-header">
+                Regular Card
+              </div>
+              <div class="card-body">
+                This is a regular card with some content inside.
+              </div>
+              <div class="card-footer">
+                <button class="button button-primary">Action</button>
+              </div>
+            </div>
+
+            <div class="card is-featured">
+              <div class="card-header">
+                Featured Card <span class="badge badge-primary">NEW</span>
+              </div>
+              <div class="card-body">
+                This card is featured and highlighted.
+              </div>
+              <div class="card-footer">
+                <button class="button button-primary">Action</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section style="margin-bottom: 30px;">
+          <h2>Alerts</h2>
+          <div class="alert alert-success">
+            Success! Your changes have been saved.
+          </div>
+          <div class="alert alert-danger">
+            Error! Something went wrong.
+          </div>
+          <div class="alert alert-info">
+            Info: Please read the documentation.
+          </div>
+        </section>
+
+        <section>
+          <h2>Form</h2>
+          <form>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-input is-error" placeholder="Password">
+              <small style="color: #dc3545;">Password is required</small>
+            </div>
+            <button type="submit" class="button button-primary">Submit</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle for testing (press 't' key)
+    document.addEventListener('keypress', (e) => {
+      if (e.key === 't') {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
+

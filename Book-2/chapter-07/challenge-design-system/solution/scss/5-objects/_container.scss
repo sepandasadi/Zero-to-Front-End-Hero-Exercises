@@ -1,0 +1,39 @@
+// ==========================================================================
+// OBJECTS: CONTAINER
+// Max-width container (OOCSS pattern)
+// ==========================================================================
+
+.o-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: spacing('4');
+  padding-left: spacing('4');
+
+  @include respond-to('md') {
+    padding-right: spacing('6');
+    padding-left: spacing('6');
+  }
+
+  @include respond-to('lg') {
+    padding-right: spacing('8');
+    padding-left: spacing('8');
+  }
+
+  // Modifier: Narrow container
+  @include m('narrow') {
+    max-width: 800px;
+  }
+
+  // Modifier: Wide container
+  @include m('wide') {
+    max-width: 1536px;
+  }
+
+  // Modifier: Fluid (full width)
+  @include m('fluid') {
+    max-width: none;
+  }
+}
+

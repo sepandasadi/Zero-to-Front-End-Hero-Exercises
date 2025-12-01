@@ -1,0 +1,48 @@
+// BEM Component: Form
+.c-form {
+  @include e('group') {
+    margin-bottom: spacing('4');
+  }
+
+  @include e('label') {
+    display: block;
+    margin-bottom: spacing('2');
+    font-weight: 500;
+    color: color('gray-900');
+  }
+
+  @include e('input') {
+    width: 100%;
+    padding: spacing('2') spacing('3');
+    border: 2px solid color('gray-200');
+    border-radius: 0.5rem;
+    transition: border-color 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: color('primary');
+      box-shadow: 0 0 0 3px rgba(color('primary'), 0.1);
+    }
+
+    @include m('error') {
+      border-color: color('danger');
+
+      &:focus {
+        border-color: color('danger');
+        box-shadow: 0 0 0 3px rgba(color('danger'), 0.1);
+      }
+    }
+  }
+
+  @include e('help') {
+    display: block;
+    margin-top: spacing('1');
+    font-size: 0.875rem;
+    color: color('gray-900');
+
+    @include m('error') {
+      color: color('danger');
+    }
+  }
+}
+

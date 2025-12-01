@@ -1,0 +1,78 @@
+// ==========================================================================
+// SETTINGS: COLORS
+// Design token system for colors
+// ==========================================================================
+
+// Primary Color Scale (9 shades)
+$colors: (
+  // Primary (Indigo)
+  'primary-50': #eef2ff,
+  'primary-100': #e0e7ff,
+  'primary-200': #c7d2fe,
+  'primary-300': #a5b4fc,
+  'primary-400': #818cf8,
+  'primary-500': #6366f1,   // Main brand color
+  'primary-600': #4f46e5,
+  'primary-700': #4338ca,
+  'primary-800': #3730a3,
+  'primary-900': #312e81,
+
+  // Secondary (Purple)
+  'secondary-50': #faf5ff,
+  'secondary-100': #f3e8ff,
+  'secondary-200': #e9d5ff,
+  'secondary-300': #d8b4fe,
+  'secondary-400': #c084fc,
+  'secondary-500': #8b5cf6,
+  'secondary-600': #7c3aed,
+  'secondary-700': #6d28d9,
+  'secondary-800': #5b21b6,
+  'secondary-900': #4c1d95,
+
+  // Semantic Colors
+  'success': #10b981,
+  'success-light': #d1fae5,
+  'success-dark': #065f46,
+
+  'danger': #ef4444,
+  'danger-light': #fee2e2,
+  'danger-dark': #991b1b,
+
+  'warning': #f59e0b,
+  'warning-light': #fef3c7,
+  'warning-dark': #92400e,
+
+  'info': #3b82f6,
+  'info-light': #dbeafe,
+  'info-dark': #1e40af,
+
+  // Neutral Scale (Gray - 11 shades)
+  'gray-50': #f9fafb,
+  'gray-100': #f3f4f6,
+  'gray-200': #e5e7eb,
+  'gray-300': #d1d5db,
+  'gray-400': #9ca3af,
+  'gray-500': #6b7280,
+  'gray-600': #4b5563,
+  'gray-700': #374151,
+  'gray-800': #1f2937,
+  'gray-900': #111827,
+  'gray-950': #030712,
+
+  // Utility Colors
+  'white': #ffffff,
+  'black': #000000,
+);
+
+// Color accessor function
+@function color($name) {
+  @if not map-has-key($colors, $name) {
+    @warn "Color `#{$name}` not found in $colors map.";
+    @return null;
+  }
+  @return map-get($colors, $name);
+}
+
+// Export colors map for utilities
+$color-names: map-keys($colors);
+

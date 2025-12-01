@@ -1,0 +1,8 @@
+// Utilities: Spacing
+@each $key, $value in $spacing {
+  .u-mt-#{$key} { margin-top: $value !important; }
+  .u-mb-#{$key} { margin-bottom: $value !important; }
+  .u-ml-#{$key} { margin-left: $value !important; }
+  .u-mr-#{$key} { margin-right: $value !important; }
+}
+

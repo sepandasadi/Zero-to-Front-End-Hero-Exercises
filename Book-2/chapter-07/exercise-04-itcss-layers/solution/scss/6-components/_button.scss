@@ -1,0 +1,26 @@
+// Components: Button (BEM)
+.c-button {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &--primary {
+    background: $color-primary;
+    color: white;
+    border-color: $color-primary;
+
+    &:hover {
+      background: darken($color-primary, 10%);
+    }
+  }
+
+  &--lg {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-lg;
+  }
+}
+

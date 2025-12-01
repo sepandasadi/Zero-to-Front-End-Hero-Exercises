@@ -1,0 +1,327 @@
+/* OOCSS Pattern Library - Solution */
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+section {
+  background: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+section > h2 {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #007bff;
+}
+
+section > h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+/* ============================================
+   MEDIA OBJECT - Image + Content Layout
+   ============================================ */
+
+/* Structure - defines layout only */
+.media {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.media__image {
+  flex-shrink: 0;
+}
+
+.media__body {
+  flex: 1;
+}
+
+/* Skins - define size variations */
+.media--small .media__image {
+  width: 50px;
+  height: 50px;
+}
+
+.media--small {
+  gap: 0.75rem;
+}
+
+/* Skins - define alignment */
+.media--center {
+  align-items: center;
+}
+
+/* Skins - define direction */
+.media--reverse {
+  flex-direction: row-reverse;
+}
+
+.media--stacked {
+  flex-direction: column;
+}
+
+/* ============================================
+   BOX OBJECT - Reusable Container
+   ============================================ */
+
+/* Structure - consistent padding */
+.box {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Skins - borders */
+.box--bordered {
+  border: 2px solid #ddd;
+}
+
+/* Skins - shadows */
+.box--shadowed {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Skins - border radius */
+.box--rounded {
+  border-radius: 12px;
+}
+
+/* Skins - colors (semantic) */
+.box--primary {
+  background: #e3f2fd;
+  border-color: #2196f3;
+  color: #0d47a1;
+}
+
+.box--secondary {
+  background: #f3e5f5;
+  border-color: #9c27b0;
+  color: #4a148c;
+}
+
+.box--success {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #1b5e20;
+}
+
+.box--warning {
+  background: #fff3e0;
+  border-color: #ff9800;
+  color: #e65100;
+}
+
+.box--danger {
+  background: #ffebee;
+  border-color: #f44336;
+  color: #b71c1c;
+}
+
+.box--info {
+  background: #e1f5fe;
+  border-color: #03a9f4;
+  color: #01579b;
+}
+
+/* ============================================
+   BUTTON SYSTEM - Sizes + Colors
+   ============================================ */
+
+/* Structure - base button */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* Structure - sizes */
+.btn--sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.btn--lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+}
+
+.btn--xl {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+}
+
+/* Structure - full width */
+.btn--block {
+  display: block;
+  width: 100%;
+}
+
+/* Skins - solid buttons */
+.btn--primary {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.btn--primary:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn--secondary {
+  background: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+
+.btn--secondary:hover {
+  background: #545b62;
+  border-color: #545b62;
+}
+
+.btn--success {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.btn--success:hover {
+  background: #218838;
+  border-color: #218838;
+}
+
+.btn--danger {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.btn--danger:hover {
+  background: #c82333;
+  border-color: #c82333;
+}
+
+/* Skins - outline buttons */
+.btn--outline {
+  background: transparent;
+}
+
+.btn--outline.btn--primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.btn--outline.btn--primary:hover {
+  background: #007bff;
+  color: white;
+}
+
+.btn--outline.btn--danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn--outline.btn--danger:hover {
+  background: #dc3545;
+  color: white;
+}
+
+/* Skins - ghost buttons */
+.btn--ghost {
+  background: transparent;
+  border-color: transparent;
+}
+
+.btn--ghost.btn--primary {
+  color: #007bff;
+}
+
+.btn--ghost.btn--primary:hover {
+  background: rgba(0, 123, 255, 0.1);
+}
+
+/* Skins - additional styles */
+.btn--rounded {
+  border-radius: 50px;
+}
+
+.btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================
+   GRID OBJECT (Bonus)
+   ============================================ */
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ============================================
+   LIST OBJECT (Bonus)
+   ============================================ */
+
+.list {
+  list-style: none;
+}
+
+.list--inline {
+  display: flex;
+  gap: 1rem;
+}
+
+.list--spaced {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+

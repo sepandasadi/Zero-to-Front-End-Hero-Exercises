@@ -1,0 +1,33 @@
+// ITCSS Main Stylesheet
+// Import order is CRITICAL!
+
+// 1. Settings (variables)
+@import '1-settings/colors';
+@import '1-settings/typography';
+@import '1-settings/spacing';
+
+// 2. Tools (mixins/functions)
+@import '2-tools/functions';
+@import '2-tools/mixins';
+
+// 3. Generic (reset)
+@import '3-generic/reset';
+
+// 4. Elements (bare HTML)
+@import '4-elements/page';
+@import '4-elements/typography';
+
+// 5. Objects (layout patterns - OOCSS)
+@import '5-objects/container';
+@import '5-objects/media';
+@import '5-objects/grid';
+
+// 6. Components (UI components - BEM)
+@import '6-components/button';
+@import '6-components/card';
+
+// 7. Utilities (helper classes)
+@import '7-utilities/spacing';
+@import '7-utilities/display';
+@import '7-utilities/text';
+

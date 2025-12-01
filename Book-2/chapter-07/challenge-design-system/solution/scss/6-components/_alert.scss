@@ -1,0 +1,35 @@
+// ==========================================================================
+// COMPONENTS: ALERT
+// Alert message component with BEM naming
+// ==========================================================================
+
+.c-alert {
+  padding: spacing('4');
+  border-radius: radius('md');
+  border: border-width('base') solid transparent;
+
+  @include m('success') {
+    background-color: color('success-light');
+    border-color: color('success');
+    color: color('success-dark');
+  }
+
+  @include m('danger') {
+    background-color: color('danger-light');
+    border-color: color('danger');
+    color: color('danger-dark');
+  }
+
+  @include m('warning') {
+    background-color: color('warning-light');
+    border-color: color('warning');
+    color: color('warning-dark');
+  }
+
+  @include m('info') {
+    background-color: color('info-light');
+    border-color: color('info');
+    color: color('info-dark');
+  }
+}
+

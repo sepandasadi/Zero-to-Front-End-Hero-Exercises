@@ -1,0 +1,25 @@
+// ==========================================================================
+// TOOLS: BEM HELPERS
+// Shortcuts for BEM naming convention
+// ==========================================================================
+
+// Element
+@mixin e($name) {
+  &__#{$name} {
+    @content;
+  }
+}
+
+// Modifier
+@mixin m($name) {
+  &--#{$name} {
+    @content;
+  }
+}
+
+// Usage example:
+// .c-button {
+//   @include e('icon') { ... }     // .c-button__icon
+//   @include m('primary') { ... }  // .c-button--primary
+// }
+

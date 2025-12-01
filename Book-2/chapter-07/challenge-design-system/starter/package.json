@@ -1,0 +1,21 @@
+{
+  "name": "design-system-foundation",
+  "version": "1.0.0",
+  "description": "Production-ready design system with ITCSS + BEM + OOCSS",
+  "scripts": {
+    "sass": "sass --watch scss/main.scss:dist/css/main.css",
+    "build": "sass scss/main.scss:dist/css/main.css --style compressed",
+    "build:dev": "sass scss/main.scss:dist/css/main.css --style expanded"
+  },
+  "keywords": [
+    "design-system",
+    "itcss",
+    "bem",
+    "oocss",
+    "css-architecture"
+  ],
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}
+

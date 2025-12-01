@@ -1,0 +1,47 @@
+// ==========================================================================
+// SETTINGS: SPACING
+// Spacing scale based on 4px base unit
+// ==========================================================================
+
+// Base unit
+$spacing-base: 0.25rem; // 4px
+
+// Spacing Scale
+$spacing: (
+  '0': 0,
+  '0.5': $spacing-base * 0.5,   // 2px
+  '1': $spacing-base,            // 4px
+  '1.5': $spacing-base * 1.5,    // 6px
+  '2': $spacing-base * 2,        // 8px
+  '2.5': $spacing-base * 2.5,    // 10px
+  '3': $spacing-base * 3,        // 12px
+  '3.5': $spacing-base * 3.5,    // 14px
+  '4': $spacing-base * 4,        // 16px
+  '5': $spacing-base * 5,        // 20px
+  '6': $spacing-base * 6,        // 24px
+  '7': $spacing-base * 7,        // 28px
+  '8': $spacing-base * 8,        // 32px
+  '9': $spacing-base * 9,        // 36px
+  '10': $spacing-base * 10,      // 40px
+  '11': $spacing-base * 11,      // 44px
+  '12': $spacing-base * 12,      // 48px
+  '14': $spacing-base * 14,      // 56px
+  '16': $spacing-base * 16,      // 64px
+  '20': $spacing-base * 20,      // 80px
+  '24': $spacing-base * 24,      // 96px
+  '28': $spacing-base * 28,      // 112px
+  '32': $spacing-base * 32,      // 128px
+);
+
+// Spacing accessor function
+@function spacing($key) {
+  @if not map-has-key($spacing, $key) {
+    @warn "Spacing `#{$key}` not found in $spacing map.";
+    @return null;
+  }
+  @return map-get($spacing, $key);
+}
+
+// Export spacing keys for utilities
+$spacing-keys: map-keys($spacing);
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card - Needs BEM Refactoring</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ❌ MESSY: Inconsistent naming, no BEM structure -->
+
+  <div class="product-card featured">
+    <div class="image-wrapper">
+      <img src="https://via.placeholder.com/300x300" alt="Product" class="img">
+      <span class="badge">New</span>
+    </div>
+    <div class="content">
+      <h3 class="title">Wireless Headphones</h3>
+      <p class="description">Premium noise-cancelling headphones with 30-hour battery life</p>
+      <div class="price-section">
+        <span class="price">$29.99</span>
+        <span class="old-price">$39.99</span>
+      </div>
+      <button class="buy-button primary">Add to Cart</button>
+    </div>
+  </div>
+
+  <br><br>
+
+  <!-- Another card without featured class -->
+  <div class="product-card">
+    <div class="image-wrapper">
+      <img src="https://via.placeholder.com/300x300" alt="Product" class="img">
+      <span class="badge">Sale</span>
+    </div>
+    <div class="content">
+      <h3 class="title">Smart Watch</h3>
+      <p class="description">Track your fitness and stay connected on the go</p>
+      <div class="price-section">
+        <span class="price">$199.99</span>
+        <span class="old-price">$249.99</span>
+      </div>
+      <button class="buy-button primary">Add to Cart</button>
+    </div>
+  </div>
+
+  <br><br>
+
+  <!-- Large variant -->
+  <div class="product-card large">
+    <div class="image-wrapper">
+      <img src="https://via.placeholder.com/300x300" alt="Product" class="img">
+      <span class="badge">Exclusive</span>
+    </div>
+    <div class="content">
+      <h3 class="title">Premium Laptop</h3>
+      <p class="description">High-performance laptop for professionals and creators</p>
+      <div class="price-section">
+        <span class="price">$1,299.99</span>
+        <span class="old-price">$1,499.99</span>
+      </div>
+      <button class="buy-button primary">Add to Cart</button>
+    </div>
+  </div>
+
+</body>
+</html>
+

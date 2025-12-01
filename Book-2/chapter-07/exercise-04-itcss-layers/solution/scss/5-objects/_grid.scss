@@ -1,0 +1,16 @@
+// Objects: Grid
+.o-grid {
+  display: grid;
+  gap: $spacing-md;
+}
+
+.o-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.o-grid--3col {
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+

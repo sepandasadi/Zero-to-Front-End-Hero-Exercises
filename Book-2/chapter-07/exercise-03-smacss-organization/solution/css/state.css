@@ -1,0 +1,60 @@
+/* ==========================================================================
+   STATE STYLES
+   UI state changes with is- prefix
+   ========================================================================== */
+
+.is-hidden {
+  display: none !important;
+}
+
+.is-visible {
+  display: block !important;
+}
+
+.is-active {
+  color: #007bff;
+  font-weight: 700;
+}
+
+.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.is-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.is-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form states */
+.form-input.is-error {
+  border-color: #dc3545;
+}
+
+.form-input.is-success {
+  border-color: #28a745;
+}
+
+/* Card states */
+.card.is-featured {
+  border-color: #ffc107;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+/* Navigation states */
+.nav-link.is-active {
+  color: #007bff;
+  font-weight: 700;
+}
+

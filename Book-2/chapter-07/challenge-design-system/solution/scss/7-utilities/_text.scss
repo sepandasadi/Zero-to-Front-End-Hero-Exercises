@@ -1,0 +1,43 @@
+// ==========================================================================
+// UTILITIES: TEXT
+// Text utility classes
+// ==========================================================================
+
+// Text alignment
+.u-text-left { text-align: left !important; }
+.u-text-center { text-align: center !important; }
+.u-text-right { text-align: right !important; }
+.u-text-justify { text-align: justify !important; }
+
+// Font sizes
+@each $name, $size in $font-sizes {
+  .u-text-#{$name} {
+    font-size: $size !important;
+  }
+}
+
+// Font weights
+@each $name, $weight in $font-weights {
+  .u-font-#{$name} {
+    font-weight: $weight !important;
+  }
+}
+
+// Text transform
+.u-uppercase { text-transform: uppercase !important; }
+.u-lowercase { text-transform: lowercase !important; }
+.u-capitalize { text-transform: capitalize !important; }
+
+// Text decoration
+.u-underline { text-decoration: underline !important; }
+.u-line-through { text-decoration: line-through !important; }
+.u-no-underline { text-decoration: none !important; }
+
+// Text colors
+.u-text-primary { color: color('primary-600') !important; }
+.u-text-secondary { color: color('secondary-600') !important; }
+.u-text-success { color: color('success') !important; }
+.u-text-danger { color: color('danger') !important; }
+.u-text-warning { color: color('warning') !important; }
+.u-text-gray { color: color('gray-600') !important; }
+

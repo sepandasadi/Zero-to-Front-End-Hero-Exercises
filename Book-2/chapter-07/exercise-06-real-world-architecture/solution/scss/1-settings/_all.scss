@@ -1,0 +1,31 @@
+// All settings in one file for simplicity
+$colors: (
+  'primary': #6366f1,
+  'secondary': #8b5cf6,
+  'success': #10b981,
+  'danger': #ef4444,
+  'gray-50': #f9fafb,
+  'gray-100': #f3f4f6,
+  'gray-200': #e5e7eb,
+  'gray-900': #111827,
+);
+
+@function color($name) {
+  @return map-get($colors, $name);
+}
+
+$spacing: (
+  '1': 0.25rem,
+  '2': 0.5rem,
+  '3': 0.75rem,
+  '4': 1rem,
+  '6': 1.5rem,
+  '8': 2rem,
+);
+
+@function spacing($key) {
+  @return map-get($spacing, $key);
+}
+
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+

@@ -1,0 +1,23 @@
+{
+  "name": "design-system-foundation-solution",
+  "version": "1.0.0",
+  "description": "Complete design system with ITCSS + BEM + OOCSS - Solution",
+  "scripts": {
+    "sass": "sass --watch scss/main.scss:dist/css/main.css",
+    "build": "sass scss/main.scss:dist/css/main.css --style compressed",
+    "build:dev": "sass scss/main.scss:dist/css/main.css --style expanded"
+  },
+  "keywords": [
+    "design-system",
+    "itcss",
+    "bem",
+    "oocss",
+    "css-architecture"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}
+

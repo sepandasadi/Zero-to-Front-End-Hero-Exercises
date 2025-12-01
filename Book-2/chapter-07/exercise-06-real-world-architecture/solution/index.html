@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-World Architecture Solution</title>
+  <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
+  <!-- Navigation Component (BEM) -->
+  <nav class="c-navigation">
+    <div class="o-container">
+      <div class="c-navigation__container">
+        <div class="c-navigation__logo">Logo</div>
+        <ul class="c-navigation__list">
+          <li><a href="#" class="c-navigation__link c-navigation__link--active">Home</a></li>
+          <li><a href="#" class="c-navigation__link">About</a></li>
+          <li><a href="#" class="c-navigation__link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Container Object (OOCSS) -->
+  <div class="o-container">
+
+    <!-- Header with Utility Classes -->
+    <header class="u-text-center u-mt-8 u-mb-8">
+      <h1>Real-World CSS Architecture</h1>
+      <p>ITCSS + BEM + OOCSS Working Together</p>
+    </header>
+
+    <!-- Section -->
+    <section class="u-mb-8">
+      <h2 class="u-mb-6">Component Examples</h2>
+
+      <!-- Grid Object (OOCSS) -->
+      <div class="o-grid o-grid--3col">
+
+        <!-- Card Component (BEM) -->
+        <div class="c-card c-card--bordered">
+          <div class="c-card__header">
+            Bordered Card
+          </div>
+          <div class="c-card__body">
+            <p>This demonstrates ITCSS layers with BEM components and OOCSS objects.</p>
+            <button class="c-button c-button--primary u-mt-4">
+              Action
+            </button>
+          </div>
+        </div>
+
+        <div class="c-card c-card--shadowed">
+          <div class="c-card__header">
+            Shadowed Card
+          </div>
+          <div class="c-card__body">
+            <p>Using OOCSS for layout (o-grid, o-container) and BEM for components (c-card, c-button).</p>
+            <button class="c-button c-button--secondary u-mt-4">
+              Secondary
+            </button>
+          </div>
+        </div>
+
+        <div class="c-card c-card--featured">
+          <div class="c-card__header">
+            Featured Card
+          </div>
+          <div class="c-card__body">
+            <p>ITCSS provides the structure, organizing everything by specificity.</p>
+            <button class="c-button c-button--outline c-button--primary u-mt-4">
+              Outline
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="c-card c-card--shadowed" style="max-width: 600px; margin: 0 auto;">
+      <div class="c-card__header">
+        <h3>Contact Form</h3>
+      </div>
+      <div class="c-card__body">
+        <form>
+          <div class="c-form__group">
+            <label class="c-form__label">Name</label>
+            <input type="text" class="c-form__input" placeholder="Your name">
+          </div>
+
+          <div class="c-form__group">
+            <label class="c-form__label">Email</label>
+            <input type="email" class="c-form__input" placeholder="email@example.com">
+            <small class="c-form__help">We'll never share your email.</small>
+          </div>
+
+          <div class="c-form__group">
+            <label class="c-form__label">Error Example</label>
+            <input type="text" class="c-form__input c-form__input--error" value="Invalid">
+            <small class="c-form__help c-form__help--error">This field has an error.</small>
+          </div>
+
+          <button type="submit" class="c-button c-button--primary c-button--block">
+            Submit Form
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Architecture Explanation -->
+    <section class="c-card u-mt-8">
+      <div class="c-card__header">
+        <h3>Architecture Breakdown</h3>
+      </div>
+      <div class="c-card__body">
+        <div class="o-grid o-grid--2col">
+          <div>
+            <h4 class="u-mb-4">ITCSS Layers</h4>
+            <ol style="line-height: 2;">
+              <li>Settings (variables)</li>
+              <li>Tools (mixins)</li>
+              <li>Generic (reset)</li>
+              <li>Elements (HTML)</li>
+              <li>Objects (o-*)</li>
+              <li>Components (c-*)</li>
+              <li>Utilities (u-*)</li>
+            </ol>
+          </div>
+
+          <div>
+            <h4 class="u-mb-4">Methodology Mix</h4>
+            <ul style="line-height: 2; list-style: none;">
+              <li>✅ <strong>ITCSS:</strong> Overall structure</li>
+              <li>✅ <strong>OOCSS:</strong> Layout objects (o-grid, o-container)</li>
+              <li>✅ <strong>BEM:</strong> Component naming (c-button, c-card)</li>
+              <li>✅ <strong>Utilities:</strong> Helper classes (u-mt-4)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="u-text-center u-mt-8" style="padding: 2rem 0; border-top: 1px solid #e5e7eb;">
+      <p>Real-World Architecture - Production Pattern</p>
+      <p style="color: #6b7280; margin-top: 0.5rem; font-size: 0.875rem;">
+        This is how top companies structure their CSS
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
+

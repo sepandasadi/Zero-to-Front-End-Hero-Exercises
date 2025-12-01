@@ -1,0 +1,43 @@
+// ==========================================================================
+// UTILITIES: SPACING
+// Margin and padding utility classes
+// ==========================================================================
+
+// Generate margin utilities
+@each $key, $value in $spacing {
+  .u-m-#{$key} { margin: $value !important; }
+  .u-mt-#{$key} { margin-top: $value !important; }
+  .u-mr-#{$key} { margin-right: $value !important; }
+  .u-mb-#{$key} { margin-bottom: $value !important; }
+  .u-ml-#{$key} { margin-left: $value !important; }
+
+  .u-mx-#{$key} {
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+
+  .u-my-#{$key} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+}
+
+// Generate padding utilities
+@each $key, $value in $spacing {
+  .u-p-#{$key} { padding: $value !important; }
+  .u-pt-#{$key} { padding-top: $value !important; }
+  .u-pr-#{$key} { padding-right: $value !important; }
+  .u-pb-#{$key} { padding-bottom: $value !important; }
+  .u-pl-#{$key} { padding-left: $value !important; }
+
+  .u-px-#{$key} {
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+
+  .u-py-#{$key} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+}
+

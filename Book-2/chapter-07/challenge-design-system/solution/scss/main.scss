@@ -1,0 +1,56 @@
+// ==========================================================================
+// MAIN STYLESHEET
+// ITCSS Architecture: Imports organized by specificity
+// ==========================================================================
+
+// LAYER 1: SETTINGS
+// Variables and design tokens (no CSS output)
+// --------------------------------------------------------------------------
+@import '1-settings/colors';
+@import '1-settings/typography';
+@import '1-settings/spacing';
+@import '1-settings/shadows';
+@import '1-settings/borders';
+
+// LAYER 2: TOOLS
+// Mixins and functions (no CSS output)
+// --------------------------------------------------------------------------
+@import '2-tools/functions';
+@import '2-tools/mixins';
+@import '2-tools/bem-helpers';
+
+// LAYER 3: GENERIC
+// CSS reset and normalize
+// --------------------------------------------------------------------------
+@import '3-generic/reset';
+
+// LAYER 4: ELEMENTS
+// Bare HTML element styles
+// --------------------------------------------------------------------------
+@import '4-elements/page';
+@import '4-elements/typography';
+@import '4-elements/lists';
+
+// LAYER 5: OBJECTS
+// OOCSS layout patterns (prefix: o-)
+// --------------------------------------------------------------------------
+@import '5-objects/container';
+@import '5-objects/grid';
+@import '5-objects/media';
+
+// LAYER 6: COMPONENTS
+// BEM UI components (prefix: c-)
+// --------------------------------------------------------------------------
+@import '6-components/button';
+@import '6-components/card';
+@import '6-components/input';
+@import '6-components/alert';
+@import '6-components/badge';
+
+// LAYER 7: UTILITIES
+// Helper classes (prefix: u-)
+// --------------------------------------------------------------------------
+@import '7-utilities/spacing';
+@import '7-utilities/display';
+@import '7-utilities/text';
+

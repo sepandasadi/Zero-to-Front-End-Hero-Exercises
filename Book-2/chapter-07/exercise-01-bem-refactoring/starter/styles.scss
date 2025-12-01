@@ -1,0 +1,126 @@
+/* ❌ MESSY: Needs BEM refactoring */
+
+/* No clear organization, inconsistent naming */
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  padding: 32px;
+  background: #f3f4f6;
+}
+
+.product-card {
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ❌ BAD: Too generic, could conflict */
+.image-wrapper {
+  position: relative;
+}
+
+.img {
+  width: 100%;
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ef4444;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* ❌ BAD: Too generic */
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #111827;
+}
+
+.description {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 16px;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.old-price {
+  font-size: 16px;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+/* ❌ BAD: Too generic button name */
+.buy-button {
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* ❌ BAD: Not a proper BEM modifier */
+.primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.primary:hover {
+  background: #2563eb;
+}
+
+/* ❌ BAD: Not a proper BEM modifier */
+.featured {
+  border: 2px solid #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+/* ❌ BAD: Not a proper BEM modifier */
+.large {
+  border: 2px solid #8b5cf6;
+}
+
+/* ❌ BAD: Descendant selector */
+.large .content {
+  padding: 24px;
+}
+
+.large .title {
+  font-size: 24px;
+}
+
+.large .description {
+  font-size: 16px;
+}
+
+/* TODO: Refactor all of this to proper BEM! */
+

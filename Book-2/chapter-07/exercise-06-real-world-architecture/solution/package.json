@@ -1,0 +1,13 @@
+{
+  "name": "real-world-architecture-solution",
+  "version": "1.0.0",
+  "description": "ITCSS + BEM + OOCSS combined architecture",
+  "scripts": {
+    "sass": "sass --watch scss/main.scss:dist/css/main.css",
+    "build": "sass scss/main.scss:dist/css/main.css --style compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}
+

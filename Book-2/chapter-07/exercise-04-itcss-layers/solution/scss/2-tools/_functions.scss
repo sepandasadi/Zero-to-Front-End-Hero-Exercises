@@ -1,0 +1,5 @@
+// Tools: Functions
+@function spacing($multiplier) {
+  @return $spacing-unit * $multiplier;
+}
+

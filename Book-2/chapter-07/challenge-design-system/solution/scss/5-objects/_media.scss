@@ -1,0 +1,45 @@
+// ==========================================================================
+// OBJECTS: MEDIA
+// Media object pattern (OOCSS)
+// ==========================================================================
+
+.o-media {
+  display: flex;
+  align-items: flex-start;
+  gap: spacing('4');
+
+  @include e('image') {
+    flex-shrink: 0;
+  }
+
+  @include e('body') {
+    flex: 1;
+    min-width: 0; // Prevent flex item overflow
+  }
+
+  // Modifier: Center aligned
+  @include m('center') {
+    align-items: center;
+  }
+
+  // Modifier: Reverse (image on right)
+  @include m('reverse') {
+    flex-direction: row-reverse;
+  }
+
+  // Modifier: Stacked (image on top)
+  @include m('stacked') {
+    flex-direction: column;
+  }
+
+  // Modifier: Small gap
+  @include m('gap-sm') {
+    gap: spacing('2');
+  }
+
+  // Modifier: Large gap
+  @include m('gap-lg') {
+    gap: spacing('6');
+  }
+}
+

@@ -1,0 +1,26 @@
+/* ==========================================================================
+   MAIN STYLESHEET
+   SMACSS Import Order: Base → Layout → Module → State → Theme
+   ========================================================================== */
+
+/* 1. BASE - Element defaults */
+@import 'base.css';
+
+/* 2. LAYOUT - Page structure */
+@import 'layout.css';
+
+/* 3. MODULE - Components */
+@import 'module/navigation.css';
+@import 'module/buttons.css';
+@import 'module/cards.css';
+@import 'module/alerts.css';
+@import 'module/forms.css';
+@import 'module/badges.css';
+@import 'module/grid.css';
+
+/* 4. STATE - UI states */
+@import 'state.css';
+
+/* 5. THEME - Color schemes */
+@import 'theme.css';
+

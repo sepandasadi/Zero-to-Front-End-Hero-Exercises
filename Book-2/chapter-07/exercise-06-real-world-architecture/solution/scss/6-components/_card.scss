@@ -1,0 +1,38 @@
+// BEM Component: Card
+.c-card {
+  background: white;
+  border: 1px solid color('gray-200');
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  @include e('header') {
+    padding: spacing('4');
+    border-bottom: 1px solid color('gray-200');
+    font-weight: 600;
+  }
+
+  @include e('body') {
+    padding: spacing('4');
+  }
+
+  @include e('footer') {
+    padding: spacing('4');
+    border-top: 1px solid color('gray-200');
+    background: color('gray-50');
+  }
+
+  @include m('bordered') {
+    border-width: 2px;
+    border-color: color('gray-200');
+  }
+
+  @include m('shadowed') {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  @include m('featured') {
+    border-color: color('primary');
+    box-shadow: 0 4px 12px rgba(color('primary'), 0.2);
+  }
+}
+
