@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Worker Caching Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>📝 Tech Blog</h1>
+    <p>Learning Service Worker Caching</p>
+  </header>
+
+  <nav class="nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main class="container">
+    <article class="post">
+      <h2>Understanding Service Workers</h2>
+      <p class="meta">Posted on December 6, 2025</p>
+      <p>
+        Service Workers are scripts that run in the background, separate from your web page.
+        They enable features like offline support, background sync, and push notifications.
+      </p>
+      <p>
+        In this exercise, you'll implement three caching strategies:
+      </p>
+      <ul>
+        <li><strong>Cache First:</strong> For static assets (CSS, JS, images)</li>
+        <li><strong>Network First:</strong> For API requests (fresh data)</li>
+        <li><strong>Stale-While-Revalidate:</strong> For HTML pages (best of both)</li>
+      </ul>
+    </article>
+
+    <article class="post">
+      <h2>Testing Offline Functionality</h2>
+      <p class="meta">Posted on December 5, 2025</p>
+      <p>
+        To test if your Service Worker works offline:
+      </p>
+      <ol>
+        <li>Open Chrome DevTools (F12)</li>
+        <li>Go to Network tab</li>
+        <li>Check "Offline" checkbox</li>
+        <li>Reload the page</li>
+        <li>If it loads, your Service Worker works! 🎉</li>
+      </ol>
+    </article>
+
+    <article class="post">
+      <h2>Debugging Service Workers</h2>
+      <p class="meta">Posted on December 4, 2025</p>
+      <p>
+        Chrome DevTools provides excellent Service Worker debugging:
+      </p>
+      <ul>
+        <li><strong>Application Tab:</strong> View registered Service Workers</li>
+        <li><strong>Cache Storage:</strong> See cached files</li>
+        <li><strong>Update on Reload:</strong> Force new SW version</li>
+        <li><strong>Unregister:</strong> Remove SW completely</li>
+      </ul>
+    </article>
+
+    <div class="status-box">
+      <h3>Service Worker Status</h3>
+      <p id="sw-status">Checking...</p>
+      <button id="test-offline">Test Offline</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Service Worker Caching Exercise</p>
+    <p>Open DevTools → Application to see Service Worker in action</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

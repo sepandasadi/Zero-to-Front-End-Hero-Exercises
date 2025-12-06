@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP/2 Demo - Solution</title>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="app.js" as="script">
+
+  <!-- DNS prefetch for external domains -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>🚀 HTTP/2 Optimization Demo</h1>
+    <p>This site is optimized for HTTP/2!</p>
+    <div class="protocol-badge" id="protocol-badge">Checking protocol...</div>
+  </header>
+
+  <main class="container">
+    <section class="info">
+      <h2>HTTP/2 Features Enabled</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>✅ Multiplexing</h3>
+          <p>All resources load over a single connection</p>
+        </div>
+        <div class="feature">
+          <h3>✅ Header Compression</h3>
+          <p>HPACK reduces header overhead by ~30%</p>
+        </div>
+        <div class="feature">
+          <h3>✅ Server Push</h3>
+          <p>Critical CSS and JS pushed proactively</p>
+        </div>
+        <div class="feature">
+          <h3>✅ Stream Prioritization</h3>
+          <p>Important resources load first</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo">
+      <h2>Performance Comparison</h2>
+      <div class="comparison">
+        <div class="card http1">
+          <h3>HTTP/1.1</h3>
+          <ul>
+            <li>6 connections per domain</li>
+            <li>Head-of-line blocking</li>
+            <li>No header compression</li>
+            <li>Page load: ~3.2s</li>
+          </ul>
+        </div>
+        <div class="arrow">→</div>
+        <div class="card http2">
+          <h3>HTTP/2</h3>
+          <ul>
+            <li>1 multiplexed connection</li>
+            <li>Parallel loading</li>
+            <li>HPACK compression</li>
+            <li>Page load: ~1.9s ⚡</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="testing">
+      <h2>Verification</h2>
+      <div class="test-results" id="test-results">
+        <div class="test-item">
+          <strong>Protocol:</strong> <span id="protocol-type">Detecting...</span>
+        </div>
+        <div class="test-item">
+          <strong>Resources Loaded:</strong> <span id="resource-count">-</span>
+        </div>
+        <div class="test-item">
+          <strong>Page Load Time:</strong> <span id="load-time">-</span>
+        </div>
+        <div class="test-item">
+          <strong>Transfer Size:</strong> <span id="transfer-size">-</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="deployment">
+      <h2>Deployed With HTTP/2</h2>
+      <p>This site automatically uses HTTP/2 when deployed to:</p>
+      <div class="platforms">
+        <div class="platform">✅ Vercel</div>
+        <div class="platform">✅ Netlify</div>
+        <div class="platform">✅ Cloudflare Pages</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>HTTP/2 Optimization - Solution</p>
+    <p>Check DevTools → Network → Protocol column to verify HTTP/2</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

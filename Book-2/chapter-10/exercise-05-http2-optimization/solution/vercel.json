@@ -1,0 +1,37 @@
+{
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Link",
+          "value": "</styles.css>; rel=preload; as=style, </app.js>; rel=preload; as=script"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</styles.css>; rel=preload; as=style, </app.js>; rel=preload; as=script"
+        }
+      ]
+    },
+    {
+      "source": "/:path((?:.*\\.(?:css|js|png|jpg|jpeg|webp|woff2)))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": []
+}
+

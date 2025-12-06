@@ -1,0 +1,19 @@
+# Netlify Headers Configuration
+# This file configures server push for HTTP/2
+
+/*
+  # Cache static assets for 1 year
+  Cache-Control: public, max-age=31536000, immutable
+
+  # TODO: Add server push for critical resources
+  # Link: </styles.css>; rel=preload; as=style
+  # Link: </app.js>; rel=preload; as=script
+
+/
+  # Fresh HTML on every visit
+  Cache-Control: public, max-age=0, must-revalidate
+
+  # Server push critical assets
+  Link: </styles.css>; rel=preload; as=style
+  Link: </app.js>; rel=preload; as=script
+

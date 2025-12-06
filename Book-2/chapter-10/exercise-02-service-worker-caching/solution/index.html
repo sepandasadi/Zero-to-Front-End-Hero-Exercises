@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Worker Caching - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>📝 Tech Blog</h1>
+    <p>Service Worker Caching - Solution</p>
+  </header>
+
+  <nav class="nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main class="container">
+    <article class="post">
+      <h2>✅ Service Worker Successfully Implemented</h2>
+      <p class="meta">Posted on December 6, 2025</p>
+      <p>
+        This page uses a Service Worker with multiple caching strategies:
+      </p>
+      <ul>
+        <li><strong>Cache First:</strong> Static assets (CSS, JS) load instantly from cache</li>
+        <li><strong>Network First:</strong> API requests fetch fresh data, fallback to cache offline</li>
+        <li><strong>Stale-While-Revalidate:</strong> HTML pages serve cached, update in background</li>
+      </ul>
+      <p>
+        Try going offline (DevTools → Network → Offline) and reload the page. It still works! 🎉
+      </p>
+    </article>
+
+    <article class="post">
+      <h2>Understanding Service Workers</h2>
+      <p class="meta">Posted on December 5, 2025</p>
+      <p>
+        Service Workers are scripts that run in the background, separate from your web page.
+        They enable features like offline support, background sync, and push notifications.
+      </p>
+      <p>
+        Key lifecycle events:
+      </p>
+      <ol>
+        <li><strong>Install:</strong> Cache static assets</li>
+        <li><strong>Activate:</strong> Clean up old caches</li>
+        <li><strong>Fetch:</strong> Intercept network requests</li>
+      </ol>
+    </article>
+
+    <article class="post">
+      <h2>Caching Strategies Explained</h2>
+      <p class="meta">Posted on December 4, 2025</p>
+      <p>
+        Different resources need different caching strategies:
+      </p>
+      <ul>
+        <li><strong>Cache First:</strong> Best for versioned static assets (app.v123.js)</li>
+        <li><strong>Network First:</strong> Best for dynamic content (API, user data)</li>
+        <li><strong>Stale-While-Revalidate:</strong> Best for most real-world scenarios</li>
+      </ul>
+    </article>
+
+    <div class="status-box">
+      <h3>Service Worker Status</h3>
+      <p id="sw-status">Checking...</p>
+      <p id="cache-info"></p>
+      <button id="test-offline">Test Offline</button>
+      <button id="clear-cache">Clear Cache</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Service Worker Caching - Solution</p>
+    <p>Open DevTools → Application to see Service Worker in action</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

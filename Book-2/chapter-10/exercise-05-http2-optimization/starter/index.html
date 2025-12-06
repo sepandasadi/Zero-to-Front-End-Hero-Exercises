@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP/2 Demo</title>
+
+  <!-- TODO: Add preload for critical resources -->
+  <!-- <link rel="preload" href="styles.css" as="style"> -->
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>HTTP/2 Optimization Demo</h1>
+    <p>Deploy this site to see HTTP/2 in action!</p>
+  </header>
+
+  <main class="container">
+    <section class="info">
+      <h2>What is HTTP/2?</h2>
+      <p>HTTP/2 is a major revision of the HTTP protocol that improves performance through:</p>
+      <ul>
+        <li><strong>Multiplexing:</strong> Multiple requests over single connection</li>
+        <li><strong>Header Compression:</strong> Reduced overhead with HPACK</li>
+        <li><strong>Server Push:</strong> Proactive resource delivery</li>
+        <li><strong>Stream Prioritization:</strong> Important resources first</li>
+      </ul>
+    </section>
+
+    <section class="demo">
+      <h2>Deploy Instructions</h2>
+      <div class="card">
+        <h3>Option 1: Vercel (Recommended)</h3>
+        <pre><code>npm install -g vercel
+vercel --prod</code></pre>
+        <p>✅ Automatic HTTP/2</p>
+      </div>
+
+      <div class="card">
+        <h3>Option 2: Netlify</h3>
+        <pre><code>npm install -g netlify-cli
+netlify deploy --prod</code></pre>
+        <p>✅ Automatic HTTP/2</p>
+      </div>
+
+      <div class="card">
+        <h3>Option 3: Cloudflare Pages</h3>
+        <pre><code>npx wrangler pages publish ./</code></pre>
+        <p>✅ Automatic HTTP/2 + HTTP/3</p>
+      </div>
+    </section>
+
+    <section class="testing">
+      <h2>Test HTTP/2</h2>
+      <p>After deployment, verify HTTP/2 is enabled:</p>
+      <pre><code>curl -I --http2 https://your-site.com</code></pre>
+      <p>Look for: <code>HTTP/2 200</code></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>HTTP/2 Optimization Exercise</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

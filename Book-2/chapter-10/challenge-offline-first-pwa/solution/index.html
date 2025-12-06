@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop PWA - Offline E-Commerce</title>
+
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#667eea">
+
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="ShopPWA">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="app.js" as="script">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>🛍️ Shop PWA</h1>
+      <nav>
+        <a href="index.html" class="active">Products</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a href="#" id="orders-link">Orders</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Install Prompt Banner -->
+  <div id="install-banner" class="install-banner" style="display: none;">
+    <div class="install-content">
+      <p>📱 Install this app for a better shopping experience!</p>
+      <div class="install-buttons">
+        <button id="install-yes" class="btn-primary">Install</button>
+        <button id="install-no" class="btn-secondary">Not now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PWA Status -->
+  <div class="pwa-status">
+    <span id="status-icon">📱</span>
+    <span id="status-text">Loading...</span>
+  </div>
+
+  <main class="container">
+    <h2>Our Products</h2>
+
+    <div id="products-grid" class="products-grid">
+      <!-- Products loaded dynamically -->
+      <div class="loading">Loading products...</div>
+    </div>
+  </main>
+
+  <!-- Offline Indicator -->
+  <div id="offline-indicator" class="offline-indicator" style="display: none;">
+    <span id="offline-text">📡 You're offline</span>
+  </div>
+
+  <!-- Sync Indicator -->
+  <div id="sync-indicator" class="sync-indicator" style="display: none;">
+    <span>🔄 Syncing orders...</span>
+  </div>
+
+  <footer class="footer">
+    <p>Shop PWA - Offline-First E-Commerce</p>
+    <p id="sync-status">All orders synced</p>
+  </footer>
+
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

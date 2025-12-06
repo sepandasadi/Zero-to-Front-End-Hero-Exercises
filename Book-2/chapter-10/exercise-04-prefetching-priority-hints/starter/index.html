@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog - Prefetching Demo</title>
+
+  <!-- TODO: Add DNS prefetch -->
+  <!-- <link rel="dns-prefetch" href="https://fonts.googleapis.com"> -->
+
+  <!-- TODO: Add preconnect -->
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+
+  <!-- TODO: Preload critical CSS -->
+  <!-- <link rel="preload" href="styles.css" as="style"> -->
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <!-- TODO: Add fetchpriority="high" to hero image -->
+    <img
+      src="https://picsum.photos/1200/400?random=1"
+      alt="Hero banner"
+      class="hero-image"
+    >
+    <h1>Tech Blog</h1>
+    <p>Performance Optimization with Prefetching</p>
+  </header>
+
+  <main class="container">
+    <div class="blog-grid">
+      <!-- TODO: Add data-prefetch attribute to links -->
+      <article class="blog-card">
+        <img
+          src="https://picsum.photos/400/250?random=2"
+          alt="Post 1"
+          loading="lazy"
+        >
+        <h2><a href="post-1.html" class="post-link">Understanding Web Performance</a></h2>
+        <p>Learn how to optimize your website for better user experience...</p>
+      </article>
+
+      <article class="blog-card">
+        <img
+          src="https://picsum.photos/400/250?random=3"
+          alt="Post 2"
+          loading="lazy"
+        >
+        <h2><a href="post-2.html" class="post-link">Lazy Loading Images</a></h2>
+        <p>Improve page load time by lazy loading images below the fold...</p>
+      </article>
+
+      <article class="blog-card">
+        <img
+          src="https://picsum.photos/400/250?random=4"
+          alt="Post 3"
+          loading="lazy"
+        >
+        <h2><a href="post-3.html" class="post-link">Service Workers Explained</a></h2>
+        <p>Enable offline support with Service Workers...</p>
+      </article>
+
+      <article class="blog-card">
+        <img
+          src="https://picsum.photos/400/250?random=5"
+          alt="Post 4"
+          loading="lazy"
+        >
+        <h2><a href="post-4.html" class="post-link">HTTP/2 Performance</a></h2>
+        <p>Leverage HTTP/2 for faster page loads...</p>
+      </article>
+
+      <article class="blog-card">
+        <img
+          src="https://picsum.photos/400/250?random=6"
+          alt="Post 5"
+          loading="lazy"
+        >
+        <h2><a href="post-5.html" class="post-link">Progressive Web Apps</a></h2>
+        <p>Build installable web apps with PWA...</p>
+      </article>
+
+      <article class="blog-card">
+        <img
+          src="https://picsum.photos/400/250?random=7"
+          alt="Post 6"
+          loading="lazy"
+        >
+        <h2><a href="post-6.html" class="post-link">Core Web Vitals</a></h2>
+        <p>Optimize for Google's Core Web Vitals metrics...</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <!-- TODO: Add fetchpriority="low" to footer images -->
+    <p>Tech Blog 2025</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

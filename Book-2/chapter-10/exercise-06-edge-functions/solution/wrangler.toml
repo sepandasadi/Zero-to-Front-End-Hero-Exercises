@@ -1,0 +1,27 @@
+# Cloudflare Workers configuration
+# Run: wrangler publish
+
+name = "edge-function-demo"
+main = "cloudflare-worker.js"
+compatibility_date = "2024-01-01"
+
+# Account ID (get from Cloudflare dashboard)
+# account_id = "your-account-id"
+
+# Workers configuration
+workers_dev = true
+
+# Routes (optional - for custom domains)
+# [[routes]]
+# pattern = "example.com/*"
+# zone_name = "example.com"
+
+# Environment variables (optional)
+# [vars]
+# API_KEY = "your-api-key"
+
+# KV namespaces (optional - for storage)
+# [[kv_namespaces]]
+# binding = "MY_KV"
+# id = "your-kv-id"
+

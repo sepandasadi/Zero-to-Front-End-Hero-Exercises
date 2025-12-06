@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intersection Observer Lazy Loading - Solution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>📸 Photo Gallery</h1>
+    <p>Scroll down to see lazy loading in action!</p>
+  </header>
+
+  <main class="gallery">
+    <!-- Images use data-src for lazy loading -->
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=1"
+        alt="Random image 1"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=2"
+        alt="Random image 2"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=3"
+        alt="Random image 3"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=4"
+        alt="Random image 4"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=5"
+        alt="Random image 5"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=6"
+        alt="Random image 6"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=7"
+        alt="Random image 7"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=8"
+        alt="Random image 8"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=9"
+        alt="Random image 9"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=10"
+        alt="Random image 10"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=11"
+        alt="Random image 11"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=12"
+        alt="Random image 12"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=13"
+        alt="Random image 13"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=14"
+        alt="Random image 14"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        data-src="https://picsum.photos/400/300?random=15"
+        alt="Random image 15"
+        class="lazy"
+      >
+      <div class="loading-skeleton"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>✅ Images loaded: <span id="loaded-count">0</span> / 15</p>
+    <p>Open DevTools → Network tab to see lazy loading in action</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

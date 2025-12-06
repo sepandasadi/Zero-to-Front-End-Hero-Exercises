@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App - PWA</title>
+
+  <!-- TODO: Add manifest link -->
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+
+  <!-- TODO: Add theme color -->
+  <!-- <meta name="theme-color" content="#667eea"> -->
+
+  <!-- iOS meta tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="TodoPWA">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>📝 Todo App</h1>
+      <p>Progressive Web App</p>
+    </header>
+
+    <!-- TODO: Add install prompt UI -->
+    <div id="install-prompt" class="install-prompt" style="display: none;">
+      <p>Install this app for a better experience!</p>
+      <button id="install-btn">Install App</button>
+      <button id="dismiss-btn">Maybe Later</button>
+    </div>
+
+    <div class="pwa-status">
+      <p>PWA Status: <span id="pwa-status">Not installed</span></p>
+    </div>
+
+    <main class="todo-container">
+      <div class="add-todo">
+        <input
+          type="text"
+          id="todo-input"
+          placeholder="What needs to be done?"
+        >
+        <button id="add-btn">Add</button>
+      </div>
+
+      <ul id="todo-list" class="todo-list">
+        <!-- Todos will be added here -->
+      </ul>
+
+      <div class="stats">
+        <span id="todo-count">0 items</span>
+        <button id="clear-completed">Clear completed</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Open DevTools → Application to check PWA status</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

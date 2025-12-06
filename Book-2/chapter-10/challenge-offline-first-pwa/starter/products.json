@@ -1,0 +1,111 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "description": "Premium noise-cancelling wireless headphones with 30-hour battery life",
+    "price": 79.99,
+    "category": "Audio",
+    "image": "https://picsum.photos/400/300?random=1",
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "description": "Fitness tracker with heart rate monitoring and GPS",
+    "price": 199.99,
+    "category": "Wearables",
+    "image": "https://picsum.photos/400/300?random=2",
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "Laptop Stand",
+    "description": "Adjustable aluminum laptop stand for better ergonomics",
+    "price": 39.99,
+    "category": "Accessories",
+    "image": "https://picsum.photos/400/300?random=3",
+    "inStock": true
+  },
+  {
+    "id": 4,
+    "name": "USB-C Hub",
+    "description": "7-in-1 USB-C hub with HDMI, USB 3.0, and SD card reader",
+    "price": 49.99,
+    "category": "Accessories",
+    "image": "https://picsum.photos/400/300?random=4",
+    "inStock": true
+  },
+  {
+    "id": 5,
+    "name": "Mechanical Keyboard",
+    "description": "RGB backlit mechanical keyboard with blue switches",
+    "price": 129.99,
+    "category": "Peripherals",
+    "image": "https://picsum.photos/400/300?random=5",
+    "inStock": true
+  },
+  {
+    "id": 6,
+    "name": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with precision tracking",
+    "price": 59.99,
+    "category": "Peripherals",
+    "image": "https://picsum.photos/400/300?random=6",
+    "inStock": true
+  },
+  {
+    "id": 7,
+    "name": "4K Monitor",
+    "description": "27-inch 4K UHD monitor with IPS panel",
+    "price": 299.99,
+    "category": "Displays",
+    "image": "https://picsum.photos/400/300?random=7",
+    "inStock": false
+  },
+  {
+    "id": 8,
+    "name": "LED Desk Lamp",
+    "description": "Adjustable LED desk lamp with USB charging port",
+    "price": 34.99,
+    "category": "Accessories",
+    "image": "https://picsum.photos/400/300?random=8",
+    "inStock": true
+  },
+  {
+    "id": 9,
+    "name": "HD Webcam",
+    "description": "1080p webcam with auto-focus and noise reduction",
+    "price": 89.99,
+    "category": "Peripherals",
+    "image": "https://picsum.photos/400/300?random=9",
+    "inStock": true
+  },
+  {
+    "id": 10,
+    "name": "Phone Stand",
+    "description": "Adjustable phone stand for desk use",
+    "price": 19.99,
+    "category": "Accessories",
+    "image": "https://picsum.photos/400/300?random=10",
+    "inStock": true
+  },
+  {
+    "id": 11,
+    "name": "Cable Organizer",
+    "description": "Cable management kit with clips and sleeves",
+    "price": 14.99,
+    "category": "Accessories",
+    "image": "https://picsum.photos/400/300?random=11",
+    "inStock": true
+  },
+  {
+    "id": 12,
+    "name": "Portable Charger",
+    "description": "20,000mAh portable power bank with fast charging",
+    "price": 44.99,
+    "category": "Accessories",
+    "image": "https://picsum.photos/400/300?random=12",
+    "inStock": true
+  }
+]
+

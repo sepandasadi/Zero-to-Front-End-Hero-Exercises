@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce PWA</title>
+
+  <!-- TODO: Add manifest link -->
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <meta name="theme-color" content="#667eea"> -->
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>🛍️ Shop PWA</h1>
+      <nav>
+        <a href="index.html" class="active">Products</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- TODO: Add install prompt banner -->
+  <div id="install-banner" class="install-banner" style="display: none;">
+    <p>Install this app for a better shopping experience!</p>
+    <button id="install-yes">Install</button>
+    <button id="install-no">Not now</button>
+  </div>
+
+  <main class="container">
+    <h2>Our Products</h2>
+
+    <div id="products-grid" class="products-grid">
+      <!-- Products will be loaded here by JavaScript -->
+      <div class="loading">Loading products...</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>E-Commerce PWA Challenge</p>
+    <p id="pwa-status">PWA Status: Not installed</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
