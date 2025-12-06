@@ -1,0 +1,117 @@
+.mgmt {
+  max-width: 800px;
+}
+
+.form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.form input,
+.form select {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.form button {
+  padding: 0.75rem 1.5rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form button:hover {
+  background: #2980b9;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.item > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.item strong {
+  color: #2c3e50;
+}
+
+.item span {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  width: fit-content;
+}
+
+.badge.admin {
+  background: #e74c3c;
+  color: white;
+}
+
+.badge.user {
+  background: #3498db;
+  color: white;
+}
+
+.item > div:last-child {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.item button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.item button:first-child {
+  background: #f39c12;
+  color: white;
+}
+
+.item button:first-child:hover {
+  background: #e67e22;
+}
+
+.item button:last-child {
+  background: #e74c3c;
+  color: white;
+}
+
+.item button:last-child:hover {
+  background: #c0392b;
+}
+

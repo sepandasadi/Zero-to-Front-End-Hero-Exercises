@@ -1,0 +1,58 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.section {
+  background: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  color: #667eea;
+  margin-bottom: 1.5rem;
+}
+
+.app-footer {
+  background: white;
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid #ddd;
+  color: #666;
+}
+
+.loading,
+.error {
+  padding: 2rem;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.error {
+  color: #e74c3c;
+}
+

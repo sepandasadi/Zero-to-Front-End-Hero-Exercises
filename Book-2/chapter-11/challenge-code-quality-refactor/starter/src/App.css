@@ -1,0 +1,33 @@
+.app {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.header {
+  background: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.user-info button {
+  padding: 0.5rem 1rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.user-info button:hover {
+  background: #c0392b;
+}
+
