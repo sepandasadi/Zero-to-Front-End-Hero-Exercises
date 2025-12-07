@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevTools Mastery - Exercise 01</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔍 DevTools Mastery</h1>
+      <p>Practice using Browser DevTools - Open DevTools (F12) to get started!</p>
+    </header>
+
+    <main>
+      <!-- Console Demos -->
+      <section class="demo-section">
+        <h2>Part 1: Console API</h2>
+        <p>Click each button and observe the console output</p>
+        <div class="button-grid">
+          <button onclick="basicLogging()">Basic Logging</button>
+          <button onclick="tableDemo()">Table Demo</button>
+          <button onclick="groupingDemo()">Grouping Demo</button>
+          <button onclick="timingDemo()">Timing Demo</button>
+          <button onclick="customLogger()">Custom Logger</button>
+          <button onclick="styledOutput()">Styled Output</button>
+        </div>
+      </section>
+
+      <!-- Elements to Inspect -->
+      <section class="demo-section">
+        <h2>Part 2: Elements Tab</h2>
+        <p>Right-click and inspect these elements</p>
+
+        <div id="user-profile" class="profile-card">
+          <img src="https://ui-avatars.com/api/?name=John+Doe&size=100" alt="User" class="avatar">
+          <h3>John Doe</h3>
+          <p class="email">john@example.com</p>
+          <p class="role">Developer</p>
+        </div>
+
+        <div class="product-card" data-product-id="123">
+          <h3>Awesome Product</h3>
+          <p class="price">$99.99</p>
+          <button class="btn-primary">Buy Now</button>
+        </div>
+      </section>
+
+      <!-- Network Requests -->
+      <section class="demo-section">
+        <h2>Part 3: Network Tab</h2>
+        <p>Click buttons to trigger network requests (open Network tab first!)</p>
+        <div class="button-grid">
+          <button onclick="fetchUsers()">Fetch Users</button>
+          <button onclick="createUser()">Create User</button>
+          <button onclick="slowRequest()">Slow Request</button>
+          <button onclick="failedRequest()">Failed Request</button>
+        </div>
+        <div id="network-output"></div>
+      </section>
+
+      <!-- Storage Demo -->
+      <section class="demo-section">
+        <h2>Part 4: Application Tab</h2>
+        <p>Interact with storage (open Application tab to see changes)</p>
+        <div class="button-grid">
+          <button onclick="setLocalStorage()">Set localStorage</button>
+          <button onclick="getLocalStorage()">Get localStorage</button>
+          <button onclick="setSessionStorage()">Set sessionStorage</button>
+          <button onclick="setCookie()">Set Cookie</button>
+          <button onclick="clearAllStorage()">Clear All Storage</button>
+        </div>
+        <div id="storage-output"></div>
+      </section>
+
+      <!-- Performance Demo -->
+      <section class="demo-section">
+        <h2>Part 5: Performance Tab</h2>
+        <p>Record a performance profile while running these tasks</p>
+        <div class="button-grid">
+          <button onclick="heavyTask()">Heavy Task (Slow)</button>
+          <button onclick="lightTask()">Light Task (Fast)</button>
+          <button onclick="animationTask()">Animation Task</button>
+        </div>
+        <div id="performance-output">
+          <div class="loading-bar"></div>
+        </div>
+      </section>
+
+      <!-- Practice Area -->
+      <section class="demo-section practice-section">
+        <h2>🎯 Practice Area</h2>
+        <p>Use this area to practice what you've learned</p>
+
+        <div class="practice-box">
+          <h3>Your Task:</h3>
+          <ol>
+            <li>Open Console and log your name using <code>console.log()</code></li>
+            <li>Style it with colors using <code>%c</code></li>
+            <li>Create an array of objects and display with <code>console.table()</code></li>
+            <li>Time how long a loop takes using <code>console.time()</code></li>
+            <li>Inspect this box and change its border color</li>
+            <li>Check localStorage in Application tab</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>💡 Tip: Keep DevTools open always while developing!</p>
+      <p>Keyboard Shortcuts: F12 (Open DevTools) | Ctrl+Shift+C (Element Picker)</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

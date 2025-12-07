@@ -1,0 +1,90 @@
+.component-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  border: 2px solid #e0e0e0;
+}
+
+.component-box h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.count {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #667eea;
+  margin: 1rem 0;
+}
+
+.user-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.user-details h4 {
+  margin-bottom: 0.25rem;
+}
+
+.user-details p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.timer-display {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #667eea;
+  text-align: center;
+  margin: 1rem 0;
+  font-family: 'Courier New', monospace;
+}
+
+.info-text {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.loading {
+  color: #999;
+  font-style: italic;
+}
+
+.error-text {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+

@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+main {
+  padding: 2rem;
+}
+
+.demo-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.demo-section h2 {
+  color: #667eea;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.demo-section > p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.profile-card,
+.product-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.profile-card {
+  text-align: center;
+  max-width: 300px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.profile-card h3 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.email {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.role {
+  color: #667eea;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.product-card {
+  max-width: 300px;
+}
+
+.product-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: #27ae60;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+#network-output,
+#storage-output,
+#performance-output {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  min-height: 100px;
+}
+
+.loading-bar {
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+  transition: width 2s ease;
+}
+
+.loading-bar.active {
+  width: 100%;
+}
+
+.practice-section {
+  background: #fff3cd;
+  border-left-color: #ffc107;
+}
+
+.practice-section h2 {
+  color: #856404;
+}
+
+.practice-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+  border: 2px dashed #ffc107;
+}
+
+.practice-box h3 {
+  color: #856404;
+  margin-bottom: 1rem;
+}
+
+.practice-box ol {
+  margin-left: 1.5rem;
+}
+
+.practice-box li {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.practice-box code {
+  background: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  color: #e83e8c;
+}
+
+footer {
+  background: #f8f9fa;
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+}
+
+/* Animation for demo */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animating {
+  animation: pulse 1s infinite;
+}
+
+

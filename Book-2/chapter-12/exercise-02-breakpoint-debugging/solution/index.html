@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Calculator - All Bugs Resolved!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>✅ Fixed Calculator</h1>
+      <p>All 10 bugs have been fixed using breakpoint debugging!</p>
+      <p class="instruction">All operations now work correctly</p>
+    </header>
+
+    <div class="calculator">
+      <div class="display" id="display">0</div>
+
+      <div class="history" id="history">
+        <h3>History</h3>
+        <div class="history-list" id="history-list">
+          <p class="empty">No calculations yet</p>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <!-- Memory buttons -->
+        <button class="btn-memory" onclick="memoryClear()">MC</button>
+        <button class="btn-memory" onclick="memoryRecall()">MR</button>
+        <button class="btn-memory" onclick="memoryStore()">MS</button>
+        <button class="btn-memory" onclick="memoryAdd()">M+</button>
+
+        <!-- Number and operation buttons -->
+        <button class="btn-number" onclick="appendNumber('7')">7</button>
+        <button class="btn-number" onclick="appendNumber('8')">8</button>
+        <button class="btn-number" onclick="appendNumber('9')">9</button>
+        <button class="btn-operator" onclick="setOperation('divide')">÷</button>
+
+        <button class="btn-number" onclick="appendNumber('4')">4</button>
+        <button class="btn-number" onclick="appendNumber('5')">5</button>
+        <button class="btn-number" onclick="appendNumber('6')">6</button>
+        <button class="btn-operator" onclick="setOperation('multiply')">×</button>
+
+        <button class="btn-number" onclick="appendNumber('1')">1</button>
+        <button class="btn-number" onclick="appendNumber('2')">2</button>
+        <button class="btn-number" onclick="appendNumber('3')">3</button>
+        <button class="btn-operator" onclick="setOperation('subtract')">-</button>
+
+        <button class="btn-number" onclick="appendNumber('0')">0</button>
+        <button class="btn-number" onclick="appendNumber('.')">.</button>
+        <button class="btn-equals" onclick="calculate()">=</button>
+        <button class="btn-operator" onclick="setOperation('add')">+</button>
+
+        <button class="btn-clear" onclick="clear()">C</button>
+        <button class="btn-clear" onclick="clearAll()">AC</button>
+      </div>
+    </div>
+
+    <div class="bug-tracker">
+      <h2>✅ All Bugs Fixed!</h2>
+      <div class="bugs">
+        <div class="bug-item">
+          <input type="checkbox" id="bug1" checked>
+          <label for="bug1">Bug 1: Addition (10 + 5 = 15) ✅</label>
+        </div>
+        <div class="bug-item">
+          <input type="checkbox" id="bug2" checked>
+          <label for="bug2">Bug 2: Subtraction (5 - 10 = -5) ✅</label>
+        </div>
+        <div class="bug-item">
+          <input type="checkbox" id="bug3" checked>
+          <label for="bug3">Bug 3: Multiply by Zero (5 × 0 = 0) ✅</label>
+        </div>
+        <div class="bug-item">
+          <input type="checkbox" id="bug4" checked>
+          <label for="bug4">Bug 4: Division by Zero (10 ÷ 0 = ERROR) ✅</label>
+        </div>
+        <div class="bug-item">
+          <input type="checkbox" id="bug5" checked>
+          <label for="bug5">Bug 5: Memory Recall works ✅</label>
+        </div>
+        <div class="bug-item">
+          <input type="checkbox" id="bug6" checked>
+          <label for="bug6">Bug 6: History displays correctly ✅</label>
+        </div>
+        <div class="bug-item">
+          <input type="checkbox" id="bug7" checked>
+          <label for="bug7">Bug 7: Decimals (1.5 + 2.3 = 3.8) ✅</label>
+        </div>
+        <div class="bug-item">
+          <input type="checkbox" id="bug8" checked>
+          <label for="bug8">Bug 8: Clear button resets all ✅</label>
+        </div>
+        <div class="bug-item">
+          <input type="checkbox" id="bug9" checked>
+          <label for="bug9">Bug 9: Chain Operations work ✅</label>
+        </div>
+        <div class="bug-item">
+          <input type="checkbox" id="bug10" checked>
+          <label for="bug10">Bug 10: Large numbers handled ✅</label>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>💡 All bugs fixed using breakpoint debugging!</p>
+      <p>Check the console for a summary of all fixes</p>
+    </footer>
+  </div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Debugging - Exercise 04</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌐 Network Debugging Lab</h1>
+      <p>Fix 8 API bugs using Network tab!</p>
+      <p class="instruction">F12 → Network tab → Keep it open while testing</p>
+    </header>
+
+    <div class="dashboard">
+      <!-- Bug 1: 404 Not Found -->
+      <section class="bug-section">
+        <h2>Bug 1: 404 Not Found</h2>
+        <button onclick="fetchUsers()">Fetch Users</button>
+        <div id="users-result" class="result"></div>
+        <p class="hint">💡 Hint: Check the request URL in Network tab</p>
+      </section>
+
+      <!-- Bug 2: 401 Unauthorized -->
+      <section class="bug-section">
+        <h2>Bug 2: 401 Unauthorized</h2>
+        <button onclick="fetchProtectedData()">Fetch Protected Data</button>
+        <div id="protected-result" class="result"></div>
+        <p class="hint">💡 Hint: Check request headers - is auth token present?</p>
+      </section>
+
+      <!-- Bug 3: CORS Error -->
+      <section class="bug-section">
+        <h2>Bug 3: CORS Error</h2>
+        <button onclick="fetchExternal()">Fetch External API</button>
+        <div id="cors-result" class="result"></div>
+        <p class="hint">💡 Hint: Check console for CORS error. Can you work around it?</p>
+      </section>
+
+      <!-- Bug 4: Slow Request -->
+      <section class="bug-section">
+        <h2>Bug 4: Slow Request</h2>
+        <button onclick="fetchSlowData()">Fetch Slow Data</button>
+        <div id="slow-result" class="result"></div>
+        <p class="hint">💡 Hint: Check Timing tab. What's taking so long?</p>
+      </section>
+
+      <!-- Bug 5: Timeout -->
+      <section class="bug-section">
+        <h2>Bug 5: Request Timeout</h2>
+        <button onclick="fetchWithTimeout()">Fetch with Timeout</button>
+        <div id="timeout-result" class="result"></div>
+        <p class="hint">💡 Hint: Request times out too quickly. Adjust timeout setting.</p>
+      </section>
+
+      <!-- Bug 6: Wrong Method -->
+      <section class="bug-section">
+        <h2>Bug 6: Wrong HTTP Method</h2>
+        <button onclick="getPosts()">Get Posts</button>
+        <div id="posts-result" class="result"></div>
+        <p class="hint">💡 Hint: Check the Method column in Network tab</p>
+      </section>
+
+      <!-- Bug 7: Invalid JSON -->
+      <section class="bug-section">
+        <h2>Bug 7: Invalid JSON Response</h2>
+        <button onclick="fetchInvalidJSON()">Fetch Data</button>
+        <div id="json-result" class="result"></div>
+        <p class="hint">💡 Hint: Check Response tab. Is the JSON valid?</p>
+      </section>
+
+      <!-- Bug 8: Race Condition -->
+      <section class="bug-section">
+        <h2>Bug 8: Race Condition</h2>
+        <button onclick="searchQuick()">Search (click multiple times fast!)</button>
+        <input type="text" id="search-input" placeholder="Type to search...">
+        <div id="search-result" class="result"></div>
+        <p class="hint">💡 Hint: Type fast. Old requests might override new ones!</p>
+      </section>
+    </div>
+
+    <footer>
+      <p>📊 Network Tab Shortcuts: Cmd/Ctrl+K (clear) | Cmd/Ctrl+E (record) | Cmd/Ctrl+R (replay)</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

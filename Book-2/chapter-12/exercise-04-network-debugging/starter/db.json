@@ -1,0 +1,30 @@
+{
+  "users": [
+    { "id": 1, "name": "Alice Johnson", "email": "alice@example.com", "role": "admin" },
+    { "id": 2, "name": "Bob Smith", "email": "bob@example.com", "role": "user" },
+    { "id": 3, "name": "Charlie Brown", "email": "charlie@example.com", "role": "user" },
+    { "id": 4, "name": "Diana Prince", "email": "diana@example.com", "role": "moderator" },
+    { "id": 5, "name": "Eve Davis", "email": "eve@example.com", "role": "user" }
+  ],
+  "posts": [
+    { "id": 1, "userId": 1, "title": "First Post", "body": "Hello World!", "likes": 5 },
+    { "id": 2, "userId": 2, "title": "React Tips", "body": "Use hooks!", "likes": 12 },
+    { "id": 3, "userId": 1, "title": "Debugging Guide", "body": "Use DevTools", "likes": 8 },
+    { "id": 4, "userId": 3, "title": "Performance", "body": "Optimize renders", "likes": 15 },
+    { "id": 5, "userId": 2, "title": "Testing", "body": "Write tests!", "likes": 7 }
+  ],
+  "comments": [
+    { "id": 1, "postId": 1, "author": "Bob", "text": "Great post!" },
+    { "id": 2, "postId": 1, "author": "Charlie", "text": "Thanks for sharing" },
+    { "id": 3, "postId": 2, "author": "Alice", "text": "Very helpful" },
+    { "id": 4, "postId": 3, "author": "Diana", "text": "Excellent guide" }
+  ],
+  "products": [
+    { "id": 1, "name": "Laptop", "price": 999, "stock": 5 },
+    { "id": 2, "name": "Mouse", "price": 29, "stock": 50 },
+    { "id": 3, "name": "Keyboard", "price": 79, "stock": 30 },
+    { "id": 4, "name": "Monitor", "price": 299, "stock": 10 }
+  ]
+}
+
+

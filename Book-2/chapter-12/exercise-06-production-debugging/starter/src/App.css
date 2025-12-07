@@ -1,0 +1,59 @@
+a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul, ol {
+  line-height: 1.8;
+}
+
+.demo-box {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  border: 2px solid #e0e0e0;
+}
+
+.demo-box h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.user-info {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.user-info p {
+  margin: 0.25rem 0;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: #666;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-left: 3px solid #667eea;
+  margin-bottom: 0.5rem;
+  border-radius: 3px;
+}
+
+.breadcrumb .time {
+  color: #999;
+  margin-right: 0.5rem;
+}
+
+.breadcrumb .category {
+  font-weight: 600;
+  color: #667eea;
+  margin-right: 0.5rem;
+}
+
+
