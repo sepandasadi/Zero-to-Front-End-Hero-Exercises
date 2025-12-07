@@ -1,0 +1,105 @@
+.todo-list {
+  max-width: 500px;
+}
+
+.todo-list form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.todo-list form input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.todo-list form button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #28a745;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.todo-list form button:hover {
+  background-color: #218838;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-buttons button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.filter-buttons button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.empty-state {
+  text-align: center;
+  color: #6c757d;
+  padding: 2rem;
+  font-style: italic;
+}
+
+.todo-list ul {
+  list-style: none;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  background-color: white;
+}
+
+.todo-list li.completed span {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.todo-list li input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.todo-list li span {
+  flex: 1;
+}
+
+.todo-list li button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  background-color: white;
+  color: #dc3545;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.todo-list li button:hover {
+  background-color: #dc3545;
+  color: white;
+}
+

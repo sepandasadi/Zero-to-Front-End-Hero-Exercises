@@ -1,0 +1,21 @@
+{
+  "name": "exercise-01-unit-testing-starter",
+  "version": "1.0.0",
+  "description": "Exercise 1: Unit Testing Basics - Starter",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": ["testing", "vitest", "unit-tests"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^1.0.4",
+    "@vitest/ui": "^1.0.4",
+    "vitest": "^1.0.4"
+  }
+}
+

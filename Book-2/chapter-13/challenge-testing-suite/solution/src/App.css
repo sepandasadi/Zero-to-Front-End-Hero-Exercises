@@ -1,0 +1,16 @@
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+.main-content {
+  padding-top: 70px; /* Account for fixed header */
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 60px;
+  }
+}
+

@@ -1,0 +1,60 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  max-width: 300px;
+}
+
+.counter-display {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.count {
+  margin-right: 0.5rem;
+}
+
+.status {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.status-zero { color: #6c757d; }
+.status-positive { color: #28a745; }
+.status-negative { color: #dc3545; }
+
+.counter-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.counter-controls button {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.counter-controls button:hover:not(:disabled) {
+  background-color: #f8f9fa;
+}
+
+.counter-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: #dc3545;
+  text-align: center;
+  margin: 0;
+}
+

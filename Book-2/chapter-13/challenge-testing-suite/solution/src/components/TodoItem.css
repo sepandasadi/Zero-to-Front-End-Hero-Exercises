@@ -1,0 +1,121 @@
+.todo-item {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.todo-item--completed {
+  opacity: 0.7;
+}
+
+.todo-item--completed .todo-text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.todo-item-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.todo-item-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.todo-checkbox {
+  margin-top: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-checkbox:disabled {
+  cursor: not-allowed;
+}
+
+.todo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.todo-text {
+  font-size: 1rem;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.todo-date {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.todo-item-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.todo-item-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.todo-edit-input {
+  padding: 0.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  width: 100%;
+}
+
+.todo-edit-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.todo-edit-input--error {
+  border-color: var(--danger-color);
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .todo-item {
+    padding: 0.75rem;
+  }
+
+  .todo-item-view {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .todo-item-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+

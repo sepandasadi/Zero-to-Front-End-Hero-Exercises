@@ -1,0 +1,7 @@
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+/* Add your app-level styles here */
+

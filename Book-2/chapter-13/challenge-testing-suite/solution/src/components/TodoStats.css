@@ -1,0 +1,40 @@
+.todo-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.stats-info {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat-item {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.stat-item strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .todo-stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .stats-info {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
