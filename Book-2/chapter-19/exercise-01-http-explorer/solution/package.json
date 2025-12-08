@@ -1,0 +1,14 @@
+{
+  "name": "http-explorer-solution",
+  "version": "1.0.0",
+  "description": "HTTP Protocol Explorer - Complete Solution",
+  "main": "http-explorer.js",
+  "type": "module",
+  "scripts": {
+    "start": "node http-explorer.js"
+  },
+  "keywords": ["http", "fetch", "api", "explorer"],
+  "author": "",
+  "license": "ISC"
+}
+

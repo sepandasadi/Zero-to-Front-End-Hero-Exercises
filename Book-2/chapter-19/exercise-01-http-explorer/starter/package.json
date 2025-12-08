@@ -1,0 +1,14 @@
+{
+  "name": "http-explorer-starter",
+  "version": "1.0.0",
+  "description": "HTTP Protocol Explorer - Starter",
+  "main": "http-explorer.js",
+  "type": "module",
+  "scripts": {
+    "start": "node http-explorer.js"
+  },
+  "keywords": ["http", "fetch", "api"],
+  "author": "",
+  "license": "ISC"
+}
+
