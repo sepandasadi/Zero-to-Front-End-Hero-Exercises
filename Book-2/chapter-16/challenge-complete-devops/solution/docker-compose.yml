@@ -1,0 +1,105 @@
+version: '3.8'
+
+# ============================================
+# Services
+# ============================================
+
+services:
+  # Frontend React Application
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: react-app
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  # Backend API (Example - optional)
+  # Uncomment and configure if you have a backend
+  # api:
+  #   image: node:18-alpine
+  #   container_name: backend-api
+  #   working_dir: /app
+  #   volumes:
+  #     - ./backend:/app
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - NODE_ENV=production
+  #     - DATABASE_URL=postgresql://postgres:password@db:5432/myapp
+  #   command: node server.js
+  #   depends_on:
+  #     - db
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+  #     interval: 30s
+  #     timeout: 3s
+  #     retries: 3
+  #   restart: unless-stopped
+  #   networks:
+  #     - app-network
+
+  # Database (Example - optional)
+  # db:
+  #   image: postgres:15-alpine
+  #   container_name: postgres-db
+  #   environment:
+  #     - POSTGRES_DB=myapp
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=password
+  #   volumes:
+  #     - db_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U postgres"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+  #   restart: unless-stopped
+  #   networks:
+  #     - app-network
+
+  # Redis Cache (Example - optional)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: redis-cache
+  #   ports:
+  #     - "6379:6379"
+  #   healthcheck:
+  #     test: ["CMD", "redis-cli", "ping"]
+  #     interval: 10s
+  #     timeout: 3s
+  #     retries: 3
+  #   restart: unless-stopped
+  #   networks:
+  #     - app-network
+
+# ============================================
+# Volumes
+# ============================================
+
+volumes:
+  # Persistent storage for database
+  # db_data:
+  #   driver: local
+
+# ============================================
+# Networks
+# ============================================
+
+networks:
+  app-network:
+    driver: bridge
+

@@ -1,0 +1,225 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    environment: staging
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'staging')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build for staging
+        run: npm run build:staging
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL_STAGING }}
+          VITE_SENTRY_DSN: ${{ secrets.VITE_SENTRY_DSN }}
+
+      - name: Deploy to Vercel (Staging)
+        id: deploy
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+          alias-domains: staging.example.com
+
+      - name: Comment deployment URL on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ Deployed to staging: ${{ steps.deploy.outputs.preview-url }}'
+            })
+
+      - name: Run smoke tests
+        run: npm run test:e2e:smoke
+        env:
+          BASE_URL: ${{ steps.deploy.outputs.preview-url }}
+        continue-on-error: true
+
+      - name: Notify Slack (Staging)
+        uses: slackapi/slack-github-action@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "text": "Staging Deployment ${{ job.status }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Staging Deployment*\nStatus: ${{ job.status }}\nURL: ${{ steps.deploy.outputs.preview-url }}\nCommit: ${{ github.sha }}"
+                  }
+                }
+              ]
+            }
+
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+    environment:
+      name: production
+      url: https://example.com
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'production')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build for production
+        run: npm run build:production
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL_PRODUCTION }}
+          VITE_SENTRY_DSN: ${{ secrets.VITE_SENTRY_DSN }}
+          VITE_GOOGLE_ANALYTICS_ID: ${{ secrets.VITE_GOOGLE_ANALYTICS_ID }}
+
+      - name: Upload source maps to Sentry
+        run: |
+          npm install -g @sentry/cli
+          sentry-cli releases new ${{ github.sha }}
+          sentry-cli releases files ${{ github.sha }} upload-sourcemaps ./dist/assets
+          sentry-cli releases finalize ${{ github.sha }}
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        continue-on-error: true
+
+      - name: Deploy to Vercel (Production)
+        id: deploy
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+          alias-domains: example.com,www.example.com
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release v${{ github.run_number }}
+          body: |
+            ## Deployment Information
+            - **Environment:** Production
+            - **Commit:** ${{ github.sha }}
+            - **URL:** ${{ steps.deploy.outputs.preview-url }}
+            - **Deployed by:** ${{ github.actor }}
+          draft: false
+          prerelease: false
+
+      - name: Run production smoke tests
+        run: npm run test:e2e:production
+        env:
+          BASE_URL: https://example.com
+        continue-on-error: true
+
+      - name: Notify Slack (Production)
+        uses: slackapi/slack-github-action@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "text": "🚀 Production Deployment ${{ job.status }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Production Deployment*\nStatus: ${{ job.status }}\nURL: https://example.com\nCommit: ${{ github.sha }}\nDeployed by: ${{ github.actor }}"
+                  }
+                }
+              ]
+            }
+
+      - name: Monitor deployment for 5 minutes
+        if: success()
+        run: |
+          echo "Monitoring production for errors..."
+          sleep 300
+          echo "✅ Monitoring complete"
+
+  rollback:
+    name: Rollback (Manual)
+    runs-on: ubuntu-latest
+    environment: production-rollback
+    if: failure()
+
+    steps:
+      - name: Rollback to previous version
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod --rollback'
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Notify team of rollback
+        uses: slackapi/slack-github-action@v1
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "text": "⚠️ Production Rollback Executed",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Production Rollback*\nReason: Deployment failure\nCommit: ${{ github.sha }}\n\n@channel Please investigate!"
+                  }
+                }
+              ]
+            }
+
