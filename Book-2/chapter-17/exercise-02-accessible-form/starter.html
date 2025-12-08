@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form - Needs Accessibility Improvements</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 100%;
+      padding: 40px;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-title {
+      font-size: 2rem;
+      color: #2d3748;
+      margin-bottom: 8px;
+    }
+
+    .form-description {
+      color: #718096;
+    }
+
+    .progress {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .progress::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e2e8f0;
+      z-index: -1;
+    }
+
+    .progress-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #a0aec0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .step-number.active {
+      background: #667eea;
+      color: white;
+    }
+
+    .step-number.complete {
+      background: #48bb78;
+      color: white;
+    }
+
+    .step-label {
+      font-size: 0.875rem;
+      color: #718096;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-label {
+      display: block;
+      margin-bottom: 6px;
+      color: #2d3748;
+      font-weight: 500;
+    }
+
+    .required-indicator {
+      color: #e53e3e;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .input-field.error {
+      border-color: #e53e3e;
+    }
+
+    .helper-text {
+      font-size: 0.875rem;
+      color: #718096;
+      margin-top: 4px;
+    }
+
+    .error-message {
+      font-size: 0.875rem;
+      color: #e53e3e;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .error-message.visible {
+      display: block;
+    }
+
+    .checkbox-group {
+      margin-bottom: 20px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: start;
+      gap: 8px;
+    }
+
+    .checkbox-input {
+      margin-top: 4px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5a67d8;
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+      color: #2d3748;
+    }
+
+    .btn-secondary:hover {
+      background: #cbd5e0;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .success-message.visible {
+      display: block;
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ❌ PROBLEMS:
+       - No form labels properly associated with inputs
+       - No aria-describedby for helper text and errors
+       - Required fields not marked with aria-required
+       - No aria-invalid for errors
+       - Error messages not announced to screen readers
+       - No role="alert" for dynamic error messages
+       - Poor keyboard navigation
+       - No form validation feedback
+  -->
+
+  <div class="container">
+    <div class="form-header">
+      <div class="form-title">Create Account</div>
+      <div class="form-description">Join us today! Fill out the form below.</div>
+    </div>
+
+    <!-- Progress indicator -->
+    <div class="progress">
+      <div class="progress-step">
+        <div class="step-number active">1</div>
+        <div class="step-label">Personal</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-number">2</div>
+        <div class="step-label">Account</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-number">3</div>
+        <div class="step-label">Preferences</div>
+      </div>
+    </div>
+
+    <form id="registrationForm">
+      <!-- Step 1: Personal Information -->
+      <div class="form-step active" data-step="1">
+        <div class="input-group">
+          <span class="input-label">First Name <span class="required-indicator">*</span></span>
+          <input type="text" class="input-field" placeholder="Enter your first name">
+          <div class="helper-text">What should we call you?</div>
+          <div class="error-message">Please enter your first name</div>
+        </div>
+
+        <div class="input-group">
+          <span class="input-label">Last Name <span class="required-indicator">*</span></span>
+          <input type="text" class="input-field" placeholder="Enter your last name">
+          <div class="error-message">Please enter your last name</div>
+        </div>
+
+        <div class="input-group">
+          <span class="input-label">Date of Birth</span>
+          <input type="date" class="input-field">
+          <div class="helper-text">You must be 18 or older to register</div>
+        </div>
+      </div>
+
+      <!-- Step 2: Account Information -->
+      <div class="form-step" data-step="2">
+        <div class="input-group">
+          <span class="input-label">Email <span class="required-indicator">*</span></span>
+          <input type="email" class="input-field" placeholder="your@email.com">
+          <div class="helper-text">We'll never share your email</div>
+          <div class="error-message">Please enter a valid email address</div>
+        </div>
+
+        <div class="input-group">
+          <span class="input-label">Username <span class="required-indicator">*</span></span>
+          <input type="text" class="input-field" placeholder="Choose a username">
+          <div class="helper-text">3-20 characters, letters and numbers only</div>
+          <div class="error-message">Username must be 3-20 characters</div>
+        </div>
+
+        <div class="input-group">
+          <span class="input-label">Password <span class="required-indicator">*</span></span>
+          <input type="password" class="input-field" placeholder="Create a password">
+          <div class="helper-text">At least 8 characters with 1 number and 1 special character</div>
+          <div class="error-message">Password must meet requirements</div>
+        </div>
+      </div>
+
+      <!-- Step 3: Preferences -->
+      <div class="form-step" data-step="3">
+        <div class="input-group">
+          <span class="input-label">Country</span>
+          <select class="input-field">
+            <option value="">Select your country</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="au">Australia</option>
+          </select>
+        </div>
+
+        <div class="checkbox-group">
+          <div class="checkbox-label">
+            <input type="checkbox" class="checkbox-input">
+            <span>I want to receive email updates and newsletters</span>
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <div class="checkbox-label">
+            <input type="checkbox" class="checkbox-input">
+            <span>I agree to the Terms of Service and Privacy Policy <span class="required-indicator">*</span></span>
+          </div>
+          <div class="error-message">You must accept the terms to continue</div>
+        </div>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="button-group">
+        <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">Previous</button>
+        <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Create Account</button>
+      </div>
+    </form>
+
+    <!-- Success message -->
+    <div class="success-message" id="successMessage">
+      <div class="success-icon">✅</div>
+      <div class="form-title">Account Created!</div>
+      <p class="form-description">Welcome aboard! Your account has been successfully created.</p>
+    </div>
+  </div>
+
+  <script>
+    // Basic form navigation (without accessibility features)
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    function showStep(step) {
+      document.querySelectorAll('.form-step').forEach((el, index) => {
+        el.classList.toggle('active', index + 1 === step);
+      });
+
+      document.querySelectorAll('.step-number').forEach((el, index) => {
+        el.classList.toggle('active', index + 1 === step);
+        el.classList.toggle('complete', index + 1 < step);
+      });
+
+      document.getElementById('prevBtn').style.display = step === 1 ? 'none' : 'block';
+      document.getElementById('nextBtn').style.display = step === totalSteps ? 'none' : 'block';
+      document.getElementById('submitBtn').style.display = step === totalSteps ? 'block' : 'none';
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+
+    document.getElementById('registrationForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.querySelector('.container').querySelector('form').style.display = 'none';
+      document.querySelector('.progress').style.display = 'none';
+      document.getElementById('successMessage').classList.add('visible');
+    });
+  </script>
+
+  <!-- ❌ ACCESSIBILITY ISSUES TO FIX:
+       1. Associate all labels with inputs using htmlFor and id
+       2. Add aria-describedby for helper text
+       3. Add aria-required="true" for required fields
+       4. Add aria-invalid="true/false" based on validation
+       5. Use role="alert" for error messages
+       6. Add aria-live regions for dynamic feedback
+       7. Make sure progress indicator is accessible
+       8. Add proper validation with accessible error messages
+       9. Ensure keyboard navigation works smoothly
+       10. Test with screen reader
+  -->
+</body>
+</html>
+

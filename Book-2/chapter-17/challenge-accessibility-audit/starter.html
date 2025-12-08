@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStore - E-commerce Site (Needs Accessibility Audit)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background: #1a202c;
+      color: white;
+      padding: 1rem 0;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: white;
+      cursor: pointer;
+    }
+
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #e53e3e;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    /* Search bar */
+    .search-bar {
+      background: #2d3748;
+      padding: 1rem 0;
+    }
+
+    .search-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #4a5568;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .search-btn {
+      background: #4299e1;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Main content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      background: #edf2f7;
+      border: 1px solid #cbd5e0;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .filter-btn.active {
+      background: #4299e1;
+      color: white;
+      border-color: #4299e1;
+    }
+
+    /* Product grid */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .product-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background: #cbd5e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .product-info {
+      padding: 1rem;
+    }
+
+    .product-name {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-price {
+      font-size: 1.25rem;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-rating {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 0.5rem;
+      color: #f6ad55;
+    }
+
+    .add-to-cart {
+      width: 100%;
+      background: #4299e1;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-close {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* Cart sidebar */
+    .cart-sidebar {
+      position: fixed;
+      right: -400px;
+      top: 0;
+      width: 400px;
+      height: 100vh;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      transition: right 0.3s;
+      z-index: 2000;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .cart-sidebar.open {
+      right: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .remove-btn {
+      background: #e53e3e;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1a202c;
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .footer-section-title {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-link {
+      color: #a0aec0;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Newsletter */
+    .newsletter-input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #4a5568;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter-btn {
+      width: 100%;
+      background: #4299e1;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- ❌ MAJOR ACCESSIBILITY ISSUES:
+       - Poor color contrast in multiple places
+       - No semantic HTML (all divs/spans)
+       - No ARIA labels or roles
+       - Clickable divs instead of buttons/links
+       - No keyboard navigation
+       - No focus management
+       - Missing alt text for images
+       - Form inputs without labels
+       - Modal without proper ARIA
+       - No skip links
+       - Cart badge not accessible
+       - Rating stars not accessible
+       - No screen reader announcements
+  -->
+
+  <div class="header">
+    <div class="header-content">
+      <div class="logo">TechStore</div>
+      <ul class="nav-menu">
+        <li><span class="nav-link">Products</span></li>
+        <li><span class="nav-link">Deals</span></li>
+        <li><span class="nav-link">About</span></li>
+        <li><span class="nav-link">Contact</span></li>
+      </ul>
+      <div class="cart-icon" onclick="openCart()">
+        🛒
+        <div class="cart-badge">3</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-bar">
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search products...">
+      <div class="search-btn" onclick="search()">Search</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-title">Our Products</div>
+
+    <div class="filters">
+      <div class="filter-btn active" onclick="filterProducts('all')">All</div>
+      <div class="filter-btn" onclick="filterProducts('electronics')">Electronics</div>
+      <div class="filter-btn" onclick="filterProducts('accessories')">Accessories</div>
+      <div class="filter-btn" onclick="filterProducts('sale')">On Sale</div>
+    </div>
+
+    <div class="products" id="productGrid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image">💻</div>
+        <div class="product-info">
+          <div class="product-name">Laptop Pro</div>
+          <div class="product-price">$999</div>
+          <div class="product-rating">
+            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+          </div>
+          <div class="add-to-cart" onclick="addToCart(1)">Add to Cart</div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image">📱</div>
+        <div class="product-info">
+          <div class="product-name">Smartphone X</div>
+          <div class="product-price">$799</div>
+          <div class="product-rating">
+            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>☆</span>
+          </div>
+          <div class="add-to-cart" onclick="addToCart(2)">Add to Cart</div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image">🎧</div>
+        <div class="product-info">
+          <div class="product-name">Wireless Headphones</div>
+          <div class="product-price">$199</div>
+          <div class="product-rating">
+            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+          </div>
+          <div class="add-to-cart" onclick="addToCart(3)">Add to Cart</div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-image">⌚</div>
+        <div class="product-info">
+          <div class="product-name">Smart Watch</div>
+          <div class="product-price">$299</div>
+          <div class="product-rating">
+            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>☆</span>
+          </div>
+          <div class="add-to-cart" onclick="addToCart(4)">Add to Cart</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <div class="modal-title">Shopping Cart</div>
+      <div class="modal-close" onclick="closeCart()">×</div>
+    </div>
+
+    <div id="cartItems">
+      <div class="cart-item">
+        <div>📱</div>
+        <div style="flex: 1;">
+          <div>Smartphone X</div>
+          <div>$799</div>
+        </div>
+        <div class="remove-btn" onclick="removeItem(1)">Remove</div>
+      </div>
+      <div class="cart-item">
+        <div>🎧</div>
+        <div style="flex: 1;">
+          <div>Wireless Headphones</div>
+          <div>$199</div>
+        </div>
+        <div class="remove-btn" onclick="removeItem(2)">Remove</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 2px solid #e2e8f0;">
+      <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">
+        Total: $998
+      </div>
+      <div class="add-to-cart" onclick="checkout()">Proceed to Checkout</div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-title" id="modalTitle">Item Added to Cart!</div>
+      <div id="modalBody">
+        Your item has been added to the cart successfully.
+      </div>
+      <div style="margin-top: 1rem;">
+        <div class="add-to-cart" onclick="closeModal()">Continue Shopping</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-content">
+      <div>
+        <div class="footer-section-title">About Us</div>
+        <p>TechStore is your one-stop shop for all things tech. Quality products, great prices.</p>
+      </div>
+      <div>
+        <div class="footer-section-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><span class="footer-link">Shipping Info</span></li>
+          <li><span class="footer-link">Returns</span></li>
+          <li><span class="footer-link">Privacy Policy</span></li>
+          <li><span class="footer-link">Terms of Service</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-section-title">Newsletter</div>
+        <p style="margin-bottom: 1rem;">Subscribe for updates and deals!</p>
+        <input type="text" class="newsletter-input" placeholder="Your email">
+        <div class="newsletter-btn" onclick="subscribe()">Subscribe</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openCart() {
+      document.getElementById('cartSidebar').classList.add('open');
+    }
+
+    function closeCart() {
+      document.getElementById('cartSidebar').classList.remove('open');
+    }
+
+    function addToCart(id) {
+      document.getElementById('modal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
+
+    function removeItem(id) {
+      alert('Item removed');
+    }
+
+    function checkout() {
+      alert('Proceeding to checkout...');
+    }
+
+    function filterProducts(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+
+    function search() {
+      alert('Searching...');
+    }
+
+    function subscribe() {
+      alert('Subscribed!');
+    }
+  </script>
+
+  <!-- ❌ ISSUES TO FIX IN YOUR AUDIT:
+       1. Replace all clickable divs/spans with buttons or links
+       2. Add semantic HTML (header, nav, main, footer, etc.)
+       3. Add proper headings hierarchy
+       4. Add alt text or aria-labels for emoji "images"
+       5. Associate form labels with inputs
+       6. Make cart badge accessible to screen readers
+       7. Make star ratings accessible
+       8. Add ARIA attributes to modal
+       9. Implement keyboard navigation
+       10. Add skip links
+       11. Fix color contrast issues
+       12. Add focus management to cart sidebar
+       13. Add aria-live regions for cart updates
+       14. Make filters keyboard accessible
+       15. Test with screen reader and fix issues
+  -->
+</body>
+</html>
+

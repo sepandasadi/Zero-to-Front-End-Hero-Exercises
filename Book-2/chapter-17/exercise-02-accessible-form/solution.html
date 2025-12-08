@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Registration Form - Solution</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 100%;
+      padding: 40px;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #2d3748;
+      margin-bottom: 8px;
+    }
+
+    .form-description {
+      color: #718096;
+    }
+
+    /* Progress indicator */
+    .progress {
+      margin-bottom: 30px;
+    }
+
+    .progress-list {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      position: relative;
+    }
+
+    .progress-list::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e2e8f0;
+      z-index: -1;
+    }
+
+    .progress-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #a0aec0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .step-number[aria-current="step"] {
+      background: #667eea;
+      color: white;
+    }
+
+    .step-number.complete {
+      background: #48bb78;
+      color: white;
+    }
+
+    .step-label {
+      font-size: 0.875rem;
+      color: #718096;
+    }
+
+    /* Form styles */
+    .form-step {
+      display: none;
+    }
+
+    .form-step[aria-hidden="false"] {
+      display: block;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #2d3748;
+      font-weight: 500;
+    }
+
+    .required-indicator {
+      color: #e53e3e;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid #667eea;
+      outline-offset: 2px;
+      border-color: #667eea;
+    }
+
+    input[aria-invalid="true"],
+    select[aria-invalid="true"] {
+      border-color: #e53e3e;
+    }
+
+    .helper-text {
+      font-size: 0.875rem;
+      color: #718096;
+      margin-top: 4px;
+    }
+
+    .error-message {
+      font-size: 0.875rem;
+      color: #e53e3e;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .error-message[aria-hidden="false"] {
+      display: block;
+    }
+
+    .checkbox-group {
+      margin-bottom: 20px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: start;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .checkbox-input {
+      margin-top: 4px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+    }
+
+    .checkbox-input:focus-visible {
+      outline: 3px solid #667eea;
+      outline-offset: 2px;
+    }
+
+    /* Buttons */
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: #5a67d8;
+    }
+
+    .btn-primary:focus-visible {
+      outline: 3px solid #2d3748;
+      outline-offset: 2px;
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+      color: #2d3748;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: #cbd5e0;
+    }
+
+    .btn-secondary:focus-visible {
+      outline: 3px solid #667eea;
+      outline-offset: 2px;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Success message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .success-message[aria-hidden="false"] {
+      display: block;
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    /* Screen reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Status announcements for screen readers */
+    .status-announcer {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-header">
+      <h1>Create Account</h1>
+      <p class="form-description">Join us today! Fill out the form below.</p>
+    </div>
+
+    <!-- ✅ Accessible progress indicator with proper ARIA -->
+    <nav class="progress" aria-label="Registration progress">
+      <ol class="progress-list">
+        <li class="progress-step">
+          <span class="step-number" aria-current="step">1</span>
+          <span class="step-label">Personal</span>
+        </li>
+        <li class="progress-step">
+          <span class="step-number">2</span>
+          <span class="step-label">Account</span>
+        </li>
+        <li class="progress-step">
+          <span class="step-number">3</span>
+          <span class="step-label">Preferences</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- ✅ Status announcer for screen readers -->
+    <div role="status" aria-live="polite" aria-atomic="true" class="status-announcer" id="statusAnnouncer"></div>
+
+    <form id="registrationForm" novalidate>
+      <!-- ✅ Step 1: Personal Information -->
+      <fieldset class="form-step" aria-hidden="false" data-step="1">
+        <legend class="sr-only">Step 1: Personal Information</legend>
+
+        <div class="input-group">
+          <label for="firstName">
+            First Name <span class="required-indicator" aria-label="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            aria-required="true"
+            aria-invalid="false"
+            aria-describedby="firstName-help"
+            placeholder="Enter your first name"
+            required
+          >
+          <div id="firstName-help" class="helper-text">What should we call you?</div>
+          <div id="firstName-error" class="error-message" role="alert" aria-hidden="true">
+            Please enter your first name
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="lastName">
+            Last Name <span class="required-indicator" aria-label="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            aria-required="true"
+            aria-invalid="false"
+            placeholder="Enter your last name"
+            required
+          >
+          <div id="lastName-error" class="error-message" role="alert" aria-hidden="true">
+            Please enter your last name
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="dob">Date of Birth</label>
+          <input
+            type="date"
+            id="dob"
+            name="dob"
+            aria-describedby="dob-help"
+          >
+          <div id="dob-help" class="helper-text">You must be 18 or older to register</div>
+          <div id="dob-error" class="error-message" role="alert" aria-hidden="true">
+            You must be at least 18 years old
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ✅ Step 2: Account Information -->
+      <fieldset class="form-step" aria-hidden="true" data-step="2">
+        <legend class="sr-only">Step 2: Account Information</legend>
+
+        <div class="input-group">
+          <label for="email">
+            Email <span class="required-indicator" aria-label="required">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            aria-required="true"
+            aria-invalid="false"
+            aria-describedby="email-help"
+            placeholder="your@email.com"
+            required
+          >
+          <div id="email-help" class="helper-text">We'll never share your email</div>
+          <div id="email-error" class="error-message" role="alert" aria-hidden="true">
+            Please enter a valid email address
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="username">
+            Username <span class="required-indicator" aria-label="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            aria-required="true"
+            aria-invalid="false"
+            aria-describedby="username-help"
+            placeholder="Choose a username"
+            required
+            pattern="[a-zA-Z0-9]{3,20}"
+          >
+          <div id="username-help" class="helper-text">3-20 characters, letters and numbers only</div>
+          <div id="username-error" class="error-message" role="alert" aria-hidden="true">
+            Username must be 3-20 characters, letters and numbers only
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="password">
+            Password <span class="required-indicator" aria-label="required">*</span>
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            aria-required="true"
+            aria-invalid="false"
+            aria-describedby="password-help"
+            placeholder="Create a password"
+            required
+            minlength="8"
+          >
+          <div id="password-help" class="helper-text">At least 8 characters with 1 number and 1 special character</div>
+          <div id="password-error" class="error-message" role="alert" aria-hidden="true">
+            Password must be at least 8 characters with 1 number and 1 special character
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ✅ Step 3: Preferences -->
+      <fieldset class="form-step" aria-hidden="true" data-step="3">
+        <legend class="sr-only">Step 3: Preferences</legend>
+
+        <div class="input-group">
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="">Select your country</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="au">Australia</option>
+          </select>
+        </div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              id="newsletter"
+              name="newsletter"
+              class="checkbox-input"
+            >
+            <span>I want to receive email updates and newsletters</span>
+          </label>
+        </div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              class="checkbox-input"
+              aria-required="true"
+              aria-invalid="false"
+              aria-describedby="terms-error"
+              required
+            >
+            <span>I agree to the Terms of Service and Privacy Policy <span class="required-indicator" aria-label="required">*</span></span>
+          </label>
+          <div id="terms-error" class="error-message" role="alert" aria-hidden="true">
+            You must accept the terms to continue
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ✅ Navigation buttons with proper ARIA -->
+      <div class="button-group">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="prevBtn"
+          style="display: none;"
+          aria-label="Go to previous step"
+        >
+          Previous
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="nextBtn"
+          aria-label="Go to next step"
+        >
+          Next
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          id="submitBtn"
+          style="display: none;"
+          aria-label="Submit registration form"
+        >
+          Create Account
+        </button>
+      </div>
+    </form>
+
+    <!-- ✅ Success message -->
+    <div class="success-message" id="successMessage" aria-hidden="true" role="status">
+      <div class="success-icon" aria-hidden="true">✅</div>
+      <h2>Account Created!</h2>
+      <p class="form-description">Welcome aboard! Your account has been successfully created.</p>
+    </div>
+  </div>
+
+  <script>
+    // ✅ Accessible form with proper validation and announcements
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    // Helper function to announce to screen readers
+    function announce(message) {
+      const announcer = document.getElementById('statusAnnouncer');
+      announcer.textContent = message;
+      setTimeout(() => {
+        announcer.textContent = '';
+      }, 1000);
+    }
+
+    // Show specific step
+    function showStep(step) {
+      const steps = document.querySelectorAll('.form-step');
+      const stepNumbers = document.querySelectorAll('.step-number');
+
+      steps.forEach((el, index) => {
+        const isActive = index + 1 === step;
+        el.setAttribute('aria-hidden', !isActive);
+      });
+
+      stepNumbers.forEach((el, index) => {
+        if (index + 1 === step) {
+          el.setAttribute('aria-current', 'step');
+        } else {
+          el.removeAttribute('aria-current');
+        }
+
+        if (index + 1 < step) {
+          el.classList.add('complete');
+        } else {
+          el.classList.remove('complete');
+        }
+      });
+
+      document.getElementById('prevBtn').style.display = step === 1 ? 'none' : 'block';
+      document.getElementById('nextBtn').style.display = step === totalSteps ? 'none' : 'block';
+      document.getElementById('submitBtn').style.display = step === totalSteps ? 'block' : 'none';
+
+      // Announce step change
+      const stepLabels = ['Personal Information', 'Account Information', 'Preferences'];
+      announce(`Step ${step} of ${totalSteps}: ${stepLabels[step - 1]}`);
+
+      // Focus first input in new step
+      setTimeout(() => {
+        const firstInput = steps[step - 1].querySelector('input, select');
+        if (firstInput) {
+          firstInput.focus();
+        }
+      }, 100);
+    }
+
+    // Validate field
+    function validateField(field) {
+      const errorEl = document.getElementById(`${field.id}-error`);
+      let isValid = true;
+      let errorMessage = '';
+
+      if (field.hasAttribute('required') && !field.value.trim()) {
+        isValid = false;
+        errorMessage = field.type === 'checkbox'
+          ? 'This field is required'
+          : `Please enter your ${field.name}`;
+      } else if (field.type === 'email' && field.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(field.value)) {
+          isValid = false;
+          errorMessage = 'Please enter a valid email address';
+        }
+      } else if (field.id === 'username' && field.value) {
+        const usernameRegex = /^[a-zA-Z0-9]{3,20}$/;
+        if (!usernameRegex.test(field.value)) {
+          isValid = false;
+          errorMessage = 'Username must be 3-20 characters, letters and numbers only';
+        }
+      } else if (field.id === 'password' && field.value) {
+        const hasNumber = /\d/.test(field.value);
+        const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(field.value);
+        if (field.value.length < 8 || !hasNumber || !hasSpecial) {
+          isValid = false;
+          errorMessage = 'Password must be at least 8 characters with 1 number and 1 special character';
+        }
+      } else if (field.id === 'dob' && field.value) {
+        const birthDate = new Date(field.value);
+        const today = new Date();
+        const age = today.getFullYear() - birthDate.getFullYear();
+        if (age < 18) {
+          isValid = false;
+          errorMessage = 'You must be at least 18 years old';
+        }
+      }
+
+      // Update ARIA attributes and display
+      field.setAttribute('aria-invalid', !isValid);
+
+      if (errorEl) {
+        errorEl.setAttribute('aria-hidden', isValid);
+        if (!isValid) {
+          errorEl.textContent = errorMessage;
+          // Add aria-describedby to point to error
+          const describedBy = field.getAttribute('aria-describedby') || '';
+          if (!describedBy.includes(`${field.id}-error`)) {
+            field.setAttribute('aria-describedby',
+              describedBy ? `${describedBy} ${field.id}-error` : `${field.id}-error`
+            );
+          }
+        } else {
+          // Remove error from aria-describedby
+          const describedBy = field.getAttribute('aria-describedby') || '';
+          const newDescribedBy = describedBy.replace(`${field.id}-error`, '').trim();
+          if (newDescribedBy) {
+            field.setAttribute('aria-describedby', newDescribedBy);
+          } else {
+            field.removeAttribute('aria-describedby');
+          }
+        }
+      }
+
+      return isValid;
+    }
+
+    // Validate current step
+    function validateCurrentStep() {
+      const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+      const fields = currentStepEl.querySelectorAll('input, select');
+      let isValid = true;
+
+      fields.forEach(field => {
+        if (!validateField(field)) {
+          isValid = false;
+        }
+      });
+
+      return isValid;
+    }
+
+    // Add real-time validation on blur
+    document.querySelectorAll('input, select').forEach(field => {
+      field.addEventListener('blur', () => {
+        if (field.value || field.hasAttribute('required')) {
+          validateField(field);
+        }
+      });
+
+      // Clear errors on input
+      field.addEventListener('input', () => {
+        if (field.getAttribute('aria-invalid') === 'true') {
+          validateField(field);
+        }
+      });
+    });
+
+    // Next button
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (validateCurrentStep() && currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+      } else {
+        announce('Please fix the errors before continuing');
+      }
+    });
+
+    // Previous button
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+
+    // Form submission
+    document.getElementById('registrationForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (validateCurrentStep()) {
+        // Hide form
+        document.getElementById('registrationForm').style.display = 'none';
+        document.querySelector('.progress').style.display = 'none';
+
+        // Show success message
+        const successMsg = document.getElementById('successMessage');
+        successMsg.setAttribute('aria-hidden', 'false');
+
+        // Announce success
+        announce('Account successfully created! Welcome aboard!');
+
+        // Focus on success message
+        successMsg.querySelector('h2').setAttribute('tabindex', '-1');
+        successMsg.querySelector('h2').focus();
+      } else {
+        announce('Please fix the errors before submitting');
+      }
+    });
+
+    // Initialize
+    showStep(1);
+  </script>
+
+  <!-- ✅ ACCESSIBILITY IMPROVEMENTS MADE:
+       1. ✅ All inputs properly associated with labels using for/id
+       2. ✅ Added aria-describedby for helper text and errors
+       3. ✅ Added aria-required="true" for required fields
+       4. ✅ Dynamic aria-invalid based on validation state
+       5. ✅ Error messages use role="alert" and aria-hidden
+       6. ✅ Status announcer with aria-live="polite" for dynamic updates
+       7. ✅ Progress indicator uses semantic nav and list
+       8. ✅ Proper fieldset/legend for form steps
+       9. ✅ Full keyboard navigation support
+       10. ✅ Focus management between steps
+       11. ✅ Real-time validation with accessible feedback
+       12. ✅ Clear focus indicators with :focus-visible
+       13. ✅ Screen reader announcements for step changes
+       14. ✅ Success message properly announced
+       15. ✅ All interactive elements keyboard accessible
+  -->
+</body>
+</html>
+

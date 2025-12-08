@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Dialog - Needs Accessibility</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: #2d3748;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      color: #4a5568;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .open-modal-btn {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .open-modal-btn:hover {
+      background: #5a67d8;
+    }
+
+    /* Modal overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    /* Modal dialog */
+    .modal {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      padding: 24px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      color: #2d3748;
+      margin: 0;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: #718096;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+
+    .close-btn:hover {
+      color: #2d3748;
+    }
+
+    .modal-body {
+      padding: 24px;
+    }
+
+    .modal-body p {
+      color: #4a5568;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #2d3748;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .modal-footer {
+      padding: 24px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5a67d8;
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+      color: #2d3748;
+    }
+
+    .btn-secondary:hover {
+      background: #cbd5e0;
+    }
+  </style>
+</head>
+<body>
+  <!-- ❌ PROBLEMS:
+       - No role="dialog" on modal
+       - No aria-modal="true"
+       - No aria-labelledby pointing to title
+       - No focus trap (Tab key escapes modal)
+       - No focus restoration when closed
+       - Escape key doesn't close modal
+       - Clicking overlay doesn't close modal
+       - Body scroll not prevented when open
+       - No focus management
+       - Poor screen reader experience
+  -->
+
+  <div class="container">
+    <h1>Accessible Modal Dialog Exercise</h1>
+
+    <div class="content">
+      <p>Click the button below to open a modal dialog. This modal currently has accessibility issues that need to be fixed:</p>
+      <ul>
+        <li>Focus is not trapped inside the modal</li>
+        <li>Focus is not returned to the trigger button when closed</li>
+        <li>Escape key doesn't close the modal</li>
+        <li>Screen readers don't announce it as a dialog</li>
+        <li>Background content is still accessible to screen readers</li>
+      </ul>
+    </div>
+
+    <button class="open-modal-btn" id="openModalBtn">
+      Open Contact Form
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle">Contact Us</div>
+        <button class="close-btn" id="closeBtn">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p>We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
+
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ❌ Basic modal without accessibility features
+    const openModalBtn = document.getElementById('openModalBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeBtn = document.getElementById('closeBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function openModal() {
+      modalOverlay.classList.add('active');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+    }
+
+    openModalBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Form submitted! (Demo only)');
+      closeModal();
+    });
+  </script>
+
+  <!-- ❌ ACCESSIBILITY ISSUES TO FIX:
+       1. Add role="dialog" to modal
+       2. Add aria-modal="true"
+       3. Add aria-labelledby pointing to title
+       4. Implement focus trap (Tab cycles within modal)
+       5. Return focus to trigger button on close
+       6. Close modal on Escape key
+       7. Close modal when clicking overlay
+       8. Prevent body scroll when modal is open
+       9. Ensure proper focus indicators
+       10. Make close button accessible
+       11. Test with screen reader
+  -->
+</body>
+</html>
+
