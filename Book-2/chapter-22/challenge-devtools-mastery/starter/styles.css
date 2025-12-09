@@ -1,0 +1,214 @@
+/* ShopBug Styles - Unoptimized */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* ❌ Low contrast */
+.header {
+  background: #667eea;
+  color: #aaa;  /* Too light! */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: 24px;
+  /* ❌ Tap target too small */
+  padding: 5px;
+}
+
+#cartCount {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  /* ❌ Too small */
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero img {
+  width: 100%;
+  /* ❌ No height specified - causes CLS */
+}
+
+.hero h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  /* ❌ Low contrast on some images */
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  /* ❌ Expensive animation */
+  opacity: 0;
+  transition: all 0.3s;
+  animation: fadeIn 0.5s forwards;
+}
+
+/* ❌ Expensive keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8) rotate(-5deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.product h4 {
+  margin: 10px 0;
+  /* ❌ Text overflow issues */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product p {
+  color: #666;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+button {
+  background: #667eea;
+  color: white;
+  border: none;
+  /* ❌ Button too small */
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #5568d3;
+}
+
+/* ❌ No focus indicator */
+button:focus {
+  outline: none;
+}
+
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  /* ❌ Causes reflow on every frame */
+  animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
+}
+
+.cart-modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.cart-total {
+  margin: 20px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* ❌ Lots of unused CSS below */
+.unused-class-1 { color: red; }
+.unused-class-2 { color: blue; }
+.unused-class-3 { color: green; }
+.unused-class-4 { color: yellow; }
+.unused-class-5 { color: purple; }
+.unused-class-6 { color: orange; }
+.unused-class-7 { color: pink; }
+.unused-class-8 { color: brown; }
+.unused-class-9 { color: cyan; }
+.unused-class-10 { color: magenta; }
+/* Imagine 100+ more unused selectors... */
+

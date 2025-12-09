@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optimized Website - Fast Loading!</title>
+
+  <!-- ✅ FIXED: Inline critical CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      margin-bottom: 30px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background: #f0f0f0;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .content {
+      margin: 40px 0;
+    }
+
+    .content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .footer {
+      background: #333;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    /* ✅ FIXED: Optimized animation using transform and opacity only */
+    @keyframes efficientAnimation {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+
+    .animated-box {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+      margin: 20px auto;
+      animation: efficientAnimation 3s infinite;
+      will-change: transform, opacity;
+    }
+
+    /* Loading placeholder for lazy images */
+    .lazy-loading {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+
+  <!-- ✅ FIXED: Defer non-critical CSS -->
+  <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
+
+  <!-- ✅ FIXED: Load print styles with media query -->
+  <link rel="stylesheet" href="print.css" media="print">
+
+  <!-- ✅ FIXED: Preconnect to external domains -->
+  <link rel="preconnect" href="https://picsum.photos">
+
+</head>
+<body>
+  <div class="header">
+    <h1>🚀 Optimized Website</h1>
+    <p>Fast loading with DevTools optimizations applied!</p>
+  </div>
+
+  <div class="container">
+    <!-- ✅ FIXED: Lazy load hero image, add loading="lazy" and proper dimensions -->
+    <img
+      src="https://picsum.photos/1920/1080?random=1"
+      alt="Hero image"
+      class="hero-image"
+      loading="lazy"
+      width="1920"
+      height="1080"
+    >
+
+    <div class="content">
+      <h2>✅ Performance Optimizations Applied</h2>
+      <p>This page has been optimized for fast loading. Compare the Network and Performance panels with the slow version!</p>
+
+      <h3>Optimizations Implemented:</h3>
+      <ul>
+        <li>✅ Inlined critical CSS</li>
+        <li>✅ Deferred non-critical CSS</li>
+        <li>✅ Scripts loaded with defer/async</li>
+        <li>✅ Lazy loading for images</li>
+        <li>✅ Proper image dimensions (no CLS)</li>
+        <li>✅ Efficient CSS animations (transform/opacity only)</li>
+        <li>✅ Removed unused CSS</li>
+        <li>✅ Optimized JavaScript execution</li>
+        <li>✅ Reduced HTTP requests</li>
+        <li>✅ Preconnect to external domains</li>
+      </ul>
+    </div>
+
+    <!-- ✅ FIXED: Efficient animation -->
+    <div class="animated-box"></div>
+
+    <h2>Image Gallery</h2>
+    <!-- ✅ FIXED: Lazy load all gallery images -->
+    <div class="gallery">
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=2"
+          alt="Gallery 1"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=3"
+          alt="Gallery 2"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=4"
+          alt="Gallery 3"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=5"
+          alt="Gallery 4"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=6"
+          alt="Gallery 5"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=7"
+          alt="Gallery 6"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=8"
+          alt="Gallery 7"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=9"
+          alt="Gallery 8"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=10"
+          alt="Gallery 9"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=11"
+          alt="Gallery 10"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=12"
+          alt="Gallery 11"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+      <div class="gallery-item">
+        <img
+          data-src="https://picsum.photos/800/600?random=13"
+          alt="Gallery 12"
+          class="lazy-img lazy-loading"
+          width="800"
+          height="600"
+        >
+      </div>
+    </div>
+
+    <div class="content">
+      <h2>More Content</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 Optimized Website. Fast and efficient! ⚡</p>
+  </div>
+
+  <!-- ✅ FIXED: Inline critical JavaScript, defer rest -->
+  <script>
+    // Critical: Lazy load images using Intersection Observer
+    const lazyImages = document.querySelectorAll('.lazy-img');
+
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy-loading');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      lazyImages.forEach(img => {
+        img.src = img.dataset.src;
+        img.classList.remove('lazy-loading');
+      });
+    }
+
+    console.log('✅ Optimized website loaded fast!');
+    console.log('📊 Compare Network panel with the slow version');
+    console.log('📊 Compare Performance panel with the slow version');
+  </script>
+
+  <!-- ✅ FIXED: Defer non-critical scripts -->
+  <script src="app-optimized.js" defer></script>
+
+  <!-- ✅ FIXED: Load analytics asynchronously -->
+  <script src="analytics-optimized.js" async></script>
+
+  <!-- ✅ FIXED: Efficient scroll handler with throttling -->
+  <script defer>
+    // Throttle function
+    function throttle(func, limit) {
+      let inThrottle;
+      return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      };
+    }
+
+    // Efficient scroll handler (throttled)
+    const handleScroll = throttle(() => {
+      const scrollTop = window.pageYOffset;
+      // Use requestAnimationFrame for smooth animations
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+          item.style.transform = `translateY(${scrollTop * 0.05}px)`;
+        });
+      });
+    }, 100);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  </script>
+</body>
+</html>
+

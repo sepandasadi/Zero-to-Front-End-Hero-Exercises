@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- ❌ Missing viewport meta -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="icons.css">
+  <script src="app.js"></script>
+  <script src="analytics.js"></script>
+</head>
+<body>
+  <!-- ❌ Missing heading hierarchy -->
+  <div>
+    <!-- ❌ Missing alt text -->
+    <img src="https://picsum.photos/1920/1080?random=1">
+    <h3>Welcome</h3>
+    <!-- ❌ Low contrast text -->
+    <p style="color: #aaa;">This site has poor Lighthouse scores</p>
+  </div>
+
+  <div>
+    <h3>Features</h3>
+    <!-- ❌ Images loaded eagerly, no dimensions -->
+    <img src="https://picsum.photos/800/600?random=2">
+    <img src="https://picsum.photos/800/600?random=3">
+    <img src="https://picsum.photos/800/600?random=4">
+  </div>
+
+  <!-- ❌ Form without labels -->
+  <form>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <!-- ❌ Button too small for mobile -->
+    <button style="padding: 5px 10px;">Submit</button>
+  </form>
+
+  <!-- ❌ Non-descriptive link -->
+  <a href="#">Click here</a>
+
+  <!-- ❌ Blocking scripts at end -->
+  <script>
+    // ❌ Expensive operation on main thread
+    for (let i = 0; i < 10000000; i++) {
+      Math.random();
+    }
+  </script>
+</body>
+</html>
+

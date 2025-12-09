@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debugging Practice - Shopping Cart</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .cart {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin: 0 4px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: #007bff;
+      color: white;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .remove-btn {
+      background: #dc3545;
+    }
+
+    .total {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: right;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .error {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shopping Cart - Debug Me!</h1>
+  <p>This cart has bugs. Use DevTools Sources panel to find and fix them!</p>
+
+  <div id="error-messages"></div>
+
+  <div class="cart" id="cart">
+    <!-- Items will be rendered here -->
+  </div>
+
+  <div class="total" id="total">
+    Total: $0.00
+  </div>
+
+  <script>
+    // Shopping cart with INTENTIONAL BUGS for debugging practice
+
+    let cart = [
+      { id: 1, name: 'Laptop', price: 999.99, quantity: 1 },
+      { id: 2, name: 'Mouse', price: 29.99, quantity: 2 },
+      { id: 3, name: 'Keyboard', price: 79.99, quantity: 1 }
+    ];
+
+    // BUG 1: Calculation error in this function
+    function calculateTotal() {
+      let total = 0;
+
+      for (let i = 0; i <= cart.length; i++) {  // ❌ BUG: <= should be <
+        total += cart[i].price * cart[i].quantity;
+      }
+
+      return total;
+    }
+
+    // BUG 2: Tax calculation is wrong
+    function calculateTax(amount) {
+      return amount * 0.01;  // ❌ BUG: Should be 0.1 (10%)
+    }
+
+    // BUG 3: Quantity update doesn't work properly
+    function updateQuantity(itemId, change) {
+      const item = cart.find(item => item.id == itemId);  // ⚠️ Using == instead of ===
+
+      if (item) {
+        item.quantity += change;
+
+        if (item.quantity <= 0) {  // ❌ BUG: Should be < 0
+          item.quantity = 0;
+        }
+      }
+
+      renderCart();
+    }
+
+    // BUG 4: Remove item has an off-by-one error
+    function removeItem(itemId) {
+      const index = cart.findIndex(item => item.id === itemId);
+      cart.splice(index, 2);  // ❌ BUG: Removing 2 items instead of 1
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartElement = document.getElementById('cart');
+      cartElement.innerHTML = '';
+
+      if (cart.length === 0) {
+        cartElement.innerHTML = '<p style="text-align: center; color: #666;">Your cart is empty</p>';
+        updateTotal();
+        return;
+      }
+
+      cart.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'item';
+        itemElement.innerHTML = `
+          <div>
+            <strong>${item.name}</strong>
+            <br>
+            <small>$${item.price.toFixed(2)} each</small>
+          </div>
+          <div>
+            <button onclick="updateQuantity(${item.id}, -1)">-</button>
+            <span style="margin: 0 10px;">${item.quantity}</span>
+            <button onclick="updateQuantity(${item.id}, 1)">+</button>
+            <button class="remove-btn" onclick="removeItem(${item.id})">Remove</button>
+          </div>
+          <div>
+            <strong>$${(item.price * item.quantity).toFixed(2)}</strong>
+          </div>
+        `;
+        cartElement.appendChild(itemElement);
+      });
+
+      updateTotal();
+    }
+
+    function updateTotal() {
+      try {
+        const subtotal = calculateTotal();
+        const tax = calculateTax(subtotal);
+        const total = subtotal + tax;
+
+        document.getElementById('total').innerHTML = `
+          Subtotal: $${subtotal.toFixed(2)}<br>
+          Tax (10%): $${tax.toFixed(2)}<br>
+          <strong>Total: $${total.toFixed(2)}</strong>
+        `;
+      } catch (error) {
+        document.getElementById('error-messages').innerHTML = `
+          <div class="error">
+            <strong>Error calculating total:</strong> ${error.message}
+          </div>
+        `;
+        console.error('Cart error:', error);
+      }
+    }
+
+    // Initialize cart
+    renderCart();
+
+    console.log('🐛 This cart has 4 bugs. Can you find them all using DevTools?');
+    console.log('💡 Hint: Set breakpoints in calculateTotal(), updateQuantity(), and removeItem()');
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+/* Print styles - shouldn't block rendering! */
+
+@media print {
+  body {
+    color: black;
+    background: white;
+  }
+
+  .header,
+  .footer {
+    display: none;
+  }
+
+  .content {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+

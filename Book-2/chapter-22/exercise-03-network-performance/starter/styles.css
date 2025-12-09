@@ -1,0 +1,34 @@
+/* External CSS file - simulate blocking resource */
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.button {
+  background: #667eea;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Lots of unused CSS to simulate bloat */
+.unused1 { color: red; }
+.unused2 { color: blue; }
+.unused3 { color: green; }
+.unused4 { color: yellow; }
+.unused5 { color: purple; }
+/* Imagine 100+ more unused selectors... */
+

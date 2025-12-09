@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slow Website - Performance Analysis</title>
+
+  <!-- ❌ PROBLEM: Render-blocking CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="print.css">
+
+  <!-- ❌ PROBLEM: Blocking JavaScript in head -->
+  <script src="heavy-library.js"></script>
+  <script src="analytics.js"></script>
+  <script src="app.js"></script>
+
+  <style>
+    /* Inline styles for demo purposes */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      margin-bottom: 30px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .content {
+      margin: 40px 0;
+    }
+
+    .content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    /* ❌ PROBLEM: Expensive CSS animations */
+    @keyframes expensiveAnimation {
+      0% { transform: rotate(0deg) scale(1); filter: blur(0px); }
+      50% { transform: rotate(180deg) scale(1.5); filter: blur(5px); }
+      100% { transform: rotate(360deg) scale(1); filter: blur(0px); }
+    }
+
+    .animated-box {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+      margin: 20px auto;
+      animation: expensiveAnimation 3s infinite;
+    }
+
+    .footer {
+      background: #333;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    /* ❌ PROBLEM: Unused CSS */
+    .never-used-class-1 { background: red; }
+    .never-used-class-2 { background: blue; }
+    .never-used-class-3 { background: green; }
+    /* ... imagine 100+ more unused selectors ... */
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🐌 Intentionally Slow Website</h1>
+    <p>Use DevTools to analyze and optimize this page!</p>
+  </div>
+
+  <div class="container">
+    <!-- ❌ PROBLEM: Large unoptimized image loaded eagerly -->
+    <img src="https://picsum.photos/1920/1080?random=1" alt="Hero image" class="hero-image">
+
+    <div class="content">
+      <h2>Performance Issues to Find</h2>
+      <p>This page has been intentionally designed with performance problems. Your mission is to use Chrome DevTools to identify and fix them.</p>
+
+      <h3>Known Issues:</h3>
+      <ul>
+        <li>Large, unoptimized images</li>
+        <li>Render-blocking CSS and JavaScript</li>
+        <li>Too many HTTP requests</li>
+        <li>Expensive CSS animations</li>
+        <li>No caching headers</li>
+        <li>No compression</li>
+        <li>Synchronous scripts</li>
+      </ul>
+    </div>
+
+    <!-- ❌ PROBLEM: Expensive animation causing repaints -->
+    <div class="animated-box"></div>
+
+    <h2>Image Gallery</h2>
+    <!-- ❌ PROBLEM: Loading 12 large images eagerly -->
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=2" alt="Gallery 1">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=3" alt="Gallery 2">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=4" alt="Gallery 3">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=5" alt="Gallery 4">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=6" alt="Gallery 5">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=7" alt="Gallery 6">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=8" alt="Gallery 7">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=9" alt="Gallery 8">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=10" alt="Gallery 9">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=11" alt="Gallery 10">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=12" alt="Gallery 11">
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/800/600?random=13" alt="Gallery 12">
+      </div>
+    </div>
+
+    <div class="content">
+      <h2>More Content</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 Slow Website. Use DevTools to make me fast!</p>
+  </div>
+
+  <script>
+    // ❌ PROBLEM: Heavy synchronous JavaScript
+    console.log('🐌 Loading heavy JavaScript...');
+
+    // Simulate expensive computation
+    function expensiveOperation() {
+      let result = 0;
+      for (let i = 0; i < 10000000; i++) {
+        result += Math.sqrt(i);
+      }
+      return result;
+    }
+
+    // ❌ PROBLEM: Forcing multiple reflows (layout thrashing)
+    function layoutThrashing() {
+      const boxes = document.querySelectorAll('.gallery-item');
+      boxes.forEach((box, index) => {
+        // Reading layout property
+        const height = box.offsetHeight;
+        // Writing layout property
+        box.style.height = (height + 10) + 'px';
+        // This causes forced reflow for each element!
+      });
+    }
+
+    // ❌ PROBLEM: Not waiting for DOM to be ready
+    expensiveOperation();
+
+    // More performance problems
+    window.addEventListener('scroll', () => {
+      // ❌ PROBLEM: Expensive operation on scroll (not throttled)
+      const scrollTop = window.pageYOffset;
+      document.querySelectorAll('.gallery-item').forEach((item, index) => {
+        item.style.transform = `translateY(${scrollTop * 0.1}px)`;
+      });
+    });
+
+    // ❌ PROBLEM: Querying DOM in a loop
+    for (let i = 0; i < 100; i++) {
+      const element = document.querySelector('.gallery');
+      if (element) {
+        // Do something
+      }
+    }
+
+    console.log('📊 Use the Network panel to see all HTTP requests');
+    console.log('📊 Use the Performance panel to see bottlenecks');
+    console.log('📊 Use throttling to simulate slow connections');
+  </script>
+
+  <!-- ❌ PROBLEM: More blocking scripts at the end -->
+  <script>
+    // Simulate analytics
+    (function() {
+      let counter = 0;
+      setInterval(() => {
+        counter++;
+        // Simulating tracking calls
+        if (counter % 100 === 0) {
+          console.log('Analytics ping:', counter);
+        }
+      }, 100);
+    })();
+  </script>
+</body>
+</html>
+
