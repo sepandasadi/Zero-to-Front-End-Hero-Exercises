@@ -1,130 +1,47 @@
-# Chapter 9: Page Speed and Optimization - Exercises
+# Chapter 31: ES6 Modules & Working with APIs - Exercises
 
-Welcome to Chapter 9 exercises! Learn how to make your applications blazing fast.
+Master ES6 modules, the Fetch API, and understand how JavaScript's event loop works!
 
-## 🎯 Learning Objectives
+## 📚 What You'll Practice
 
-By completing these exercises, you will:
-- Master Core Web Vitals (LCP, INP, CLS)
-- Optimize images for web (WebP, AVIF, lazy loading)
-- Implement code splitting and lazy loading
-- Set up caching strategies
-- Monitor performance with Lighthouse and WebPageTest
-- Create and enforce performance budgets
+- **ES6 Modules** - Import and export between files
+- **Fetch API** - Make HTTP requests (GET, POST, PUT, DELETE)
+- **JSON** - Parse and stringify data
+- **Event Loop** - Understand async execution
 
----
+## 🎯 Exercises
 
-## 📚 Exercises Overview
+### Basic Level
+1. **Module Basics** - Export and import functions
+2. **Fetch GET Request** - Retrieve data from an API
+3. **JSON Parsing** - Work with JSON data
 
-| Exercise | Difficulty | Time | Focus |
-|----------|-----------|------|-------|
-| 1. Image Optimization | Beginner | 1 hour | WebP, AVIF, lazy loading |
-| 2. Code Splitting | Intermediate | 1.5 hours | Route/component splitting |
-| 3. Lighthouse Audit | Beginner-Intermediate | 1 hour | Auditing & fixes |
-| 4. Performance Budget | Intermediate | 1.5 hours | Bundle analysis, budgets |
-| 5. Caching Strategy | Advanced | 2 hours | Browser caching, CDN |
-| 6. Core Web Vitals | Advanced | 2 hours | LCP, INP, CLS optimization |
+### Intermediate Level
+4. **Fetch POST Request** - Send data to an API
+5. **Module Organization** - Structure a multi-file project
+6. **Error Handling** - Handle API failures gracefully
 
-**Total Time:** ~9 hours
-
----
-
-## 🏆 Challenge Project
-
-**Performance Optimization Sprint** (6-8 hours)
-- Take a slow app (provided)
-- Optimize to Lighthouse 90+
-- Achieve green Core Web Vitals
-- Document all optimizations
-- Show before/after metrics
-
-See `challenge-performance-optimization/` for details.
-
----
-
-## 📝 Quiz
-
-Test your knowledge with 15 comprehensive questions on:
-- Core Web Vitals metrics
-- Image optimization techniques
-- Code splitting strategies
-- Caching best practices
-- Performance monitoring tools
-
-See `quiz.md` for the full quiz.
-
----
+### Advanced Level
+- **Challenge: Todo App with API** - Complete app using modules and fetch
 
 ## 🚀 Getting Started
 
-1. **Choose an exercise**
-2. **Read the README** in each folder
-3. **Try it yourself** first
-4. **Check hints** if stuck
-5. **Compare with solution**
+Each exercise folder contains:
+- Individual module files
+- `index.html` - Main entry point
+- `README.md` - Instructions
 
----
+**Important:** ES6 modules require a web server. Use:
+- VS Code Live Server extension
+- Python: `python3 -m http.server 8000`
+- Node: `npx serve`
 
-## 💡 Key Concepts
+## 💡 Tips
 
-**Core Web Vitals:**
-- LCP (Largest Contentful Paint): ≤ 2.5s
-- INP (Interaction to Next Paint): ≤ 200ms
-- CLS (Cumulative Layout Shift): ≤ 0.1
+- Always use `type="module"` in script tags
+- Module imports must include file extension (`.js`)
+- Use relative paths (`./` or `../`)
+- Check browser console for module errors
 
-**Optimization Priority:**
-1. Images (biggest impact)
-2. Code splitting (reduce initial load)
-3. Caching (instant repeat visits)
-4. Framework optimizations
-
-**Tools:**
-- Lighthouse (Chrome DevTools)
-- WebPageTest
-- Bundle analyzers
-- Real User Monitoring
-
----
-
-## 📊 Performance Targets
-
-**Good Performance:**
-- Lighthouse score: 90+
-- LCP: < 2.5s
-- INP: < 200ms
-- CLS: < 0.1
-- Total bundle: < 200KB (gzipped)
-- Images: WebP/AVIF format
-
-**Excellent Performance:**
-- Lighthouse score: 95+
-- LCP: < 1.5s
-- INP: < 100ms
-- CLS: < 0.05
-- Total bundle: < 100KB
-- All assets on CDN
-
----
-
-## 🔧 Required Tools
-
-- Chrome DevTools
-- Node.js & npm
-- Image optimization tools (Sharp, Squoosh)
-- Bundle analyzer (webpack-bundle-analyzer or vite-bundle-visualizer)
-
----
-
-## ✅ Completion Checklist
-
-- [ ] Complete all 6 exercises
-- [ ] Build the challenge project
-- [ ] Pass the quiz (13+ correct)
-- [ ] Optimize a real project
-- [ ] Set up performance monitoring
-- [ ] Create performance budget
-
----
-
-**Ready to make your apps fast?** Start with Exercise 1! ⚡
+Happy coding! 🎉
 

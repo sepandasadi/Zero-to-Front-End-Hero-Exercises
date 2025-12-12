@@ -1,15 +1,10 @@
-# Chapter 13: CSS Layout Fundamentals — Quiz
+# Chapter 17: CSS Variables — Quiz
 
-Test your understanding of CSS positioning, z-index, and layout concepts!
+Test your understanding of CSS Custom Properties!
 
 ---
 
 ## 📝 Instructions
-
-- Answer each question before checking the solution
-- Each question has one correct answer unless otherwise stated
-- Try to answer without looking at the chapter first
-- Score yourself at the end: Each correct answer = 1 point
 
 **Passing Score:** 12/15 (80%)
 
@@ -17,286 +12,280 @@ Test your understanding of CSS positioning, z-index, and layout concepts!
 
 ## Questions
 
-### 1. What is the default `position` value for all HTML elements?
+### 1. How do you define a CSS Variable?
 
-A) `relative`
-B) `absolute`
-C) `static`
-D) `fixed`
+A) `variable-name: value;`
+B) `--variable-name: value;`
+C) `var-variable-name: value;`
+D) `$variable-name: value;`
 
 <details>
 <summary>Show Answer</summary>
 
-**C) `static`**
+**B) `--variable-name: value;`**
 
-All elements start with `position: static` by default, which means they follow the normal document flow.
+CSS Variables must start with two dashes (`--`).
 
 </details>
 
 ---
 
-### 2. Which position value removes an element from the normal document flow?
+### 2. How do you use a CSS Variable?
 
-A) `static`
-B) `relative`
-C) `absolute`
-D) Both B and C
+A) `color: --primary-color;`
+B) `color: variable(--primary-color);`
+C) `color: var(--primary-color);`
+D) `color: get(--primary-color);`
 
 <details>
 <summary>Show Answer</summary>
 
-**C) `absolute`**
+**C) `color: var(--primary-color);`**
 
-`position: absolute` removes the element from the normal flow. `position: relative` keeps the element in the flow (space is reserved for it) even though it can be visually moved.
+Use the `var()` function to reference a CSS Variable.
 
 </details>
 
 ---
 
-### 3. What is the primary use case for `position: relative`?
+### 3. Where should you define global CSS Variables?
 
-A) To move elements around the page
-B) To create a positioning context for absolutely positioned children
-C) To make elements stick when scrolling
-D) To remove elements from document flow
+A) In `body {}`
+B) In `:root {}`
+C) In `html {}`
+D) In `* {}`
 
 <details>
 <summary>Show Answer</summary>
 
-**B) To create a positioning context for absolutely positioned children**
+**B) In `:root {}`**
 
-While `position: relative` CAN move elements, its most common use is to create a positioning context so that absolutely positioned children position relative to it, not the entire page.
+`:root` is the standard location for global variables, giving them the highest level scope.
 
 </details>
 
 ---
 
-### 4. An absolutely positioned element positions itself relative to...
+### 4. Can CSS Variables be changed with JavaScript?
 
-A) The viewport
-B) Its parent element
-C) The nearest positioned ancestor
-D) The `<body>` element
+A) No, never
+B) Yes, using `setProperty()`
+C) Only with jQuery
+D) Only at compile time
 
 <details>
 <summary>Show Answer</summary>
 
-**C) The nearest positioned ancestor**
+**B) Yes, using `setProperty()`**
 
-An absolutely positioned element looks for the nearest ancestor with any position value OTHER than `static`. If none exists, it positions relative to the `<body>`.
+Example: `document.documentElement.style.setProperty('--color', 'blue');`
 
 </details>
 
 ---
 
-### 5. Does `z-index` work on elements with `position: static`?
+### 5. What's the syntax for a fallback value?
 
-A) Yes
-B) No
-C) Only if the value is greater than 100
-D) Only with `!important`
+A) `var(--color fallback blue)`
+B) `var(--color || blue)`
+C) `var(--color, blue)`
+D) `var(--color default blue)`
 
 <details>
 <summary>Show Answer</summary>
 
-**B) No**
+**C) `var(--color, blue)`**
 
-`z-index` only works on positioned elements (position values other than `static`).
+Use a comma to separate the variable from its fallback value.
 
 </details>
 
 ---
 
-### 6. Which `position` value keeps an element fixed relative to the viewport?
+### 6. Do CSS Variables inherit?
 
-A) `static`
-B) `relative`
-C) `absolute`
-D) `fixed`
+A) No, never
+B) Yes, they follow the CSS cascade
+C) Only if specified with `inherit`
+D) Only global variables
 
 <details>
 <summary>Show Answer</summary>
 
-**D) `fixed`**
+**B) Yes, they follow the CSS cascade**
 
-`position: fixed` positions the element relative to the viewport (browser window) and it stays in place when scrolling.
+CSS Variables inherit just like other CSS properties, making them powerful for theming.
 
 </details>
 
 ---
 
-### 7. What's required for `position: sticky` to work properly?
+### 7. Can you scope CSS Variables locally?
 
-A) A parent with `position: relative`
-B) A threshold value (like `top: 0`)
-C) A high z-index
-D) The element must be a block element
+A) No, they're always global
+B) Yes, define them in any selector
+C) Only in classes
+D) Only with JavaScript
 
 <details>
 <summary>Show Answer</summary>
 
-**B) A threshold value (like `top: 0`)**
+**B) Yes, define them in any selector**
 
-`position: sticky` requires a threshold value (top, right, bottom, or left) to know when to "stick". Without it, the element behaves like `position: relative`.
+Variables can be scoped to specific elements: `.card { --card-bg: white; }`
 
 </details>
 
 ---
 
-### 8. If two elements with `z-index: 100` and `z-index: 1` overlap, which appears on top?
+### 8. What's the main advantage of CSS Variables over Sass variables?
 
-A) The one with `z-index: 1`
-B) The one with `z-index: 100`
-C) Whichever comes first in the HTML
-D) Whichever comes last in the HTML
+A) Faster compilation
+B) Better syntax
+C) Can be updated at runtime
+D) Work in older browsers
 
 <details>
 <summary>Show Answer</summary>
 
-**B) The one with `z-index: 100`**
+**C) Can be updated at runtime**
 
-Higher z-index values appear above lower values (assuming both are in the same stacking context).
+CSS Variables work at runtime and can be changed dynamically with JavaScript, while Sass variables are compiled to static values.
 
 </details>
 
 ---
 
-### 9. What is a "stacking context"?
+### 9. Which is a good variable naming convention?
 
-A) A group of elements that share the same z-index
-B) An isolated layer where z-index values only compete within that group
-C) Elements that are stacked on top of each other
-D) A CSS property for managing overlapping elements
+A) `--1`, `--2`, `--3`
+B) `--x`, `--y`, `--z`
+C) `--color-primary`, `--spacing-md`
+D) `--a`, `--b`, `--c`
 
 <details>
 <summary>Show Answer</summary>
 
-**B) An isolated layer where z-index values only compete within that group**
+**C) `--color-primary`, `--spacing-md`**
 
-A stacking context is like a group where z-index values only matter relative to other elements in the same context. Elements in one stacking context can't interleave with elements from another context.
+Use descriptive names that clearly indicate the variable's purpose.
 
 </details>
 
 ---
 
-### 10. Which of these creates a stacking context? (Select all that apply)
+### 10. Can CSS Variables be used in `calc()`?
 
-A) `position: relative` with `z-index` other than `auto`
-B) `position: fixed`
-C) `opacity` less than 1
-D) `position: static`
+A) No
+B) Yes
+C) Only with pixels
+D) Only with percentages
 
 <details>
 <summary>Show Answer</summary>
 
-**A, B, and C**
+**B) Yes**
 
-All three create stacking contexts:
-- A) `position: relative` with `z-index` (not auto)
-- B) `position: fixed` (always creates a context)
-- C) `opacity` less than 1 (also creates a context)
-
-`position: static` does NOT create a stacking context.
+Example: `calc(var(--base-size) * 2)`
 
 </details>
 
 ---
 
-### 11. When using `position: fixed` for a header, what else should you do?
+### 11. How do you create a dark theme with CSS Variables?
 
-A) Set a high z-index
-B) Add padding to the `<body>` equal to the header's height
-C) Use `width: 100%`
-D) Set `top: 0`
-
-<details>
-<summary>Show Answer</summary>
-
-**B) Add padding to the `<body>` equal to the header's height**
-
-This prevents page content from being hidden under the fixed header. While the other options might also be needed, preventing content overlap is the critical step many forget.
-
-</details>
-
----
-
-### 12. What does `display: none` do?
-
-A) Makes an element invisible but keeps its space
-B) Removes an element completely from the layout
-C) Sets opacity to 0
-D) Hides an element only on mobile
+A) Define new variables for dark colors
+B) Override existing variables in a theme class
+C) Use JavaScript only
+D) Can't be done with CSS Variables
 
 <details>
 <summary>Show Answer</summary>
 
-**B) Removes an element completely from the layout**
+**B) Override existing variables in a theme class**
 
-`display: none` completely removes the element from the document flow - it takes up no space. This is different from `visibility: hidden` which hides the element but preserves its space.
-
-</details>
-
----
-
-### 13. What's the difference between `display: inline-block` and `display: inline`?
-
-A) No difference
-B) `inline-block` allows width and height; `inline` doesn't
-C) `inline-block` starts a new line; `inline` doesn't
-D) `inline-block` is for images only
-
-<details>
-<summary>Show Answer</summary>
-
-**B) `inline-block` allows width and height; `inline` doesn't**
-
-`inline-block` combines inline flow with block-level sizing capabilities. You can set width, height, and vertical padding/margins, which don't work on pure `inline` elements.
-
-</details>
-
----
-
-### 14. Float layouts should primarily be used for...
-
-A) Creating multi-column page layouts
-B) Wrapping text around images
-C) Centering elements
-D) Creating navigation menus
-
-<details>
-<summary>Show Answer</summary>
-
-**B) Wrapping text around images**
-
-In modern CSS, floats should primarily be reserved for text wrapping. For layouts, use Flexbox or Grid instead.
-
-</details>
-
----
-
-### 15. When parent containers "collapse" because all children are floated, which technique can fix this?
-
-A) Adding `clear: both` to the parent
-B) Using a clearfix hack (::after with `clear: both`)
-C) Adding `position: relative` to the parent
-D) Setting `z-index: 1` on the parent
-
-<details>
-<summary>Show Answer</summary>
-
-**B) Using a clearfix hack (::after with `clear: both`)**
-
-The classic solution is to add a pseudo-element with `clear: both` to the parent:
-
+Example:
 ```css
-.parent::after {
-  content: "";
-  display: table;
-  clear: both;
+:root { --bg: white; }
+.dark-theme { --bg: black; }
+```
+
+</details>
+
+---
+
+### 12. Are CSS Variable names case-sensitive?
+
+A) No
+B) Yes
+C) Only in JavaScript
+D) Only for global variables
+
+<details>
+<summary>Show Answer</summary>
+
+**B) Yes**
+
+`--Color` and `--color` are different variables.
+
+</details>
+
+---
+
+### 13. What's the best way to save a user's theme preference?
+
+A) CSS only
+B) JavaScript with localStorage
+C) Cookies only
+D) Can't be saved
+
+<details>
+<summary>Show Answer</summary>
+
+**B) JavaScript with localStorage**
+
+Save the theme choice and load it on page load for persistence.
+
+</details>
+
+---
+
+### 14. Can you use media queries to change CSS Variables?
+
+A) No
+B) Yes, redefine them in @media blocks
+C) Only with JavaScript
+D) Only for colors
+
+<details>
+<summary>Show Answer</summary>
+
+**B) Yes, redefine them in @media blocks**
+
+Example:
+```css
+@media (max-width: 768px) {
+  :root { --spacing: 0.5rem; }
 }
 ```
 
-Alternatively, `overflow: auto` on the parent also works.
+</details>
+
+---
+
+### 15. What's the difference between `:root` and `html` for defining variables?
+
+A) No difference
+B) `:root` has higher specificity
+C) `html` is better
+D) `:root` only works in modern browsers
+
+<details>
+<summary>Show Answer</summary>
+
+**B) `:root` has higher specificity**
+
+While both target the same element, `:root` (being a pseudo-class) has higher specificity than the `html` element selector.
 
 </details>
 
@@ -304,35 +293,12 @@ Alternatively, `overflow: auto` on the parent also works.
 
 ## 📊 Scoring
 
-Count your correct answers:
-
-- **13-15 correct (87-100%):** 🌟 Excellent! You've mastered CSS positioning!
-- **10-12 correct (67-83%):** 👍 Good! Review the topics you missed.
-- **7-9 correct (47-60%):** 📚 You're getting there! Revisit the chapter and practice more.
-- **0-6 correct (0-40%):** 🎯 Time to review! Go back through Chapter 13 carefully.
+- **13-15 correct:** 🌟 Excellent!
+- **10-12 correct:** 👍 Good!
+- **7-9 correct:** 📚 Review the chapter
+- **0-6 correct:** 🎯 Time to re-read!
 
 ---
 
-## 🎯 Key Concepts to Review
-
-If you struggled with certain questions, focus on these areas:
-
-**Questions 1-4:** Basic positioning concepts
-**Questions 5-9:** Z-index and stacking contexts
-**Questions 10-11:** Advanced positioning patterns
-**Questions 12-13:** Display properties
-**Questions 14-15:** Float layouts
-
----
-
-## 📚 Next Steps
-
-1. Review any concepts you missed
-2. Complete the practice exercises
-3. Build the challenge project
-4. Experiment with positioning in real projects!
-
----
-
-**Great job taking the quiz!** 🎉
+**Great job!** 🎉
 

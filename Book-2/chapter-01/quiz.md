@@ -1,604 +1,547 @@
-# Chapter 36: Frameworks and Libraries - Quiz
+# Chapter 23: JavaScript Fundamentals - Quiz
+
+Test your understanding of JavaScript fundamentals! This quiz covers variables, data types, operators, conditionals, loops, and basic DOM manipulation.
+
+**Instructions:**
+- Answer each question to the best of your ability
+- Some questions have multiple correct answers
+- Try to answer without looking at the chapter first
+- Answers with explanations are provided at the bottom
+- Be honest with yourself—struggling means you're learning!
+
+---
 
 ## Questions
 
-### 1. What is the primary problem that JavaScript frameworks solve?
-a) Making JavaScript run faster
-b) Managing complex UI updates and state synchronization
-c) Replacing HTML and CSS
-d) Making websites look better
+### 1. What is JavaScript primarily used for?
 
-### 2. Which of the following best describes React?
-a) A full-featured framework with built-in routing and HTTP client
-b) A UI library focused on building components
-c) A TypeScript-only framework
-d) A server-side rendering engine
-
-### 3. What is JSX in React?
-a) A new programming language
-b) A CSS preprocessor
-c) Syntax that allows writing HTML-like code in JavaScript
-d) A testing framework
-
-### 4. In React, what is the correct way to update state?
-a) `state.count = 5`
-b) `this.state.count = 5`
-c) `setState({ count: 5 })` or `setCount(5)`
-d) `updateState(5)`
-
-### 5. What is the Virtual DOM?
-a) A new browser API
-b) A lightweight copy of the real DOM used to optimize updates
-c) A visualization tool for debugging
-d) A database for storing component state
-
-### 6. Which framework requires TypeScript?
-a) React
-b) Vue
-c) Angular
-d) Svelte
-
-### 7. What does "one-way data flow" mean in React?
-a) Data can only be sent to the server
-b) Data flows from parent to child via props
-c) State can only be updated once
-d) Components can only communicate with their siblings
-
-### 8. In Vue, what directive is used for two-way data binding?
-a) `v-bind`
-b) `v-model`
-c) `v-on`
-d) `v-sync`
-
-### 9. What is the purpose of the `key` prop when rendering lists?
-a) To encrypt the data
-b) To help React/Vue track which items changed
-c) To sort the list alphabetically
-d) To make the list searchable
-
-### 10. Which framework is known for having the easiest learning curve?
-a) React
-b) Angular
-c) Vue
-d) They're all equally difficult
-
-### 11. What is a custom hook in React?
-a) A lifecycle method
-b) A reusable function that uses React hooks
-c) A CSS styling technique
-d) A debugging tool
-
-### 12. In Angular, what decorator is used to define a component?
-a) `@Injectable`
-b) `@NgModule`
-c) `@Component`
-d) `@Directive`
-
-### 13. What is the main advantage of component-based architecture?
-a) Faster internet speeds
-b) Reusability and maintainability
-c) Smaller file sizes
-d) Better SEO
-
-### 14. When should you NOT use a framework?
-a) Building a complex single-page application
-b) Creating a simple static website or adding minor interactivity
-c) Working in a large team
-d) Building an e-commerce platform
-
-### 15. What is the purpose of `useEffect` in React?
-a) To create visual effects and animations
-b) To handle side effects like API calls and subscriptions
-c) To optimize performance
-d) To style components
+A) Styling websites
+B) Adding interactivity and behavior to websites
+C) Defining the structure of web pages
+D) Managing databases
 
 ---
 
-## Answers
+### 2. Which of the following is the correct way to declare a variable that won't change?
 
-### 1. What is the primary problem that JavaScript frameworks solve?
-**Answer: b) Managing complex UI updates and state synchronization**
-
-**Explanation:**
-Frameworks exist to solve the challenge of keeping the UI in sync with your application state. In vanilla JavaScript, you have to manually update the DOM every time your data changes, which becomes error-prone and difficult to maintain as apps grow. Frameworks automate this process—when state changes, the UI updates automatically.
-
-**Why other options are wrong:**
-- a) Frameworks don't make JavaScript itself faster; they optimize DOM updates
-- c) Frameworks work *with* HTML and CSS, not replace them
-- d) Styling is handled by CSS, not frameworks (though component libraries help)
-
-**Real-world context:** Think of Instagram or Twitter—thousands of posts, likes updating in real-time, comments appearing instantly. Without a framework, manually tracking and updating all those DOM elements would be a nightmare.
+A) `var name = "Alex";`
+B) `let name = "Alex";`
+C) `const name = "Alex";`
+D) `variable name = "Alex";`
 
 ---
 
-### 2. Which of the following best describes React?
-**Answer: b) A UI library focused on building components**
+### 3. What's the difference between `let` and `const`?
 
-**Explanation:**
-React is technically a *library*, not a complete framework. It focuses specifically on building user interfaces through components. Unlike Angular (which includes routing, HTTP client, form handling, etc.), React only handles the view layer. You choose your own routing solution (React Router), state management (Redux, Zustand), and other tools.
-
-**Why other options are wrong:**
-- a) That describes Angular, which is a full framework
-- c) React works with JavaScript or TypeScript (your choice)
-- d) React can do SSR (with Next.js), but it's not primarily an SSR engine
-
-**Key distinction:** Library vs Framework
-- **Library (React):** You call it when you need it
-- **Framework (Angular):** It calls your code, provides structure
+A) `let` is for strings, `const` is for numbers
+B) `let` can be reassigned, `const` cannot
+C) `const` is faster than `let`
+D) They're exactly the same
 
 ---
 
-### 3. What is JSX in React?
-**Answer: c) Syntax that allows writing HTML-like code in JavaScript**
-
-**Explanation:**
-JSX is a syntax extension that lets you write HTML-like markup inside JavaScript files. It makes React code more readable and maintainable. Under the hood, JSX compiles to `React.createElement()` calls.
-
-```jsx
-// This JSX:
-<div className="card">Hello</div>
-
-// Compiles to:
-React.createElement('div', { className: 'card' }, 'Hello')
+### 4. What will this code output?
+```js
+const age = 25;
+console.log(typeof age);
 ```
 
-**Why other options are wrong:**
-- a) JSX isn't a programming language; it's syntactic sugar for JavaScript
-- b) That would be Sass/SCSS/Less
-- d) That would be Jest or React Testing Library
-
-**Additional context:** You can write React without JSX, but it's much less readable. JSX gives you syntax highlighting, error checking, and a familiar HTML-like structure.
+A) `25`
+B) `"number"`
+C) `"string"`
+D) `number`
 
 ---
 
-### 4. In React, what is the correct way to update state?
-**Answer: c) `setState({ count: 5 })` or `setCount(5)`**
+### 5. Which is the correct way to create a template literal?
 
-**Explanation:**
-React state must be updated using the setter function provided by `useState` (in function components) or `this.setState()` (in class components). Never mutate state directly!
+A) `"Hello, " + name + "!"`
+B) `'Hello, ${name}!'`
+C) `` `Hello, ${name}!` ``
+D) `"Hello, ${name}!"`
 
-```jsx
-// ❌ WRONG - Direct mutation
-const [count, setCount] = useState(0);
-count = 5; // This won't trigger a re-render!
+---
 
-// ✅ CORRECT
-setCount(5); // React detects the change and re-renders
+### 6. What does `===` do?
+
+A) Assigns a value
+B) Checks if two values are equal (loose equality)
+C) Checks if two values are equal AND the same type (strict equality)
+D) Checks if one value is greater than another
+
+---
+
+### 7. What's wrong with this code?
+```js
+const score = 100;
+score = 200;
 ```
 
-**Why other options are wrong:**
-- a) Direct mutation doesn't trigger re-renders
-- b) This is class component syntax, but missing `this.setState()`
-- d) `updateState` isn't a real React method
+A) Nothing, it's correct
+B) You can't reassign a `const` variable
+C) Missing semicolon
+D) `const` only works with strings
 
-**Common mistake:** Mutating objects/arrays in state:
-```jsx
-// ❌ WRONG
-user.name = 'John';
-setUser(user);
+---
 
-// ✅ CORRECT
-setUser({ ...user, name: 'John' });
+### 8. What does this code output?
+```js
+console.log(5 == "5");
+console.log(5 === "5");
 ```
 
----
-
-### 5. What is the Virtual DOM?
-**Answer: b) A lightweight copy of the real DOM used to optimize updates**
-
-**Explanation:**
-The Virtual DOM is an in-memory representation of the real DOM. When state changes:
-
-1. React creates a new Virtual DOM tree
-2. Compares it to the previous Virtual DOM (diffing)
-3. Calculates the minimal set of changes needed
-4. Updates only those parts of the real DOM
-
-**Why this matters:** DOM operations are slow. By minimizing them, React makes apps faster.
-
-**Why other options are wrong:**
-- a) It's a React/Vue concept, not a browser API
-- c) That would be React DevTools
-- d) State is stored in component memory, not the Virtual DOM
-
-**Real-world impact:**
-Imagine updating a list of 1,000 items where only one changed. Without Virtual DOM, you might recreate all 1,000 elements. With Virtual DOM, React updates just the one that changed.
+A) `true`, `true`
+B) `false`, `false`
+C) `true`, `false`
+D) `false`, `true`
 
 ---
 
-### 6. Which framework requires TypeScript?
-**Answer: c) Angular**
+### 9. Which comparison operator should you use in modern JavaScript?
 
-**Explanation:**
-Angular is built with TypeScript and requires it for development. The decorators (`@Component`, `@Injectable`) and dependency injection system rely on TypeScript's metadata features.
+A) `==` and `!=`
+B) `===` and `!==`
+C) Both are equally good
+D) It doesn't matter
 
-```typescript
-// Angular requires TypeScript
-@Component({
-  selector: 'app-user',
-  template: '<h1>{{ name }}</h1>'
-})
-export class UserComponent {
-  name: string = 'John';
+---
+
+### 10. What does the `&&` (AND) operator do?
+
+A) Returns true if at least one condition is true
+B) Returns true only if both conditions are true
+C) Flips true to false
+D) Adds two numbers
+
+---
+
+### 11. What will this code output?
+```js
+const age = 16;
+if (age >= 18) {
+  console.log("Adult");
+} else {
+  console.log("Minor");
 }
 ```
 
-**Why other options are wrong:**
-- a) React works with JavaScript or TypeScript (your choice)
-- b) Vue works with JavaScript or TypeScript (your choice)
-- d) Svelte works with JavaScript or TypeScript (your choice)
-
-**Additional context:** While Angular requires TypeScript, using TypeScript with React or Vue is highly recommended and increasingly common in 2025.
+A) `Adult`
+B) `Minor`
+C) `undefined`
+D) Error
 
 ---
 
-### 7. What does "one-way data flow" mean in React?
-**Answer: b) Data flows from parent to child via props**
-
-**Explanation:**
-In React, data flows downward from parent components to children through props. Children cannot directly modify their props. To communicate upward, children call callback functions passed down as props.
-
-```jsx
-// Parent
-function Parent() {
-  const [count, setCount] = useState(0);
-  return <Child count={count} onIncrement={() => setCount(count + 1)} />;
-}
-
-// Child
-function Child({ count, onIncrement }) {
-  // ✅ Can read props
-  // ✅ Can call callbacks
-  // ❌ Cannot modify props directly
-  return <button onClick={onIncrement}>{count}</button>;
+### 12. How many times will this loop run?
+```js
+for (let i = 0; i < 5; i++) {
+  console.log(i);
 }
 ```
 
-**Why other options are wrong:**
-- a) Data flow refers to component communication, not network requests
-- c) State can be updated as many times as needed
-- d) Siblings communicate through a shared parent, not directly
-
-**Benefits:**
-- Predictable data flow
-- Easier debugging (trace data from top down)
-- Better testability
+A) 4 times
+B) 5 times
+C) 6 times
+D) Infinite times
 
 ---
 
-### 8. In Vue, what directive is used for two-way data binding?
-**Answer: b) `v-model`**
+### 13. What does `i++` do?
 
-**Explanation:**
-`v-model` creates two-way binding between form inputs and data. It's shorthand for binding a value and listening to input events.
-
-```vue
-<!-- These are equivalent: -->
-<input v-model="username">
-
-<input
-  :value="username"
-  @input="username = $event.target.value"
->
-```
-
-**Why other options are wrong:**
-- a) `v-bind` (or `:`) is one-way binding (data → view)
-- c) `v-on` (or `@`) is for event handling
-- d) `v-sync` doesn't exist (you might be thinking of `.sync` modifier)
-
-**Use cases:**
-- Text inputs
-- Checkboxes
-- Radio buttons
-- Select dropdowns
-- Custom components
+A) Multiplies i by 2
+B) Adds 1 to i
+C) Subtracts 1 from i
+D) Sets i to 0
 
 ---
 
-### 9. What is the purpose of the `key` prop when rendering lists?
-**Answer: b) To help React/Vue track which items changed**
-
-**Explanation:**
-Keys help the framework identify which items in a list have changed, been added, or been removed. Without keys, the framework might re-render the entire list inefficiently or even show wrong data.
-
-```jsx
-// ❌ BAD - Using index as key
-{items.map((item, index) => <div key={index}>{item}</div>)}
-
-// ✅ GOOD - Using unique ID
-{items.map(item => <div key={item.id}>{item.name}</div>)}
-```
-
-**Why other options are wrong:**
-- a) Keys have nothing to do with encryption
-- c) Keys don't sort; they identify items
-- d) Keys don't enable searching
-
-**Real-world bug without keys:**
-Imagine a todo list where you check item #2, then delete item #1. Without proper keys, item #2 might now appear checked in position #1 because React/Vue doesn't know which item moved!
-
-**Best practices:**
-- Use stable, unique IDs (database IDs, `uuid`)
-- Don't use array index if list can reorder
-- Don't use Math.random() (changes on every render!)
-
----
-
-### 10. Which framework is known for having the easiest learning curve?
-**Answer: c) Vue**
-
-**Explanation:**
-Vue is widely considered the most beginner-friendly framework because:
-
-1. **Familiar syntax:** HTML templates (not JSX)
-2. **Gradual learning:** Start simple, add complexity as needed
-3. **Excellent documentation:** Clear, comprehensive guides
-4. **Single-file components:** Everything in one place
-5. **Less boilerplate:** Simpler getting started
-
-```vue
-<!-- Vue feels familiar if you know HTML -->
-<template>
-  <div>
-    <h1>{{ message }}</h1>
-    <button @click="count++">{{ count }}</button>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    return { message: 'Hello', count: 0 };
-  }
-}
-</script>
-```
-
-**Why other options are wrong:**
-- a) React has a steeper curve (JSX, hooks, immutability)
-- b) Angular has the steepest curve (TypeScript, decorators, RxJS, modules)
-- d) They're not equal; Angular is objectively more complex
-
-**That said:** All three are learnable! React might be steeper initially but has the biggest job market. Choose based on your goals.
-
----
-
-### 11. What is a custom hook in React?
-**Answer: b) A reusable function that uses React hooks**
-
-**Explanation:**
-Custom hooks let you extract component logic into reusable functions. They follow the naming convention `use*` and can use other hooks.
-
-```jsx
-// Custom hook
-function useFetch(url) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(url)
-      .then(r => r.json())
-      .then(data => {
-        setData(data);
-        setLoading(false);
-      });
-  }, [url]);
-
-  return { data, loading };
-}
-
-// Usage in multiple components
-function UserList() {
-  const { data: users, loading } = useFetch('/api/users');
-  // ...
-}
-
-function PostList() {
-  const { data: posts, loading } = useFetch('/api/posts');
-  // ...
+### 14. What's the output of this loop?
+```js
+for (let i = 1; i <= 3; i++) {
+  console.log(i);
 }
 ```
 
-**Why other options are wrong:**
-- a) Lifecycle methods are class component concepts
-- c) That would be CSS-in-JS or styled-components
-- d) That would be React DevTools
-
-**Benefits:**
-- DRY (Don't Repeat Yourself)
-- Easier testing
-- Better organization
-- Share logic across components
+A) `0 1 2`
+B) `1 2 3`
+C) `1 2 3 4`
+D) `0 1 2 3`
 
 ---
 
-### 12. In Angular, what decorator is used to define a component?
-**Answer: c) `@Component`**
+### 15. How do you select an HTML element with id="myButton"?
 
-**Explanation:**
-Decorators in Angular add metadata to classes. `@Component` marks a class as an Angular component and provides configuration.
+A) `document.get('myButton')`
+B) `document.getElementById('myButton')`
+C) `document.select('#myButton')`
+D) `get.element('myButton')`
 
-```typescript
-@Component({
-  selector: 'app-user-card',      // <app-user-card></app-user-card>
-  templateUrl: './user-card.component.html',
-  styleUrls: ['./user-card.component.css']
-})
-export class UserCardComponent {
-  name = 'John';
-}
+---
+
+### 16. What does `addEventListener` do?
+
+A) Creates a new element
+B) Deletes an element
+C) Waits for an event (like a click) and runs code when it happens
+D) Changes the style of an element
+
+---
+
+### 17. What's the best tool for debugging JavaScript?
+
+A) Asking your cat
+B) `console.log()`
+C) Rewriting everything from scratch
+D) Giving up
+
+---
+
+### 18. Which is a valid way to change text in an element?
+
+A) `element.text = "New text"`
+B) `element.textContent = "New text"`
+C) `element.changeText("New text")`
+D) `element = "New text"`
+
+---
+
+### 19. What does this ternary operator do?
+```js
+const message = age >= 18 ? "Welcome" : "Too young";
 ```
 
-**Why other options are wrong:**
-- a) `@Injectable` marks services for dependency injection
-- b) `@NgModule` defines Angular modules
-- d) `@Directive` defines custom directives
-
-**Other common decorators:**
-- `@Input()` - Accepts data from parent
-- `@Output()` - Emits events to parent
-- `@HostListener()` - Listens to host element events
+A) Adds age and 18
+B) Sets message to "Welcome" if age is 18 or more, otherwise "Too young"
+C) Always sets message to "Welcome"
+D) Throws an error
 
 ---
 
-### 13. What is the main advantage of component-based architecture?
-**Answer: b) Reusability and maintainability**
+### 20. What does the modulo operator (%) return?
 
-**Explanation:**
-Components are self-contained units that can be reused across your app and even across projects. This makes code:
+A) The quotient of a division
+B) The remainder after division
+C) The square root
+D) The absolute value
 
-- **Reusable:** Build once, use everywhere
-- **Maintainable:** Changes are isolated to one component
-- **Testable:** Test components in isolation
-- **Scalable:** Build complex UIs from simple pieces
-- **Collaborative:** Teams can work on different components
+---
 
-```jsx
-// Build once
-function Button({ onClick, children }) {
-  return <button onClick={onClick}>{children}</button>;
-}
+## Bonus Questions
 
-// Use everywhere
-<Button onClick={handleSave}>Save</Button>
-<Button onClick={handleCancel}>Cancel</Button>
-<Button onClick={handleDelete}>Delete</Button>
+### 21. Why should you avoid using `var` in modern JavaScript?
+
+A) It's too slow
+B) It has confusing scoping behavior
+C) It doesn't work in browsers
+D) It's being removed from JavaScript
+
+---
+
+### 22. What's the difference between `undefined` and `null`?
+
+A) They're exactly the same
+B) `undefined` means a variable has no value yet, `null` means intentionally empty
+C) `undefined` is for numbers, `null` is for strings
+D) `null` is a syntax error
+
+---
+
+### 23. How can you check if a number is even?
+
+A) `if (number % 2 === 0)`
+B) `if (number / 2 === 0)`
+C) `if (number.isEven())`
+D) `if (number % 2 === 1)`
+
+---
+
+### 24. What happens if you forget `let`, `const`, or `var` when declaring a variable?
+
+A) JavaScript creates a global variable (bad practice!)
+B) Syntax error
+C) The variable becomes undefined
+D) Nothing, it's fine
+
+---
+
+### 25. Which loop structure checks the condition AFTER running the code once?
+
+A) `for` loop
+B) `while` loop
+C) `do...while` loop
+D) `forEach` loop
+
+---
+
+## Answer Key
+
+### Basic Questions
+
+**1. B** - Adding interactivity and behavior to websites
+
+JavaScript is the programming language of the web that makes pages interactive. HTML provides structure, CSS provides styling, and JavaScript provides behavior.
+
+---
+
+**2. C** - `const name = "Alex";`
+
+`const` is used for variables that won't be reassigned. It's the recommended default choice.
+
+---
+
+**3. B** - `let` can be reassigned, `const` cannot
+
+```js
+let score = 0;
+score = 10;  // ✅ Works
+
+const age = 25;
+age = 26;  // ❌ Error!
 ```
 
-**Why other options are wrong:**
-- a) Network speed depends on infrastructure, not architecture
-- c) Bundle size depends on how you code, not the pattern
-- d) SEO depends on rendering strategy (SSR), not components
+---
 
-**Real-world impact:**
-Component libraries like Material-UI, Chakra UI, and Ant Design are possible because of component architecture. Build once, share with millions.
+**4. D** - `number`
+
+The `typeof` operator returns the type as a string. Since age is 25 (a number), it returns `"number"` (but the answer shows it without quotes to represent what appears in the console).
 
 ---
 
-### 14. When should you NOT use a framework?
-**Answer: b) Creating a simple static website or adding minor interactivity**
+**5. C** - `` `Hello, ${name}!` ``
 
-**Explanation:**
-Frameworks add overhead (learning curve, bundle size, build tools). For simple needs, vanilla JavaScript is often better:
+Template literals use backticks and `${}` for embedding variables:
+```js
+const name = "Alex";
+const greeting = `Hello, ${name}!`;  // "Hello, Alex!"
+```
 
-**Use vanilla JS for:**
-- Toggling a mobile menu
-- Form validation
-- Simple animations
-- Static content sites
-- Small prototypes
+---
 
-**Use a framework for:**
-- Complex state management
-- Multiple interactive views
-- Real-time updates
-- Large teams
-- Scalable applications
+**6. C** - Checks if two values are equal AND the same type (strict equality)
 
-```javascript
-// For this? You don't need React!
-document.querySelector('#menu-toggle').addEventListener('click', () => {
-  document.querySelector('#menu').classList.toggle('open');
+```js
+5 === 5     // true (same value, same type)
+5 === "5"   // false (different types)
+```
+
+Always use `===` instead of `==` in modern JavaScript.
+
+---
+
+**7. B** - You can't reassign a `const` variable
+
+```js
+const score = 100;
+score = 200;  // ❌ TypeError: Assignment to constant variable
+```
+
+Use `let` if you need to reassign.
+
+---
+
+**8. C** - `true`, `false`
+
+```js
+5 == "5"   // true (loose equality converts types)
+5 === "5"  // false (strict equality checks type too)
+```
+
+This is why you should always use `===` (strict equality).
+
+---
+
+**9. B** - `===` and `!==`
+
+Strict equality operators prevent type coercion bugs. Always use `===` and `!==` in modern JavaScript.
+
+---
+
+**10. B** - Returns true only if both conditions are true
+
+```js
+true && true    // true
+true && false   // false
+false && false  // false
+```
+
+Both sides must be true for AND to return true.
+
+---
+
+**11. B** - `Minor`
+
+Since `16 >= 18` is false, the else block runs, outputting "Minor".
+
+---
+
+**12. B** - 5 times
+
+```js
+i = 0  // First iteration
+i = 1  // Second
+i = 2  // Third
+i = 3  // Fourth
+i = 4  // Fifth
+i = 5  // Stops (not less than 5)
+```
+
+---
+
+**13. B** - Adds 1 to i
+
+`i++` is shorthand for `i = i + 1`. Similarly, `i--` subtracts 1.
+
+---
+
+**14. B** - `1 2 3`
+
+The loop starts at 1 and goes up to and including 3 (`i <= 3`).
+
+---
+
+**15. B** - `document.getElementById('myButton')`
+
+```js
+const button = document.getElementById('myButton');
+```
+
+This is the standard way to get an element by its ID.
+
+---
+
+**16. C** - Waits for an event and runs code when it happens
+
+```js
+button.addEventListener('click', function() {
+  console.log("Button was clicked!");
 });
 ```
 
-**Why other options are wrong:**
-- a, c, d) All are perfect use cases for frameworks
+---
 
-**Remember:** Frameworks solve real problems. If you don't have those problems, you don't need the framework!
+**17. B** - `console.log()`
+
+While the other options are... creative, `console.log()` is genuinely the most useful debugging tool. Professional developers use it constantly!
 
 ---
 
-### 15. What is the purpose of `useEffect` in React?
-**Answer: b) To handle side effects like API calls and subscriptions**
+**18. B** - `element.textContent = "New text"`
 
-**Explanation:**
-`useEffect` lets you perform side effects in function components. Side effects are operations that affect things outside the component:
-
-**Common use cases:**
-- Fetching data from APIs
-- Setting up subscriptions (WebSockets)
-- Manipulating the DOM directly
-- Setting timers
-- Logging analytics
-
-```jsx
-useEffect(() => {
-  // Effect runs after render
-  fetch('/api/users')
-    .then(r => r.json())
-    .then(setUsers);
-
-  // Cleanup function (optional)
-  return () => {
-    // Runs when component unmounts
-  };
-}, [/* dependencies */]);
-```
-
-**Why other options are wrong:**
-- a) Visual effects/animations are CSS or animation libraries
-- c) That's `useMemo` or `useCallback`
-- d) That's CSS or styled-components
-
-**Dependencies array:**
-- `[]` - Run once on mount
-- `[dep]` - Run when `dep` changes
-- No array - Run after every render
-
-**Common mistake:**
-```jsx
-// ❌ Infinite loop!
-useEffect(() => {
-  setCount(count + 1); // Triggers re-render → effect runs → triggers re-render...
-});
-
-// ✅ Controlled
-useEffect(() => {
-  setCount(count + 1);
-}, []); // Only once
+```js
+const heading = document.getElementById('title');
+heading.textContent = "New text";
 ```
 
 ---
 
-## Score Interpretation
+**19. B** - Sets message based on age condition
 
-**13-15 correct:** 🎉 **Excellent!** You have a solid understanding of framework concepts. You're ready to dive deep into building real applications.
+```js
+// If age >= 18 is true, use "Welcome"
+// Otherwise, use "Too young"
+const message = age >= 18 ? "Welcome" : "Too young";
+```
 
-**10-12 correct:** 👍 **Good!** You understand most concepts. Review the questions you missed and experiment with code examples to solidify your knowledge.
-
-**7-9 correct:** 📚 **Fair.** You have the basics but need more practice. Re-read the chapter sections on concepts you missed, and try building small projects.
-
-**Below 7:** 🔄 **Keep Learning!** Frameworks have a learning curve. Don't be discouraged! Re-read the chapter, build the exercises, and take the quiz again. You'll get there!
+This is shorthand for an if/else statement.
 
 ---
 
-## Key Takeaways from Quiz
+**20. B** - The remainder after division
 
-1. **Frameworks solve real problems** - UI synchronization, state management, component reusability
-2. **React is a library** focused on UI components (not a complete framework)
-3. **JSX** makes React code readable by mixing HTML-like syntax with JavaScript
-4. **Never mutate state** - always use setter functions
-5. **Virtual DOM** optimizes performance by minimizing real DOM updates
-6. **Angular requires TypeScript** - React and Vue work with either
-7. **One-way data flow** keeps data predictable (parent → child via props)
-8. **v-model in Vue** creates two-way binding for forms
-9. **Keys in lists** help frameworks track changes efficiently
-10. **Vue has the easiest learning curve** but all frameworks are learnable
-11. **Custom hooks/composables** extract reusable logic
-12. **Component architecture** enables reusability and maintainability
-13. **Don't use frameworks** for simple static sites or basic interactivity
-14. **useEffect** handles side effects (API calls, subscriptions, etc.)
+```js
+10 % 3  // 1 (10 divided by 3 is 3 remainder 1)
+10 % 2  // 0 (10 divided by 2 is 5 remainder 0)
+```
+
+Useful for checking if numbers are even/odd.
+
+---
+
+### Bonus Answers
+
+**21. B** - It has confusing scoping behavior
+
+`var` has function scope (not block scope) and hoisting behavior that confuses beginners and causes bugs. Use `let` and `const` instead.
+
+---
+
+**22. B** - `undefined` means no value yet, `null` means intentionally empty
+
+```js
+let x;           // undefined (forgot to assign)
+let y = null;    // null (intentionally set to nothing)
+```
+
+---
+
+**23. A** - `if (number % 2 === 0)`
+
+If a number divided by 2 has no remainder, it's even:
+```js
+if (10 % 2 === 0) {  // 0 remainder = even
+  console.log("Even");
+}
+```
+
+---
+
+**24. A** - JavaScript creates a global variable (bad practice!)
+
+```js
+name = "Alex";  // No const/let/var = global variable
+```
+
+This causes problems in larger programs. Always use `const` or `let`.
+
+---
+
+**25. C** - `do...while` loop
+
+```js
+do {
+  console.log("Runs at least once");
+} while (false);  // Condition checked after
+```
+
+Regular `while` loops check the condition first.
+
+---
+
+## Scoring
+
+- **23-25 correct**: Excellent! You have a strong grasp of JavaScript fundamentals.
+- **19-22 correct**: Great job! You understand most concepts well.
+- **15-18 correct**: Good! Review the areas you missed and practice more.
+- **11-14 correct**: Decent foundation. Revisit Chapter 23 and work through the exercises.
+- **Below 11**: Take your time reviewing Chapter 23. Focus on understanding concepts, not memorizing.
+
+---
+
+## Key Takeaways to Remember
+
+1. **Use `const` by default, `let` when needed** - Avoid `var`
+2. **Always use `===` and `!==`** - Strict equality prevents bugs
+3. **Template literals are powerful** - Use `` `Hello, ${name}!` ``
+4. **Conditionals make programs smart** - if/else for decisions
+5. **Loops avoid repetition** - Let the computer do the boring work
+6. **DOM manipulation makes pages interactive** - getElementById, addEventListener
+7. **console.log() is your debugging friend** - Use it liberally
+8. **Errors are learning opportunities** - Read them, don't fear them
 
 ---
 
 ## Next Steps
 
-1. **Missed some questions?** Review those sections in the chapter
-2. **Got most right?** Move on to the exercises and build real components
-3. **Want more practice?** Try the challenge project
-4. **Feeling confident?** Pick a framework and start building!
+1. ✅ Review any questions you got wrong
+2. 📚 Revisit relevant sections in Chapter 23
+3. 💻 Complete the practice exercises
+4. 🚀 Build the click counter project
+5. 🎮 Try the challenge game
+6. 🔄 Experiment and break things—that's how you learn!
 
-**Remember:** Understanding concepts is step one. Building projects is where real learning happens. Get coding! 🚀
+---
+
+**Great work completing the quiz!** Every question you answered (right or wrong) helped solidify your understanding. Keep practicing and you'll be amazed at your progress! 🎉
+
+**Ready for hands-on practice?** Head to Exercise 1 and start coding! 💪
 

@@ -1,556 +1,733 @@
-# Chapter 2: State Management - Quiz
+# Chapter 25: Working with Data - Quiz
 
-Test your understanding of state management concepts! This quiz covers Context API, Redux Toolkit, Zustand, Jotai, RTK Query, and best practices.
+Test your understanding of arrays, objects, array methods, and data copying! This quiz covers everything from basic array access to advanced method chaining and reference management.
 
 **Instructions:**
-- 15 questions total
-- Try to answer without looking at the book first
-- Check your answers at the end
-- If you get less than 12 correct, review the chapter
+- Answer each question to the best of your ability
+- Some questions have code examples—read them carefully!
+- Try to answer without looking at the chapter first
+- Answers with detailed explanations are at the bottom
 
 ---
 
 ## Questions
 
-### Question 1: Local vs Global State
+### 1. What index does the first item in an array have?
 
-Which of the following is the BEST candidate for **global state**?
-
-A) The open/closed state of a dropdown menu
-B) Text typed in a search box (before submitting)
-C) The currently logged-in user's information
-D) Hover state of a button
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: C) The currently logged-in user's information**
-
-**Explanation:**
-User information is needed across many components (header, profile, permissions checks, etc.). Dropdown state, search input, and hover states are all UI-specific and should remain local to their components.
-
-**Key Principle:** Use global state when multiple distant components need the same data or need to coordinate behavior.
-</details>
+A) 1
+B) 0
+C) -1
+D) Depends on the array
 
 ---
 
-### Question 2: Context API Performance
-
-What's wrong with this Context implementation?
-
-```jsx
-function App() {
-  const [user, setUser] = useState(null);
-  const [theme, setTheme] = useState('light');
-
-  return (
-    <AppContext.Provider value={{ user, setUser, theme, setTheme }}>
-      <Components />
-    </AppContext.Provider>
-  );
-}
+### 2. What will this code output?
+```js
+const fruits = ["apple", "banana", "mango"];
+console.log(fruits[1]);
 ```
 
-A) Context should be created with `createContext()` first
-B) The value prop creates a new object on every render
-C) useState shouldn't be used in the Provider
-D) The Provider should be in a separate component
+A) "apple"
+B) "banana"
+C) "mango"
+D) undefined
 
-<details>
-<summary>Show Answer</summary>
+---
 
-**Answer: B) The value prop creates a new object on every render**
+### 3. How do you add an item to the END of an array?
 
-**Explanation:**
-Every time App re-renders, a new object `{ user, setUser, theme, setTheme }` is created, causing all Context consumers to re-render even if the values haven't changed.
+A) `array.unshift(item)`
+B) `array.push(item)`
+C) `array.add(item)`
+D) `array.append(item)`
+
+---
+
+### 4. What does `array.pop()` return?
+
+A) The removed item
+B) The new array length
+C) The entire array
+D) undefined
+
+---
+
+### 5. What's the best way to access an object property?
+
+A) Always use dot notation
+B) Always use bracket notation
+C) Use dot notation unless the key is in a variable
+D) It doesn't matter
+
+---
+
+### 6. What will this output?
+```js
+const user = { name: "Alice", age: 28 };
+console.log(user.job);
+```
+
+A) null
+B) undefined
+C) ""
+D) Error
+
+---
+
+### 7. What does `map()` do?
+
+A) Changes the original array
+B) Creates a new array by transforming each item
+C) Filters items from an array
+D) Combines array items into one value
+
+---
+
+### 8. What will this output?
+```js
+const numbers = [1, 2, 3];
+const doubled = numbers.map(num => num * 2);
+console.log(numbers);
+```
+
+A) `[1, 2, 3]`
+B) `[2, 4, 6]`
+C) undefined
+D) Error
+
+---
+
+### 9. What does `filter()` return?
+
+A) A single item
+B) true or false
+C) A new array with matching items
+D) The original array
+
+---
+
+### 10. What will this output?
+```js
+const numbers = [1, 2, 3, 4, 5];
+const evens = numbers.filter(num => num % 2 === 0);
+console.log(evens);
+```
+
+A) `[1, 3, 5]`
+B) `[2, 4]`
+C) `[1, 2, 3, 4, 5]`
+D) true
+
+---
+
+### 11. What does `reduce()` do?
+
+A) Makes the array smaller
+B) Combines array items into a single value
+C) Filters items
+D) Transforms each item
+
+---
+
+### 12. What's the starting value in this reduce?
+```js
+const sum = numbers.reduce((total, num) => total + num, 0);
+```
+
+A) The first array item
+B) 0
+C) undefined
+D) 1
+
+---
+
+### 13. What will this output?
+```js
+const arr = [1, 2, 3, 4];
+const sum = arr.reduce((total, num) => total + num, 0);
+console.log(sum);
+```
+
+A) `[1, 2, 3, 4]`
+B) 0
+C) 10
+D) "1234"
+
+---
+
+### 14. What's wrong with this code?
+```js
+const original = [1, 2, 3];
+const copy = original;
+copy.push(4);
+```
+
+A) Nothing is wrong
+B) `copy` doesn't create a real copy
+C) `push` is not a valid method
+D) Arrays can't be assigned
+
+---
+
+### 15. How are primitive values (numbers, strings) copied?
+
+A) By reference
+B) By value
+C) Depends on the situation
+D) They can't be copied
+
+---
+
+### 16. What will this output?
+```js
+let a = 10;
+let b = a;
+b = 20;
+console.log(a);
+```
+
+A) 10
+B) 20
+C) undefined
+D) Error
+
+---
+
+### 17. What will this output?
+```js
+const arr1 = [1, 2, 3];
+const arr2 = arr1;
+arr2.push(4);
+console.log(arr1);
+```
+
+A) `[1, 2, 3]`
+B) `[1, 2, 3, 4]`
+C) undefined
+D) Error
+
+---
+
+### 18. How do you create a shallow copy of an array?
+
+A) `const copy = original`
+B) `const copy = [...original]`
+C) `const copy = original.copy()`
+D) `const copy = Array.copy(original)`
+
+---
+
+### 19. What's the problem with shallow copying nested objects?
+```js
+const user = { name: "Alice", address: { city: "LA" } };
+const copy = { ...user };
+copy.address.city = "SF";
+```
+
+A) Nothing is wrong
+B) The nested `address` object is still shared
+C) Spread operator doesn't work on objects
+D) You can't modify `copy.address`
+
+---
+
+### 20. How do you create a deep copy of nested data?
+
+A) Use spread operator twice
+B) Use `JSON.parse(JSON.stringify(original))`
+C) Use `original.deepCopy()`
+D) Deep copies are not possible
+
+---
+
+## Bonus Questions
+
+### 21. What will this output?
+```js
+const users = [
+  { name: "Alice", age: 28 },
+  { name: "Bob", age: 35 }
+];
+const names = users.map(user => user.name);
+console.log(names);
+```
+
+A) `[{ name: "Alice" }, { name: "Bob" }]`
+B) `["Alice", "Bob"]`
+C) `["name", "name"]`
+D) undefined
+
+---
+
+### 22. What does method chaining mean?
+```js
+const result = arr.filter().map().reduce();
+```
+
+A) Calling multiple methods in sequence
+B) Connecting arrays together
+C) A syntax error
+D) Creating a chain data structure
+
+---
+
+### 23. What will this output?
+```js
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers
+  .filter(num => num > 2)
+  .map(num => num * 2);
+console.log(result);
+```
+
+A) `[2, 4, 6, 8, 10]`
+B) `[6, 8, 10]`
+C) `[3, 4, 5]`
+D) `[1, 2, 3, 4, 5]`
+
+---
+
+### 24. Which array method mutates (changes) the original array?
+
+A) `map()`
+B) `filter()`
+C) `push()`
+D) `slice()`
+
+---
+
+### 25. What's the best practice for data operations?
+
+A) Always mutate the original
+B) Prefer immutable operations (create new arrays/objects)
+C) It doesn't matter
+D) Use mutation for performance
+
+---
+
+## Answer Key
+
+### 1. B - 0
+
+Arrays in JavaScript are zero-indexed. The first item is at index 0, the second at index 1, and so on.
+
+```js
+const arr = ["first", "second", "third"];
+console.log(arr[0]);  // "first"
+```
+
+---
+
+### 2. B - "banana"
+
+Index 1 is the second item (remember: arrays start at 0).
+
+```js
+const fruits = ["apple", "banana", "mango"];
+//              [0]      [1]       [2]
+```
+
+---
+
+### 3. B - `array.push(item)`
+
+`push()` adds items to the end of an array and returns the new length.
+
+```js
+const arr = [1, 2, 3];
+arr.push(4);
+console.log(arr);  // [1, 2, 3, 4]
+```
+
+---
+
+### 4. A - The removed item
+
+`pop()` removes the last item AND returns it. This is useful when you need to know what was removed.
+
+```js
+const arr = [1, 2, 3];
+const last = arr.pop();
+console.log(last);  // 3
+console.log(arr);   // [1, 2]
+```
+
+---
+
+### 5. C - Use dot notation unless the key is in a variable
+
+Dot notation is cleaner and more common:
+```js
+user.name  // ✅ Preferred
+```
+
+Use bracket notation when:
+- The key is in a variable
+- The key has spaces or special characters
+```js
+const key = "name";
+user[key]  // ✅ Necessary
+user["first name"]  // ✅ Necessary
+```
+
+---
+
+### 6. B - undefined
+
+Accessing a non-existent property returns `undefined`, not an error.
+
+```js
+const user = { name: "Alice", age: 28 };
+console.log(user.job);     // undefined
+console.log(user.email);   // undefined
+```
+
+---
+
+### 7. B - Creates a new array by transforming each item
+
+`map()` applies a function to each item and returns a NEW array. The original is unchanged.
+
+```js
+const numbers = [1, 2, 3];
+const doubled = numbers.map(num => num * 2);
+// doubled = [2, 4, 6]
+// numbers = [1, 2, 3] (unchanged)
+```
+
+---
+
+### 8. A - `[1, 2, 3]`
+
+`map()` doesn't mutate the original array. It creates a NEW array.
+
+```js
+const numbers = [1, 2, 3];
+const doubled = numbers.map(num => num * 2);
+console.log(numbers);  // [1, 2, 3] (original unchanged)
+console.log(doubled);  // [2, 4, 6] (new array)
+```
+
+---
+
+### 9. C - A new array with matching items
+
+`filter()` keeps only items that pass the test. Returns a NEW array.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+const evens = numbers.filter(num => num % 2 === 0);
+// evens = [2, 4]
+```
+
+---
+
+### 10. B - `[2, 4]`
+
+The condition `num % 2 === 0` checks if a number is even.
+
+```js
+// Check each number:
+1 % 2 === 0?  false (1 is odd)
+2 % 2 === 0?  true  (2 is even) ✓
+3 % 2 === 0?  false (3 is odd)
+4 % 2 === 0?  true  (4 is even) ✓
+5 % 2 === 0?  false (5 is odd)
+
+// Result: [2, 4]
+```
+
+---
+
+### 11. B - Combines array items into a single value
+
+`reduce()` processes each item and builds up a single result (sum, product, object, etc.).
+
+```js
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((total, num) => total + num, 0);
+// 0 + 1 = 1
+// 1 + 2 = 3
+// 3 + 3 = 6
+// 6 + 4 = 10
+```
+
+---
+
+### 12. B - 0
+
+The second argument to `reduce()` is the initial value (starting value for the accumulator).
+
+```js
+numbers.reduce((total, num) => total + num, 0);
+//                                          ^ starting value
+```
+
+---
+
+### 13. C - 10
+
+```js
+// Step by step:
+total = 0 (starting value)
+total = 0 + 1 = 1
+total = 1 + 2 = 3
+total = 3 + 3 = 6
+total = 6 + 4 = 10
+```
+
+---
+
+### 14. B - `copy` doesn't create a real copy
+
+Assignment (`=`) with arrays/objects creates a REFERENCE, not a copy. Both variables point to the same array.
+
+```js
+const original = [1, 2, 3];
+const copy = original;  // ⚠️ Same array!
+
+copy.push(4);
+console.log(original);  // [1, 2, 3, 4] (changed!)
+```
 
 **Fix:**
-```jsx
-const value = useMemo(
-  () => ({ user, setUser, theme, setTheme }),
-  [user, theme]
-);
+```js
+const copy = [...original];  // ✅ Real copy
 ```
 
-Or even better: split into separate contexts!
-</details>
-
 ---
 
-### Question 3: Redux Toolkit
+### 15. B - By value
 
-Which Redux Toolkit function allows you to "mutate" state directly (using Immer under the hood)?
+Primitive types (numbers, strings, booleans) are automatically copied by value.
 
-A) configureStore
-B) createSlice
-C) createAction
-D) createReducer
+```js
+let a = 10;
+let b = a;  // b gets a COPY of a's value
+b = 20;
 
-<details>
-<summary>Show Answer</summary>
-
-**Answer: B) createSlice**
-
-**Explanation:**
-`createSlice` uses Immer internally, allowing you to write code that looks like mutations:
-
-```jsx
-reducers: {
-  addTodo(state, action) {
-    state.todos.push(action.payload); // Looks like mutation!
-  }
-}
+console.log(a);  // 10 (unchanged)
+console.log(b);  // 20
 ```
 
-Immer converts this to immutable updates behind the scenes. Both `createSlice` and `createReducer` use Immer, but `createSlice` is the main tool you'll use in modern Redux.
-</details>
-
 ---
 
-### Question 4: Server vs UI State
+### 16. A - 10
 
-Which library is specifically designed for **server state** (data from APIs)?
+Primitives are copied by value. Changing `b` doesn't affect `a`.
 
-A) Zustand
-B) Jotai
-C) TanStack Query (React Query)
-D) Redux (without middleware)
+```js
+let a = 10;
+let b = a;  // b = 10 (copy of value)
+b = 20;     // Only b changes
 
-<details>
-<summary>Show Answer</summary>
-
-**Answer: C) TanStack Query (React Query)**
-
-**Explanation:**
-TanStack Query is built specifically for server state, handling:
-- Caching
-- Background refetching
-- Stale data management
-- Loading/error states
-- Request deduplication
-
-Zustand, Jotai, and Redux are for **UI state**. You CAN use Redux for server state with RTK Query, but TanStack Query is purpose-built for it.
-</details>
-
----
-
-### Question 5: useReducer
-
-When should you use `useReducer` instead of `useState`?
-
-A) When you have a single boolean value
-B) When next state depends on previous state and involves complex logic
-C) When you want global state
-D) Only when using Redux
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: B) When next state depends on previous state and involves complex logic**
-
-**Explanation:**
-`useReducer` shines when:
-- State object has multiple sub-values
-- Next state depends on previous state
-- Complex state transitions
-- Multiple state updates happening together
-
-```jsx
-// useState - simple
-const [count, setCount] = useState(0);
-
-// useReducer - complex state
-const [state, dispatch] = useReducer(reducer, {
-  todos: [],
-  filter: 'all',
-  stats: { total: 0, completed: 0 }
-});
-```
-</details>
-
----
-
-### Question 6: Zustand
-
-What makes Zustand different from Redux?
-
-A) Zustand requires a Provider, Redux doesn't
-B) Zustand uses classes, Redux uses functions
-C) Zustand has no Provider, minimal boilerplate, and selective subscriptions
-D) Zustand can only be used with TypeScript
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: C) Zustand has no Provider, minimal boilerplate, and selective subscriptions**
-
-**Explanation:**
-Zustand advantages:
-- ✅ No Provider needed - just create and use
-- ✅ Minimal boilerplate
-- ✅ Selective subscriptions (only re-render when slice changes)
-- ✅ Small bundle size
-
-```jsx
-// Create store - that's it!
-const useStore = create((set) => ({
-  count: 0,
-  inc: () => set((s) => ({ count: s.count + 1 }))
-}));
-
-// Use anywhere - no Provider!
-const count = useStore((s) => s.count);
-```
-</details>
-
----
-
-### Question 7: Jotai Atoms
-
-What is an "atom" in Jotai?
-
-A) A CSS unit for styling
-B) A small, independent piece of state
-C) A Redux action type
-D) A server endpoint
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: B) A small, independent piece of state**
-
-**Explanation:**
-Atoms are the building blocks of Jotai. Each atom is a small piece of state:
-
-```jsx
-const countAtom = atom(0);                    // Primitive atom
-const doubledAtom = atom((get) => get(countAtom) * 2); // Derived atom
+console.log(a);  // 10
 ```
 
-Components subscribe only to the atoms they use, enabling very granular re-renders and better performance.
-</details>
-
 ---
 
-### Question 8: RTK Query
+### 17. B - `[1, 2, 3, 4]`
 
-What does RTK Query automatically handle?
+Arrays are copied by reference. Both `arr1` and `arr2` point to the SAME array.
 
-A) Only API calls
-B) Caching, refetching, loading states, and error handling
-C) Only TypeScript types
-D) UI components
+```js
+const arr1 = [1, 2, 3];
+const arr2 = arr1;  // ⚠️ Points to same array
 
-<details>
-<summary>Show Answer</summary>
+arr2.push(4);  // Modifies the shared array
 
-**Answer: B) Caching, refetching, loading states, and error handling**
-
-**Explanation:**
-RTK Query is a complete data-fetching solution:
-
-```jsx
-const { data, isLoading, isError, error } = useGetPostsQuery();
-//      ↑      ↑          ↑         ↑
-//   cached  automatic  automatic  automatic
+console.log(arr1);  // [1, 2, 3, 4]
+console.log(arr2);  // [1, 2, 3, 4]
 ```
 
-Plus: background refetching, request deduplication, cache invalidation, optimistic updates, and more!
-</details>
+---
+
+### 18. B - `const copy = [...original]`
+
+The spread operator (`...`) creates a shallow copy.
+
+```js
+const original = [1, 2, 3];
+const copy = [...original];  // ✅ New array
+
+copy.push(4);
+console.log(original);  // [1, 2, 3] (unchanged)
+console.log(copy);      // [1, 2, 3, 4]
+```
+
+**Other ways:**
+```js
+const copy = original.slice();
+const copy = Array.from(original);
+```
 
 ---
 
-### Question 9: Optimistic Updates
+### 19. B - The nested `address` object is still shared
 
-What is an "optimistic update"?
+Shallow copy only copies the top level. Nested objects/arrays are still shared.
 
-A) Updating the UI only after server confirms
-B) Updating the UI immediately, then confirming with server
-C) Hoping the update works
-D) Delaying all updates
+```js
+const user = { name: "Alice", address: { city: "LA" } };
+const copy = { ...user };  // Shallow copy
 
-<details>
-<summary>Show Answer</summary>
+// name is copied, but address points to same object!
+copy.address.city = "SF";
 
-**Answer: B) Updating the UI immediately, then confirming with server**
+console.log(user.address.city);  // "SF" (changed!)
+```
 
-**Explanation:**
-Optimistic updates give instant feedback:
+---
 
-```jsx
-const likePost = async (id) => {
-  // 1. Update UI immediately (optimistic)
-  setPost({ ...post, liked: true, likes: likes + 1 });
+### 20. B - Use `JSON.parse(JSON.stringify(original))`
 
-  try {
-    // 2. Confirm with server
-    await api.likePost(id);
-  } catch (error) {
-    // 3. Revert if it fails
-    setPost({ ...post, liked: false, likes: likes });
-  }
+For nested data, you need a deep copy:
+
+```js
+const original = {
+  name: "Alice",
+  address: { city: "LA" }
 };
+
+const deepCopy = JSON.parse(JSON.stringify(original));
+
+deepCopy.address.city = "SF";
+
+console.log(original.address.city);  // "LA" (unchanged!)
+console.log(deepCopy.address.city);  // "SF"
 ```
 
-Great for likes, favorites, toggles. Bad for financial transactions!
-</details>
+**Modern alternative:**
+```js
+const deepCopy = structuredClone(original);
+```
 
 ---
 
-### Question 10: State Persistence
+### Bonus Answers
 
-How do you persist Zustand state to localStorage?
+### 21. B - `["Alice", "Bob"]`
 
-A) Manually save on every state change
-B) Use the built-in `persist` middleware
-C) Redux is required for persistence
-D) It's automatic with Zustand
+`map()` extracts the `name` property from each user object.
 
-<details>
-<summary>Show Answer</summary>
+```js
+const users = [
+  { name: "Alice", age: 28 },
+  { name: "Bob", age: 35 }
+];
 
-**Answer: B) Use the built-in `persist` middleware**
-
-**Explanation:**
-
-```jsx
-import { persist } from 'zustand/middleware';
-
-const useStore = create(
-  persist(
-    (set) => ({
-      cart: [],
-      addItem: (item) => set((s) => ({ cart: [...s.cart, item] }))
-    }),
-    { name: 'cart-storage' } // localStorage key
-  )
-);
+const names = users.map(user => user.name);
+// ["Alice", "Bob"]
 ```
-
-The middleware handles saving/loading automatically!
-</details>
 
 ---
 
-### Question 11: Context Split
+### 22. A - Calling multiple methods in sequence
 
-Why should you split contexts by concern?
+Method chaining calls methods one after another. Each method returns a value that the next method operates on.
 
-A) It looks better in the code
-B) To prevent unnecessary re-renders
-C) React requires it
-D) It's only for large apps
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: B) To prevent unnecessary re-renders**
-
-**Explanation:**
-When any value in a context changes, ALL consumers re-render:
-
-```jsx
-// ❌ Bad: One context for everything
-<AppContext.Provider value={{ user, theme, notifications, cart }}>
-  // Theme change = EVERYTHING re-renders!
-</AppContext.Provider>
-
-// ✅ Good: Split by concern
-<AuthContext.Provider value={user}>
-  <ThemeContext.Provider value={theme}>
-    <NotificationContext.Provider value={notifications}>
-      <CartContext.Provider value={cart}>
-        // Theme change = only ThemeContext consumers re-render
-      </CartContext.Provider>
-    </NotificationContext.Provider>
-  </ThemeContext.Provider>
-</AuthContext.Provider>
+```js
+const result = numbers
+  .filter(num => num > 2)   // Returns array
+  .map(num => num * 2)      // Operates on that array
+  .reduce((sum, n) => sum + n, 0);  // Operates on result
 ```
-</details>
 
 ---
 
-### Question 12: Derived State
+### 23. B - `[6, 8, 10]`
 
-What's the best practice for derived/computed values?
+Step by step:
 
-A) Store them in state
-B) Calculate them on the fly with selectors
-C) Use a separate global variable
-D) Update them with useEffect
+```js
+// Start: [1, 2, 3, 4, 5]
 
-<details>
-<summary>Show Answer</summary>
+// After filter (num > 2):
+[3, 4, 5]
 
-**Answer: B) Calculate them on the fly with selectors**
-
-**Explanation:**
-
-```jsx
-// ❌ Bad: Storing derived values
-const [items, setItems] = useState([]);
-const [total, setTotal] = useState(0);
-const [count, setCount] = useState(0);
-
-// ✅ Good: Computing on the fly
-const [items, setItems] = useState([]);
-const total = items.reduce((sum, item) => sum + item.price, 0);
-const count = items.length;
-
-// Or with Zustand:
-const useStore = create((set, get) => ({
-  items: [],
-  getTotal: () => get().items.reduce((sum, i) => sum + i.price, 0)
-}));
+// After map (num * 2):
+[6, 8, 10]
 ```
-
-Single source of truth! No synchronization bugs.
-</details>
 
 ---
 
-### Question 13: Redux DevTools
+### 24. C - `push()`
 
-What can Redux DevTools do?
+**Mutating methods** (change original):
+- `push()`, `pop()`, `shift()`, `unshift()`
+- `splice()`, `sort()`, `reverse()`
 
-A) Only show the current state
-B) Time-travel debugging, action replay, and state inspection
-C) Automatically fix bugs
-D) Only work with old Redux
+**Non-mutating methods** (return new array):
+- `map()`, `filter()`, `reduce()`
+- `slice()`, `concat()`
 
-<details>
-<summary>Show Answer</summary>
+```js
+const arr = [1, 2, 3];
 
-**Answer: B) Time-travel debugging, action replay, and state inspection**
+arr.push(4);  // Mutates
+// arr is now [1, 2, 3, 4]
 
-**Explanation:**
-Redux DevTools is incredibly powerful:
-- See every action dispatched
-- Inspect state at any point in time
-- Jump to any previous state (time-travel!)
-- Replay actions
-- Manually dispatch actions
-- Trace where actions came from
-
-Works automatically with Redux Toolkit's `configureStore`!
-</details>
+const mapped = arr.map(x => x * 2);  // Doesn't mutate
+// arr is still [1, 2, 3, 4]
+// mapped is [2, 4, 6, 8]
+```
 
 ---
 
-### Question 14: State Management Choice
+### 25. B - Prefer immutable operations (create new arrays/objects)
 
-For a small app with theme and user preferences, what's the SIMPLEST solution?
+**Immutable code is:**
+- Easier to reason about
+- Safer in complex apps
+- Required for React and modern frameworks
 
-A) Redux Toolkit with RTK Query
-B) Context API with useState
-C) MobX with observers
-D) Jotai with 50 atoms
+```js
+// ✅ Good - immutable
+const newArray = [...oldArray, newItem];
 
-<details>
-<summary>Show Answer</summary>
-
-**Answer: B) Context API with useState**
-
-**Explanation:**
-Keep it simple! For small apps:
-- Theme + preferences = 2 contexts
-- No complex logic = useState is fine
-- No server state = no need for RTK Query/TanStack Query
-
-```jsx
-<ThemeProvider>
-  <PreferencesProvider>
-    <App />
-  </PreferencesProvider>
-</ThemeProvider>
+// ❌ Avoid - mutating
+oldArray.push(newItem);
 ```
-
-Done! Don't over-engineer.
-
-**Progression:**
-- Small app → Context + useState
-- Getting complex → useReducer
-- Need global → Redux/Zustand
-- Complex server data → Add RTK Query/TanStack Query
-</details>
-
----
-
-### Question 15: Performance Optimization
-
-Which causes unnecessary re-renders?
-
-```jsx
-// Option A
-const value = useMemo(() => ({ user, setUser }), [user]);
-
-// Option B
-const value = { user, setUser };
-
-// Option C
-const value = useMemo(() => ({ user, setUser }), []);
-```
-
-A) Only Option A
-B) Only Option B
-C) Options B and C
-D) All of them
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: C) Options B and C**
-
-**Explanation:**
-
-**Option A** ✅ - Correct! Creates new object only when user changes
-
-**Option B** ❌ - Creates new object on EVERY render, causing all consumers to re-render
-
-**Option C** ❌ - Empty dependency array means value never updates even when user changes!
-
-**Correct approach:**
-```jsx
-const value = useMemo(
-  () => ({ user, setUser }),
-  [user] // Recreate when user changes
-);
-```
-</details>
 
 ---
 
 ## Scoring
 
-Count your correct answers:
-
-- **13-15 correct:** 🌟 Excellent! You've mastered state management
-- **10-12 correct:** ✅ Good understanding, review missed topics
-- **7-9 correct:** 📚 Decent grasp, but reread key sections
-- **Below 7:** 📖 Review the chapter and try exercises
+- **23-25 correct**: Excellent! You've mastered data manipulation.
+- **19-22 correct**: Great job! You understand the core concepts well.
+- **15-18 correct**: Good! Review array methods and copying.
+- **11-14 correct**: Decent foundation. Revisit Chapter 25 and practice more.
+- **Below 11**: Take your time with Chapter 25. Focus on basics before advanced topics.
 
 ---
 
 ## Key Takeaways
 
-If you remember nothing else, remember these:
-
-1. **Start local, promote when needed** - Don't rush to global state
-2. **UI state ≠ Server state** - Use different tools for each
-3. **Memoize Context values** - Prevent unnecessary re-renders
-4. **Derive, don't duplicate** - Calculate values instead of storing
-5. **Choose based on needs** - There's no one "best" solution
+1. **Arrays start at index 0** - First item is `arr[0]`
+2. **Objects use key-value pairs** - More organized than arrays for complex data
+3. **map() transforms** - Apply function to each item, returns new array
+4. **filter() selects** - Keep items that match condition, returns new array
+5. **reduce() combines** - Aggregate array into single value
+6. **Primitives copy by value** - Numbers, strings automatically copy
+7. **Objects/arrays copy by reference** - Assignment doesn't copy!
+8. **Shallow copy with spread** - `[...arr]` or `{...obj}`
+9. **Deep copy for nested data** - `JSON.parse(JSON.stringify())` or `structuredClone()`
+10. **Prefer immutable operations** - Create new arrays/objects instead of mutating
 
 ---
 
 ## Next Steps
 
-- ✅ **Score < 12?** Review Chapter 2 sections you missed
-- ✅ **All correct?** Move on to exercises
-- ✅ **Want more practice?** Try the challenge project
-- ✅ **Confident?** Move to Chapter 3!
+1. ✅ Review any questions you got wrong
+2. 📚 Revisit relevant sections in Chapter 25
+3. 💻 Complete the practice exercises
+4. 🚀 Build data-driven projects
+5. 🔄 Practice method chaining
+6. 🎯 Master copying techniques
 
 ---
 
-[← Back to Chapter 2 Exercises](./README.md)
+**Great work completing the quiz!** Data manipulation is a fundamental skill. Keep practicing and you'll be transforming data like a pro in no time! 💪
+
+**Ready for hands-on practice?** Head to Exercise 1 and start building with real data! 🚀
 

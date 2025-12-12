@@ -1,273 +1,469 @@
-# Chapter 9: Accessibility Knowledge Check Quiz
+# Chapter 11 Quiz: CSS — Styling the Web
 
-Test your understanding of web accessibility concepts! This quiz covers everything from Chapter 9.
-
-**Instructions:**
-- 15 multiple-choice questions
-- Choose the best answer for each question
-- No time limit—think through each one!
-- Answers at the bottom (don't peek!)
+Test your understanding of CSS fundamentals covered in Chapter 11.
 
 ---
 
-## Questions
+## 📝 Quiz Questions
 
-### 1. What does WCAG stand for?
-A) Web Content Accessibility Guidelines
-B) World Council for Accessible Graphics
-C) Web Compliance and Accessibility Guide
-D) Website Color and Graphics standards
+### 1. What does CSS stand for?
 
----
-
-### 2. Which contrast ratio is required for normal-sized text to meet WCAG AA standards?
-A) 3:1
-B) 4.5:1
-C) 7:1
-D) 10:1
-
----
-
-### 3. What is the correct `alt` text for a decorative image that adds no information?
-A) `alt="decorative image"`
-B) `alt="image"`
-C) `alt=""`
-D) Omit the `alt` attribute entirely
-
----
-
-### 4. Which element is NOT inherently keyboard accessible?
-A) `<button>`
-B) `<a href="...">`
-C) `<div onclick="...">`
-D) `<input>`
-
----
-
-### 5. What is the purpose of a "skip link"?
-A) To skip pages in a multi-page form
-B) To allow keyboard users to bypass repetitive navigation
-C) To prevent screen readers from reading certain content
-D) To skip loading images for faster page loads
-
----
-
-### 6. Which ARIA attribute announces dynamic content changes?
-A) `aria-dynamic`
-B) `aria-update`
-C) `aria-live`
-D) `aria-change`
-
----
-
-### 7. According to best practices, when should you use ARIA?
-A) Always, on every element
-B) Only when semantic HTML can't achieve what you need
-C) Never—ARIA is deprecated
-D) Only for screen reader users
-
----
-
-### 8. Which heading structure is correct?
-A) `<h1>` → `<h3>` → `<h2>` → `<h4>`
-B) `<h1>` → `<h2>` → `<h2>` → `<h3>`
-C) `<h1>` → `<h1>` → `<h2>` → `<h3>`
-D) `<h2>` → `<h3>` → `<h4>` → `<h5>`
-
----
-
-### 9. What's wrong with this button? `<div class="btn" onclick="submit()">Submit</div>`
-A) Nothing—it works fine
-B) It's not keyboard accessible and won't be announced by screen readers
-C) It's missing a closing tag
-D) The `onclick` attribute is deprecated
-
----
-
-### 10. Which is the correct way to associate a label with an input?
-A) Place them next to each other
-B) Use matching `for` and `id` attributes
-C) Use the same `name` attribute
-D) Wrap them in a `<div>`
-
----
-
-### 11. What's the primary purpose of the `lang` attribute on the `<html>` tag?
-A) To translate the page automatically
-B) To tell screen readers which language pronunciation to use
-C) To enable spell-checking
-D) To change the browser's UI language
-
----
-
-### 12. Which CSS property should NEVER be removed without a replacement?
-A) `border`
-B) `outline` (on focus states)
-C) `padding`
-D) `margin`
-
----
-
-### 13. How many `<main>` landmarks should a page have?
-A) Zero—it's optional
-B) Exactly one
-C) One per section
-D) As many as needed
-
----
-
-### 14. What does `aria-hidden="true"` do?
-A) Hides the element visually
-B) Hides the element from screen readers only
-C) Hides the element from keyboard navigation
-D) Hides the element completely (like `display: none`)
-
----
-
-### 15. Which tool can test accessibility automatically?
-A) Lighthouse (Chrome DevTools)
-B) Photoshop
-C) GitHub
-D) Stack Overflow
-
----
-
-## Answer Key
+**a)** Computer Style Sheets
+**b)** Cascading Style Sheets
+**c)** Creative Style System
+**d)** Colorful Style Sheets
 
 <details>
-<summary><strong>Click to reveal answers (try the quiz first!)</strong></summary>
+<summary>Show Answer</summary>
 
-### 1. What does WCAG stand for?
-**Answer: A) Web Content Accessibility Guidelines**
+**Answer: b) Cascading Style Sheets**
 
-WCAG is the international standard for web accessibility, published by the W3C.
-
----
-
-### 2. Which contrast ratio is required for normal-sized text to meet WCAG AA standards?
-**Answer: B) 4.5:1**
-
-- **4.5:1** = WCAG AA for normal text
-- **3:1** = WCAG AA for large text (24px+)
-- **7:1** = WCAG AAA for normal text (enhanced)
-
----
-
-### 3. What is the correct `alt` text for a decorative image that adds no information?
-**Answer: C) `alt=""`**
-
-Empty `alt=""` tells screen readers to skip the image entirely. Never omit the `alt` attribute—use empty quotes for decorative images.
-
----
-
-### 4. Which element is NOT inherently keyboard accessible?
-**Answer: C) `<div onclick="...">`**
-
-`<div>` elements are not focusable or keyboard-accessible by default. Always use semantic elements like `<button>` for interactive controls!
-
----
-
-### 5. What is the purpose of a "skip link"?
-**Answer: B) To allow keyboard users to bypass repetitive navigation**
-
-Skip links let users jump directly to main content, avoiding the need to tab through navigation on every page.
-
----
-
-### 6. Which ARIA attribute announces dynamic content changes?
-**Answer: C) `aria-live`**
-
-`aria-live="polite"` or `aria-live="assertive"` tells screen readers to announce content changes as they happen.
-
----
-
-### 7. According to best practices, when should you use ARIA?
-**Answer: B) Only when semantic HTML can't achieve what you need**
-
-The first rule of ARIA: Don't use ARIA! Use semantic HTML first. Only add ARIA when native HTML can't do what you need.
-
----
-
-### 8. Which heading structure is correct?
-**Answer: B) `<h1>` → `<h2>` → `<h2>` → `<h3>`**
-
-Headings should descend in order without skipping levels. Multiple headings of the same level are fine (like multiple `<h2>` sections).
-
----
-
-### 9. What's wrong with this button?
-**Answer: B) It's not keyboard accessible and won't be announced by screen readers**
-
-`<div>` elements aren't focusable, don't respond to Enter/Space, and aren't announced as interactive. Always use `<button>` for buttons!
-
----
-
-### 10. Which is the correct way to associate a label with an input?
-**Answer: B) Use matching `for` and `id` attributes**
-
-```html
-<label for="email">Email</label>
-<input type="email" id="email">
-```
-
-This creates an explicit association that screen readers recognize and allows clicking the label to focus the input.
-
----
-
-### 11. What's the primary purpose of the `lang` attribute on the `<html>` tag?
-**Answer: B) To tell screen readers which language pronunciation to use**
-
-`<html lang="en">` tells assistive technologies which language the content is in so they can use the correct pronunciation rules.
-
----
-
-### 12. Which CSS property should NEVER be removed without a replacement?
-**Answer: B) `outline` (on focus states)**
-
-Removing `outline: none` without providing alternative focus styles makes keyboard navigation impossible. Keyboard users need to see where they are!
-
----
-
-### 13. How many `<main>` landmarks should a page have?
-**Answer: B) Exactly one**
-
-Each page should have exactly one `<main>` element containing the primary content. Screen readers use this to jump to main content.
-
----
-
-### 14. What does `aria-hidden="true"` do?
-**Answer: B) Hides the element from screen readers only**
-
-`aria-hidden="true"` removes the element from the accessibility tree but leaves it visible on screen. Great for decorative icons!
-
----
-
-### 15. Which tool can test accessibility automatically?
-**Answer: A) Lighthouse (Chrome DevTools)**
-
-Lighthouse (built into Chrome) provides automated accessibility audits. But remember: automated tools catch only ~40% of issues—you need manual testing too!
+**Explanation:** CSS stands for Cascading Style Sheets. "Cascading" refers to how styles flow down and can be overridden based on specificity and source order.
 
 </details>
 
 ---
 
-## Your Score
+### 2. Which method of adding CSS is considered best practice for production websites?
 
-**13-15 correct**: 🌟 Accessibility Expert! You've mastered the concepts!
-**10-12 correct**: 💪 Strong grasp! Review the questions you missed.
-**7-9 correct**: 📚 Good foundation—re-read the chapter sections you struggled with.
-**Below 7**: 🔄 Review Chapter 9 again and retake the quiz.
+**a)** Inline CSS (`style` attribute)
+**b)** Internal CSS (`<style>` tag in HTML)
+**c)** External CSS (separate `.css` file)
+**d)** All methods are equally good
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: c) External CSS (separate `.css` file)**
+
+**Explanation:** External CSS files are best because they:
+- Are reusable across multiple pages
+- Separate content from presentation
+- Are easier to maintain
+- Can be cached by browsers
+- Allow team collaboration
+
+</details>
 
 ---
 
-## What's Next?
+### 3. How do you link an external CSS file to HTML?
 
-Once you've completed the quiz, move on to the hands-on exercises:
-1. Exercise 1: Fix Inaccessible Images
-2. Exercise 2: Make Forms Accessible
-3. Exercise 3: Keyboard Navigation Fix
-4. Exercise 4: Add ARIA Where Needed
-5. Exercise 5: Screen Reader Test
+**a)** `<style src="styles.css"></style>`
+**b)** `<link rel="stylesheet" href="styles.css">`
+**c)** `<css href="styles.css">`
+**d)** `<import css="styles.css">`
 
-Keep learning! Accessibility is best mastered through practice. 🚀
+<details>
+<summary>Show Answer</summary>
+
+**Answer: b) `<link rel="stylesheet" href="styles.css">`**
+
+**Explanation:** The `<link>` tag with `rel="stylesheet"` attribute is the correct way to link external CSS. It goes in the `<head>` section of your HTML.
+
+</details>
+
+---
+
+### 4. Which selector has the HIGHEST specificity?
+
+**a)** Element selector (`p`)
+**b)** Class selector (`.highlight`)
+**c)** ID selector (`#main`)
+**d)** Universal selector (`*`)
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: c) ID selector (`#main`)**
+
+**Explanation:** Specificity hierarchy (highest to lowest):
+1. Inline styles (1000 points)
+2. IDs (100 points)
+3. Classes, attributes, pseudo-classes (10 points)
+4. Elements (1 point)
+5. Universal selector (0 points)
+
+</details>
+
+---
+
+### 5. What is the correct syntax for a CSS rule?
+
+**a)** `color = red;`
+**b)** `color: red`
+**c)** `color: red;`
+**d)** `{color: red}`
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: c) `color: red;`**
+
+**Explanation:** CSS declarations use this syntax:
+```css
+property: value;
+```
+The colon separates property and value, and the semicolon ends the declaration.
+
+</details>
+
+---
+
+### 6. Which of these is a valid HEX color code?
+
+**a)** `#GGG`
+**b)** `#12345`
+**c)** `#ff6600`
+**d)** `rgb(255,102,0)`
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: c) `#ff6600`**
+
+**Explanation:** HEX colors use the format `#RRGGBB` with hexadecimal digits (0-9, A-F). Option (d) is RGB format, not HEX.
+
+</details>
+
+---
+
+### 7. Which color format supports transparency?
+
+**a)** HEX (`#ff0000`)
+**b)** RGB (`rgb(255, 0, 0)`)
+**c)** Named colors (`red`)
+**d)** RGBA (`rgba(255, 0, 0, 0.5)`)
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: d) RGBA (`rgba(255, 0, 0, 0.5)`)**
+
+**Explanation:** RGBA and HSLA support transparency through the alpha channel (fourth value). The alpha value ranges from 0.0 (fully transparent) to 1.0 (fully opaque).
+
+</details>
+
+---
+
+### 8. What does this selector target? `.highlight`
+
+**a)** All elements with `id="highlight"`
+**b)** All elements with `class="highlight"`
+**c)** All `<highlight>` elements
+**d)** The first element with any highlight attribute
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: b) All elements with `class="highlight"`**
+
+**Explanation:** The dot (`.`) indicates a class selector. It targets all elements that have the specified class attribute.
+
+</details>
+
+---
+
+### 9. What's the difference between `article p` and `article > p`?
+
+**a)** They're exactly the same
+**b)** `article p` selects all `<p>` inside `<article>`; `article > p` selects only direct child `<p>` elements
+**c)** `article > p` is invalid CSS
+**d)** `article > p` selects paragraphs before the article
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: b) `article p` selects all `<p>` inside `<article>`; `article > p` selects only direct child `<p>` elements**
+
+**Explanation:**
+- `article p` = **Descendant selector** (all paragraphs at any level inside article)
+- `article > p` = **Child selector** (only direct child paragraphs)
+
+</details>
+
+---
+
+### 10. Which pseudo-class targets elements when the mouse hovers over them?
+
+**a)** `:active`
+**b)** `:hover`
+**c)** `:focus`
+**d)** `:visited`
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: b) `:hover`**
+
+**Explanation:**
+- `:hover` - Mouse is over the element
+- `:active` - Element is being clicked
+- `:focus` - Element has keyboard focus
+- `:visited` - Link has been visited
+
+</details>
+
+---
+
+### 11. What is the recommended line-height for body text?
+
+**a)** 0.5 to 0.8
+**b)** 1.0 (exactly)
+**c)** 1.4 to 1.8
+**d)** 3.0 or higher
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: c) 1.4 to 1.8**
+
+**Explanation:** A line-height between 1.4 and 1.8 provides comfortable spacing for readability. Most commonly used: **1.5 to 1.6**.
+
+```css
+body {
+  line-height: 1.6;
+}
+```
+
+</details>
+
+---
+
+### 12. Which unit is relative to the root (`<html>`) font size?
+
+**a)** `px`
+**b)** `em`
+**c)** `rem`
+**d)** `%`
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: c) `rem`**
+
+**Explanation:**
+- `rem` = Relative to root element font size
+- `em` = Relative to parent element font size
+- `px` = Fixed pixel size
+- `%` = Percentage of parent
+
+**Best practice:** Use `rem` for scalable, accessible designs.
+
+</details>
+
+---
+
+### 13. What does `!important` do in CSS?
+
+**a)** Makes the style more specific
+**b)** Overrides all other styles (except other `!important` rules)
+**c)** Comments out the style
+**d)** Increases performance
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: b) Overrides all other styles (except other `!important` rules)**
+
+**Explanation:** The `!important` flag gives a declaration the highest priority, overriding normal specificity rules. However, it should be used sparingly as it makes debugging difficult and breaks the natural cascade.
+
+</details>
+
+---
+
+### 14. Which is the correct way to comment in CSS?
+
+**a)** `// This is a comment`
+**b)** `<!-- This is a comment -->`
+**c)** `/* This is a comment */`
+**d)** `# This is a comment`
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: c) `/* This is a comment */`**
+
+**Explanation:** CSS uses `/* */` for both single-line and multi-line comments.
+
+```css
+/* Single line comment */
+
+/*
+  Multi-line
+  comment
+*/
+```
+
+</details>
+
+---
+
+### 15. What's the minimum recommended contrast ratio for normal text?
+
+**a)** 1.5:1
+**b)** 3:1
+**c)** 4.5:1
+**d)** 7:1
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: c) 4.5:1**
+
+**Explanation:** According to WCAG (Web Content Accessibility Guidelines):
+- **Normal text**: Minimum 4.5:1 contrast ratio
+- **Large text** (18pt+ or 14pt bold): Minimum 3:1 contrast ratio
+
+This ensures text is readable for people with visual impairments.
+
+</details>
+
+---
+
+### 16. Which of these is NOT a valid CSS property?
+
+**a)** `font-size`
+**b)** `background-color`
+**c)** `text-align`
+**d)** `font-color`
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: d) `font-color`**
+
+**Explanation:** The correct property for text color is simply `color`, not `font-color`.
+
+```css
+/* Correct */
+p { color: red; }
+
+/* Incorrect */
+p { font-color: red; }
+```
+
+</details>
+
+---
+
+### 17. What happens when two CSS rules with equal specificity target the same element?
+
+**a)** The first rule wins
+**b)** The last rule wins
+**c)** Neither rule applies
+**d)** The browser picks randomly
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: b) The last rule wins**
+
+**Explanation:** When specificity is equal, **source order** determines which rule applies. The rule that appears last in the CSS wins.
+
+```css
+p { color: blue; }
+p { color: red; }  /* This wins */
+```
+
+</details>
+
+---
+
+### 18. Which selector targets the first child element?
+
+**a)** `:first`
+**b)** `:first-child`
+**c)** `:first-element`
+**d)** `:child(1)`
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: b) `:first-child`**
+
+**Explanation:**
+
+```css
+li:first-child {
+  font-weight: bold;
+}
+```
+
+This selects the first `<li>` element within its parent.
+
+</details>
+
+---
+
+### 19. What does the universal selector (`*`) do?
+
+**a)** Selects nothing
+**b)** Selects all elements
+**c)** Creates a wildcard
+**d)** Comments out code
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: b) Selects all elements**
+
+**Explanation:** The `*` selector targets every element on the page. Often used for CSS resets:
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```
+
+</details>
+
+---
+
+### 20. Why should you use classes over IDs for styling?
+
+**a)** Classes are faster
+**b)** Classes are reusable; IDs should be unique
+**c)** IDs don't work in CSS
+**d)** Classes have higher specificity
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: b) Classes are reusable; IDs should be unique**
+
+**Explanation:**
+- **Classes** can be applied to multiple elements and are more flexible
+- **IDs** should be unique per page and create high specificity that's hard to override
+- **Best practice:** Use classes for styling, reserve IDs for JavaScript hooks or unique layout sections
+
+</details>
+
+---
+
+## 📊 Scoring Guide
+
+Count your correct answers:
+
+- **18-20 correct**: 🌟 **CSS Master!** You have an excellent understanding of CSS fundamentals
+- **15-17 correct**: 💪 **Strong grasp!** You understand the core concepts well
+- **12-14 correct**: 📚 **Good foundation!** Review the areas you missed
+- **9-11 correct**: 🔄 **Keep practicing** - Re-read sections and try more examples
+- **0-8 correct**: 📖 **Review needed** - Go through the chapter again carefully
+
+---
+
+## 🎯 Next Steps
+
+After completing the quiz:
+
+1. **Review incorrect answers** - Understanding your mistakes is key
+2. **Complete the practice exercises** - Hands-on experience solidifies knowledge
+3. **Experiment with real projects** - Apply CSS to your own HTML pages
+4. **Build the challenge project** - Combine everything you've learned
+5. **Move to Chapter 12** - Learn the CSS Box Model for spacing and layout
+
+**Keep styling!** 🎨
 

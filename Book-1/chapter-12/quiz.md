@@ -1,661 +1,428 @@
-# Chapter 12 Quiz: The CSS Box Model
+# Chapter 16: Flexbox and Grid — Quiz
 
-Test your understanding of the CSS Box Model—one of the most important concepts in web development!
+Test your understanding of modern CSS layouts!
 
 ---
 
-## 📝 Quiz Questions
+## 📝 Instructions
 
-### 1. What are the four layers of the CSS Box Model (from inside to outside)?
+- Answer each question before checking the solution
+- Each question has one correct answer unless otherwise stated
+- This is a comprehensive quiz covering both Flexbox and Grid
 
-**a)** Content, Border, Padding, Margin
-**b)** Content, Padding, Border, Margin
-**c)** Margin, Border, Padding, Content
-**d)** Padding, Content, Border, Margin
+**Passing Score:** 16/20 (80%)
+
+---
+
+## Questions
+
+### 1. What type of layout is Flexbox best suited for?
+
+A) Two-dimensional layouts
+B) One-dimensional layouts
+C) Grid-based layouts
+D) Table layouts
 
 <details>
 <summary>Show Answer</summary>
 
-**Answer: b) Content, Padding, Border, Margin**
+**B) One-dimensional layouts**
 
-**Explanation:** From inside to outside:
-1. **Content** - The actual element (text, images)
-2. **Padding** - Space around content, inside border
-3. **Border** - The edge of the box
-4. **Margin** - Space outside the box
-
-```
-┌─────────────────────────┐
-│       Margin            │
-│  ┌───────────────────┐  │
-│  │     Border        │  │
-│  │  ┌─────────────┐  │  │
-│  │  │   Padding   │  │  │
-│  │  │  ┌───────┐  │  │  │
-│  │  │  │Content│  │  │  │
-│  │  │  └───────┘  │  │  │
-│  │  └─────────────┘  │  │
-│  └───────────────────┘  │
-└─────────────────────────┘
-```
+Flexbox excels at layouts along a single axis (either row OR column), making it perfect for navigation bars, toolbars, and component layouts.
 
 </details>
 
 ---
 
-### 2. What's the main difference between padding and margin?
+### 2. What property makes an element a flex container?
 
-**a)** Padding is always larger than margin
-**b)** Padding adds space inside the border; margin adds space outside the border
-**c)** Padding only works on block elements
-**d)** They're the same thing
+A) `flex: container`
+B) `display: flexbox`
+C) `display: flex`
+D) `container: flex`
 
 <details>
 <summary>Show Answer</summary>
 
-**Answer: b) Padding adds space inside the border; margin adds space outside the border**
+**C) `display: flex`**
 
-**Explanation:**
-- **Padding**: Space between content and border (inside). Background colors extend through padding.
-- **Margin**: Space outside the border, between elements. Margins are always transparent.
+This single property turns an element into a flex container, making all its direct children flex items.
 
+</details>
+
+---
+
+### 3. Which property controls the direction of flex items?
+
+A) `flex-flow`
+B) `flex-direction`
+C) `direction`
+D) `flex-layout`
+
+<details>
+<summary>Show Answer</summary>
+
+**B) `flex-direction`**
+
+`flex-direction` can be `row`, `row-reverse`, `column`, or `column-reverse`.
+
+</details>
+
+---
+
+### 4. What's the difference between `justify-content` and `align-items` in Flexbox?
+
+A) They do the same thing
+B) `justify-content` is for the main axis, `align-items` is for the cross axis
+C) `justify-content` is vertical, `align-items` is horizontal
+D) One is for containers, one is for items
+
+<details>
+<summary>Show Answer</summary>
+
+**B) `justify-content` is for the main axis, `align-items` is for the cross axis**
+
+In `flex-direction: row`, justify-content controls horizontal positioning, align-items controls vertical. They flip for `flex-direction: column`.
+
+</details>
+
+---
+
+### 5. What does `flex: 1` do to a flex item?
+
+A) Makes it 1px wide
+B) Makes it take up equal space with other `flex: 1` items
+C) Makes it appear first
+D) Makes it centered
+
+<details>
+<summary>Show Answer</summary>
+
+**B) Makes it take up equal space with other `flex: 1` items**
+
+`flex: 1` is shorthand for `flex: 1 1 0`, meaning the item can grow and shrink, and will share available space equally with siblings.
+
+</details>
+
+---
+
+### 6. Which `justify-content` value creates equal space BETWEEN items but not at the edges?
+
+A) `space-around`
+B) `space-evenly`
+C) `space-between`
+D) `center`
+
+<details>
+<summary>Show Answer</summary>
+
+**C) `space-between`**
+
+`space-between` puts space between items with the first/last items at the edges. `space-around` adds space around each item, `space-evenly` adds truly equal space everywhere.
+
+</details>
+
+---
+
+### 7. What type of layout is CSS Grid best suited for?
+
+A) One-dimensional layouts
+B) Two-dimensional layouts
+C) Only image galleries
+D) Only page layouts
+
+<details>
+<summary>Show Answer</summary>
+
+**B) Two-dimensional layouts**
+
+Grid excels when you need control over both rows AND columns simultaneously, like page layouts, image galleries, and dashboards.
+
+</details>
+
+---
+
+### 8. What does `1fr` mean in Grid?
+
+A) 1 fixed row
+B) 1 fraction of available space
+C) 1 flexible row
+D) 1 pixel
+
+<details>
+<summary>Show Answer</summary>
+
+**B) 1 fraction of available space**
+
+`fr` (fractional unit) distributes available space. `grid-template-columns: 1fr 2fr` creates columns with 1:2 ratio.
+
+</details>
+
+---
+
+### 9. Which Grid property creates a responsive grid without media queries?
+
+A) `grid-template-columns: repeat(3, 1fr)`
+B) `grid-template-columns: auto auto auto`
+C) `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))`
+D) `grid-template-columns: 300px 300px 300px`
+
+<details>
+<summary>Show Answer</summary>
+
+**C) `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))`**
+
+This creates as many columns as fit (min 300px each), automatically wrapping without media queries!
+
+</details>
+
+---
+
+### 10. What's the difference between `auto-fit` and `auto-fill`?
+
+A) No difference
+B) `auto-fill` keeps empty tracks, `auto-fit` collapses them
+C) `auto-fit` creates more columns
+D) `auto-fill` is faster
+
+<details>
+<summary>Show Answer</summary>
+
+**B) `auto-fill` keeps empty tracks, `auto-fit` collapses them**
+
+Both create responsive columns, but `auto-fit` collapses empty tracks, stretching existing items to fill space.
+
+</details>
+
+---
+
+### 11. How do you make a grid item span 2 columns?
+
+A) `columns: 2`
+B) `grid-column: 2`
+C) `grid-column: span 2`
+D) `span: 2`
+
+<details>
+<summary>Show Answer</summary>
+
+**C) `grid-column: span 2`**
+
+Or you can use `grid-column: 1 / 3` (start at line 1, end at line 3).
+
+</details>
+
+---
+
+### 12. What's the purpose of `gap` in Flexbox and Grid?
+
+A) Creates space between items
+B) Creates space around the container
+C) Makes items transparent
+D) Adds padding to items
+
+<details>
+<summary>Show Answer</summary>
+
+**A) Creates space between items**
+
+`gap` (or `row-gap`/`column-gap`) creates spacing between flex or grid items without adding margins.
+
+</details>
+
+---
+
+### 13. Can you use both Flexbox and Grid in the same project?
+
+A) No, you must choose one
+B) Yes, and it's recommended!
+C) Only with JavaScript
+D) Only in modern browsers
+
+<details>
+<summary>Show Answer</summary>
+
+**B) Yes, and it's recommended!**
+
+Best practice: Use Grid for overall page structure, Flexbox for component-level layouts. They complement each other perfectly!
+
+</details>
+
+---
+
+### 14. What does `grid-template-areas` do?
+
+A) Creates automatic grid areas
+B) Defines named areas for semantic layouts
+C) Sets the size of grid areas
+D) Adds spacing between areas
+
+<details>
+<summary>Show Answer</summary>
+
+**B) Defines named areas for semantic layouts**
+
+Example:
 ```css
-.box {
-  padding: 20px;  /* Space INSIDE */
-  margin: 10px;   /* Space OUTSIDE */
-}
+grid-template-areas:
+  "header header"
+  "sidebar main";
 ```
 
+Makes layouts incredibly readable!
+
 </details>
 
 ---
 
-### 3. With default `box-sizing: content-box`, if an element has `width: 300px`, `padding: 20px`, and `border: 5px solid`, what is the total rendered width?
+### 15. What's the default value of `flex-direction`?
 
-**a)** 300px
-**b)** 325px
-**c)** 340px
-**d)** 350px
+A) `column`
+B) `row`
+C) `row-reverse`
+D) `auto`
 
 <details>
 <summary>Show Answer</summary>
 
-**Answer: d) 350px**
+**B) `row`**
 
-**Calculation:**
-- Content width: 300px
-- Padding left: 20px
-- Padding right: 20px
-- Border left: 5px
-- Border right: 5px
-- **Total**: 300 + 20 + 20 + 5 + 5 = **350px**
-
-With `content-box` (the default), padding and border are **added** to the width.
+By default, flex items arrange horizontally from left to right.
 
 </details>
 
 ---
 
-### 4. With `box-sizing: border-box`, what would the total width be for the same element?
+### 16. Which is the correct way to center content both horizontally and vertically with Flexbox?
 
-**a)** 300px
-**b)** 325px
-**c)** 340px
-**d)** 350px
+A) `display: flex; center: both;`
+B) `display: flex; text-align: center;`
+C) `display: flex; justify-content: center; align-items: center;`
+D) `display: flex; position: center;`
 
 <details>
 <summary>Show Answer</summary>
 
-**Answer: a) 300px**
+**C) `display: flex; justify-content: center; align-items: center;`**
 
-**Explanation:** With `border-box`, the width **includes** padding and border.
-
-- Total box width: 300px (always)
-- Content width: 300 - (20 × 2) - (5 × 2) = 300 - 40 - 10 = **250px**
-
-The content shrinks to make room for padding and border, but the total box stays 300px.
+This is the modern, clean way to center content perfectly!
 
 </details>
 
 ---
 
-### 5. Why is `box-sizing: border-box` considered a best practice?
+### 17. What does `minmax(200px, 1fr)` do in Grid?
 
-**a)** It makes websites load faster
-**b)** It makes width calculations intuitive and predictable
-**c)** It's required for flexbox
-**d)** It increases browser compatibility
+A) Sets min size to 200px, max to 1 fraction
+B) Sets width to exactly 200px
+C) Creates 200 columns
+D) Adds 200px gap
 
 <details>
 <summary>Show Answer</summary>
 
-**Answer: b) It makes width calculations intuitive and predictable**
+**A) Sets min size to 200px, max to 1 fraction**
 
-**Explanation:** With `border-box`:
-- Setting `width: 300px` means the box is actually 300px wide
-- No mental math needed
-- Layouts are easier to control
-- Responsive design is simpler
-
-**Most developers use this globally:**
-
-```css
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-```
+The column will never be smaller than 200px, but can grow to take 1fr of available space.
 
 </details>
 
 ---
 
-### 6. What does this CSS shorthand mean? `padding: 10px 20px;`
+### 18. When should you use Grid instead of Flexbox?
 
-**a)** Top: 10px, Right: 20px, Bottom: 10px, Left: 20px
-**b)** All sides: 10px, except left: 20px
-**c)** Top and bottom: 10px, Left and right: 20px
-**d)** Left: 10px, Top: 20px
+A) For navigation bars
+B) For page layouts with rows AND columns
+C) For single-row card layouts
+D) Never, Flexbox is always better
 
 <details>
 <summary>Show Answer</summary>
 
-**Answer: c) Top and bottom: 10px, Left and right: 20px**
+**B) For page layouts with rows AND columns**
 
-**Two-value shorthand pattern:**
-```css
-padding: [vertical] [horizontal];
-padding: 10px 20px;
-/* = */
-padding-top: 10px;
-padding-bottom: 10px;
-padding-left: 20px;
-padding-right: 20px;
-```
+Use Grid when you need simultaneous control over rows and columns, like page layouts, dashboards, or image galleries.
 
 </details>
 
 ---
 
-### 7. What does `margin: 10px 20px 15px 25px;` mean?
+### 19. What does `flex-wrap: wrap` do?
 
-**a)** All sides get different values randomly
-**b)** Top: 10px, Right: 20px, Bottom: 15px, Left: 25px
-**c)** Left: 10px, Top: 20px, Right: 15px, Bottom: 25px
-**d)** It's invalid CSS
+A) Wraps text inside flex items
+B) Allows flex items to wrap to new lines
+C) Wraps the flex container
+D) Creates a border around items
 
 <details>
 <summary>Show Answer</summary>
 
-**Answer: b) Top: 10px, Right: 20px, Bottom: 15px, Left: 25px**
+**B) Allows flex items to wrap to new lines**
 
-**Four-value shorthand (clockwise from top):**
-```css
-margin: [top] [right] [bottom] [left];
-```
-
-**Memory trick:** Think of a clock starting at 12 (top) and going clockwise.
+By default (`nowrap`), flex items stay on one line and may overflow. `wrap` allows them to move to new lines.
 
 </details>
 
 ---
 
-### 8. How do you center a block element horizontally?
+### 20. Which layout system is better for responsive card grids?
 
-**a)** `text-align: center;`
-**b)** `margin: auto;`
-**c)** `margin: 0 auto;` with a defined width
-**d)** `center: true;`
+A) Always Flexbox
+B) Always Grid
+C) Either can work, Grid with auto-fit is often cleaner
+D) Neither, use floats
 
 <details>
 <summary>Show Answer</summary>
 
-**Answer: c) `margin: 0 auto;` with a defined width**
+**C) Either can work, Grid with auto-fit is often cleaner**
 
-**Explanation:**
-
-```css
-.container {
-  width: 800px;        /* Must have a width */
-  margin: 0 auto;      /* 0 top/bottom, auto left/right */
-}
-```
-
-The `auto` value calculates equal left and right margins, centering the element.
-
-**Requirements:**
-- Element must be block-level
-- Element must have a defined width (or max-width)
+Flexbox with `flex-wrap` works great, but Grid's `repeat(auto-fit, minmax())` creates responsive grids without media queries!
 
 </details>
 
 ---
 
-### 9. What is margin collapse?
-
-**a)** When margins become zero
-**b)** When vertical margins touch, only the larger one applies
-**c)** When all margins are removed automatically
-**d)** A browser bug
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: b) When vertical margins touch, only the larger one applies**
-
-**Example:**
-
-```css
-.box1 {
-  margin-bottom: 30px;
-}
-
-.box2 {
-  margin-top: 20px;
-}
-```
-
-**Expected:** 30px + 20px = 50px gap
-**Actual:** 30px gap (larger margin wins)
-
-**Key points:**
-- Only **vertical** margins collapse (top/bottom)
-- **Horizontal** margins never collapse (left/right)
-- The **larger** margin wins
-
-</details>
-
----
-
-### 10. Which margins collapse?
-
-**a)** Only top margins
-**b)** Only horizontal margins
-**c)** Only vertical margins
-**d)** All margins collapse
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: c) Only vertical margins**
-
-**Explanation:**
-- **Top and bottom margins** can collapse
-- **Left and right margins** never collapse
-- Margins only collapse when they touch (adjacent elements, parent-child)
-
-</details>
-
----
-
-### 11. What does `border: 2px solid #333;` mean?
-
-**a)** Width: 2px, Color: solid, Style: #333
-**b)** Width: 2px, Style: solid, Color: #333
-**c)** Style: 2px, Width: solid, Color: #333
-**d)** It's invalid syntax
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: b) Width: 2px, Style: solid, Color: #333**
-
-**Border shorthand:**
-```css
-border: [width] [style] [color];
-```
-
-**Common styles:**
-- `solid` - Solid line
-- `dashed` - Dashed line
-- `dotted` - Dotted line
-- `double` - Double line
-- `none` - No border
-
-</details>
-
----
-
-### 12. How do you create rounded corners?
-
-**a)** `corner-radius: 10px;`
-**b)** `border-radius: 10px;`
-**c)** `round-corners: 10px;`
-**d)** `border-round: 10px;`
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: b) `border-radius: 10px;`**
-
-**Examples:**
-
-```css
-/* Slightly rounded */
-.button {
-  border-radius: 5px;
-}
-
-/* Very rounded */
-.card {
-  border-radius: 20px;
-}
-
-/* Perfect circle (width = height) */
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-```
-
-</details>
-
----
-
-### 13. Can margins be negative?
-
-**a)** No, margins must be positive
-**b)** Yes, negative margins can pull elements
-**c)** Only on inline elements
-**d)** Only with flexbox
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: b) Yes, negative margins can pull elements**
-
-**Example:**
-
-```css
-.overlap {
-  margin-top: -20px;  /* Moves element UP */
-  margin-left: -10px; /* Moves element LEFT */
-}
-```
-
-**Use cases:**
-- Overlapping elements
-- Creative layouts
-- Pulling elements out of containers
-
-**Warning:** Use sparingly—can be hard to maintain.
-
-</details>
-
----
-
-### 14. What does `padding: 0;` do?
-
-**a)** Removes all padding
-**b)** Sets padding to default
-**c)** Makes padding automatic
-**d)** It's invalid
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: a) Removes all padding**
-
-**Common use:**
-
-```css
-/* Reset default padding */
-ul, ol {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-button {
-  padding: 0;
-  border: none;
-  background: none;
-}
-```
-
-This removes browser default spacing.
-
-</details>
-
----
-
-### 15. When should you use padding instead of margin?
-
-**a)** Always use padding
-**b)** For space inside elements (around content)
-**c)** For space outside elements (between elements)
-**d)** They're interchangeable
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: b) For space inside elements (around content)**
-
-**Use padding when:**
-- Creating space inside buttons or links (makes them more clickable)
-- Adding breathing room inside cards or containers
-- Pushing content away from borders
-- You want the space to have the same background color
-
-**Use margin when:**
-- Creating space between elements
-- Centering elements horizontally
-- Pushing elements away from each other
-
-```css
-/* Good: Padding makes button larger and more clickable */
-.button {
-  padding: 12px 24px;
-  background-color: blue;
-}
-
-/* Good: Margin creates space between buttons */
-.button {
-  margin-right: 10px;
-}
-```
-
-</details>
-
----
-
-### 16. What happens if you set `width: 100%` with padding on a child element (without border-box)?
-
-**a)** The element becomes exactly 100% wide
-**b)** The element overflows its container
-**c)** The padding is ignored
-**d)** The browser automatically fixes it
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: b) The element overflows its container**
-
-**Problem:**
-
-```css
-.child {
-  width: 100%;      /* Takes full width of parent */
-  padding: 20px;    /* Adds 40px to width! */
-}
-/* Total width = 100% + 40px = overflow! */
-```
-
-**Solution:**
-
-```css
-.child {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 20px;    /* Now included in width */
-}
-/* Total width = 100% (padding inside) */
-```
-
-</details>
-
----
-
-### 17. How do you style only the top border?
-
-**a)** `border-top: 2px solid #333;`
-**b)** `top-border: 2px solid #333;`
-**c)** `border: top 2px solid #333;`
-**d)** You can't style individual borders
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: a) `border-top: 2px solid #333;`**
-
-**Individual border properties:**
-
-```css
-.element {
-  border-top: 3px solid red;
-  border-right: 1px dashed blue;
-  border-bottom: 2px solid green;
-  border-left: none;
-}
-```
-
-**Common use case:**
-
-```css
-.section {
-  border-bottom: 1px solid #ddd;  /* Section divider */
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-```
-
-</details>
-
----
-
-### 18. What's the difference between `display: none` and `visibility: hidden`?
-
-**a)** They're the same
-**b)** `display: none` removes from layout; `visibility: hidden` leaves space
-**c)** `display: none` is faster
-**d)** `visibility: hidden` removes from layout
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: b) `display: none` removes from layout; `visibility: hidden` leaves space**
-
-**Explanation:**
-
-```css
-/* Completely removes element from layout */
-.hidden-display {
-  display: none;
-}
-/* No space left behind */
-
-/* Hides element but leaves space */
-.hidden-visibility {
-  visibility: hidden;
-}
-/* Space remains (like invisible box) */
-```
-
-**Analogy:**
-- `display: none` = Element doesn't exist
-- `visibility: hidden` = Element is invisible but still takes up space
-
-</details>
-
----
-
-### 19. What's the best way to apply `box-sizing: border-box` globally?
-
-**a)** `body { box-sizing: border-box; }`
-**b)** `* { box-sizing: border-box; }`
-**c)** `html { box-sizing: border-box; }`
-**d)** Apply it to each element individually
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: b) `* { box-sizing: border-box; }`**
-
-**Best practice (includes pseudo-elements):**
-
-```css
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-```
-
-This applies border-box to all elements, including generated content (`::before` and `::after` pseudo-elements).
-
-**Put this at the top of every stylesheet!**
-
-</details>
-
----
-
-### 20. Which tool is best for visualizing and debugging the box model?
-
-**a)** Notepad
-**b)** Browser DevTools (F12)
-**c)** Text editor
-**d)** Calculator
-
-<details>
-<summary>Show Answer</summary>
-
-**Answer: b) Browser DevTools (F12)**
-
-**How to use:**
-
-1. Right-click any element → Inspect
-2. Hover over the element in DevTools
-3. See colorful box model overlay:
-   - Blue = Content
-   - Green = Padding
-   - Yellow/Orange = Border
-   - Orange = Margin
-
-**You can also:**
-- View exact pixel values
-- Edit values live to test
-- See computed dimensions
-- Debug layout issues
-
-**DevTools are your best friend for CSS debugging!**
-
-</details>
-
----
-
-## 📊 Scoring Guide
+## 📊 Scoring
 
 Count your correct answers:
 
-- **18-20 correct**: 📦 **Box Model Master!** You have excellent understanding
-- **15-17 correct**: 💪 **Strong grasp!** You understand the core concepts well
-- **12-14 correct**: 📚 **Good foundation!** Review the areas you missed
-- **9-11 correct**: 🔄 **Keep practicing** - Re-read sections and do exercises
-- **0-8 correct**: 📖 **Review needed** - Go through the chapter again carefully
+- **18-20 correct (90-100%):** 🌟 Outstanding! You've mastered modern layouts!
+- **16-17 correct (80-85%):** 🎉 Excellent! You understand Flexbox and Grid well!
+- **13-15 correct (65-75%):** 👍 Good! Review the areas you missed.
+- **10-12 correct (50-60%):** 📚 You're getting there! Revisit the chapter.
+- **0-9 correct (0-45%):** 🎯 Time to review! Go through Chapter 16 again.
 
 ---
 
-## 🎯 Next Steps
+## 🎯 Key Concepts to Review
 
-After completing the quiz:
+If you struggled with certain questions, focus on these areas:
 
-1. **Review incorrect answers** - Understanding why matters more than the score
-2. **Complete the practice exercises** - Hands-on practice is essential
-3. **Use DevTools** - Inspect the box model on real websites
-4. **Build the challenge project** - Apply everything you've learned
-5. **Move to Chapter 13** - Learn advanced layout techniques
+**Questions 1-6:** Flexbox fundamentals
+**Questions 7-11:** Grid fundamentals
+**Questions 12-14:** Advanced Grid features
+**Questions 15-20:** Best practices and when to use which
 
-**Keep building!** 📦✨
+---
+
+## 📚 Next Steps
+
+1. Review any concepts you missed
+2. Complete all practice exercises
+3. Build the challenge project
+4. Practice building real layouts
+5. Use DevTools to inspect Flexbox/Grid on live websites!
+
+---
+
+## 💡 Remember
+
+**Flexbox:** One dimension (row OR column)
+**Grid:** Two dimensions (rows AND columns)
+**Best Practice:** Use both! Grid for structure, Flexbox for components.
+
+---
+
+**Great job taking the quiz!** Now go build amazing layouts! 🎨
 

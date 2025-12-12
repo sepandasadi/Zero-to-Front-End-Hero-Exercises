@@ -1,208 +1,118 @@
-# Chapter 7: CSS Methodologies & Scalable Architecture
+# Chapter 27: Events and Interactivity - Exercises
 
-## Overview
+Welcome to Chapter 27 exercises! These exercises will help you master event handling and build interactive web applications.
 
-This chapter covers the four major CSS methodologies used in production applications:
-- **BEM** (Block Element Modifier)
-- **OOCSS** (Object-Oriented CSS)
-- **SMACSS** (Scalable and Modular Architecture)
-- **ITCSS** (Inverted Triangle CSS)
+## 📚 What You'll Practice
 
-## Learning Objectives
+- Event listeners and the `addEventListener()` method
+- The event object and its properties
+- Preventing default behaviors
+- Event delegation patterns
+- Form handling and validation
+- Keyboard shortcuts
+- Building interactive components
 
-By completing these exercises, you will:
-- ✅ Master BEM naming conventions
-- ✅ Understand OOCSS separation of concerns
-- ✅ Organize CSS files using SMACSS categories
-- ✅ Build a complete ITCSS architecture
-- ✅ Know when to use each methodology
-- ✅ Mix methodologies effectively for production apps
+## 🎯 Exercises
+
+### Exercise 1: Click Counter ⭐
+**Difficulty:** Beginner
+**Time:** 15-20 minutes
+**Focus:** Basic event listeners, DOM manipulation
+
+Build a button that displays how many times it's been clicked.
+
+**[Start Exercise](./exercise-01-click-counter/)**
 
 ---
 
-## Exercises
+### Exercise 2: Live Character Counter ⭐⭐
+**Difficulty:** Intermediate
+**Time:** 20-30 minutes
+**Focus:** Input events, real-time validation, conditional styling
 
-### Exercise 1: BEM Component Refactoring
-**Difficulty:** ⭐ Beginner
+Create a textarea with a live character counter (like Twitter).
+
+**[Start Exercise](./exercise-02-character-counter/)**
+
+---
+
+### Exercise 3: Form with Validation ⭐⭐⭐
+**Difficulty:** Intermediate
 **Time:** 30-45 minutes
-**Focus:** BEM naming, flat specificity, Sass integration
+**Focus:** Form events, validation, user feedback
 
-Refactor a messy product card component using proper BEM naming conventions.
+Build a signup form with real-time validation and error messages.
 
-[Start Exercise 1 →](./exercise-01-bem-refactoring/)
+**[Start Exercise](./exercise-03-form-validation/)**
 
 ---
 
-### Exercise 2: OOCSS Pattern Library
-**Difficulty:** ⭐⭐ Intermediate
+### Exercise 4: Modal Dialog ⭐⭐⭐
+**Difficulty:** Intermediate
+**Time:** 30-45 minutes
+**Focus:** Multiple event types, keyboard events, accessibility
+
+Create a professional modal component with multiple close methods.
+
+**[Start Exercise](./exercise-04-modal-dialog/)**
+
+---
+
+### Exercise 5: Keyboard Shortcuts ⭐⭐
+**Difficulty:** Intermediate
+**Time:** 20-30 minutes
+**Focus:** Keyboard events, preventDefault, modifier keys
+
+Add professional keyboard shortcuts to a page.
+
+**[Start Exercise](./exercise-05-keyboard-shortcuts/)**
+
+---
+
+### Challenge: Interactive FAQ Accordion ⭐⭐⭐⭐
+**Difficulty:** Advanced
 **Time:** 1-2 hours
-**Focus:** Structure/Skin separation, reusable patterns, composability
+**Focus:** All event handling concepts combined
 
-Build a pattern library using OOCSS principles (Media Object, Box Object, Button system).
+Build a complete FAQ accordion with animations, keyboard navigation, and search.
 
-[Start Exercise 2 →](./exercise-02-oocss-patterns/)
-
----
-
-### Exercise 3: SMACSS File Organization
-**Difficulty:** ⭐⭐ Intermediate
-**Time:** 1-2 hours
-**Focus:** File categorization, prefixing, import order
-
-Organize an existing codebase using SMACSS's 5-category system.
-
-[Start Exercise 3 →](./exercise-03-smacss-organization/)
+**[Start Challenge](./challenge-faq-accordion/)**
 
 ---
 
-### Exercise 4: ITCSS Layer Implementation
-**Difficulty:** ⭐⭐⭐ Advanced
-**Time:** 2-3 hours
-**Focus:** Specificity management, 7-layer architecture, proper ordering
+## 📝 Quiz
 
-Build a complete ITCSS architecture from scratch with all 7 layers.
+Test your knowledge of events and interactivity concepts!
 
-[Start Exercise 4 →](./exercise-04-itcss-layers/)
+**[Take the Quiz](./quiz.md)**
 
 ---
 
-### Exercise 5: Methodology Comparison
-**Difficulty:** ⭐⭐ Intermediate
-**Time:** 2-3 hours
-**Focus:** Understanding trade-offs, practical application, decision-making
+## 💡 Tips for Success
 
-Build the same component using three different methodologies and compare results.
+1. **Start with the basics** - Make sure Exercise 1 works before moving to Exercise 2
+2. **Test thoroughly** - Try all the different ways to interact with your components
+3. **Use console.log()** - Debug by logging event objects and values
+4. **Check the browser console** - Look for errors if something doesn't work
+5. **Read the hints** - Each exercise has helpful hints in the instructions
+6. **Compare solutions** - After completing an exercise, look at the provided solution
 
-[Start Exercise 5 →](./exercise-05-methodology-comparison/)
+## 🚀 Learning Outcomes
 
----
+By completing these exercises, you'll be able to:
 
-### Exercise 6: Real-World Architecture
-**Difficulty:** ⭐⭐⭐ Advanced
-**Time:** 4-6 hours
-**Focus:** Production-ready structure, mixed methodologies, scalability
+- ✅ Attach event listeners to elements professionally
+- ✅ Handle user interactions (clicks, typing, form submissions)
+- ✅ Prevent default browser behaviors when needed
+- ✅ Use event delegation for scalable code
+- ✅ Build accessible, keyboard-friendly interfaces
+- ✅ Create professional UI components
 
-Build a component library using ITCSS + BEM + OOCSS patterns (the winning combination).
+## 📖 Related Chapter
 
-[Start Exercise 6 →](./exercise-06-real-world-architecture/)
-
----
-
-## Challenge Project
-
-### Design System Foundation
-**Difficulty:** ⭐⭐⭐⭐ Expert
-**Time:** 8-12 hours
-**Focus:** Complete design system, all methodologies combined, production-quality
-
-Build a complete design system foundation using mixed methodologies.
-
-[Start Challenge →](./challenge-design-system/)
+These exercises accompany **Chapter 27: Events and Interactivity** from the book.
 
 ---
 
-## Quiz
-
-Test your understanding of CSS methodologies with 10 comprehensive questions.
-
-[Take the Quiz →](./quiz.md)
-
----
-
-## Prerequisites
-
-- Basic CSS knowledge
-- Familiarity with Sass/SCSS
-- Understanding of CSS specificity
-- Node.js installed (for build tools)
-
-## Setup
-
-Each exercise includes:
-- `README.md` - Instructions and requirements
-- `starter/` - Starting code
-- `solution/` - Complete solution (don't peek!)
-- `hints.md` - Progressive hints if you get stuck
-
-## Time Estimates
-
-| Exercise | Difficulty | Time | Focus |
-|----------|-----------|------|-------|
-| 1. BEM Refactoring | ⭐ Beginner | 30-45 min | BEM naming |
-| 2. OOCSS Patterns | ⭐⭐ Intermediate | 1-2 hours | Reusable patterns |
-| 3. SMACSS Organization | ⭐⭐ Intermediate | 1-2 hours | File structure |
-| 4. ITCSS Layers | ⭐⭐⭐ Advanced | 2-3 hours | Specificity control |
-| 5. Methodology Comparison | ⭐⭐ Intermediate | 2-3 hours | Trade-offs |
-| 6. Real-World Architecture | ⭐⭐⭐ Advanced | 4-6 hours | Production patterns |
-| **Challenge Project** | ⭐⭐⭐⭐ Expert | 8-12 hours | Complete system |
-
-**Total Time:** 15-25 hours for complete mastery
-
----
-
-## Tips for Success
-
-### 1. Start with BEM
-BEM is the easiest to learn and most widely used. Master it first!
-
-### 2. Understand the "Why"
-Don't just follow rules. Understand why each methodology exists and what problems it solves.
-
-### 3. Compare in Practice
-The comparison exercise is crucial - seeing the same component in different styles solidifies understanding.
-
-### 4. Focus on Organization
-Most methodologies are about organization and maintainability, not just naming.
-
-### 5. Mix in Production
-Remember: Real projects mix methodologies. ITCSS + BEM is the most popular combination.
-
----
-
-## Common Pitfalls to Avoid
-
-### BEM Pitfalls
-❌ Too deep nesting: `.card__header__title__icon`
-✅ Keep it flat: `.card__icon`, `.card__title-icon`
-
-❌ Modifier without base: `<button class="button--primary">`
-✅ Use both: `<button class="button button--primary">`
-
-### OOCSS Pitfalls
-❌ Utility soup: Too many granular classes
-✅ Balanced objects: Reusable patterns, not atomic classes
-
-❌ Mixed concerns: Structure and skin together
-✅ Separate: `.button` (structure) + `.button-primary` (skin)
-
-### SMACSS Pitfalls
-❌ Wrong category: Layout styles in Modules
-✅ Proper categorization: Layout = `.l-*`, Modules = components
-
-### ITCSS Pitfalls
-❌ Wrong import order: Components before Elements
-✅ Specificity order: Settings → Tools → Generic → Elements → Objects → Components → Utilities
-
----
-
-## Additional Resources
-
-- [BEM Official Docs](https://en.bem.info/methodology/)
-- [OOCSS by Nicole Sullivan](https://github.com/stubbornella/oocss/wiki)
-- [SMACSS by Jonathan Snook](http://smacss.com/)
-- [ITCSS by Harry Roberts](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
-- [CSS Guidelines by Harry Roberts](https://cssguidelin.es/)
-
----
-
-## Need Help?
-
-- Check the `hints.md` file in each exercise
-- Review the chapter content in the book
-- Compare your code with the solutions
-- Ask questions in the community forum
-
----
-
-**Happy coding! Master these methodologies and you'll write CSS that scales.** 🚀
+**Ready to make your pages come alive?** Start with Exercise 1 and work your way up! 🎉
 

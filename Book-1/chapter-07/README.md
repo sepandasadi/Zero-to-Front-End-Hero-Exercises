@@ -1,133 +1,164 @@
-# Chapter 7: HTML Tags & Semantic HTML - Exercises
+# Chapter 7: Accessibility (A11y) in HTML
 
-Welcome to Chapter 7 exercises! You've learned about semantic HTML, headings, text formatting, lists, and HTML5 structural elements. Now it's time to practice building well-structured, meaningful HTML.
+Welcome to the Accessibility exercises! These hands-on activities will help you master the art of building websites that work for everyone—regardless of their abilities or the technologies they use.
 
-## 📚 What You'll Practice
+## 🎯 Learning Objectives
 
-- Creating proper heading hierarchies
-- Using text formatting tags semantically
-- Building organized lists (ordered, unordered, description)
-- Implementing HTML5 semantic elements
-- Converting "div soup" to semantic HTML
-- Building accessible, well-structured pages
+By completing these exercises, you will:
+- Understand how screen readers interpret HTML
+- Fix common accessibility issues in real code
+- Implement proper keyboard navigation
+- Use ARIA attributes correctly (and sparingly!)
+- Test with actual assistive technologies
+- Build fully accessible UI components
 
-## 🎯 Exercise Overview
+## 📚 Exercise Overview
 
-### Quick Review Quiz
-Complete the quiz in `quiz.md` to test your knowledge of semantic HTML.
+### Quick Review Questions
+Test your understanding of key concepts from the chapter.
+- **File**: Answers in this README below
+- **Time**: 5 minutes
 
-### Exercise 1: Headings and Hierarchy
-**Difficulty:** ⭐ Beginner
+### Knowledge Check Quiz
+15 multiple-choice questions covering all chapter topics.
+- **File**: `quiz.md`
+- **Time**: 15 minutes
 
-Practice creating proper heading structures for different page types.
+### Exercise 1: Fix Inaccessible Images ⭐
+Fix a page with broken image accessibility.
+- **Folder**: `exercise-01-images/`
+- **Time**: 15 minutes
+- **Skills**: Alt text, decorative images, context
 
-- **File:** `exercise-01-headings/instructions.md`
-- **Starter:** `exercise-01-headings/starter/headings.html`
-- **Solution:** `exercise-01-headings/solution/headings.html`
+### Exercise 2: Make Forms Accessible ⭐⭐
+Transform an inaccessible form with proper labels and ARIA.
+- **Folder**: `exercise-02-forms/`
+- **Time**: 20 minutes
+- **Skills**: Labels, fieldsets, error messages, validation
 
-### Exercise 2: Text Formatting
-**Difficulty:** ⭐⭐ Intermediate
+### Exercise 3: Keyboard Navigation Fix ⭐⭐
+Fix broken keyboard navigation and focus management.
+- **Folder**: `exercise-03-keyboard/`
+- **Time**: 25 minutes
+- **Skills**: Keyboard accessibility, focus styles, tab order
 
-Use semantic text formatting tags to markup various types of content.
+### Exercise 4: Add ARIA Where Needed ⭐⭐⭐
+Implement ARIA for custom interactive components.
+- **Folder**: `exercise-04-aria/`
+- **Time**: 30 minutes
+- **Skills**: ARIA roles, states, live regions
 
-- **File:** `exercise-02-text-formatting/instructions.md`
-- **Starter:** `exercise-02-text-formatting/starter/formatting.html`
-- **Solution:** `exercise-02-text-formatting/solution/formatting.html`
+### Exercise 5: Screen Reader Test ⭐⭐⭐
+Use a real screen reader to test and document issues.
+- **Folder**: `exercise-05-screen-reader-test/`
+- **Time**: 30 minutes
+- **Skills**: Screen reader usage, accessibility auditing
 
-### Exercise 3: Lists
-**Difficulty:** ⭐⭐ Intermediate
+### Challenge: Accessible Component Library ⭐⭐⭐⭐
+Build a library of fully accessible UI components.
+- **Folder**: `challenge-component-library/`
+- **Time**: 2-3 hours
+- **Skills**: Everything from the chapter!
 
-Create different types of lists including nested structures.
+---
 
-- **File:** `exercise-03-lists/instructions.md`
-- **Starter:** `exercise-03-lists/starter/lists.html`
-- **Solution:** `exercise-03-lists/solution/lists.html`
+## 📝 Quick Review Answers
 
-### Exercise 4: Semantic HTML5 Layout
-**Difficulty:** ⭐⭐⭐ Advanced
+### 1. What does "a11y" stand for and why is it abbreviated that way?
+**Answer**: "Accessibility" — the "11" represents the 11 letters between "A" and "Y" (ccessibilit). This is called a "numeronym" and is commonly used in web development communities.
 
-Build a complete blog post page using proper semantic HTML5 elements.
+### 2. Name 3 types of disabilities accessibility helps with
+**Answer**: Any three of:
+- **Visual**: Blindness, low vision, color blindness
+- **Auditory**: Deafness, hard of hearing
+- **Motor**: Limited mobility, can't use a mouse, tremors
+- **Cognitive**: Dyslexia, autism, ADHD, learning disabilities
+- **Situational**: Temporary disabilities like broken arm, bright sunlight, noisy environment
 
-- **File:** `exercise-04-semantic-layout/instructions.md`
-- **Starter:** `exercise-04-semantic-layout/starter/blog-post.html`
-- **Solution:** `exercise-04-semantic-layout/solution/blog-post.html`
+### 3. What's the minimum contrast ratio for normal-sized text?
+**Answer**: **4.5:1** for WCAG AA compliance. For enhanced AAA compliance, it's 7:1. Large text (24px+) only needs 3:1 for AA.
 
-### Exercise 5: Fix "Div Soup"
-**Difficulty:** ⭐⭐⭐ Advanced
+### 4. Why should you avoid using `<div>` with `onclick` instead of `<button>`?
+**Answer**: Because `<div>` elements:
+- Are not keyboard accessible (can't tab to them)
+- Don't respond to Enter/Space key presses
+- Aren't announced as interactive by screen readers
+- Don't have built-in focus management
+- Don't work with assistive technologies
 
-Refactor poorly-written HTML that uses only divs into proper semantic HTML.
+Using semantic `<button>` elements provides all these features automatically!
 
-- **File:** `exercise-05-fix-div-soup/instructions.md`
-- **Broken:** `exercise-05-fix-div-soup/broken/div-soup.html`
-- **Solution:** `exercise-05-fix-div-soup/solution/div-soup-fixed.html`
+### 5. What's the purpose of the `alt` attribute on images?
+**Answer**: The `alt` attribute provides:
+- **Text alternative** for screen readers to describe the image
+- **Fallback content** if the image fails to load
+- **Context** for search engines (SEO benefit)
+- **Meaning** in text-only browsers
 
-### Challenge Project: Technical Documentation Page
-**Difficulty:** ⭐⭐⭐⭐ Expert
+For decorative images, use `alt=""` (empty) to hide them from screen readers.
 
-Create a complete technical documentation page with proper semantic structure, navigation, multiple articles, and full accessibility.
+---
 
-- **File:** `challenge-documentation/instructions.md`
-- **Starter:** `challenge-documentation/starter/documentation.html`
-- **Solution:** `challenge-documentation/solution/documentation.html`
+## 🧪 Testing Tools You'll Need
 
-## 📖 How to Use These Exercises
+### Built-in Tools (Free!)
+- **Mac**: VoiceOver (Cmd+F5)
+- **Windows**: NVDA ([download free](https://www.nvaccess.org/))
+- **Chrome DevTools**: Lighthouse audit (Built-in)
+- **Firefox**: Accessibility Inspector (Built-in)
 
-### For Each Exercise:
+### Browser Extensions
+- [axe DevTools](https://www.deque.com/axe/devtools/) — Automated testing
+- [WAVE](https://wave.webaim.org/extension/) — Visual feedback
+- [Accessibility Insights](https://accessibilityinsights.io/) — Guided testing
 
-1. **Read the instructions** carefully
-2. **Start with the starter file** - resist the urge to peek at solutions!
-3. **Use semantic tags** - choose elements based on meaning, not appearance
-4. **Test your HTML** - Open in a browser and check the structure
-5. **Validate** - Use the W3C HTML validator
-6. **Compare with solution** - Only after you've tried it yourself!
+### Online Tools
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/)
 
-### Testing Your Semantic HTML
+---
 
-For each exercise, verify:
-- ✅ Headings follow proper hierarchy (h1 → h2 → h3, no skipping)
-- ✅ Semantic tags are used appropriately
-- ✅ Content meaning is clear from the HTML alone
-- ✅ No "div soup" - divs only when necessary
-- ✅ Valid HTML (no errors in validator)
-- ✅ Accessible and screen-reader friendly
+## 📖 Recommended Approach
 
-## 💡 Tips for Success
+1. **Read the chapter first** — Make sure you understand the concepts
+2. **Do exercises in order** — They build on each other
+3. **Use real assistive tech** — Actually try screen readers!
+4. **Test your solutions** — Run automated audits AND manual tests
+5. **Take your time** — Accessibility is best learned by doing
 
-1. **Think semantically** - What does this content *mean*, not how should it *look*
-2. **Use the right tool** - Each HTML element has a purpose
-3. **Build hierarchy** - Use headings to create clear document outlines
-4. **Consider accessibility** - Screen readers rely on semantic HTML
-5. **Validate often** - Catch errors early
-6. **Read out loud** - Does the HTML structure make sense when you describe it?
+---
 
-## 🚀 Going Further
+## 🆘 Getting Help
 
-Once you complete the exercises:
+**Stuck on an exercise?**
+1. Re-read the relevant chapter section
+2. Check the [WebAIM](https://webaim.org/) resources
+3. Review the solution files (but try first!)
+4. Test with a screen reader to understand the issue
+5. Ask in developer communities (mention you're learning!)
 
-1. **View the page outline** - Use browser extensions to see heading structure
-2. **Test with a screen reader** - Understand how assistive technology interprets your HTML
-3. **Add CSS** (if you've reached Chapter 11!) - Style without changing the semantic meaning
-4. **Build your own pages** - Practice on real projects
-5. **Share your work** - Get feedback from the community
+**Remember**: Making mistakes is part of learning. Every accessibility issue you fix makes the web better for millions of people! 🌟
 
-## 🆘 Need Help?
-
-- Review the chapter content in the book
-- Check the [MDN HTML Elements Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
-- Look at the solution files (but only after trying yourself!)
-- Join the community discussions
+---
 
 ## ✅ Completion Checklist
 
-Mark off each exercise as you complete it:
+Track your progress:
 
-- [ ] Completed Quiz
-- [ ] Exercise 1: Headings and Hierarchy
-- [ ] Exercise 2: Text Formatting
-- [ ] Exercise 3: Lists
-- [ ] Exercise 4: Semantic HTML5 Layout
-- [ ] Exercise 5: Fix "Div Soup"
-- [ ] Challenge: Technical Documentation Page
+- [ ] Completed Quick Review Questions
+- [ ] Passed Knowledge Check Quiz
+- [ ] Exercise 1: Fix Inaccessible Images
+- [ ] Exercise 2: Make Forms Accessible
+- [ ] Exercise 3: Keyboard Navigation Fix
+- [ ] Exercise 4: Add ARIA Where Needed
+- [ ] Exercise 5: Screen Reader Test
+- [ ] Challenge: Accessible Component Library
 
-**Ready to master semantic HTML? Let's go!** 🎯
+**When you've completed all exercises**, you'll have hands-on experience with:
+- Real accessibility testing tools
+- Common issues and how to fix them
+- Building accessible components from scratch
+- Using screen readers like a pro
+
+You've got this! 🚀
 

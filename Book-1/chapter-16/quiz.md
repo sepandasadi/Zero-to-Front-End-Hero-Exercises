@@ -1,428 +1,791 @@
-# Chapter 16: Flexbox and Grid — Quiz
+# Chapter 20 Quiz: Organizing Your CSS & Looking Ahead
 
-Test your understanding of modern CSS layouts!
-
----
-
-## 📝 Instructions
-
-- Answer each question before checking the solution
-- Each question has one correct answer unless otherwise stated
-- This is a comprehensive quiz covering both Flexbox and Grid
-
-**Passing Score:** 16/20 (80%)
+Test your understanding of CSS organization, methodologies, and best practices! This quiz prepares you for the advanced topics in Part 3.
 
 ---
 
 ## Questions
 
-### 1. What type of layout is Flexbox best suited for?
+### 1. What does BEM stand for?
 
-A) Two-dimensional layouts
-B) One-dimensional layouts
-C) Grid-based layouts
-D) Table layouts
-
-<details>
-<summary>Show Answer</summary>
-
-**B) One-dimensional layouts**
-
-Flexbox excels at layouts along a single axis (either row OR column), making it perfect for navigation bars, toolbars, and component layouts.
-
-</details>
-
----
-
-### 2. What property makes an element a flex container?
-
-A) `flex: container`
-B) `display: flexbox`
-C) `display: flex`
-D) `container: flex`
+**A)** Best Efficient Methodology
+**B)** Block Element Modifier
+**C)** Base Element Module
+**D)** Browser Element Markup
 
 <details>
 <summary>Show Answer</summary>
 
-**C) `display: flex`**
+**Answer: B**
 
-This single property turns an element into a flex container, making all its direct children flex items.
+BEM stands for **Block Element Modifier**, a naming methodology for CSS classes:
 
-</details>
-
----
-
-### 3. Which property controls the direction of flex items?
-
-A) `flex-flow`
-B) `flex-direction`
-C) `direction`
-D) `flex-layout`
-
-<details>
-<summary>Show Answer</summary>
-
-**B) `flex-direction`**
-
-`flex-direction` can be `row`, `row-reverse`, `column`, or `column-reverse`.
-
-</details>
-
----
-
-### 4. What's the difference between `justify-content` and `align-items` in Flexbox?
-
-A) They do the same thing
-B) `justify-content` is for the main axis, `align-items` is for the cross axis
-C) `justify-content` is vertical, `align-items` is horizontal
-D) One is for containers, one is for items
-
-<details>
-<summary>Show Answer</summary>
-
-**B) `justify-content` is for the main axis, `align-items` is for the cross axis**
-
-In `flex-direction: row`, justify-content controls horizontal positioning, align-items controls vertical. They flip for `flex-direction: column`.
-
-</details>
-
----
-
-### 5. What does `flex: 1` do to a flex item?
-
-A) Makes it 1px wide
-B) Makes it take up equal space with other `flex: 1` items
-C) Makes it appear first
-D) Makes it centered
-
-<details>
-<summary>Show Answer</summary>
-
-**B) Makes it take up equal space with other `flex: 1` items**
-
-`flex: 1` is shorthand for `flex: 1 1 0`, meaning the item can grow and shrink, and will share available space equally with siblings.
-
-</details>
-
----
-
-### 6. Which `justify-content` value creates equal space BETWEEN items but not at the edges?
-
-A) `space-around`
-B) `space-evenly`
-C) `space-between`
-D) `center`
-
-<details>
-<summary>Show Answer</summary>
-
-**C) `space-between`**
-
-`space-between` puts space between items with the first/last items at the edges. `space-around` adds space around each item, `space-evenly` adds truly equal space everywhere.
-
-</details>
-
----
-
-### 7. What type of layout is CSS Grid best suited for?
-
-A) One-dimensional layouts
-B) Two-dimensional layouts
-C) Only image galleries
-D) Only page layouts
-
-<details>
-<summary>Show Answer</summary>
-
-**B) Two-dimensional layouts**
-
-Grid excels when you need control over both rows AND columns simultaneously, like page layouts, image galleries, and dashboards.
-
-</details>
-
----
-
-### 8. What does `1fr` mean in Grid?
-
-A) 1 fixed row
-B) 1 fraction of available space
-C) 1 flexible row
-D) 1 pixel
-
-<details>
-<summary>Show Answer</summary>
-
-**B) 1 fraction of available space**
-
-`fr` (fractional unit) distributes available space. `grid-template-columns: 1fr 2fr` creates columns with 1:2 ratio.
-
-</details>
-
----
-
-### 9. Which Grid property creates a responsive grid without media queries?
-
-A) `grid-template-columns: repeat(3, 1fr)`
-B) `grid-template-columns: auto auto auto`
-C) `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))`
-D) `grid-template-columns: 300px 300px 300px`
-
-<details>
-<summary>Show Answer</summary>
-
-**C) `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))`**
-
-This creates as many columns as fit (min 300px each), automatically wrapping without media queries!
-
-</details>
-
----
-
-### 10. What's the difference between `auto-fit` and `auto-fill`?
-
-A) No difference
-B) `auto-fill` keeps empty tracks, `auto-fit` collapses them
-C) `auto-fit` creates more columns
-D) `auto-fill` is faster
-
-<details>
-<summary>Show Answer</summary>
-
-**B) `auto-fill` keeps empty tracks, `auto-fit` collapses them**
-
-Both create responsive columns, but `auto-fit` collapses empty tracks, stretching existing items to fill space.
-
-</details>
-
----
-
-### 11. How do you make a grid item span 2 columns?
-
-A) `columns: 2`
-B) `grid-column: 2`
-C) `grid-column: span 2`
-D) `span: 2`
-
-<details>
-<summary>Show Answer</summary>
-
-**C) `grid-column: span 2`**
-
-Or you can use `grid-column: 1 / 3` (start at line 1, end at line 3).
-
-</details>
-
----
-
-### 12. What's the purpose of `gap` in Flexbox and Grid?
-
-A) Creates space between items
-B) Creates space around the container
-C) Makes items transparent
-D) Adds padding to items
-
-<details>
-<summary>Show Answer</summary>
-
-**A) Creates space between items**
-
-`gap` (or `row-gap`/`column-gap`) creates spacing between flex or grid items without adding margins.
-
-</details>
-
----
-
-### 13. Can you use both Flexbox and Grid in the same project?
-
-A) No, you must choose one
-B) Yes, and it's recommended!
-C) Only with JavaScript
-D) Only in modern browsers
-
-<details>
-<summary>Show Answer</summary>
-
-**B) Yes, and it's recommended!**
-
-Best practice: Use Grid for overall page structure, Flexbox for component-level layouts. They complement each other perfectly!
-
-</details>
-
----
-
-### 14. What does `grid-template-areas` do?
-
-A) Creates automatic grid areas
-B) Defines named areas for semantic layouts
-C) Sets the size of grid areas
-D) Adds spacing between areas
-
-<details>
-<summary>Show Answer</summary>
-
-**B) Defines named areas for semantic layouts**
-
-Example:
 ```css
-grid-template-areas:
-  "header header"
-  "sidebar main";
+/* Block */
+.card { }
+
+/* Element (part of block) */
+.card__title { }
+.card__body { }
+
+/* Modifier (variation of block) */
+.card--featured { }
 ```
 
-Makes layouts incredibly readable!
+This creates clear, predictable class names that show relationships.
 
 </details>
 
 ---
 
-### 15. What's the default value of `flex-direction`?
+### 2. Which is the correct BEM class name for a button element inside a navigation block?
 
-A) `column`
-B) `row`
-C) `row-reverse`
-D) `auto`
+**A)** `.navigation-button`
+**B)** `.navigation__button`
+**C)** `.navigation--button`
+**D)** `.navigation_button`
 
 <details>
 <summary>Show Answer</summary>
 
-**B) `row`**
+**Answer: B**
 
-By default, flex items arrange horizontally from left to right.
+`.navigation__button` correctly uses `__` (double underscore) to show that `button` is an **element** of the `navigation` **block**.
+
+```html
+<nav class="navigation">
+  <button class="navigation__button">Menu</button>
+</nav>
+```
+
+**BEM syntax:**
+- `block__element` - Element belongs to block
+- `block--modifier` - Variation of block
 
 </details>
 
 ---
 
-### 16. Which is the correct way to center content both horizontally and vertically with Flexbox?
+### 3. What's the recommended file organization for CSS?
 
-A) `display: flex; center: both;`
-B) `display: flex; text-align: center;`
-C) `display: flex; justify-content: center; align-items: center;`
-D) `display: flex; position: center;`
+**A)** One large file with everything
+**B)** Separate files by CSS property (colors.css, fonts.css, margins.css)
+**C)** Separate files by purpose (reset.css, variables.css, components.css)
+**D)** Alphabetical file names
 
 <details>
 <summary>Show Answer</summary>
 
-**C) `display: flex; justify-content: center; align-items: center;`**
+**Answer: C**
 
-This is the modern, clean way to center content perfectly!
+Organize by **purpose**, not by property:
+
+```
+/styles
+  reset.css          /* Browser normalization */
+  variables.css      /* CSS custom properties */
+  base.css           /* Element defaults */
+  layout.css         /* Grid, containers */
+  components.css     /* Reusable components */
+  utilities.css      /* Helper classes */
+  main.css           /* Imports all files */
+```
+
+This makes code easy to find and maintain. All button styles are together in one place, not scattered across multiple files.
 
 </details>
 
 ---
 
-### 17. What does `minmax(200px, 1fr)` do in Grid?
+### 4. Why should you use CSS custom properties (variables)?
 
-A) Sets min size to 200px, max to 1 fraction
-B) Sets width to exactly 200px
-C) Creates 200 columns
-D) Adds 200px gap
+**A)** They make CSS load faster
+**B)** They centralize values for easy maintenance and theming
+**C)** They're required by modern browsers
+**D)** They replace all CSS frameworks
 
 <details>
 <summary>Show Answer</summary>
 
-**A) Sets min size to 200px, max to 1 fraction**
+**Answer: B**
 
-The column will never be smaller than 200px, but can grow to take 1fr of available space.
+CSS custom properties centralize values:
+
+```css
+/* Define once */
+:root {
+  --color-primary: #007bff;
+  --spacing-md: 1rem;
+}
+
+/* Use everywhere */
+.button {
+  background: var(--color-primary);
+  padding: var(--spacing-md);
+}
+
+.link {
+  color: var(--color-primary);
+}
+```
+
+**Benefits:**
+- Change primary color in one place → updates everywhere
+- Easy to create themes
+- Self-documenting code
+- Maintainable at scale
 
 </details>
 
 ---
 
-### 18. When should you use Grid instead of Flexbox?
+### 5. What's wrong with this CSS?
 
-A) For navigation bars
-B) For page layouts with rows AND columns
-C) For single-row card layouts
-D) Never, Flexbox is always better
+```css
+#header nav ul li a { color: blue; }
+```
+
+**A)** Nothing, it's correct
+**B)** Too high specificity, hard to override
+**C)** Missing semicolon
+**D)** Wrong syntax
 
 <details>
 <summary>Show Answer</summary>
 
-**B) For page layouts with rows AND columns**
+**Answer: B**
 
-Use Grid when you need simultaneous control over rows and columns, like page layouts, dashboards, or image galleries.
+This selector has **extremely high specificity** (ID + 4 elements), making it nearly impossible to override without !important:
+
+```css
+/* Try to override - WON'T WORK */
+.link { color: red; } /* Specificity too low */
+
+/* Have to do this - UGLY */
+.link { color: red !important; }
+```
+
+**Better approach:**
+```css
+/* Low specificity, easy to override */
+.nav__link { color: blue; }
+```
+
+**Rule:** Prefer classes, avoid IDs for styling, keep selectors short.
 
 </details>
 
 ---
 
-### 19. What does `flex-wrap: wrap` do?
+### 6. Which file should contain CSS custom property definitions?
 
-A) Wraps text inside flex items
-B) Allows flex items to wrap to new lines
-C) Wraps the flex container
-D) Creates a border around items
+**A)** main.css
+**B)** components.css
+**C)** variables.css
+**D)** utilities.css
 
 <details>
 <summary>Show Answer</summary>
 
-**B) Allows flex items to wrap to new lines**
+**Answer: C**
 
-By default (`nowrap`), flex items stay on one line and may overflow. `wrap` allows them to move to new lines.
+```css
+/* variables.css */
+:root {
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  /* ... more variables ... */
+}
+```
+
+Keeping all variables in one file:
+- Makes them easy to find
+- Centralizes design tokens
+- Simplifies theming
+- Clear place for customization
 
 </details>
 
 ---
 
-### 20. Which layout system is better for responsive card grids?
+### 7. What's the purpose of reset.css or normalize.css?
 
-A) Always Flexbox
-B) Always Grid
-C) Either can work, Grid with auto-fit is often cleaner
-D) Neither, use floats
+**A)** Delete all CSS
+**B)** Make browsers render elements more consistently
+**C)** Speed up page loading
+**D)** Add default styles
 
 <details>
 <summary>Show Answer</summary>
 
-**C) Either can work, Grid with auto-fit is often cleaner**
+**Answer: B**
 
-Flexbox with `flex-wrap` works great, but Grid's `repeat(auto-fit, minmax())` creates responsive grids without media queries!
+Different browsers have different default styles. Reset/normalize CSS creates a consistent baseline:
+
+```css
+/* reset.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Now all browsers start from the same point */
+```
+
+This prevents surprises like different margins, padding, or box-sizing across browsers.
 
 </details>
 
 ---
 
-## 📊 Scoring
+### 8. In BEM, how do you indicate a variation of a block?
 
-Count your correct answers:
+**A)** `.block_variation`
+**B)** `.block__variation`
+**C)** `.block--variation`
+**D)** `.block-variation`
 
-- **18-20 correct (90-100%):** 🌟 Outstanding! You've mastered modern layouts!
-- **16-17 correct (80-85%):** 🎉 Excellent! You understand Flexbox and Grid well!
-- **13-15 correct (65-75%):** 👍 Good! Review the areas you missed.
-- **10-12 correct (50-60%):** 📚 You're getting there! Revisit the chapter.
-- **0-9 correct (0-45%):** 🎯 Time to review! Go through Chapter 16 again.
+<details>
+<summary>Show Answer</summary>
 
----
+**Answer: C**
 
-## 🎯 Key Concepts to Review
+Use `--` (double dash) for **modifiers** (variations):
 
-If you struggled with certain questions, focus on these areas:
+```html
+<!-- Base block -->
+<button class="btn">Button</button>
 
-**Questions 1-6:** Flexbox fundamentals
-**Questions 7-11:** Grid fundamentals
-**Questions 12-14:** Advanced Grid features
-**Questions 15-20:** Best practices and when to use which
+<!-- Block with modifier -->
+<button class="btn btn--primary">Primary Button</button>
+<button class="btn btn--large">Large Button</button>
 
----
+<!-- Multiple modifiers -->
+<button class="btn btn--primary btn--large">Large Primary</button>
+```
 
-## 📚 Next Steps
+```css
+.btn { /* base styles */ }
+.btn--primary { background: blue; }
+.btn--large { padding: 1rem 2rem; }
+```
 
-1. Review any concepts you missed
-2. Complete all practice exercises
-3. Build the challenge project
-4. Practice building real layouts
-5. Use DevTools to inspect Flexbox/Grid on live websites!
-
----
-
-## 💡 Remember
-
-**Flexbox:** One dimension (row OR column)
-**Grid:** Two dimensions (rows AND columns)
-**Best Practice:** Use both! Grid for structure, Flexbox for components.
+</details>
 
 ---
 
-**Great job taking the quiz!** Now go build amazing layouts! 🎨
+### 9. Which approach is better for organization?
+
+**A)** Group all colors together, all fonts together, all margins together
+**B)** Group all button styles together, all card styles together, all nav styles together
+**C)** Both are equally good
+**D)** Neither, use inline styles
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Group by component**, not by property:
+
+```css
+/* ✅ GOOD: All button styles together */
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: white;
+}
+
+.btn--large {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+}
+
+/* ❌ BAD: Button styles scattered */
+/* In colors.css */
+.btn { background: #007bff; color: white; }
+
+/* In spacing.css */
+.btn { padding: 0.5rem 1rem; }
+
+/* In typography.css */
+.btn--large { font-size: 1.25rem; }
+```
+
+When you need to modify a button, all its styles should be in one place.
+
+</details>
+
+---
+
+### 10. What will Part 3 of the book cover in depth?
+
+**A)** HTML and JavaScript
+**B)** CSS Frameworks, Sass, and Advanced Methodologies
+**C)** Backend development
+**D)** Graphic design
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Part 3 Deep Dives:**
+- **Chapter 36:** CSS Frameworks (Bootstrap, Tailwind)
+- **Chapter 37:** Sass & SCSS
+- **Chapter 38:** CSS Methodologies (BEM, OOCSS, SMACSS, ITCSS)
+- **Chapter 39:** Modern CSS Workflows
+
+Chapter 20 introduces these topics; Part 3 teaches them comprehensively.
+
+</details>
+
+---
+
+### 11. Why is low specificity preferred in CSS?
+
+**A)** It loads faster
+**B)** It's easier to override and maintain
+**C)** Browsers require it
+**D)** It uses less memory
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+Low specificity makes CSS **easier to override** and **more maintainable**:
+
+```css
+/* Low specificity - easy to override */
+.card { background: white; }
+.card--dark { background: #333; } /* ✅ Works! */
+
+/* High specificity - hard to override */
+#content .section div.card { background: white; }
+.card--dark { background: #333; } /* ❌ Won't work! */
+```
+
+**Best practice:** Use single class selectors whenever possible.
+
+</details>
+
+---
+
+### 12. What's the best way to comment CSS?
+
+**A)** Don't comment, code should be self-explanatory
+**B)** Comment every line
+**C)** Add section headers and explain complex parts
+**D)** Only comment broken code
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: C**
+
+Add **section headers** and explain **complex logic**:
+
+```css
+/* ================================
+   TYPOGRAPHY
+   ================================ */
+
+h1, h2, h3 {
+  font-family: var(--font-family-heading);
+  line-height: 1.2;
+}
+
+/* ================================
+   COMPONENTS - Buttons
+   ================================ */
+
+/*
+  Primary button used for main CTAs
+  Variants: --large, --small, --block
+*/
+.btn--primary {
+  background: var(--color-primary);
+  /* Using box-shadow instead of border
+     to avoid layout shift on hover */
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+```
+
+**Don't comment obvious things:**
+```css
+/* ❌ Bad */
+.red { color: red; } /* Makes text red */
+
+/* ✅ Good */
+.text-error { color: red; } /* Error state text color */
+```
+
+</details>
+
+---
+
+### 13. What should go in utilities.css?
+
+**A)** All CSS
+**B)** Helper classes for common patterns
+**C)** Component styles
+**D)** Browser resets
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Helper/utility classes** for common, single-purpose styles:
+
+```css
+/* utilities.css */
+
+/* Text alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Spacing */
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+
+/* Display */
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+
+/* Colors */
+.text-muted { color: var(--color-text-muted); }
+.bg-primary { background: var(--color-primary); }
+```
+
+These are reusable across any component.
+
+</details>
+
+---
+
+### 14. What's wrong with using !important frequently?
+
+**A)** It makes CSS slow
+**B)** It creates specificity wars and makes code hard to maintain
+**C)** Browsers don't support it
+**D)** Nothing, use it everywhere
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+`!important` creates a **specificity arms race**:
+
+```css
+/* Developer 1 */
+.button { background: blue !important; }
+
+/* Developer 2 tries to override */
+.button-primary { background: red; } /* Won't work! */
+
+/* Developer 2 adds !important */
+.button-primary { background: red !important; }
+
+/* Developer 3 needs to override... */
+/* This escalates quickly! */
+```
+
+**When !important is OK:**
+```css
+/* Utilities that should always win */
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+```
+
+**Better approach:** Fix specificity issues, don't band-aid with !important.
+
+</details>
+
+---
+
+### 15. What's the main advantage of organizing CSS into multiple files?
+
+**A)** Faster page load
+**B)** Easier to find and maintain specific styles
+**C)** Better browser compatibility
+**D)** Smaller file sizes
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+Multiple files make code **easier to find and maintain**:
+
+```
+/styles
+  components/
+    buttons.css      ← Need to change buttons? Look here!
+    cards.css        ← Need to change cards? Look here!
+    navigation.css   ← Need to change nav? Look here!
+```
+
+vs.
+
+```
+styles.css (5,000 lines)
+← Good luck finding anything!
+```
+
+**Note:** Files are typically combined (concatenated) for production, so there's no performance penalty.
+
+</details>
+
+---
+
+### 16. What's a CSS preprocessor?
+
+**A)** A tool that makes CSS load faster
+**B)** A language that extends CSS with features, then compiles to regular CSS
+**C)** A framework like Bootstrap
+**D)** A browser extension
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+Preprocessors like **Sass** extend CSS with programming features:
+
+```scss
+// Sass code (preprocessor)
+$primary: #007bff;
+$spacing: 1rem;
+
+.button {
+  background: $primary;
+  padding: $spacing;
+
+  &:hover {
+    background: darken($primary, 10%);
+  }
+}
+```
+
+**Compiles to regular CSS:**
+```css
+.button {
+  background: #007bff;
+  padding: 1rem;
+}
+
+.button:hover {
+  background: #0056b3;
+}
+```
+
+**We'll learn Sass in Chapter 37!**
+
+</details>
+
+---
+
+### 17. Which naming is most maintainable?
+
+**A)** `.blue-button`
+**B)** `.btn-1`
+**C)** `.btn--primary`
+**D)** `.button-that-is-blue`
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: C**
+
+`.btn--primary` describes **purpose**, not appearance:
+
+```css
+/* ❌ Bad: What if primary color changes to red? */
+.blue-button { background: blue; }
+
+/* ❌ Bad: What does "1" mean? */
+.btn-1 { background: blue; }
+
+/* ❌ Bad: Too verbose */
+.button-that-is-blue { background: blue; }
+
+/* ✅ Good: Describes purpose, flexible implementation */
+.btn--primary { background: var(--color-primary); }
+```
+
+Now when design changes primary color from blue to red, you only update the variable—the class name still makes sense!
+
+</details>
+
+---
+
+### 18. What should base.css contain?
+
+**A)** Reset styles
+**B)** Default element styles (h1, p, a, etc.)
+**C)** Component styles
+**D)** Utility classes
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+```css
+/* base.css - Element defaults */
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-tight);
+  color: var(--color-heading);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+```
+
+These are **bare element** styles, before any classes.
+
+</details>
+
+---
+
+### 19. When should you use a CSS framework like Bootstrap or Tailwind?
+
+**A)** Always, for every project
+**B)** Never, always write custom CSS
+**C)** For rapid prototyping, MVPs, or when design consistency is more important than unique branding
+**D)** Only for large enterprise projects
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: C**
+
+**Use frameworks when:**
+- Quick prototyping or MVPs
+- Tight deadlines
+- Need consistent, battle-tested components
+- Team wants established patterns
+- Design doesn't need to be unique
+
+**Use custom CSS when:**
+- Unique brand identity required
+- Custom design system
+- Learning CSS fundamentals
+- Performance is critical (no unused framework code)
+
+**We'll explore this in Chapter 36!**
+
+</details>
+
+---
+
+### 20. What's the purpose of this file structure order?
+
+```css
+@import 'reset.css';
+@import 'variables.css';
+@import 'base.css';
+@import 'components.css';
+@import 'utilities.css';
+```
+
+**A)** Alphabetical order
+**B)** Order of specificity: general → specific
+**C)** Random order, doesn't matter
+**D)** Reverse specificity: specific → general
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Order from general → specific** (increasing specificity):
+
+1. **reset.css** - Most general (affects all elements)
+2. **variables.css** - Definitions (no styling yet)
+3. **base.css** - Element defaults (h1, p, a)
+4. **components.css** - Specific components (.btn, .card)
+5. **utilities.css** - Most specific (should override)
+
+This creates a **cascade** where:
+- General styles apply first
+- Specific styles override when needed
+- Utilities can override anything
+
+**Example flow:**
+```css
+/* 1. reset.css */
+* { margin: 0; }
+
+/* 2. base.css */
+h1 { font-size: 2rem; }
+
+/* 3. components.css */
+.card__title { font-size: 1.5rem; } /* More specific */
+
+/* 4. utilities.css */
+.text-large { font-size: 3rem !important; } /* Overrides all */
+```
+
+</details>
+
+---
+
+## Scoring Guide
+
+- **18-20 correct**: 🏆 CSS Organization Master! Ready for Part 3!
+- **15-17 correct**: 🌟 Great work! You understand the fundamentals well.
+- **12-14 correct**: 📚 Good foundation! Review the areas you missed.
+- **9-11 correct**: 💪 You're learning! Re-read the chapter and practice.
+- **Below 9**: 📖 Keep studying! Review Chapter 20 carefully.
+
+---
+
+## Key Takeaways
+
+After this quiz, remember:
+
+✅ **BEM** uses `block__element--modifier` syntax
+✅ **Organize by purpose**, not by property
+✅ **Low specificity** is easier to maintain
+✅ **CSS custom properties** centralize values
+✅ **Multiple files** make code easier to find
+✅ **Comment sections** and complex parts
+✅ **Utilities** are single-purpose helpers
+✅ **Part 3** will teach frameworks, Sass, and advanced methodologies
+
+---
+
+**Ready for more practice?** Complete the exercises to master CSS organization! Then you'll be fully prepared for the advanced topics in Part 3. 🚀
 

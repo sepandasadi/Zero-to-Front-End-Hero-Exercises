@@ -1,818 +1,625 @@
-# Chapter 4: Sass & Preprocessors - Quiz
+# Chapter 26: DOM Manipulation - Quiz
 
-## Instructions
+Test your understanding of DOM manipulation! This quiz covers element selection, content modification, creating elements, events, and best practices.
 
-- **15 multiple-choice questions**
-- **Each question has one best answer**
-- **Explanations provided after each answer**
-- **Estimated time:** 20-30 minutes
-
-Take this quiz after completing the chapter and exercises to test your Sass mastery!
+**Instructions:**
+- Answer each question to the best of your ability
+- Some questions have code examples—read them carefully!
+- Try to answer without looking at the chapter first
+- Answers with detailed explanations are at the bottom
 
 ---
 
 ## Questions
 
-### **1. What is the main difference between Sass variables and CSS custom properties?**
+### 1. What does DOM stand for?
 
-A) Sass variables are faster
-B) Sass compiles at build time, CSS variables update at runtime
-C) CSS variables are deprecated
-D) They are exactly the same
-
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) Sass compiles at build time, CSS variables update at runtime**
-
-**Explanation:** This is the critical distinction:
-
-**Sass variables:**
-- Preprocessed during compilation
-- Gone after CSS is generated
-- Can't change at runtime
-- Can use in calculations, color functions
-- Perfect for structure and DRY code
-
-**CSS custom properties:**
-- Live in the browser
-- Can change dynamically with JavaScript
-- Perfect for theming (dark mode, user preferences)
-- Can't use in all Sass functions
-
-**Best practice:** Use both! Sass for organization, CSS variables for runtime theming.
-
-```scss
-// Sass variable - compile time
-$primary: #3b82f6;
-
-:root {
-  // CSS variable - runtime
-  --color-primary: #{$primary};
-}
-
-// Can change this at runtime!
-[data-theme="dark"] {
-  --color-primary: #60a5fa;
-}
-```
-</details>
+A) Data Object Model
+B) Document Object Model
+C) Dynamic Object Management
+D) Document Oriented Markup
 
 ---
 
-### **2. Why is `@import` deprecated in favor of `@use`?**
+### 2. Which method finds the FIRST element matching a CSS selector?
 
-A) `@use` is faster
-B) `@import` causes global namespace pollution
-C) `@import` doesn't work anymore
-D) `@use` is shorter to type
-
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) `@import` causes global namespace pollution**
-
-**Explanation:** `@import` has major problems:
-
-**Problems with `@import`:**
-```scss
-// file1.scss
-$primary: #3b82f6;
-
-// file2.scss
-$primary: #ef4444;  // Oops, accidentally overrode!
-
-@import "file1";
-@import "file2";
-// Last one wins - unpredictable!
-```
-
-**Solution with `@use`:**
-```scss
-@use "file1";
-@use "file2";
-
-.button {
-  background: file1.$primary;  // Explicit, namespaced
-  color: file2.$primary;       // No conflicts!
-}
-```
-
-**Benefits of `@use`:**
-- ✅ Namespaced - no global pollution
-- ✅ Each file loaded only once
-- ✅ Clear where variables come from
-- ✅ Can't accidentally override
-
-**Always use `@use` and `@forward` in modern Sass!**
-</details>
+A) `document.getElement()`
+B) `document.querySelector()`
+C) `document.findElement()`
+D) `document.selectElement()`
 
 ---
 
-### **3. What's the maximum recommended nesting depth in Sass?**
+### 3. What does `querySelectorAll()` return?
 
-A) No nesting allowed
-B) 1 level
-C) 2-3 levels
-D) Unlimited
+A) An array
+B) A NodeList
+C) An HTMLCollection
+D) A single element
 
-<details>
-<summary><strong>Answer</strong></summary>
+---
 
-**C) 2-3 levels**
+### 4. What's the safest way to change text content?
 
-**Explanation:** Nesting is powerful but dangerous:
+A) `element.innerHTML`
+B) `element.innerText`
+C) `element.textContent`
+D) `element.text`
 
-**❌ BAD (too deep):**
-```scss
-.page {
-  .container {
-    .sidebar {
-      .widget {
-        .title {
-          a { color: blue; }  // 6 levels! Specificity: (0,1,6)
-        }
-      }
-    }
+---
+
+### 5. What will this code do?
+```js
+const heading = document.querySelector("h1");
+heading.textContent = "Hello World";
+```
+
+A) Creates a new h1 element
+B) Changes the text of the first h1
+C) Changes all h1 elements
+D) Returns "Hello World"
+
+---
+
+### 6. What's the preferred way to style elements from JavaScript?
+
+A) Inline styles with `.style`
+B) Using `.classList` to toggle classes
+C) Setting `.className` directly
+D) Using `.css()`
+
+---
+
+### 7. How do you add a class to an element?
+
+A) `element.class.add("highlight")`
+B) `element.className.add("highlight")`
+C) `element.classList.add("highlight")`
+D) `element.addClass("highlight")`
+
+---
+
+### 8. What does `classList.toggle()` do?
+
+A) Removes all classes
+B) Adds a class if missing, removes if present
+C) Switches between two classes
+D) Toggles element visibility
+
+---
+
+### 9. How do you create a new element?
+
+A) `document.newElement("div")`
+B) `document.createNode("div")`
+C) `document.createElement("div")`
+D) `document.create("div")`
+
+---
+
+### 10. What's the difference between `append()` and `prepend()`?
+
+A) No difference
+B) `append()` adds to end, `prepend()` adds to beginning
+C) `append()` is faster
+D) `prepend()` is deprecated
+
+---
+
+### 11. How do you remove an element from the DOM?
+
+A) `element.delete()`
+B) `element.remove()`
+C) `document.remove(element)`
+D) `element.destroy()`
+
+---
+
+### 12. What's wrong with this code?
+```js
+const button = document.querySelector("button");
+button.addEventListener("click", handleClick());
+```
+
+A) Nothing is wrong
+B) The function is called immediately, not on click
+C) Should use `onClick` instead
+D) Missing event parameter
+
+---
+
+### 13. How do you get the value of an input field?
+
+A) `input.value`
+B) `input.textContent`
+C) `input.innerHTML`
+D) `input.text`
+
+---
+
+### 14. What is event delegation?
+
+A) Delegating events to the browser
+B) Adding event listener to parent instead of children
+C) Removing event listeners
+D) Event priority system
+
+---
+
+### 15. Why is event delegation useful?
+
+A) It's faster to write
+B) Works for dynamically added elements
+C) Uses less memory
+D) Both B and C
+
+---
+
+### 16. What does `event.target` refer to?
+
+A) The element with the event listener
+B) The element that was actually clicked
+C) The parent element
+D) The document
+
+---
+
+### 17. What will this code do?
+```js
+const items = document.querySelectorAll(".item");
+items.forEach(item => {
+  console.log(item.textContent);
+});
+```
+
+A) Error - can't use forEach
+B) Logs content of all items
+C) Logs only the first item
+D) Returns an array
+
+---
+
+### 18. What's the security risk with `innerHTML`?
+
+A) It's slower than textContent
+B) XSS (Cross-Site Scripting) with user input
+C) It doesn't work in all browsers
+D) There is no risk
+
+---
+
+### 19. What does `closest()` do?
+
+A) Finds the closest sibling
+B) Finds nearest ancestor matching selector
+C) Finds nearest child matching selector
+D) Finds nearest element by distance
+
+---
+
+### 20. What's the purpose of DocumentFragment?
+
+A) To delete fragments of HTML
+B) To batch DOM updates for performance
+C) To fragment large files
+D) To create document sections
+
+---
+
+## Bonus Questions
+
+### 21. What's the difference between `textContent` and `innerHTML`?
+
+A) No difference
+B) `textContent` treats content as plain text, `innerHTML` parses HTML
+C) `innerHTML` is faster
+D) `textContent` is deprecated
+
+---
+
+### 22. What will this code output?
+```js
+const div = document.createElement("div");
+console.log(div.textContent);
+```
+
+A) "div"
+B) `null`
+C) `undefined`
+D) Empty string
+
+---
+
+### 23. How do you prevent default form submission?
+
+A) `return false`
+B) `event.preventDefault()`
+C) `event.stopSubmission()`
+D) `form.preventSubmit()`
+
+---
+
+### 24. What's the proper place to put your script tag?
+
+A) In the `<head>`
+B) At the end of `<body>`
+C) Doesn't matter
+D) In a separate file only
+
+---
+
+### 25. What's the best practice for adding multiple elements?
+
+A) Add them one by one
+B) Use DocumentFragment
+C) Use innerHTML with string concatenation
+D) Add them in a loop
+
+---
+
+## Answer Key
+
+### 1. B - Document Object Model
+
+The DOM is a tree-like representation of your HTML that JavaScript can manipulate.
+
+---
+
+### 2. B - `document.querySelector()`
+
+`querySelector()` finds the **first** element matching the CSS selector.
+
+```js
+const firstButton = document.querySelector("button");
+const primaryBtn = document.querySelector(".btn-primary");
+```
+
+---
+
+### 3. B - A NodeList
+
+`querySelectorAll()` returns a NodeList (similar to an array, but not exactly).
+
+```js
+const items = document.querySelectorAll(".item");
+items.forEach(item => {  // Can use forEach
+  console.log(item);
+});
+```
+
+---
+
+### 4. C - `element.textContent`
+
+`textContent` is safest because it treats content as plain text (no HTML parsing).
+
+```js
+element.textContent = userInput;  // Safe
+element.innerHTML = userInput;    // Dangerous if user input contains <script>
+```
+
+---
+
+### 5. B - Changes the text of the first h1
+
+`querySelector()` finds the **first** matching element, then `textContent` changes its text.
+
+```js
+// Before: <h1>Old Title</h1>
+heading.textContent = "Hello World";
+// After: <h1>Hello World</h1>
+```
+
+---
+
+### 6. B - Using `.classList` to toggle classes
+
+**Best practice:** Keep styles in CSS, use JavaScript to toggle classes.
+
+```js
+// ❌ Bad - mixing concerns
+element.style.backgroundColor = "red";
+
+// ✅ Good - separate concerns
+element.classList.add("error-state");
+```
+
+---
+
+### 7. C - `element.classList.add("highlight")`
+
+`classList` provides methods to manage classes.
+
+```js
+element.classList.add("highlight");
+element.classList.remove("hidden");
+element.classList.toggle("active");
+```
+
+---
+
+### 8. B - Adds a class if missing, removes if present
+
+`toggle()` is perfect for on/off states (like dark mode).
+
+```js
+button.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+```
+
+---
+
+### 9. C - `document.createElement("div")`
+
+This creates a new element (it's not in the DOM yet!).
+
+```js
+const div = document.createElement("div");
+div.textContent = "Hello";
+div.classList.add("card");
+document.body.append(div);  // Now it's in the DOM
+```
+
+---
+
+### 10. B - `append()` adds to end, `prepend()` adds to beginning
+
+```js
+list.append(newItem);   // Add to end
+list.prepend(newItem);  // Add to beginning
+```
+
+---
+
+### 11. B - `element.remove()`
+
+Modern and simple!
+
+```js
+const item = document.querySelector(".remove-me");
+item.remove();  // Gone!
+```
+
+---
+
+### 12. B - The function is called immediately, not on click
+
+The parentheses `()` execute the function immediately.
+
+```js
+// ❌ Wrong - calls handleClick NOW
+button.addEventListener("click", handleClick());
+
+// ✅ Correct - passes the function to be called later
+button.addEventListener("click", handleClick);
+
+// ✅ Or use arrow function
+button.addEventListener("click", () => handleClick());
+```
+
+---
+
+### 13. A - `input.value`
+
+```js
+const input = document.querySelector("input");
+const userInput = input.value;
+
+// Set value
+input.value = "New value";
+
+// Clear input
+input.value = "";
+```
+
+---
+
+### 14. B - Adding event listener to parent instead of children
+
+Instead of adding listeners to 100 items, add ONE listener to the parent.
+
+```js
+// ✅ Event delegation - one listener
+list.addEventListener("click", (e) => {
+  if (e.target.matches(".delete-btn")) {
+    e.target.closest(".item").remove();
   }
-}
+});
 ```
-
-**Problems:**
-- Impossible to override (specificity war)
-- Tightly coupled to HTML structure
-- Breaks if HTML changes
-- Unreadable
-
-**✅ GOOD (BEM with shallow nesting):**
-```scss
-.widget {
-  padding: 1rem;
-
-  &__title {
-    font-weight: 600;  // Only 1 level
-  }
-
-  &__link {
-    color: blue;
-
-    &:hover {  // 2 levels for pseudo-classes is OK
-      color: darkblue;
-    }
-  }
-}
-```
-
-**Rule:** Keep nesting shallow! Maximum 2-3 levels.
-</details>
 
 ---
 
-### **4. When should you use a mixin instead of a function?**
+### 15. D - Both B and C
 
-A) Mixins are always better
-B) When you need to output multiple CSS properties
-C) When you need to return a single value
-D) Functions are deprecated
-
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) When you need to output multiple CSS properties**
-
-**Explanation:**
-
-**Use MIXINS for:** Outputting CSS blocks
-```scss
-@mixin button-reset {
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-}
-
-.icon-button {
-  @include button-reset;  // Outputs all properties
-  color: blue;
-}
-```
-
-**Use FUNCTIONS for:** Returning single values
-```scss
-@function px-to-rem($px) {
-  @return ($px / 16) * 1rem;
-}
-
-.title {
-  font-size: px-to-rem(24);  // Returns: 1.5rem
-}
-```
-
-**Key difference:**
-- **Mixins** = CSS output (multiple properties)
-- **Functions** = Value return (single calculation)
-
-Both are useful! Choose based on what you need.
-</details>
+Event delegation:
+- Works for elements added later (B)
+- Uses less memory (C) - one listener instead of hundreds
 
 ---
 
-### **5. What does `@forward` do in the module system?**
+### 16. B - The element that was actually clicked
 
-A) Deletes files
-B) Re-exports modules to create barrel files
-C) Speeds up compilation
-D) Same as `@import`
-
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) Re-exports modules to create barrel files**
-
-**Explanation:** `@forward` creates index files:
-
-**Without `@forward` (tedious):**
-```scss
-// main.scss
-@use "abstracts/colors";
-@use "abstracts/spacing";
-@use "abstracts/mixins";
-@use "abstracts/functions";
-
-.button {
-  background: colors.$primary;
-  padding: spacing.$md;
-}
+```js
+list.addEventListener("click", (event) => {
+  console.log(event.target);        // Element clicked
+  console.log(event.currentTarget); // Element with listener (list)
+});
 ```
-
-**With `@forward` (clean):**
-```scss
-// abstracts/_index.scss
-@forward "colors";
-@forward "spacing";
-@forward "mixins";
-@forward "functions";
-
-// main.scss
-@use "abstracts" as abs;  // One import!
-
-.button {
-  background: abs.$primary;
-  padding: abs.$md;
-}
-```
-
-**This is the "barrel file" pattern** - group related modules!
-</details>
 
 ---
 
-### **6. What's wrong with this Sass code?**
+### 17. B - Logs content of all items
 
-```scss
-:root {
-  --color-primary: $primary;
-}
+NodeLists have `forEach()` (arrays of actual elements don't need conversion).
+
+```js
+const items = document.querySelectorAll(".item");
+items.forEach(item => {
+  console.log(item.textContent);
+});
 ```
-
-A) Nothing, it's correct
-B) Sass variables disappear after compilation
-C) Should use `@use` first
-D) CSS variables can't be in `:root`
-
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) Sass variables disappear after compilation**
-
-**Explanation:** Sass variables don't exist at runtime!
-
-**❌ WRONG:**
-```scss
-$primary: #3b82f6;
-
-:root {
-  --color-primary: $primary;  // Error! $primary doesn't exist in CSS
-}
-```
-
-**✅ CORRECT (interpolation):**
-```scss
-$primary: #3b82f6;
-
-:root {
-  --color-primary: #{$primary};  // Interpolate with #{}
-}
-```
-
-**Compiles to:**
-```css
-:root {
-  --color-primary: #3b82f6;  /* Value inserted at compile time */
-}
-```
-
-**Rule:** Use `#{}` to interpolate Sass variables into CSS strings!
-</details>
 
 ---
 
-### **7. Why do professionals avoid `@extend`?**
+### 18. B - XSS (Cross-Site Scripting) with user input
 
-A) It's slower
-B) It causes unexpected selector merging
-C) It's deprecated
-D) Mixins don't exist
+Never use `innerHTML` with untrusted content!
 
-<details>
-<summary><strong>Answer</strong></summary>
+```js
+// ⚠️ Dangerous
+const userInput = getUserInput();
+div.innerHTML = userInput;  // User can inject <script> tags!
 
-**B) It causes unexpected selector merging**
-
-**Explanation:** `@extend` can create bloated, unpredictable CSS:
-
-**The problem:**
-```scss
-%card { padding: 1rem; }
-
-.product-card { @extend %card; }
-.user-card { @extend %card; }
-
-// Specific selector
-.featured .product-card { color: blue; }
+// ✅ Safe
+div.textContent = userInput;  // Treated as plain text
 ```
-
-**Compiles to:**
-```css
-.product-card, .user-card { padding: 1rem; }
-
-/* Oops! Extended to both, even though we only wanted product-card */
-.featured .product-card, .featured .user-card { color: blue; }
-```
-
-**Better with mixins:**
-```scss
-@mixin card { padding: 1rem; }
-
-.product-card { @include card; }
-.user-card { @include card; }
-
-.featured .product-card { color: blue; }  // Only affects product-card!
-```
-
-**Professional advice:** Use mixins 99% of the time!
-</details>
 
 ---
 
-### **8. How do you generate utility classes for all spacing values?**
+### 19. B - Finds nearest ancestor matching selector
 
-A) Write them manually
-B) Use `@each` to loop over a map
-C) Copy-paste
-D) Use `@extend`
+`closest()` searches **up** the DOM tree.
 
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) Use `@each` to loop over a map**
-
-**Explanation:** This is the power of Sass automation!
-
-**Manual (tedious):**
-```scss
-.m-1 { margin: 0.25rem; }
-.m-2 { margin: 0.5rem; }
-.m-3 { margin: 0.75rem; }
-// ... 47 more ...
+```js
+const button = document.querySelector(".delete-btn");
+const card = button.closest(".card");  // Find parent card
 ```
-
-**Automated (DRY):**
-```scss
-$spacing: (
-  1: 0.25rem,
-  2: 0.5rem,
-  3: 0.75rem,
-  4: 1rem,
-  6: 1.5rem,
-  8: 2rem
-);
-
-@each $name, $value in $spacing {
-  .m-#{$name}  { margin: $value; }
-  .mt-#{$name} { margin-top: $value; }
-  .mb-#{$name} { margin-bottom: $value; }
-  .p-#{$name}  { padding: $value; }
-}
-```
-
-**Result:** 24 utility classes from 6 tokens!
-
-**Change the scale?** Update the map once, regenerates everything!
-</details>
 
 ---
 
-### **9. In the 7-1 architecture, which folder should depend on nothing?**
+### 20. B - To batch DOM updates for performance
 
-A) components/
-B) abstracts/
-C) layout/
-D) All folders depend on each other
+Create many elements off-DOM, then add all at once.
 
-<details>
-<summary><strong>Answer</strong></summary>
+```js
+const fragment = document.createDocumentFragment();
 
-**B) abstracts/**
+for (let i = 0; i < 1000; i++) {
+  const li = document.createElement("li");
+  li.textContent = `Item ${i}`;
+  fragment.append(li);  // Off-DOM
+}
 
-**Explanation:** Dependency flow is critical:
-
-**Dependency Rules:**
+list.append(fragment);  // Single reflow!
 ```
-abstracts/     ← No dependencies (pure helpers)
-    ↑
-base/          ← Depends on: abstracts
-layout/        ← Depends on: abstracts
-components/    ← Depends on: abstracts, base
-    ↑
-pages/         ← Depends on: abstracts, components, layout
-```
-
-**Why `abstracts/` is dependency-free:**
-- Contains tokens, mixins, functions
-- Pure helpers, no actual CSS output
-- Everyone imports it, it imports nothing
-- Changes here affect everything
-
-**If abstracts depends on components = Circular dependency hell!**
-
-**Keep the dependency flow one-directional!**
-</details>
 
 ---
 
-### **10. What's the best way to handle responsive breakpoints in Sass?**
+### Bonus Answers
 
-A) Hardcode media queries everywhere
-B) Create responsive mixins
-C) Don't use media queries
-D) Use JavaScript
+### 21. B - `textContent` treats content as plain text, `innerHTML` parses HTML
 
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) Create responsive mixins**
-
-**Explanation:** Centralize breakpoints for maintainability:
-
-**❌ BAD (hardcoded):**
-```scss
-.nav {
-  @media (min-width: 768px) { display: flex; }
-}
-.grid {
-  @media (min-width: 768px) { grid-template-columns: repeat(2, 1fr); }
-}
-// Easy to make typos! What if we want to change 768px?
+```js
+element.textContent = "<b>Bold</b>";  // Shows: <b>Bold</b>
+element.innerHTML = "<b>Bold</b>";    // Shows: **Bold**
 ```
-
-**✅ GOOD (mixin):**
-```scss
-// breakpoints.scss
-$breakpoints: (
-  sm: 640px,
-  md: 768px,
-  lg: 1024px
-);
-
-@mixin up($size) {
-  @media (min-width: map-get($breakpoints, $size)) {
-    @content;
-  }
-}
-
-// Usage
-.nav {
-  @include up(md) { display: flex; }
-}
-.grid {
-  @include up(md) { grid-template-columns: repeat(2, 1fr); }
-}
-```
-
-**Benefits:**
-- Change breakpoint once, updates everywhere
-- Semantic naming
-- No typos
-- Cleaner code
-</details>
 
 ---
 
-### **11. Which Sass feature allows you to manipulate colors?**
+### 22. D - Empty string
 
-A) Only CSS can manipulate colors
-B) Built-in color functions like `darken()`, `lighten()`, `mix()`
-C) You need JavaScript
-D) Mixins only
+New elements start with empty text content.
 
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) Built-in color functions like `darken()`, `lighten()`, `mix()`**
-
-**Explanation:** Sass has powerful color math:
-
-```scss
-$primary: #3b82f6;
-
-.button {
-  background: $primary;
-
-  &:hover {
-    background: darken($primary, 10%);  // 10% darker
-  }
-
-  &:active {
-    background: darken($primary, 15%);  // 15% darker
-  }
-}
-
-.button-light {
-  background: lighten($primary, 30%);  // Lighter variant
-}
-
-.button-muted {
-  background: desaturate($primary, 40%);  // Less vibrant
-}
-
-.button-blend {
-  background: mix($primary, #ef4444, 50%);  // 50/50 blend with red
-}
+```js
+const div = document.createElement("div");
+console.log(div.textContent);  // ""
+console.log(div.innerHTML);    // ""
 ```
-
-**Auto-contrast function:**
-```scss
-@function contrast-on($bg) {
-  @if (lightness($bg) > 50) {
-    @return #111;  // Dark text on light bg
-  } @else {
-    @return #fff;  // Light text on dark bg
-  }
-}
-```
-
-**CSS custom properties can't do this!**
-</details>
 
 ---
 
-### **12. What's the purpose of the `!default` flag?**
+### 23. B - `event.preventDefault()`
 
-A) Sets default browser styles
-B) Allows variables to be overridden before they're defined
-C) Deletes variables
-D) Required for all variables
+```js
+form.addEventListener("submit", (event) => {
+  event.preventDefault();  // Stop form submission
 
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) Allows variables to be overridden before they're defined**
-
-**Explanation:** `!default` makes libraries themeable:
-
-**Library code:**
-```scss
-// _tokens.scss (your library)
-$primary: #3b82f6 !default;
-$spacing: 1rem !default;
-
-.button {
-  background: $primary;
-  padding: $spacing;
-}
+  // Handle form with JavaScript
+});
 ```
-
-**Consumer code:**
-```scss
-// main.scss (consumer overrides BEFORE importing)
-$primary: #ef4444;  // Custom red
-$spacing: 0.75rem;  // Tighter spacing
-
-@use "tokens";  // Now uses consumer's values!
-```
-
-**Without `!default`:**
-- Consumer can't override
-- Would have to edit library source (bad!)
-
-**With `!default`:**
-- Consumers can customize
-- Library has sensible defaults
-- No source modification needed
-
-**This is how Bootstrap, Material UI, etc. allow theming!**
-</details>
 
 ---
 
-### **13. What's wrong with this nesting?**
+### 24. B - At the end of `<body>`
 
-```scss
-.button {
-  .icon {
-    .svg {
-      .path { fill: blue; }
-    }
-  }
-}
+This ensures HTML loads before JavaScript runs.
+
+```html
+<body>
+  <h1>Hello</h1>
+  <button>Click</button>
+
+  <script src="script.js"></script>  <!-- At the end -->
+</body>
 ```
 
-A) Nothing
-B) Too deep - creates high specificity
-C) Should use IDs
-D) Missing semicolons
-
-<details>
-<summary><strong>Answer</strong></summary>
-
-**B) Too deep - creates high specificity**
-
-**Explanation:**
-
-**Compiles to:**
-```css
-.button .icon .svg .path { fill: blue; }
-/* Specificity: (0,4,0) - Way too high! */
+**Alternative:** Use `DOMContentLoaded` event:
+```js
+document.addEventListener("DOMContentLoaded", () => {
+  // Safe - DOM is loaded
+});
 ```
-
-**Problems:**
-- Impossible to override without !important
-- Tightly coupled to HTML structure
-- Breaks if you reorganize HTML
-- Violates encapsulation
-
-**Better approach (BEM):**
-```scss
-.button {
-  &__icon {
-    fill: blue;
-  }
-}
-
-// Or even flatter:
-.button-icon {
-  fill: blue;
-}
-```
-
-**Compiles to:**
-```css
-.button__icon { fill: blue; }
-/* Specificity: (0,1,0) - Perfect! */
-```
-
-**Remember:** Maximum 2-3 levels of nesting!
-</details>
 
 ---
 
-### **14. How should you combine Sass and CSS custom properties?**
+### 25. B - Use DocumentFragment
 
-A) Never use them together
-B) Use Sass for structure, CSS variables for runtime theming
-C) Only use Sass
-D) Only use CSS variables
+For performance, batch your DOM operations.
 
-<details>
-<summary><strong>Answer</strong></summary>
+```js
+const fragment = document.createDocumentFragment();
 
-**B) Use Sass for structure, CSS variables for runtime theming**
+items.forEach(item => {
+  const li = document.createElement("li");
+  li.textContent = item;
+  fragment.append(li);  // Build off-DOM
+});
 
-**Explanation:** This is the professional hybrid approach:
-
-**Best of both worlds:**
-```scss
-// Sass: Generate the token system
-$colors: (
-  blue-400: #60a5fa,
-  blue-500: #3b82f6,
-  blue-600: #2563eb
-);
-
-// Generate CSS variables from Sass
-:root {
-  --color-primary: #{map-get($colors, blue-500)};
-  --color-primary-hover: #{map-get($colors, blue-600)};
-}
-
-// Dark mode - just change CSS variables!
-[data-theme="dark"] {
-  --color-primary: #{map-get($colors, blue-400)};
-  --color-primary-hover: #{map-get($colors, blue-500)};
-}
-
-// Components use CSS variables
-.button {
-  // Sass mixin for DRY code
-  @include button-base;
-
-  // CSS variable for runtime theming
-  background: var(--color-primary);
-
-  &:hover {
-    background: var(--color-primary-hover);
-  }
-}
+list.append(fragment);  // Add all at once
 ```
-
-**Why this works:**
-- Sass: Organization, DRY, calculations
-- CSS vars: Dynamic theming without recompilation
-- Change `data-theme` attribute = instant theme switch!
-</details>
 
 ---
 
-### **15. Which files should start with an underscore `_`?**
+## Scoring
 
-A) All files
-B) No files
-C) Partials that will be imported
-D) Only variables
-
-<details>
-<summary><strong>Answer</strong></summary>
-
-**C) Partials that will be imported**
-
-**Explanation:** Sass naming conventions:
-
-**Files WITH underscore (partials):**
-```
-scss/
-├── abstracts/
-│   ├── _tokens.scss     ← Will be @used
-│   ├── _mixins.scss     ← Will be @used
-│   └── _functions.scss  ← Will be @used
-├── components/
-│   ├── _button.scss     ← Will be @used
-│   └── _card.scss       ← Will be @used
-```
-
-**Files WITHOUT underscore (entry points):**
-```
-└── main.scss            ← Compiles to CSS!
-```
-
-**Why?**
-- `_file.scss` = Partial (won't compile on its own)
-- `file.scss` = Entry point (compiles to CSS)
-
-**When you compile:**
-```bash
-sass main.scss output.css
-# Only main.scss compiles
-# Partials (_*.scss) are imported but don't create separate CSS files
-```
-
-**Rule:** Entry points = no underscore, everything else = underscore!
-</details>
-
----
-
-## Scoring Guide
-
-- **13-15 correct:** 🏆 **Sass Master!** You deeply understand Sass architecture and best practices.
-- **10-12 correct:** ⭐ **Strong foundation!** Review the questions you missed.
-- **7-9 correct:** 📚 **Getting there!** Re-read Chapter 4, especially modules and architecture.
-- **4-6 correct:** 🔄 **Need more practice.** Do the exercises and review the chapter.
-- **0-3 correct:** 📖 **Start over.** Work through Chapter 4 again carefully.
+- **23-25 correct**: Excellent! You've mastered DOM manipulation.
+- **19-22 correct**: Great job! You understand the core concepts well.
+- **15-18 correct**: Good! Review event delegation and best practices.
+- **11-14 correct**: Decent foundation. Revisit Chapter 26 and practice more.
+- **Below 11**: Take your time with Chapter 26. Focus on basics before advanced topics.
 
 ---
 
 ## Key Takeaways
 
-If you remember nothing else, remember these:
-
-1. **Sass variables** (compile-time) + **CSS custom properties** (runtime) = Perfect combination
-
-2. **Always use `@use`/`@forward`**, never `@import`
-
-3. **Keep nesting shallow** - maximum 2-3 levels
-
-4. **Mixins output CSS, functions return values** - use appropriately
-
-5. **Generate utilities with loops** - DRY principle in action
-
-6. **The 7-1 architecture** scales from small to enterprise
-
-7. **`!default`** makes libraries themeable
-
-8. **Avoid `@extend`** - prefer mixins for predictability
+1. **querySelector/querySelectorAll** - Modern way to select elements
+2. **textContent** - Safe for text, innerHTML for HTML (careful!)
+3. **classList** - add, remove, toggle, contains
+4. **createElement** - Build elements, then append
+5. **append/prepend** - Add to end/beginning
+6. **remove()** - Delete elements
+7. **Event listeners** - Pass function reference, not call it
+8. **input.value** - Get/set input values
+9. **Event delegation** - One listener on parent
+10. **event.target** - What was clicked
+11. **closest()** - Find ancestor
+12. **DocumentFragment** - Batch operations for performance
 
 ---
 
-**Ready for Chapter 5 (Tailwind)?** You'll see a completely different approach to styling! 🚀
+## Next Steps
+
+1. ✅ Review any questions you got wrong
+2. 📚 Revisit relevant sections in Chapter 26
+3. 💻 Complete the practice exercises
+4. 🚀 Build interactive components
+5. 🔄 Practice event delegation
+6. 🎯 Build a complete application
+
+---
+
+**Great work completing the quiz!** DOM manipulation is the heart of frontend development. Keep practicing and you'll be building amazing interactive applications! 💪
+
+**Ready for hands-on practice?** Head to Exercise 1 and start making pages interactive! 🚀
 

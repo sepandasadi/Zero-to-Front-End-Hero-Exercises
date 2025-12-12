@@ -1,104 +1,182 @@
-# Chapter 5: First Steps as a Developer
+# Chapter 5: HTML Essentials
 
 ## 📚 Overview
 
-This chapter focuses on developing the right mindset, habits, and organizational systems that will accelerate your learning journey. These foundational practices separate developers who thrive from those who struggle.
+This is your first hands-on coding chapter! You'll learn the fundamental structure of HTML and write real code that runs in browsers.
 
 ## 🎯 Learning Objectives
 
 By completing these exercises, you will:
-- ✅ Create a sustainable learning schedule
-- ✅ Organize your projects professionally
-- ✅ Develop systematic problem-solving skills
-- ✅ Connect with the developer community
-- ✅ Build a personal resource library
-- ✅ Set clear, achievable milestones
+- ✅ Understand the anatomy of an HTML document
+- ✅ Write properly structured HTML from scratch
+- ✅ Use tags, elements, and attributes correctly
+- ✅ Master proper nesting and syntax
+- ✅ Use semantic HTML elements appropriately
+- ✅ Create accessible, meaningful document structure
+- ✅ Understand headings hierarchy and document outline
+- ✅ Debug common HTML errors
+- ✅ Refactor non-semantic markup
 
 ## 📝 Exercises
 
-### Exercise 1: Create Your Learning Schedule
-**File**: `learning-schedule-template.md`
+### Part A: HTML Basics
 
-Design a realistic, sustainable coding practice schedule that fits your life.
+### Exercise 1: Create Your First HTML Page
+**Difficulty**: ⭐ Beginner
+**Folder**: `exercise-01-first-page/`
 
-### Exercise 2: Set Up Project Organization
-**Folder**: `project-structure-guide/`
+Write a complete HTML5 document from scratch with proper structure.
 
-Create a professional folder structure for all your learning projects.
+### Exercise 2: Understanding Nesting
+**Difficulty**: ⭐ Beginner
+**Folder**: `exercise-02-nesting/`
 
-### Exercise 3: Practice Problem-Solving Framework
-**File**: `debugging-log-template.md`
+Practice proper element nesting with emphasis tags.
 
-Develop a systematic approach to debugging and problem-solving.
+### Exercise 3: Attributes Practice
+**Difficulty**: ⭐⭐ Beginner-Intermediate
+**Folder**: `exercise-03-attributes/`
 
-### Exercise 4: Connect With Community
-**File**: `community-checklist.md`
+Master HTML attributes including links, images, IDs, and classes.
 
-Join developer communities and start building your support network.
+### Exercise 4: Fix Broken HTML
+**Difficulty**: ⭐⭐ Intermediate
+**Folder**: `exercise-04-fix-errors/`
 
-### Exercise 5: Create Resources Hub
-**File**: `learning-resources-template.md`
+Debug and fix 10 common HTML mistakes.
 
-Organize helpful resources you'll reference constantly.
+### Part B: Semantic HTML
 
-### Exercise 6: Set Your First Milestone
-**File**: `milestone-template.md`
+### Exercise 5: Headings Hierarchy
+**Difficulty**: ⭐⭐ Intermediate
+**Folder**: `exercise-05-headings/`
 
-Define clear, achievable 30-day goals.
+Master proper heading structure and document outline.
+
+### Exercise 6: Text Formatting
+**Difficulty**: ⭐⭐ Intermediate
+**Folder**: `exercise-06-text-formatting/`
+
+Use semantic elements for text meaning (strong, em, mark, etc.).
+
+### Exercise 7: Lists
+**Difficulty**: ⭐⭐ Intermediate
+**Folder**: `exercise-07-lists/`
+
+Create ordered, unordered, and description lists properly.
+
+### Exercise 8: Semantic Layout
+**Difficulty**: ⭐⭐⭐ Advanced
+**Folder**: `exercise-08-semantic-layout/`
+
+Build page structure with header, nav, main, article, section, aside, footer.
+
+### Exercise 9: Fix Div Soup
+**Difficulty**: ⭐⭐⭐ Advanced
+**Folder**: `exercise-09-fix-div-soup/`
+
+Refactor non-semantic HTML into semantic, accessible markup.
+
+### Challenge Projects
+
+### Challenge 1: Personal Bio Page
+**Difficulty**: ⭐⭐ Intermediate
+**Folder**: `challenge-bio-page/`
+
+Build a complete personal biography page using HTML basics.
+
+### Challenge 2: Documentation Page
+**Difficulty**: ⭐⭐⭐ Advanced
+**Folder**: `challenge-02-documentation/`
+
+Create a technical documentation page with full semantic structure.
 
 ## ⏱️ Estimated Time
 
-- **Learning Schedule**: 15 minutes
-- **Project Organization**: 20 minutes
-- **Problem-Solving Framework**: 10 minutes to setup (use ongoing)
-- **Community Connection**: 30 minutes
-- **Resources Hub**: 15 minutes
-- **First Milestone**: 20 minutes
-- **Total**: ~2 hours (spread across multiple sessions)
+**Part A: HTML Basics**
+- **Exercises 1-4**: ~70 minutes
 
-## 💡 Why These Exercises Matter
+**Part B: Semantic HTML**
+- **Exercises 5-9**: ~100 minutes
 
-Unlike typical coding exercises, these focus on **meta-skills**—the habits and systems that make learning more effective:
+**Challenge Projects**
+- **Challenge 1**: 30-45 minutes
+- **Challenge 2**: 45-60 minutes
 
-- **Consistency beats intensity** - A sustainable schedule is more valuable than burnout
-- **Organization saves hours** - Well-structured projects prevent frustration later
-- **Systematic thinking** - Problem-solving frameworks make you a better debugger
-- **Community support** - You'll learn faster and stay motivated with others
-- **Curated resources** - Having good references at your fingertips accelerates learning
-- **Clear goals** - Milestones give direction and help you measure progress
+**Total**: ~4-5 hours
 
 ## 🎓 Success Criteria
 
-You'll know you've successfully completed this chapter when:
+You'll know you've mastered this chapter when you can:
+- [ ] Write a complete HTML5 document from memory
+- [ ] Properly nest elements without errors
+- [ ] Use attributes correctly for links, images, and styling
+- [ ] Debug common HTML syntax errors
+- [ ] Create a multi-section webpage with semantic structure
+- [ ] Validate your HTML with no errors
 
-- [ ] You have a written learning schedule you can stick to
-- [ ] Your projects folder is organized and ready
-- [ ] You've used the debugging log for at least 3 problems
-- [ ] You've joined at least 2 developer communities
-- [ ] You have a resources file with 10+ helpful links
-- [ ] You've set a clear 30-day milestone with weekly breakdowns
-- [ ] You feel more organized and confident about your learning path
+## 💡 Tips for Success
 
-## 🌟 Long-Term Benefits
+1. **Type, don't copy-paste** - Muscle memory is important!
+2. **Use VS Code's autocomplete** - Press Tab to complete tags
+3. **Check your work** - Open files in a browser after each change
+4. **Use the HTML validator** - https://validator.w3.org/
+5. **View source** - Right-click your page and "View Page Source" to see your HTML
+6. **Indent properly** - Makes code readable (VS Code does this automatically with Prettier)
 
-These habits will serve you throughout your entire career:
+## 🔧 Setup
 
-- **Professional developers** maintain organized project structures
-- **Senior engineers** follow systematic debugging processes
-- **Successful developers** stay connected to their communities
-- **Great programmers** continuously curate learning resources
-- **Career growth** comes from setting and achieving clear goals
+Before starting:
 
-The time you invest in these systems now will pay dividends for years to come!
+1. Create a folder for Chapter 6 exercises in your `frontend-journey` folder:
+   ```
+   frontend-journey/01-html-basics/chapter-06/
+   ```
 
-## 📚 Additional Resources
+2. Have VS Code and Live Server ready
 
-- [Learning How to Learn (Coursera)](https://www.coursera.org/learn/learning-how-to-learn) - Scientific approach to learning
-- [The Odin Project - Motivation Guide](https://www.theodinproject.com/lessons/foundations-motivation-and-mindset)
-- [freeCodeCamp - How to Learn to Code](https://www.freecodecamp.org/news/how-to-learn-to-code/)
-- [100 Days of Code Challenge](https://www.100daysofcode.com/) - Accountability framework
+3. Have a browser open (Chrome or Firefox recommended)
+
+## 🆘 Common Issues & Solutions
+
+### Issue: Page shows code instead of rendering
+**Solution**: Make sure you saved the file with `.html` extension, not `.txt`
+
+### Issue: Image doesn't show
+**Solution**: Check the `src` path - is the image in the same folder? Use relative paths correctly.
+
+### Issue: Link doesn't work
+**Solution**: Check your `href` attribute - did you include `https://` for external links?
+
+### Issue: Tags are visible on the page
+**Solution**: You probably forgot a closing `>` bracket somewhere
+
+### Issue: Everything looks like one big paragraph
+**Solution**: Check your nesting - you might have unclosed tags or wrong closing order
+
+## 📚 Resources
+
+- [MDN HTML Reference](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [HTML Validator](https://validator.w3.org/)
+- [HTML Cheat Sheet](https://htmlcheatsheet.com/)
+- [Can I Use - Browser Support](https://caniuse.com/)
+
+## ✅ Exercise Checklist
+
+Track your progress:
+
+- [ ] Read Chapter 6 thoroughly
+- [ ] Completed Exercise 1: First HTML Page
+- [ ] Completed Exercise 2: Understanding Nesting
+- [ ] Completed Exercise 3: Attributes Practice
+- [ ] Completed Exercise 4: Fix Broken HTML
+- [ ] Completed Challenge: Personal Bio Page
+- [ ] All code validates with no errors
+- [ ] Reviewed solutions and understood any mistakes
 
 ---
 
-**Ready to begin?** Start with Exercise 1 and work through them at your own pace. These aren't "homework"—they're investments in your future success! 🚀
+**Ready to code?** Start with Exercise 1 and work through them in order. Remember: the goal isn't perfection, it's practice. You'll make mistakes, and that's exactly how you learn!
+
+Happy coding! 🚀
 

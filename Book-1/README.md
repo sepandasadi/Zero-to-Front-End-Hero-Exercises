@@ -1,13 +1,15 @@
 # Zero to Front-End Hero: Book 1 - Exercises
-## Foundations & Core Skills
+## Volume 1: The UI Architect (HTML & CSS)
 
-**200+ Hands-On Exercises for HTML, CSS, JavaScript & Core Skills**
+**Hands-On Exercises for HTML, CSS, and Web Fundamentals**
 
 ---
 
 ## 📚 About These Exercises
 
-This repository contains all exercises, projects, and quizzes for **Zero to Front-End Hero: Book 1**.
+This repository contains all exercises, projects, and quizzes for **Zero to Front-End Hero: Volume 1 - The UI Architect**.
+
+Volume 1 focuses on building solid foundations in HTML and CSS, teaching you how to structure content semantically and style it beautifully.
 
 ---
 
@@ -16,38 +18,22 @@ This repository contains all exercises, projects, and quizzes for **Zero to Fron
 ```
 Book-1/
 ├── README.md (this file)
-├── chapter-04/ (Setting Up Development Environment)
-├── chapter-05/ (First Steps as a Developer)
-├── chapter-06/ (HTML Basics)
-├── chapter-07/ (HTML Tags & Semantic HTML)
-├── chapter-08/ (HTML Tables and Forms)
-├── chapter-09/ (Accessibility in HTML)
-├── chapter-10/ (The DOM)
-├── chapter-11/ (CSS Styling the Web)
-├── chapter-12/ (CSS Box Model)
-├── chapter-13/ (CSS Layout Fundamentals)
-├── chapter-14/ (Working with Images in CSS)
-├── chapter-15/ (CSS Inheritance)
-├── chapter-16/ (Flexbox and Grid)
-├── chapter-17/ (CSS Variables)
-├── chapter-18/ (Responsive Design)
-├── chapter-19/ (Animations)
-├── chapter-20/ (CSS Organization)
-├── chapter-21/ (Sass & SCSS)
-├── chapter-22/ (CSS Methodologies)
-├── chapter-23/ (JavaScript Fundamentals)
-├── chapter-24/ (Functions and Scope)
-├── chapter-25/ (Working with Data)
-├── chapter-26/ (DOM Manipulation)
-├── chapter-27/ (Events and Interactivity)
-├── chapter-28/ (Error Handling and Debugging)
-├── chapter-29/ (Advanced JavaScript Concepts)
-├── chapter-30/ (Async JavaScript & Modern Features)
-├── chapter-31/ (ES6 Modules & Working with APIs)
-├── chapter-32/ (Advanced JavaScript Patterns)
-├── chapter-33/ (Developer Tools)
-├── chapter-34/ (Working with APIs and Data)
-└── chapter-35/ (Responsive & Accessible Design)
+├── chapter-01/ (The World of Web Development)
+├── chapter-02/ (Setting Up Your Environment)
+├── chapter-03/ (Command Line Basics)
+├── chapter-04/ (Version Control - Git)
+├── chapter-05/ (HTML Essentials)
+├── chapter-06/ (Handling Data - Forms & Tables)
+├── chapter-07/ (Accessibility - A11y)
+├── chapter-08/ (Pre-CSS Bridge - How the Browser Thinks)
+├── chapter-09/ (CSS Foundations)
+├── chapter-10/ (CSS Layout Fundamentals)
+├── chapter-11/ (Typography & Media)
+├── chapter-12/ (Modern Layouts - Flexbox & Grid)
+├── chapter-13/ (CSS Variables)
+├── chapter-14/ (Motion & Polish)
+├── chapter-15/ (Responsive Design)
+└── chapter-16/ (CSS Organization)
 ```
 
 ---
@@ -56,32 +42,59 @@ Book-1/
 
 ### **For Each Chapter:**
 
-1. **Read the chapter** in the book first
-2. **Open the chapter folder** (e.g., `chapter-06/`)
+1. **Read the chapter** in Volume 1 manuscript first
+2. **Open the chapter folder** (e.g., `chapter-05/`)
 3. **Read the main README.md** for overview
 4. **Complete exercises in order** (exercise-01, exercise-02, etc.)
-5. **Build the challenge project** (combines all concepts)
+5. **Build the challenge project** (if included)
 6. **Take the quiz** to test your knowledge
 7. **Review solutions** if you get stuck
 
 ### **Exercise Difficulty Levels:**
-- 🟢 **Beginner** - Follow along, build confidence
-- 🟡 **Intermediate** - Apply concepts independently
-- 🔴 **Advanced** - Combine multiple concepts, problem-solve
+- ⭐ **Beginner** - Follow along, build confidence
+- ⭐⭐ **Intermediate** - Apply concepts independently
+- ⭐⭐⭐ **Advanced** - Combine multiple concepts, problem-solve
+
+---
+
+## 📊 Volume 1 Content Overview
+
+### **Part I: Foundations (Chapters 1-4)**
+- **Chapter 1**: The World of Web Development - Understanding how the web works
+- **Chapter 2**: Setting Up Your Environment - Tools and configuration
+- **Chapter 3**: Command Line Basics - Terminal skills for developers
+- **Chapter 4**: Version Control (Git) - Track changes and collaborate
+
+### **Part II: HTML Essentials (Chapters 5-6)**
+- **Chapter 5**: HTML Essentials - Structure, tags, and semantic HTML
+- **Chapter 6**: Handling Data - Forms and Tables - Collecting and displaying data
+
+### **Part III: Accessibility (Chapter 7)**
+- **Chapter 7**: Accessibility (A11y) - Building for everyone with ARIA, keyboard nav, and WCAG
+
+### **Part IV: CSS - From First Principles to Scale (Chapters 8-16)**
+- **Chapter 8**: Pre-CSS Bridge - How the Browser Thinks - Mental models for CSS
+- **Chapter 9**: CSS Foundations - Selectors, specificity, box model, typography
+- **Chapter 10**: CSS Layout Fundamentals - Position, display, z-index, float
+- **Chapter 11**: Typography & Media - Fonts, images, backgrounds
+- **Chapter 12**: Modern Layouts - Flexbox and Grid mastery
+- **Chapter 13**: CSS Variables - Custom properties for theming
+- **Chapter 14**: Motion & Polish - Transforms, transitions, animations
+- **Chapter 15**: Responsive Design - Media queries and mobile-first approach
+- **Chapter 16**: CSS Organization - Best practices and methodologies
 
 ---
 
 ## 📊 Exercise Statistics
 
-| Part | Chapters | Exercises | Projects | Quizzes |
-|------|----------|-----------|----------|---------|
-| Getting Started | 4-5 | 10 | 2 | 2 |
-| HTML | 6-9 | 24 | 4 | 4 |
-| DOM | 10 | 5 | 1 | 1 |
-| CSS | 11-22 | 72 | 12 | 12 |
-| JavaScript | 23-32 | 60 | 10 | 10 |
-| Core Skills | 33-35 | 18 | 3 | 3 |
-| **Total** | **32** | **189** | **32** | **32** |
+| Part | Chapters | Topics Covered |
+|------|----------|----------------|
+| Foundations | 1-4 | Web basics, Tools, CLI, Git |
+| HTML | 5-6 | Structure, Forms, Tables |
+| Accessibility | 7 | WCAG, ARIA, Screen readers |
+| Browser & CSS Basics | 8-10 | Rendering, CSS fundamentals, Layout |
+| Advanced CSS | 11-16 | Typography, Flexbox, Grid, Animations, Responsive |
+| **Total** | **16 chapters** | **Complete UI development** |
 
 ---
 
@@ -91,7 +104,7 @@ Book-1/
 - Text editor (VS Code recommended)
 - Modern web browser (Chrome recommended)
 - Basic computer literacy
-- No coding experience needed!
+- **No coding experience needed!**
 
 ### **Setup:**
 
@@ -106,7 +119,7 @@ cd Zero-to-Front-End-Hero-Exercises/Book-1
 code .
 
 # Or open individual chapter
-cd chapter-06
+cd chapter-05
 ```
 
 ---
@@ -118,13 +131,12 @@ Each chapter folder contains:
 ```
 chapter-##/
 ├── README.md (chapter overview & exercise list)
-├── exercise-01-name/
+├── exercise-01/
 │   └── README.md (instructions & starter code)
-├── exercise-02-name/
+├── exercise-02/
 │   └── README.md
-├── ...
-├── challenge-project-name/
-│   └── README.md (comprehensive project)
+├── exercise-03/
+│   └── README.md
 └── quiz.md (test your knowledge)
 ```
 
@@ -132,43 +144,31 @@ chapter-##/
 
 ## ✅ Tracking Your Progress
 
-Create a checklist to track completion:
+**Volume 1: The UI Architect**
 
 **Part I: Foundations**
-- [ ] Chapter 4: Setting Up Development Environment
-- [ ] Chapter 5: First Steps as a Developer
-- [ ] Chapter 6: HTML Basics
-- [ ] Chapter 7: HTML Tags & Semantic HTML
-- [ ] Chapter 8: HTML Tables and Forms
-- [ ] Chapter 9: Accessibility
-- [ ] Chapter 10: The DOM
-- [ ] Chapter 11: CSS Styling the Web
-- [ ] Chapter 12: CSS Box Model
-- [ ] Chapter 13: CSS Layout Fundamentals
-- [ ] Chapter 14: Working with Images in CSS
-- [ ] Chapter 15: CSS Inheritance
-- [ ] Chapter 16: Flexbox and Grid
-- [ ] Chapter 17: CSS Variables
-- [ ] Chapter 18: Responsive Design
-- [ ] Chapter 19: Animations
-- [ ] Chapter 20: CSS Organization
-- [ ] Chapter 21: Sass & SCSS
-- [ ] Chapter 22: CSS Methodologies
-- [ ] Chapter 23: JavaScript Fundamentals
-- [ ] Chapter 24: Functions and Scope
-- [ ] Chapter 25: Working with Data
-- [ ] Chapter 26: DOM Manipulation
-- [ ] Chapter 27: Events and Interactivity
-- [ ] Chapter 28: Error Handling and Debugging
-- [ ] Chapter 29: Advanced Concepts
-- [ ] Chapter 30: Async JavaScript
-- [ ] Chapter 31: Modules and APIs
-- [ ] Chapter 32: Advanced JavaScript Patterns
+- [ ] Chapter 1: The World of Web Development
+- [ ] Chapter 2: Setting Up Your Environment
+- [ ] Chapter 3: Command Line Basics
+- [ ] Chapter 4: Version Control (Git)
 
-**Part II: Core Front-End Skills**
-- [ ] Chapter 33: Developer Tools
-- [ ] Chapter 34: Working with APIs and Data
-- [ ] Chapter 35: Responsive & Accessible Design
+**Part II: HTML Essentials**
+- [ ] Chapter 5: HTML Essentials
+- [ ] Chapter 6: Handling Data (Forms & Tables)
+
+**Part III: Accessibility**
+- [ ] Chapter 7: Accessibility (A11y)
+
+**Part IV: CSS - From First Principles to Scale**
+- [ ] Chapter 8: Pre-CSS Bridge - How the Browser Thinks
+- [ ] Chapter 9: CSS Foundations
+- [ ] Chapter 10: CSS Layout Fundamentals
+- [ ] Chapter 11: Typography & Media
+- [ ] Chapter 12: Modern Layouts (Flexbox & Grid)
+- [ ] Chapter 13: CSS Variables
+- [ ] Chapter 14: Motion & Polish
+- [ ] Chapter 15: Responsive Design
+- [ ] Chapter 16: CSS Organization
 
 ---
 
@@ -196,22 +196,24 @@ Create a checklist to track completion:
 
 ---
 
-## 🏆 Completion Certificate
+## 🏆 Volume 1 Completion
 
-After finishing all Book 1 exercises:
-- ✅ You've completed 200+ hands-on exercises
-- ✅ Built 32+ real projects
-- ✅ Passed 32 quizzes
-- ✅ **You're job-ready for junior front-end positions!**
+After finishing all Volume 1 exercises:
+- ✅ Solid HTML fundamentals
+- ✅ Modern CSS mastery
+- ✅ Responsive design skills
+- ✅ Accessibility knowledge
+- ✅ Git version control
+- ✅ **Ready for Volume 2: JavaScript!**
 
 ---
 
 ## 🚀 What's Next?
 
-After completing Book 1 exercises, continue with:
+After completing Volume 1 exercises, continue with:
 
-**Zero to Front-End Hero: Book 2 - Exercises**
-Modern frameworks, advanced patterns, and professional projects
+**Zero to Front-End Hero: Volume 2 - The JavaScript Developer**
+Learn programming logic, DOM manipulation, and interactivity
 
 Located in: `../Book-2/`
 
@@ -227,5 +229,3 @@ Found an issue or have suggestions?
 ---
 
 **Start building! Every exercise makes you stronger!** 💪
-
-

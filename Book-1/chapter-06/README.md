@@ -1,132 +1,136 @@
-# Chapter 6: HTML Basics - The Structure of the Web
+# Chapter 6: Handling Data — Forms and Tables
 
-## 📚 Overview
+Welcome to Chapter 8 exercises! In this chapter, you practiced creating semantic HTML tables and interactive forms. Now it's time to put that knowledge into action with hands-on exercises.
 
-This is your first hands-on coding chapter! You'll learn the fundamental structure of HTML and write real code that runs in browsers.
+## 📚 What You'll Practice
 
-## 🎯 Learning Objectives
+- Creating accessible, semantic data tables
+- Using `<thead>`, `<tbody>`, `<tfoot>`, and `<caption>`
+- Spanning columns and rows with `colspan` and `rowspan`
+- Building functional forms with various input types
+- Implementing form validation
+- Following accessibility best practices with labels and ARIA attributes
+- Creating professional, user-friendly forms
 
-By completing these exercises, you will:
-- ✅ Understand the anatomy of an HTML document
-- ✅ Write properly structured HTML from scratch
-- ✅ Use tags, elements, and attributes correctly
-- ✅ Master proper nesting and syntax
-- ✅ Create semantic, accessible HTML
-- ✅ Debug common HTML errors
+## 🎯 Exercise Overview
 
-## 📝 Exercises
+### Quick Review Quiz
+Complete the quiz in `quiz.md` to test your understanding of tables and forms.
 
-### Exercise 1: Create Your First HTML Page
-**Difficulty**: ⭐ Beginner
-**Folder**: `exercise-01-first-page/`
+### Exercise 1: Data Table - Hosting Comparison
+**Difficulty:** ⭐⭐ Intermediate
 
-Write a complete HTML5 document from scratch with proper structure.
+Build a comparison table for three web hosting providers.
 
-### Exercise 2: Understanding Nesting
-**Difficulty**: ⭐ Beginner
-**Folder**: `exercise-02-nesting/`
+- **File:** `exercise-01-table/instructions.md`
+- **Starter:** `exercise-01-table/starter/hosting-comparison.html`
+- **Solution:** `exercise-01-table/solution/hosting-comparison.html`
 
-Practice proper element nesting with emphasis tags.
+### Exercise 2: Contact Form
+**Difficulty:** ⭐⭐ Intermediate
 
-### Exercise 3: Attributes Practice
-**Difficulty**: ⭐⭐ Beginner-Intermediate
-**Folder**: `exercise-03-attributes/`
+Create a professional contact form with proper validation and accessibility.
 
-Master HTML attributes including links, images, IDs, and classes.
+- **File:** `exercise-02-contact-form/instructions.md`
+- **Starter:** `exercise-02-contact-form/starter/contact.html`
+- **Solution:** `exercise-02-contact-form/solution/contact.html`
 
-### Exercise 4: Fix Broken HTML
-**Difficulty**: ⭐⭐ Intermediate
-**Folder**: `exercise-04-fix-errors/`
+### Exercise 3: User Registration Form
+**Difficulty:** ⭐⭐⭐ Advanced
 
-Debug and fix 10 common HTML mistakes.
+Build a complete user registration form with multiple sections and validation.
 
-### Challenge Project: Personal Bio Page
-**Difficulty**: ⭐⭐ Intermediate
-**Folder**: `challenge-bio-page/`
+- **File:** `exercise-03-signup/instructions.md`
+- **Starter:** `exercise-03-signup/starter/signup.html`
+- **Solution:** `exercise-03-signup/solution/signup.html`
 
-Build a complete personal biography page using all concepts learned.
+### Exercise 4: Fix Broken Forms
+**Difficulty:** ⭐⭐ Intermediate
 
-## ⏱️ Estimated Time
+Debug and fix accessibility and validation issues in a broken form.
 
-- **Exercise 1**: 15 minutes
-- **Exercise 2**: 15 minutes
-- **Exercise 3**: 20 minutes
-- **Exercise 4**: 20 minutes
-- **Challenge Project**: 30-45 minutes
-- **Total**: ~2 hours
+- **File:** `exercise-04-fix-form/instructions.md`
+- **Broken:** `exercise-04-fix-form/broken/survey.html`
+- **Solution:** `exercise-04-fix-form/solution/survey.html`
 
-## 🎓 Success Criteria
+### Challenge Project: Job Application Form
+**Difficulty:** ⭐⭐⭐⭐ Expert
 
-You'll know you've mastered this chapter when you can:
-- [ ] Write a complete HTML5 document from memory
-- [ ] Properly nest elements without errors
-- [ ] Use attributes correctly for links, images, and styling
-- [ ] Debug common HTML syntax errors
-- [ ] Create a multi-section webpage with semantic structure
-- [ ] Validate your HTML with no errors
+Create a comprehensive job application form with file uploads, multiple sections, and professional styling.
+
+- **File:** `challenge-job-application/instructions.md`
+- **Starter:** `challenge-job-application/starter/application.html`
+- **Solution:** `challenge-job-application/solution/application.html`
+
+## 📖 How to Use These Exercises
+
+### For Each Exercise:
+
+1. **Read the instructions** in the `instructions.md` file
+2. **Start with the starter file** - don't peek at the solution!
+3. **Test your work** - Open your HTML file in a browser
+4. **Check accessibility** - Use browser DevTools to check for issues
+5. **Compare with solution** - Only after you've tried it yourself!
+
+### Testing Your Forms
+
+Since these exercises don't have backend servers, forms won't actually submit anywhere. That's okay! You're practicing:
+- HTML structure
+- Validation attributes
+- Accessibility
+- User experience
+
+To test form validation:
+1. Try submitting without filling required fields
+2. Enter invalid data (like "abc" in an email field)
+3. Use browser DevTools to inspect the HTML
+4. Test keyboard navigation (Tab through the form)
+
+### Accessibility Testing
+
+For each form and table, verify:
+- ✅ Every input has a connected label
+- ✅ Tables have proper headers with `scope` attributes
+- ✅ Forms have logical structure with fieldsets
+- ✅ Required fields are indicated visually AND with `required` attribute
+- ✅ You can navigate the entire form using only the keyboard
 
 ## 💡 Tips for Success
 
-1. **Type, don't copy-paste** - Muscle memory is important!
-2. **Use VS Code's autocomplete** - Press Tab to complete tags
-3. **Check your work** - Open files in a browser after each change
-4. **Use the HTML validator** - https://validator.w3.org/
-5. **View source** - Right-click your page and "View Page Source" to see your HTML
-6. **Indent properly** - Makes code readable (VS Code does this automatically with Prettier)
+1. **Start simple** - Get the basic structure working first, then enhance
+2. **Test frequently** - Open your file in a browser after every change
+3. **Use semantic HTML** - Choose the right element for the job
+4. **Think about the user** - Would this form be easy to fill out?
+5. **Validate everything** - Use `required`, `minlength`, `pattern`, etc.
+6. **Don't skip labels** - Every input needs a label!
 
-## 🔧 Setup
+## 🚀 Going Further
 
-Before starting:
+Once you complete the exercises:
 
-1. Create a folder for Chapter 6 exercises in your `frontend-journey` folder:
-   ```
-   frontend-journey/01-html-basics/chapter-06/
-   ```
+1. **Style them with CSS** (if you've reached Chapter 11!)
+2. **Add more validation** with custom patterns
+3. **Create your own forms** for your portfolio projects
+4. **Test with a screen reader** to truly understand accessibility
+5. **Share your work** on GitHub or CodePen!
 
-2. Have VS Code and Live Server ready
+## 🆘 Need Help?
 
-3. Have a browser open (Chrome or Firefox recommended)
+- Review the chapter content in the book
+- Check the [MDN Forms Guide](https://developer.mozilla.org/en-US/docs/Learn/Forms)
+- Look at the solution files (but only after trying yourself!)
+- Join the community discussions
 
-## 🆘 Common Issues & Solutions
+## ✅ Completion Checklist
 
-### Issue: Page shows code instead of rendering
-**Solution**: Make sure you saved the file with `.html` extension, not `.txt`
+Mark off each exercise as you complete it:
 
-### Issue: Image doesn't show
-**Solution**: Check the `src` path - is the image in the same folder? Use relative paths correctly.
+- [ ] Completed Quiz
+- [ ] Exercise 1: Data Table
+- [ ] Exercise 2: Contact Form
+- [ ] Exercise 3: Sign-Up Form
+- [ ] Exercise 4: Fix Broken Forms
+- [ ] Challenge: Job Application Form
 
-### Issue: Link doesn't work
-**Solution**: Check your `href` attribute - did you include `https://` for external links?
-
-### Issue: Tags are visible on the page
-**Solution**: You probably forgot a closing `>` bracket somewhere
-
-### Issue: Everything looks like one big paragraph
-**Solution**: Check your nesting - you might have unclosed tags or wrong closing order
-
-## 📚 Resources
-
-- [MDN HTML Reference](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [HTML Validator](https://validator.w3.org/)
-- [HTML Cheat Sheet](https://htmlcheatsheet.com/)
-- [Can I Use - Browser Support](https://caniuse.com/)
-
-## ✅ Exercise Checklist
-
-Track your progress:
-
-- [ ] Read Chapter 6 thoroughly
-- [ ] Completed Exercise 1: First HTML Page
-- [ ] Completed Exercise 2: Understanding Nesting
-- [ ] Completed Exercise 3: Attributes Practice
-- [ ] Completed Exercise 4: Fix Broken HTML
-- [ ] Completed Challenge: Personal Bio Page
-- [ ] All code validates with no errors
-- [ ] Reviewed solutions and understood any mistakes
-
----
-
-**Ready to code?** Start with Exercise 1 and work through them in order. Remember: the goal isn't perfection, it's practice. You'll make mistakes, and that's exactly how you learn!
-
-Happy coding! 🚀
+**Ready to build some tables and forms? Let's go!** 🎯
 

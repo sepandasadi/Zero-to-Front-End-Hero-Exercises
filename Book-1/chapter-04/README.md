@@ -1,71 +1,114 @@
-# Chapter 4: Setting Up Your Development Environment
+# Chapter 4: Version Control (Git)
 
 ## 📚 Overview
 
-This chapter walked you through setting up your professional development environment. The exercises here focus on verification, configuration, and familiarization with your new tools.
-
-## 📝 Exercises
-
-### Task 1: Setup Verification Checklist
-**File**: `setup-verification-checklist.md`
-
-Complete the comprehensive checklist to ensure every tool is installed and working correctly.
-
-### Task 2: VS Code Customization
-**Folder**: `vscode-customization/`
-
-Follow the guide to personalize your VS Code setup.
-
-### Task 3: Git Configuration
-**File**: `git-setup.md`
-
-Configure Git with your identity and verify it's working.
-
-### Task 4: Shortcuts Cheat Sheet
-**File**: `shortcuts-template.md`
-
-Create your own keyboard shortcuts reference document.
+Git is the version control system used by virtually every professional development team. This chapter introduces you to Git fundamentals, teaching you how to track changes, collaborate with others, and manage your code effectively.
 
 ## 🎯 Learning Objectives
 
 By completing these exercises, you will:
-- ✅ Verify your development environment is fully functional
-- ✅ Customize VS Code to match your preferences
-- ✅ Configure Git properly for version control
-- ✅ Start learning productivity-boosting keyboard shortcuts
+- ✅ Understand what version control is and why it matters
+- ✅ Initialize Git repositories and track changes
+- ✅ Create commits with meaningful messages
+- ✅ Work with branches for feature development
+- ✅ Push code to GitHub and collaborate
+- ✅ Use basic Git workflows confidently
+
+## 📝 Exercises
+
+### Exercise 1: Git Basics - Init, Add, Commit
+**Difficulty**: ⭐ Beginner
+**Folder**: `exercise-01/`
+
+Learn to initialize a repository, stage files, and create your first commits.
+
+**File**: `exercise-01/README.md`
+
+### Exercise 2: Branching and Merging
+**Difficulty**: ⭐⭐ Intermediate
+**Folder**: `exercise-02/`
+
+Master Git branches for organizing features and experimental work.
+
+**File**: `exercise-02/README.md`
+
+### Exercise 3: GitHub Workflow
+**Difficulty**: ⭐⭐ Intermediate
+**Folder**: `exercise-03/`
+
+Push your code to GitHub, clone repositories, and understand remote workflows.
+
+**File**: `exercise-03/README.md`
+
+## 📋 Quiz
+
+**File**: `quiz.md`
+
+Test your Git knowledge with 10 questions covering:
+- Git fundamentals
+- Commits and staging
+- Branching strategies
+- GitHub workflows
 
 ## ⏱️ Estimated Time
 
-- **Setup Verification**: 10 minutes
-- **VS Code Customization**: 10 minutes
-- **Git Configuration**: 5 minutes
-- **Shortcuts Cheat Sheet**: 5 minutes
-- **Total**: ~30 minutes
+- **Exercise 1**: 25 minutes
+- **Exercise 2**: 25 minutes
+- **Exercise 3**: 30 minutes
+- **Quiz**: 10 minutes
+- **Total**: ~1 hour 30 minutes
 
-## 🆘 Troubleshooting
+## 🎓 Success Criteria
 
-### Common Issues
+You'll know you've mastered this chapter when you can:
+- [ ] Initialize a Git repository from scratch
+- [ ] Stage and commit changes with clear messages
+- [ ] Create and switch between branches
+- [ ] Merge branches successfully
+- [ ] Push code to GitHub
+- [ ] Clone and work with remote repositories
+- [ ] Understand basic Git workflow
 
-**Terminal doesn't recognize `git` or `node` commands:**
-- **Solution**: Close and reopen your terminal (or VS Code) after installation
-- Still not working? You may need to restart your computer
+## 💡 Essential Git Commands
 
-**Live Server extension not showing in context menu:**
-- **Solution**: Make sure you've installed the Live Server extension
-- Right-click on an `.html` file specifically (it doesn't show for other file types)
+```bash
+# Setup
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
 
-**npm command not found:**
-- **Solution**: Node.js installation might not have completed properly
-- Reinstall Node.js from [nodejs.org](https://nodejs.org)
+# Repository Basics
+git init                    # Initialize repository
+git status                  # Check status
+git add filename            # Stage specific file
+git add .                   # Stage all changes
+git commit -m "message"     # Commit with message
+
+# Branching
+git branch                  # List branches
+git branch branch-name      # Create branch
+git checkout branch-name    # Switch to branch
+git checkout -b branch-name # Create and switch
+git merge branch-name       # Merge branch
+
+# Remote (GitHub)
+git remote add origin URL   # Connect to GitHub
+git push -u origin main     # Push to GitHub
+git pull                    # Get latest changes
+git clone URL               # Clone repository
+
+# History
+git log                     # View commit history
+git log --oneline          # Compact history
+```
 
 ## 📚 Additional Resources
 
-- [VS Code Documentation](https://code.visualstudio.com/docs)
 - [Git Documentation](https://git-scm.com/doc)
-- [GitHub Guides](https://guides.github.com/)
-- [Node.js Guides](https://nodejs.org/en/docs/guides/)
+- [GitHub Git Handbook](https://guides.github.com/introduction/git-handbook/)
+- [Learn Git Branching (Interactive)](https://learngitbranching.js.org/)
+- [Oh Shit, Git!?!](https://ohshitgit.com/) - Common mistakes and fixes
 
 ---
 
-**Ready?** Work through each task, check them off as you go, and you'll have a rock-solid development environment! 🚀
+**Ready to master version control?** Start with Exercise 1 and begin tracking your code like a pro! 🚀
 

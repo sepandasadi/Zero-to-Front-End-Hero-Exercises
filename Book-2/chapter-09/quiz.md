@@ -1,592 +1,1133 @@
-# Chapter 9: Page Speed and Optimization - Quiz
+# Chapter 31 Quiz: ES6 Modules & Working with APIs
 
-Test your knowledge of web performance optimization!
-
-**Instructions:**
-- Answer all 15 questions
-- Each question has one correct answer
-- Explanations are provided after each question
-- Passing score: 13/15 (87%)
+Test your understanding of ES6 modules, Fetch API, JSON, and the Event Loop.
 
 ---
 
-## Questions
+## Question 1: ES6 Module Exports (Basic)
 
-### 1. What are Google's Core Web Vitals?
+What's the difference between named exports and default exports?
 
-**A)** LCP, FCP, and TTI
-**B)** LCP, INP, and CLS
-**C)** FID, TTI, and TBT
-**D)** TTFB, LCP, and FCP
+**A)** Named exports can have multiple per file, default exports only one
+**B)** Default exports are faster than named exports
+**C)** Named exports don't require curly braces when importing
+**D)** There's no difference, they're interchangeable
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: B) LCP, INP, and CLS**
+**Answer: A**
 
-**Explanation:**
-Core Web Vitals are three key metrics:
-- **LCP (Largest Contentful Paint)**: ≤ 2.5s - measures loading performance
-- **INP (Interaction to Next Paint)**: ≤ 200ms - measures interactivity
-- **CLS (Cumulative Layout Shift)**: ≤ 0.1 - measures visual stability
+Named exports allow you to export multiple items from a module, and you import them with curly braces using their exact names:
 
-Note: INP replaced FID (First Input Delay) in March 2024 as a Core Web Vital.
-</details>
+```javascript
+// math.js
+export const PI = 3.14;
+export function add(a, b) { return a + b; }
 
----
+// app.js
+import { PI, add } from './math.js';
+```
 
-### 2. What is the target LCP (Largest Contentful Paint) score for a "good" rating?
+Default exports allow only one per module, but you can rename when importing:
 
-**A)** ≤ 1.0 seconds
-**B)** ≤ 1.5 seconds
-**C)** ≤ 2.5 seconds
-**D)** ≤ 4.0 seconds
+```javascript
+// logger.js
+export default class Logger { }
 
-<details>
-<summary>Show Answer</summary>
-
-**Correct Answer: C) ≤ 2.5 seconds**
-
-**Explanation:**
-LCP measures how long it takes for the largest content element to become visible. Google's thresholds:
-- **Good**: ≤ 2.5s
-- **Needs Improvement**: 2.5s - 4.0s
-- **Poor**: > 4.0s
-
-LCP typically measures hero images, video thumbnails, or large text blocks above the fold.
-</details>
-
----
-
-### 3. Which image format typically provides the smallest file size for photos?
-
-**A)** JPEG
-**B)** PNG
-**C)** WebP
-**D)** AVIF
-
-<details>
-<summary>Show Answer</summary>
-
-**Correct Answer: D) AVIF**
-
-**Explanation:**
-AVIF (AV1 Image File Format) provides the best compression:
-- **AVIF**: ~50% smaller than JPEG (best)
-- **WebP**: ~25-35% smaller than JPEG
-- **JPEG**: Standard format
-- **PNG**: Largest (but supports transparency)
-
-Best practice: Use `<picture>` with AVIF, WebP, and JPEG fallbacks:
-```html
-<picture>
-  <source srcset="image.avif" type="image/avif">
-  <source srcset="image.webp" type="image/webp">
-  <img src="image.jpg" alt="Description">
-</picture>
+// app.js
+import MyLogger from './logger.js'; // Can rename
 ```
 </details>
 
 ---
 
-### 4. What does the `loading="lazy"` attribute do on an `<img>` tag?
+## Question 2: Import Syntax
 
-**A)** Compresses the image automatically
-**B)** Defers loading images until they're near the viewport
-**C)** Loads images in the background thread
-**D)** Uses a placeholder image first
+Which import statement is CORRECT for importing a default export?
+
+**A)** `import { default } from './module.js'`
+**B)** `import * as module from './module.js'`
+**C)** `import module from './module.js'`
+**D)** `import default from './module.js'`
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: B) Defers loading images until they're near the viewport**
+**Answer: C**
 
-**Explanation:**
-Native lazy loading delays image loading until the image is about to enter the viewport:
+Default exports are imported without curly braces:
 
-```html
-<img src="product.jpg" loading="lazy" alt="Product">
+```javascript
+// config.js
+export default { apiUrl: 'https://api.example.com' };
+
+// app.js
+import config from './config.js'; // ✓ Correct
 ```
 
-**Benefits:**
-- Faster initial page load
-- Saves bandwidth
-- No JavaScript required
+You can also combine default and named imports:
 
-**When to use:**
-- Images below the fold
-- Long-form content
-- Product galleries
-
-**When NOT to use:**
-- Hero images (above the fold)
-- LCP elements
+```javascript
+import config, { API_URL, TIMEOUT } from './config.js';
+```
 </details>
 
 ---
 
-### 5. What is the primary benefit of code splitting in a React application?
+## Question 3: Barrel Pattern (Re-exports)
 
-**A)** Makes code easier to read
-**B)** Reduces initial bundle size
-**C)** Improves SEO
-**D)** Prevents bugs
+What is the "barrel pattern" in ES6 modules?
+
+**A)** Exporting everything as an array
+**B)** Creating an index.js that re-exports from multiple files
+**C)** Using default exports exclusively
+**D)** Compressing modules into a single file
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: B) Reduces initial bundle size**
+**Answer: B**
 
-**Explanation:**
-Code splitting breaks your bundle into smaller chunks that load on-demand:
+The barrel pattern uses an index.js file to re-export from multiple modules, providing a single entry point:
 
-```jsx
-// Instead of this (everything loaded upfront)
-import Dashboard from './Dashboard';
+```javascript
+// index.js (barrel)
+export * from './math.js';
+export * from './string.js';
+export { default as Logger } from './logger.js';
 
-// Do this (load only when needed)
-const Dashboard = lazy(() => import('./Dashboard'));
+// app.js
+import { add, capitalize, Logger } from './utils/index.js';
+// Instead of:
+// import { add } from './utils/math.js';
+// import { capitalize } from './utils/string.js';
+// import Logger from './utils/logger.js';
 ```
 
-**Benefits:**
-- **Smaller initial bundle**: 800KB → 200KB
-- **Faster first load**: Users only download what they need
-- **Better caching**: Unchanged routes don't need to re-download
-
-**Result:** Faster Time to Interactive (TTI) and better Core Web Vitals.
+Benefits:
+- Cleaner imports
+- Single source of truth
+- Easier refactoring
 </details>
 
 ---
 
-### 6. Which caching strategy provides the fastest repeat visits?
+## Question 4: Dynamic Imports
 
-**A)** No caching
-**B)** Server-side caching
-**C)** Browser caching with long max-age
-**D)** CDN caching
+What does dynamic import return?
+
+**A)** The module directly
+**B)** A Promise that resolves to the module
+**C)** An array of exports
+**D)** A string containing the module code
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: C) Browser caching with long max-age**
+**Answer: B**
 
-**Explanation:**
-Browser caching stores assets locally, eliminating network requests entirely:
+Dynamic imports return a Promise:
 
-```nginx
-# Cache static assets for 1 year
-location ~* \.(js|css|png|jpg|webp|svg|woff2)$ {
-  expires 1y;
-  add_header Cache-Control "public, immutable";
+```javascript
+// Returns a Promise
+const modulePromise = import('./heavy-module.js');
+
+// Use with .then()
+modulePromise.then(module => {
+  module.doSomething();
+});
+
+// Or with async/await
+async function loadModule() {
+  const module = await import('./heavy-module.js');
+  module.doSomething();
 }
 ```
 
-**Speed comparison (for cached assets):**
-1. **Browser cache**: 0ms (instant!)
-2. **CDN cache**: 20-50ms (network request, but fast)
-3. **Server cache**: 100-500ms (depends on location)
-4. **No cache**: Full load time
-
-**Best practice:** Use content hashing (`app.abc123.js`) so cached files update when content changes.
+Benefits:
+- Code splitting
+- Lazy loading
+- Conditional loading
+- Reduced initial bundle size
 </details>
 
 ---
 
-### 7. What is the purpose of the `srcset` attribute in an `<img>` tag?
+## Question 5: Fetch API Basics
 
-**A)** Specify image source
-**B)** Provide multiple image sizes for responsive images
-**C)** Add alternative text
-**D)** Enable lazy loading
+What does `fetch()` return?
+
+**A)** The response data directly
+**B)** A Promise that resolves to a Response object
+**C)** JSON data
+**D)** A string containing the response
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: B) Provide multiple image sizes for responsive images**
+**Answer: B**
 
-**Explanation:**
-`srcset` lets the browser choose the appropriate image size based on screen size and resolution:
+`fetch()` returns a Promise that resolves to a Response object:
 
-```html
-<img
-  src="hero-800.jpg"
-  srcset="
-    hero-400.jpg 400w,
-    hero-800.jpg 800w,
-    hero-1200.jpg 1200w
-  "
-  sizes="(max-width: 600px) 400px, 800px"
-  alt="Hero"
->
+```javascript
+fetch('https://api.example.com/data')
+  .then(response => {
+    console.log(response); // Response object
+    console.log(response.ok); // boolean
+    console.log(response.status); // 200, 404, etc.
+    return response.json(); // Parse JSON (returns Promise)
+  })
+  .then(data => {
+    console.log(data); // Actual data
+  });
 ```
 
-**Benefits:**
-- Mobile gets 400px (50KB) instead of 1200px (500KB)
-- Retina displays get 2x images automatically
-- Saves bandwidth and improves LCP
-
-**Result:** 90% smaller images for mobile users!
+You need to call `.json()`, `.text()`, or `.blob()` to extract the body.
 </details>
 
 ---
 
-### 8. Which tool is built into Chrome DevTools for performance auditing?
+## Question 6: Fetch Error Handling
 
-**A)** WebPageTest
-**B)** GTmetrix
-**C)** Lighthouse
-**D)** Pingdom
+When does fetch() reject?
 
-<details>
-<summary>Show Answer</summary>
-
-**Correct Answer: C) Lighthouse**
-
-**Explanation:**
-Lighthouse is built directly into Chrome DevTools and provides comprehensive audits:
-
-**How to use:**
-1. Open DevTools (F12)
-2. Go to "Lighthouse" tab
-3. Click "Analyze page load"
-4. Review scores (0-100) for:
-   - Performance
-   - Accessibility
-   - Best Practices
-   - SEO
-
-**Lighthouse provides:**
-- Core Web Vitals scores
-- Actionable recommendations
-- Estimated savings (KB, ms)
-- Diagnostic information
-
-**Other tools:**
-- **WebPageTest**: More detailed, tests from real locations
-- **GTmetrix**: Combines multiple tools
-- **Pingdom**: Monitoring and alerts
-</details>
-
----
-
-### 9. What is a performance budget?
-
-**A)** Money allocated for hosting
-**B)** Maximum allowed asset sizes and load times
-**C)** Time allocated for optimization
-**D)** Server resource limits
+**A)** On any HTTP error (404, 500, etc.)
+**B)** Only on network errors (no internet, DNS failure)
+**C)** When response is not JSON
+**D)** When response takes too long
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: B) Maximum allowed asset sizes and load times**
+**Answer: B**
 
-**Explanation:**
-Performance budgets set limits to prevent performance regression:
+`fetch()` only rejects on network errors, NOT on HTTP errors like 404 or 500:
 
-**Example budget:**
-```json
-{
-  "budget": [
-    {
-      "resourceSizes": [
-        { "resourceType": "script", "budget": 200 },
-        { "resourceType": "stylesheet", "budget": 50 },
-        { "resourceType": "image", "budget": 500 }
-      ]
+```javascript
+fetch('https://api.example.com/404')
+  .then(response => {
+    // This WILL execute even for 404!
+    console.log(response.ok); // false
+    console.log(response.status); // 404
+
+    // You must check response.ok manually
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  ],
-  "timings": [
-    { "metric": "interactive", "budget": 3000 },
-    { "metric": "first-contentful-paint", "budget": 1500 }
-  ]
-}
+    return response.json();
+  })
+  .catch(error => {
+    // Only catches network errors OR thrown errors
+    console.error(error);
+  });
 ```
 
-**Benefits:**
-- Enforced in CI/CD (PR fails if budget exceeded)
-- Prevents "death by a thousand cuts"
-- Keeps team accountable
-
-**Common budgets:**
-- JavaScript: < 200KB (gzipped)
-- CSS: < 50KB (gzipped)
-- Images per page: < 500KB
-- LCP: < 2.5s
+Always check `response.ok` or `response.status`!
 </details>
 
 ---
 
-### 10. Which React optimization technique prevents unnecessary re-renders?
+## Question 7: POST Request
 
-**A)** useEffect
-**B)** useState
-**C)** React.memo
-**D)** useRef
+How do you send JSON data in a POST request?
+
+**A)** Put it in the URL
+**B)** Use `body` option with `JSON.stringify()`
+**C)** Use `data` option
+**D)** Fetch automatically converts objects to JSON
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: C) React.memo**
+**Answer: B**
 
-**Explanation:**
-`React.memo` wraps components to skip re-renders when props haven't changed:
+You must stringify the data and set proper headers:
 
-```jsx
-// ❌ Bad: Re-renders on every parent update
-function ExpensiveComponent({ data }) {
-  return <div>{expensiveCalculation(data)}</div>;
-}
+```javascript
+const user = { name: 'John', email: 'john@example.com' };
 
-// ✅ Good: Only re-renders when data changes
-const ExpensiveComponent = memo(({ data }) => {
-  const result = useMemo(() => expensiveCalculation(data), [data]);
-  return <div>{result}</div>;
+fetch('https://api.example.com/users', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(user) // Must stringify!
+})
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+Common mistake: Forgetting `JSON.stringify()` or the Content-Type header.
+</details>
+
+---
+
+## Question 8: HTTP Methods
+
+Which HTTP method is used to partially update a resource?
+
+**A)** PUT
+**B)** POST
+**C)** PATCH
+**D)** UPDATE
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: C**
+
+HTTP methods and their purposes:
+
+- **GET**: Retrieve data (read)
+- **POST**: Create new resource
+- **PUT**: Replace entire resource (full update)
+- **PATCH**: Partially update resource (partial update)
+- **DELETE**: Remove resource
+
+```javascript
+// PUT - replace entire user
+fetch('/users/1', {
+  method: 'PUT',
+  body: JSON.stringify({ name: 'John', email: 'john@example.com', age: 30 })
+});
+
+// PATCH - update only email
+fetch('/users/1', {
+  method: 'PATCH',
+  body: JSON.stringify({ email: 'newemail@example.com' })
 });
 ```
-
-**Other optimization hooks:**
-- **useMemo**: Memoize expensive calculations
-- **useCallback**: Memoize functions
-- **useRef**: Store values without causing re-renders
-
-**Impact:** Can reduce renders by 80-90% in some apps!
 </details>
 
 ---
 
-### 11. What causes Cumulative Layout Shift (CLS)?
+## Question 9: JSON Methods
 
-**A)** Slow network connection
-**B)** Content moving after page load
-**C)** Large JavaScript bundles
-**D)** Unoptimized images
+What's the difference between `JSON.stringify()` and `JSON.parse()`?
+
+**A)** They do the same thing
+**B)** stringify converts to JSON string, parse converts from JSON string
+**C)** stringify is for objects, parse is for arrays
+**D)** parse is deprecated
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: B) Content moving after page load**
+**Answer: B**
 
-**Explanation:**
-CLS measures visual stability. Common causes:
+```javascript
+// JSON.stringify() - JavaScript → JSON string
+const obj = { name: 'John', age: 30 };
+const jsonString = JSON.stringify(obj);
+console.log(jsonString); // '{"name":"John","age":30}'
+console.log(typeof jsonString); // 'string'
 
-**1. Images without dimensions:**
-```html
-<!-- ❌ Bad: Image loads, pushes content down -->
-<img src="product.jpg" alt="Product">
+// JSON.parse() - JSON string → JavaScript
+const parsed = JSON.parse(jsonString);
+console.log(parsed); // { name: 'John', age: 30 }
+console.log(typeof parsed); // 'object'
 
-<!-- ✅ Good: Space reserved, no shift -->
-<img src="product.jpg" width="800" height="600" alt="Product">
+// Practical use
+localStorage.setItem('user', JSON.stringify(obj)); // Store
+const stored = JSON.parse(localStorage.getItem('user')); // Retrieve
 ```
 
-**2. Web fonts loading (FOUT):**
-```css
-/* ✅ Good: Use font-display to control loading */
-@font-face {
-  font-family: 'CustomFont';
-  src: url('font.woff2');
-  font-display: swap; /* Show fallback, then swap */
+Common use cases:
+- Sending data to API (stringify)
+- Storing in localStorage (stringify)
+- Receiving API data (parse)
+- Reading from localStorage (parse)
+</details>
+
+---
+
+## Question 10: Async/Await with Fetch
+
+Which is the correct way to use async/await with fetch?
+
+**A)**
+```javascript
+const data = await fetch(url);
+console.log(data);
+```
+
+**B)**
+```javascript
+async function getData() {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
 }
 ```
 
-**3. Ads/embeds without reserved space:**
-```css
-/* Reserve space for ad */
-.ad-container {
-  min-height: 250px;
-  background: #f0f0f0;
+**C)**
+```javascript
+const data = fetch(url).await();
+```
+
+**D)**
+```javascript
+await const data = fetch(url);
+```
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+Correct async/await pattern:
+
+```javascript
+async function fetchUser() {
+  try {
+    // 1. Await fetch (returns Response)
+    const response = await fetch('https://api.example.com/user/1');
+
+    // 2. Check if successful
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // 3. Await JSON parsing (returns data)
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+}
+
+// Usage
+const user = await fetchUser();
+```
+
+Two awaits are needed:
+1. For the fetch request
+2. For parsing the response body
+</details>
+
+---
+
+## Question 11: CORS
+
+What is CORS?
+
+**A)** A JavaScript security feature
+**B)** Cross-Origin Resource Sharing - a browser security mechanism
+**C)** A type of HTTP header
+**D)** A method to prevent API calls
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+CORS (Cross-Origin Resource Sharing) is a browser security mechanism that restricts web pages from making requests to a different domain than the one serving the page.
+
+```javascript
+// Your site: https://mysite.com
+// API: https://api.example.com
+
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .catch(error => {
+    // May fail with CORS error if API doesn't allow mysite.com
+    console.error('CORS error:', error);
+  });
+```
+
+CORS is controlled by the SERVER, not your code:
+
+```
+// Server must send these headers:
+Access-Control-Allow-Origin: https://mysite.com
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE
+Access-Control-Allow-Headers: Content-Type
+```
+
+Solutions:
+- Server enables CORS
+- Use a proxy server
+- For development: browser extensions or local server
+</details>
+
+---
+
+## Question 12: Request Headers
+
+How do you add custom headers to a fetch request?
+
+**A)** Use the `headers` option
+**B)** Use the `setHeader()` method
+**C)** Add them to the URL
+**D)** Headers are automatic
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: A**
+
+Use the `headers` option in the fetch config:
+
+```javascript
+fetch('https://api.example.com/data', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_TOKEN_HERE',
+    'X-Custom-Header': 'custom-value'
+  }
+})
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+Common headers:
+- `Content-Type`: Type of data being sent
+- `Authorization`: Authentication token
+- `Accept`: Type of data you want back
+- `User-Agent`: Client information
+
+You can also use the Headers interface:
+
+```javascript
+const headers = new Headers();
+headers.append('Content-Type', 'application/json');
+headers.append('Authorization', 'Bearer token');
+
+fetch(url, { headers });
+```
+</details>
+
+---
+
+## Question 13: AbortController
+
+What is AbortController used for?
+
+**A)** Stopping JavaScript execution
+**B)** Cancelling fetch requests
+**C)** Handling errors
+**D)** Throttling requests
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+AbortController allows you to cancel fetch requests:
+
+```javascript
+const controller = new AbortController();
+const signal = controller.signal;
+
+// Start fetch with signal
+fetch('https://api.example.com/data', { signal })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => {
+    if (error.name === 'AbortError') {
+      console.log('Fetch aborted!');
+    } else {
+      console.error('Fetch error:', error);
+    }
+  });
+
+// Cancel the request
+controller.abort();
+```
+
+Use cases:
+- User navigates away before request completes
+- Search input changes (cancel old search)
+- Component unmounts in React
+- Request timeout:
+
+```javascript
+const controller = new AbortController();
+setTimeout(() => controller.abort(), 5000); // 5s timeout
+
+fetch(url, { signal: controller.signal });
+```
+</details>
+
+---
+
+## Question 14: Event Loop
+
+In what order will these log?
+
+```javascript
+console.log('1');
+setTimeout(() => console.log('2'), 0);
+Promise.resolve().then(() => console.log('3'));
+console.log('4');
+```
+
+**A)** 1, 2, 3, 4
+**B)** 1, 4, 2, 3
+**C)** 1, 4, 3, 2
+**D)** 1, 3, 4, 2
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: C**
+
+Output: `1, 4, 3, 2`
+
+Explanation:
+
+1. `console.log('1')` - Synchronous (executes immediately) → **1**
+2. `setTimeout` - Macro task (goes to task queue)
+3. `Promise.then` - Micro task (goes to microtask queue)
+4. `console.log('4')` - Synchronous (executes immediately) → **4**
+5. Microtasks execute before macro tasks → **3**
+6. Then macro tasks execute → **2**
+
+**Event Loop Priority:**
+1. Synchronous code (call stack)
+2. Microtasks (Promises, queueMicrotask)
+3. Macro tasks (setTimeout, setInterval, I/O)
+
+```javascript
+// Detailed breakdown:
+console.log('1');        // Call stack: Execute → 1
+setTimeout(() => {       // Macro task queue: [() => log('2')]
+  console.log('2');
+}, 0);
+Promise.resolve().then(() => { // Microtask queue: [() => log('3')]
+  console.log('3');
+});
+console.log('4');        // Call stack: Execute → 4
+
+// Call stack empty
+// Microtasks run first → 3
+// Macro tasks run last → 2
+```
+</details>
+
+---
+
+## Question 15: Module Loading Order
+
+Given this code, what will be the loading order?
+
+```javascript
+// app.js
+console.log('App start');
+import { helper } from './utils.js';
+console.log('App end');
+
+// utils.js
+console.log('Utils loading');
+export function helper() { }
+console.log('Utils loaded');
+```
+
+**A)** App start, App end, Utils loading, Utils loaded
+**B)** Utils loading, Utils loaded, App start, App end
+**C)** App start, Utils loading, Utils loaded, App end
+**D)** They load in parallel
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+Modules are hoisted and execute before the importing module:
+
+```
+Output:
+Utils loading
+Utils loaded
+App start
+App end
+```
+
+Why?
+1. Imports are hoisted to the top
+2. Imported modules execute FIRST
+3. Then the importing module executes
+
+```javascript
+// This code:
+console.log('App start');
+import { helper } from './utils.js';
+console.log('App end');
+
+// Behaves like:
+import { helper } from './utils.js'; // Hoisted & executes first
+console.log('App start');
+console.log('App end');
+```
+
+Modules are:
+- **Singletons**: Only execute once, even if imported multiple times
+- **Cached**: Subsequent imports use the same instance
+- **Static**: Import/export must be at top level (not in if/loops)
+</details>
+
+---
+
+## Question 16: Fetch Timeout
+
+How do you implement a timeout for fetch requests?
+
+**A)** Use the `timeout` option in fetch
+**B)** Use `setTimeout` with `AbortController`
+**C)** Use `Promise.race()` with a timeout promise
+**D)** Both B and C
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: D**
+
+Method 1: AbortController + setTimeout
+
+```javascript
+function fetchWithTimeout(url, timeout = 5000) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+  return fetch(url, { signal: controller.signal })
+    .then(response => {
+      clearTimeout(timeoutId);
+      return response;
+    })
+    .catch(error => {
+      clearTimeout(timeoutId);
+      if (error.name === 'AbortError') {
+        throw new Error('Request timeout');
+      }
+      throw error;
+    });
 }
 ```
 
-**Target:** CLS ≤ 0.1
+Method 2: Promise.race()
+
+```javascript
+function fetchWithTimeout(url, timeout = 5000) {
+  const timeoutPromise = new Promise((_, reject) => {
+    setTimeout(() => reject(new Error('Request timeout')), timeout);
+  });
+
+  return Promise.race([
+    fetch(url),
+    timeoutPromise
+  ]);
+}
+
+// Usage
+fetchWithTimeout('https://api.example.com/data', 3000)
+  .then(response => response.json())
+  .catch(error => console.error(error));
+```
 </details>
 
 ---
 
-### 12. Which bundle analysis tool visualizes what's in your JavaScript bundles?
+## Question 17: Error Handling Best Practice
 
-**A)** ESLint
-**B)** Prettier
-**C)** webpack-bundle-analyzer
-**D)** Jest
+Which error handling pattern is MOST robust?
+
+**A)**
+```javascript
+fetch(url)
+  .then(r => r.json())
+  .then(data => console.log(data));
+```
+
+**B)**
+```javascript
+try {
+  const response = await fetch(url);
+  const data = await response.json();
+} catch (error) { }
+```
+
+**C)**
+```javascript
+try {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+  const data = await response.json();
+  return data;
+} catch (error) {
+  console.error('Error:', error);
+  throw error;
+}
+```
+
+**D)**
+```javascript
+fetch(url).catch(error => console.log(error));
+```
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: C) webpack-bundle-analyzer**
+**Answer: C**
 
-**Explanation:**
-Bundle analyzers create interactive treemaps showing:
-- Size of each module
-- What's in each chunk
-- Duplicate dependencies
-- Largest contributors
+Most robust pattern includes:
 
-**Webpack:**
-```bash
-npm install --save-dev webpack-bundle-analyzer
+1. ✓ try/catch block
+2. ✓ Check response.ok
+3. ✓ Throw meaningful errors
+4. ✓ Log errors
+5. ✓ Re-throw for caller to handle
+
+```javascript
+async function fetchData(url) {
+  try {
+    // 1. Make request
+    const response = await fetch(url);
+
+    // 2. Check HTTP status
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // 3. Parse response
+    const data = await response.json();
+
+    // 4. Validate data
+    if (!data || typeof data !== 'object') {
+      throw new Error('Invalid data format');
+    }
+
+    return data;
+
+  } catch (error) {
+    // 5. Log for debugging
+    console.error('Fetch error:', error);
+
+    // 6. Categorize errors
+    if (error instanceof TypeError) {
+      throw new Error('Network error - check connection');
+    } else if (error instanceof SyntaxError) {
+      throw new Error('Invalid JSON response');
+    }
+
+    // 7. Re-throw
+    throw error;
+  }
+}
+
+// Usage with user feedback
+try {
+  const data = await fetchData('/api/users');
+  displayData(data);
+} catch (error) {
+  showErrorMessage('Failed to load users. Please try again.');
+}
 ```
 
-**Vite:**
-```bash
-npm install --save-dev rollup-plugin-visualizer
-```
-
-**What to look for:**
-- Large dependencies to replace (moment.js → date-fns)
-- Duplicate packages (multiple versions of React)
-- Unused code to remove
-- Opportunities for code splitting
-
-**Example finding:** "Moment.js is 230KB! Switch to date-fns (12KB) = save 218KB!"
+Why this is best:
+- Catches network errors
+- Catches HTTP errors
+- Catches JSON parsing errors
+- Provides context
+- Allows caller to handle errors
 </details>
 
 ---
 
-### 13. What is the main advantage of using a CDN (Content Delivery Network)?
+## Question 18: Module Circular Dependency
 
-**A)** Cheaper hosting costs
-**B)** Better security
-**C)** Faster delivery from geographically distributed servers
-**D)** Automatic code optimization
+What happens with circular dependencies?
+
+```javascript
+// a.js
+import { b } from './b.js';
+export const a = 'A';
+
+// b.js
+import { a } from './a.js';
+export const b = 'B';
+```
+
+**A)** Error is thrown
+**B)** Works fine, imports are hoisted
+**C)** Modules load but variables may be undefined
+**D)** Only one module loads
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: C) Faster delivery from geographically distributed servers**
+**Answer: C**
 
-**Explanation:**
-CDNs cache your assets on servers worldwide, serving from the nearest location:
+Circular dependencies can work but may cause issues:
 
-**Without CDN:**
-- User in Tokyo → US server: 200ms latency
-- User in London → US server: 100ms latency
+```javascript
+// a.js
+import { b } from './b.js';
+console.log('a.js:', b); // undefined! b.js not fully loaded
+export const a = 'A';
 
-**With CDN:**
-- User in Tokyo → Tokyo edge server: 20ms latency ⚡
-- User in London → London edge server: 15ms latency ⚡
+// b.js
+import { a } from './a.js';
+console.log('b.js:', a); // undefined! a.js not fully loaded
+export const b = 'B';
+```
 
-**10x faster!**
+Loading order:
+1. a.js starts loading
+2. a.js imports b.js
+3. b.js starts loading
+4. b.js imports a.js (circular!)
+5. b.js sees a.js is loading, gets undefined
+6. b.js finishes
+7. a.js continues, gets b
 
-**Popular CDNs:**
-- Cloudflare (free tier available)
-- AWS CloudFront
-- Vercel Edge Network
-- Netlify Edge
+**How to avoid:**
+1. Restructure code to eliminate circular dependencies
+2. Extract shared code to third module:
 
-**Additional benefits:**
-- Automatic caching
-- DDoS protection
-- Free SSL
-- Compression (Brotli/Gzip)
+```javascript
+// shared.js
+export const shared = 'shared';
+
+// a.js
+import { shared } from './shared.js';
+export const a = 'A';
+
+// b.js
+import { shared } from './shared.js';
+export const b = 'B';
+```
+
+3. Use dependency injection
+4. Use dynamic imports:
+
+```javascript
+// a.js
+export async function useB() {
+  const { b } = await import('./b.js');
+  return b;
+}
+```
 </details>
 
 ---
 
-### 14. Which Next.js Image component feature automatically optimizes images?
+## Question 19: localStorage vs API
 
-**A)** Automatic WebP/AVIF conversion
-**B)** Automatic lazy loading
-**C)** Automatic responsive images
-**D)** All of the above
+When should you use localStorage vs making API calls?
+
+**A)** Always use localStorage, it's faster
+**B)** Always use API, data might change
+**C)** Use localStorage for caching, validate with API
+**D)** They serve different purposes, can't be compared
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: D) All of the above**
+**Answer: C**
 
-**Explanation:**
-Next.js `<Image>` component provides automatic optimization:
+Best practice: Use both strategically
 
-```jsx
-import Image from 'next/image';
+```javascript
+// Strategy: Cache with validation
+async function getData() {
+  // 1. Try localStorage first (fast)
+  const cached = localStorage.getItem('data');
+  const cacheTime = localStorage.getItem('data_timestamp');
 
-<Image
-  src="/hero.jpg"
-  alt="Hero"
-  width={1200}
-  height={600}
-  priority // Preload for LCP
-/>
+  // 2. Check if cache is fresh (< 5 minutes)
+  const isFresh = cacheTime &&
+    (Date.now() - parseInt(cacheTime)) < 5 * 60 * 1000;
+
+  if (cached && isFresh) {
+    console.log('Using cache');
+    return JSON.parse(cached);
+  }
+
+  // 3. Fetch fresh data
+  try {
+    console.log('Fetching fresh data');
+    const response = await fetch('/api/data');
+    const data = await response.json();
+
+    // 4. Update cache
+    localStorage.setItem('data', JSON.stringify(data));
+    localStorage.setItem('data_timestamp', Date.now().toString());
+
+    return data;
+  } catch (error) {
+    // 5. Fallback to stale cache if API fails
+    if (cached) {
+      console.log('API failed, using stale cache');
+      return JSON.parse(cached);
+    }
+    throw error;
+  }
+}
 ```
 
-**Automatic features:**
-1. **Format conversion**: Serves WebP/AVIF to supporting browsers
-2. **Lazy loading**: Unless `priority` is set
-3. **Responsive images**: Automatically generates multiple sizes
-4. **On-demand optimization**: Images optimized when requested, not at build time
-5. **Proper sizing**: Prevents CLS with width/height
+Use localStorage for:
+- User preferences
+- UI state
+- Caching API responses
+- Offline functionality
+- Form drafts
 
-**Result:**
-- 500KB JPEG → 80KB WebP automatically
-- No manual optimization needed
-- Better Core Web Vitals
+Use API for:
+- Real-time data
+- Shared data
+- Sensitive data
+- Data validation
+- Server-side logic
 </details>
 
 ---
 
-### 15. What is the difference between lab data and field data in performance monitoring?
+## Question 20: Fetch Best Practices
 
-**A)** Lab data is from real users, field data is simulated
-**B)** Lab data is simulated, field data is from real users
-**C)** They are the same thing
-**D)** Lab data is faster than field data
+Which of these is a fetch API best practice?
+
+**A)** Never use try/catch with fetch
+**B)** Always check response.ok before parsing
+**C)** Store passwords in localStorage
+**D)** Make all requests without error handling
 
 <details>
 <summary>Show Answer</summary>
 
-**Correct Answer: B) Lab data is simulated, field data is from real users**
+**Answer: B**
 
-**Explanation:**
+Always check `response.ok` before parsing:
 
-**Lab Data (Synthetic):**
-- Tools: Lighthouse, WebPageTest
-- Environment: Controlled (same device, network, location)
-- Benefits: Repeatable, good for debugging
-- Limitations: May not reflect real user experience
+```javascript
+// ✗ BAD: Doesn't check response status
+async function bad() {
+  const response = await fetch(url);
+  const data = await response.json(); // Might fail for 404/500
+  return data;
+}
 
-**Field Data (Real User Monitoring - RUM):**
-- Tools: Google Analytics, Sentry, New Relic
-- Environment: Real users (various devices, networks, locations)
-- Benefits: Truth in production, shows real impact
-- Limitations: Harder to debug, more variables
+// ✓ GOOD: Checks status
+async function good() {
+  const response = await fetch(url);
 
-**Example difference:**
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data;
+}
 ```
-Lab (Lighthouse on fast laptop):
-LCP: 1.2s ✅ Good
 
-Field (real users):
-LCP: 3.5s ❌ Poor
-(50% of users on slow 3G with old phones)
+**Fetch Best Practices:**
+
+1. **Always check response.ok**
+```javascript
+if (!response.ok) {
+  throw new Error(`HTTP ${response.status}`);
+}
 ```
 
-**Best practice:** Use both!
-- Lab: Development and debugging
-- Field: Monitor production reality
+2. **Use try/catch**
+```javascript
+try {
+  const data = await fetchData();
+} catch (error) {
+  handleError(error);
+}
+```
+
+3. **Set appropriate headers**
+```javascript
+headers: {
+  'Content-Type': 'application/json',
+  'Authorization': `Bearer ${token}`
+}
+```
+
+4. **Implement timeout**
+```javascript
+const controller = new AbortController();
+setTimeout(() => controller.abort(), 5000);
+fetch(url, { signal: controller.signal });
+```
+
+5. **Cache responses when appropriate**
+```javascript
+const cache = new Map();
+if (cache.has(url)) return cache.get(url);
+// ...
+cache.set(url, data);
+```
+
+6. **Provide user feedback**
+```javascript
+setLoading(true);
+try {
+  const data = await fetch(url);
+  setData(data);
+} catch (error) {
+  showError(error.message);
+} finally {
+  setLoading(false);
+}
+```
+
+7. **Never store sensitive data in localStorage**
+```javascript
+// ✗ BAD
+localStorage.setItem('password', password);
+localStorage.setItem('apiKey', key);
+
+// ✓ GOOD - use secure httpOnly cookies or memory
+```
 </details>
 
 ---
 
 ## Scoring
 
-- **15/15 (100%)**: Performance Expert! 🏆
-- **13-14/15 (87-93%)**: Excellent! You understand web performance. ⭐
-- **11-12/15 (73-80%)**: Good! Review the missed concepts.
-- **9-10/15 (60-67%)**: Passing, but review Core Web Vitals and optimization techniques.
-- **< 9/15 (< 60%)**: Review the chapter and try again.
+- **18-20 correct**: Expert! 🏆 You've mastered modules and APIs!
+- **15-17 correct**: Great! 🌟 Solid understanding, review missed topics
+- **12-14 correct**: Good! 📚 Core concepts understood, keep practicing
+- **9-11 correct**: Okay 🔄 Review the chapter and try exercises
+- **Below 9**: Keep Learning! 💪 Review chapter thoroughly and practice more
 
 ---
 
 ## Key Takeaways
 
-If you remember nothing else, remember these:
+### ES6 Modules
+- Named exports: multiple per file, import with `{ name }`
+- Default exports: one per file, import without braces
+- Modules are singletons and cached
+- Imports are hoisted
+- Use barrel pattern for better organization
 
-1. **Core Web Vitals matter**: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1
-2. **Images are the biggest win**: Use WebP/AVIF, lazy loading, srcset
-3. **Code split everything**: Don't send 800KB when 200KB will do
-4. **Cache aggressively**: Browser cache + CDN = instant repeat visits
-5. **Measure constantly**: Lighthouse + RUM = complete picture
+### Fetch API
+- Returns Promise<Response>, not data directly
+- Only rejects on network errors
+- Always check `response.ok`
+- Call `.json()` to parse body
+- Use AbortController for cancellation
 
-**Performance is a feature!** Fast sites win. 🚀
+### Error Handling
+- Use try/catch with async/await
+- Check HTTP status codes
+- Provide user feedback
+- Log errors for debugging
+- Implement retry logic when appropriate
+
+### Event Loop
+- Synchronous code runs first
+- Microtasks (Promises) before macrotasks (setTimeout)
+- Understanding execution order is crucial for debugging
+
+Ready for the next chapter! 🚀
 
