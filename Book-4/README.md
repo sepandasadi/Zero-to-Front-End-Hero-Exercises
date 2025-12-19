@@ -15,21 +15,29 @@ Volume 4 bridges the gap between front-end and full-stack development, covering 
 
 ---
 
-## 📂 Exercise Structure
+## 📂 Exercise Structure & Chapter Mapping
 
-```
-Book-4/
-├── README.md (this file)
-├── challenge-security-audit/ (Security audit project)
-├── chapter-15/ (Web Security - OWASP, XSS, CSRF)
-├── chapter-16/ (Authentication & Authorization)
-├── chapter-17/ (Deployment & DevOps Fundamentals)
-├── chapter-18/ (CI/CD Pipelines)
-├── chapter-19/ (Backend Basics for Front-End Developers)
-├── chapter-20/ (Databases & Data Modeling)
-├── chapter-21/ (Cloud Computing & Containers)
-└── chapter-22/ (Career Growth & System Design)
-```
+**Book Chapters (1-8):**
+- Chapter 1: Web Security → Exercise Chapter 15
+- Chapter 2: Deployment & DevOps → Exercise Chapter 16
+- Chapter 3: Backend Basics → Exercise Chapter 19
+- Chapter 4: Cloud & Containers → Exercise Chapter 20
+- Chapter 5: Career Growth (no exercises - career guidance)
+- Chapter 6: Algorithms & Interviews (exercises TBD)
+- Chapter 7: AI-Powered Development (exercises TBD)
+- Chapter 8: Capstone Projects (see separate folder)
+
+> **📌 Note on Chapter Numbering:** Exercise chapters are numbered 15-22 (continuation from previous volumes) while book chapters are numbered 1-8. Use chapter *titles* to match exercises to book content, not numbers.
+
+**Available Exercise Chapters:**
+- chapter-15/ (Web Security)
+- chapter-16/ (Deployment & DevOps)
+- chapter-17/ (Accessibility - may belong in Book 1)
+- chapter-18/ (Design Systems - may belong in Book 3)
+- chapter-19/ (Backend Basics)
+- chapter-20/ (Cloud & Containers)
+- chapter-21/ (Multi-Cloud Deployment)
+- chapter-22/ (DevTools Mastery)
 
 ---
 

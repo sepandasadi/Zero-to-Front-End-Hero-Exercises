@@ -17,24 +17,19 @@ Volume 3 focuses on modern frameworks (React, Vue), state management, CSS at sca
 
 ## 📂 Exercise Structure
 
-```
-Book-3/
-├── README.md (this file)
-├── chapter-01/ (Modern Frameworks - React & Vue)
-├── chapter-02/ (State Management - Redux, Zustand, Pinia)
-├── chapter-03/ (CSS Audit & Refactoring)
-├── chapter-04/ (Sass & Component Libraries)
-├── chapter-05/ (Utility-First CSS - Tailwind)
-├── chapter-06/ (Component Libraries - MUI, Chakra, etc.)
-├── chapter-07/ (CSS Methodologies & Architecture)
-├── chapter-08/ (Design Systems)
-├── chapter-09/ (Performance Optimization)
-├── chapter-10/ (Lazy Loading & Caching Strategies)
-├── chapter-11/ (Code Quality & Clean Code)
-├── chapter-12/ (Testing & Test-Driven Development)
-├── chapter-13/ (Advanced Testing Patterns)
-└── chapter-14/ (Production Deployment Strategies)
-```
+**Book Chapters (0-10):**
+- Chapter 01: Modern Frameworks (React & Vue)
+- Chapter 02: State Management
+- Chapter 03: CSS Preprocessors
+- Chapter 04: CSS Architecture
+- Chapter 05: Utility-First CSS (Tailwind)
+- Chapter 06: CSS-in-JS
+- Chapter 07: Performance Optimization
+- Chapter 08: Code Quality
+- Chapter 09: Testing
+- Chapter 10: Capstone Projects
+
+> **📌 Note on Chapter Numbering:** Some exercise folders (chapters 11-14, 21-22, advanced-js, responsive-accessible) may have different numbering than the book chapters. This is from previous book organization. Content is still valid and useful - use chapter *titles* to find exercises rather than numbers.
 
 ---
 

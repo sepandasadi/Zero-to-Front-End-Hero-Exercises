@@ -15,31 +15,30 @@ Volume 2 focuses on JavaScript fundamentals, programming concepts, DOM manipulat
 
 ---
 
-## 📂 Exercise Structure
+## 📂 Chapter Exercise Structure
 
-```
-Book-2/
-├── README.md (this file)
-├── chapter-17/ (CSS Variables & Design Systems)
-├── chapter-18/ (Responsive Design Deep Dive)
-├── chapter-19/ (CSS Animations & Motion)
-├── chapter-20/ (CSS Organization & Architecture)
-├── chapter-21/ (Sass & SCSS)
-├── chapter-22/ (CSS Methodologies)
-├── chapter-23/ (JavaScript Fundamentals)
-├── chapter-24/ (Functions and Scope)
-├── chapter-25/ (Working with Data)
-├── chapter-26/ (DOM Manipulation)
-├── chapter-27/ (Events and Interactivity)
-├── chapter-28/ (Error Handling and Debugging)
-├── chapter-29/ (Advanced JavaScript Concepts)
-├── chapter-30/ (Async JavaScript & Modern Features)
-├── chapter-31/ (ES6 Modules & Working with APIs)
-├── chapter-32/ (Advanced JavaScript Patterns)
-├── chapter-33/ (Developer Tools)
-├── chapter-34/ (Working with APIs and Data)
-└── chapter-35/ (Responsive & Accessible Design)
-```
+| Chapter | Title | Exercises | Status |
+|---------|-------|-----------|--------|
+| 00 | Introduction | 3 exercises | ✓ Complete |
+| 01 | JavaScript Foundations | 4 exercises + challenge | ✓ Complete |
+| 02 | Control Flow & Logic | 4 exercises + challenge | ✓ Complete |
+| 03 | Functions & Scope | 4 exercises + challenge | ✓ Complete |
+| 04 | this, Context, Binding | 4 exercises + challenge | ✓ Complete |
+| 05 | Objects | Placeholder - TBD | ⚠️ Incomplete |
+| 06 | Arrays | 5 exercises + challenge | ✓ Complete |
+| 07 | The DOM | 5 exercises + challenge | ✓ Complete |
+| 08 | Events & Interaction | 6 exercises + challenge | ✓ Complete |
+| 09 | How JavaScript Runs* | 6 exercises + challenge | ✓ Complete |
+| 10 | Async JavaScript | Placeholder - TBD | ⚠️ Incomplete |
+| 11 | JavaScript Internals | No exercises (conceptual) | - |
+| 12 | Working with APIs | 6 exercises + challenge | ✓ Complete |
+| 13 | ES Modules | (See chapter 9) | ✓ Complete |
+| 14 | Error Handling & Debugging | 5 exercises + challenge | ✓ Complete |
+| 15 | Developer Tools | 6 exercises + challenge | ✓ Complete |
+| 16 | Advanced Patterns | 3 exercises + challenge | ✓ Complete |
+| 17 | Capstone Projects | See separate folder | - |
+
+**Note:** *Chapter 9 exercises focus on ES Modules and basic API concepts. For Event Loop and execution context topics (Book Chapter 9: "How JavaScript Runs"), see the quiz questions.
 
 ---
 

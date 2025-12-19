@@ -1,4 +1,4 @@
-# Chapter 32: Advanced JavaScript Patterns - Exercises
+# Chapter 16: Advanced JavaScript Patterns - Exercises
 
 Master the most advanced JavaScript features used in frameworks and libraries!
 

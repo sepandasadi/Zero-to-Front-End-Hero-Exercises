@@ -1,4 +1,7 @@
-# Chapter 31: ES6 Modules & Working with APIs - Exercises
+# Chapter 9: ES Modules & Working with APIs - Exercises
+
+> **📌 Note:** This chapter's exercises focus on ES Modules and basic API concepts.
+> For exercises on the Event Loop and execution context (Book Chapter 9: "How JavaScript Runs"), see the conceptual questions in quiz.md.
 
 Master ES6 modules, the Fetch API, and understand how JavaScript's event loop works!
 

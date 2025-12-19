@@ -1,4 +1,4 @@
-# Chapter 28: Error Handling and Debugging - Exercises
+# Chapter 14: Error Handling, Debugging & Stack Traces - Exercises
 
 Welcome to Chapter 28 exercises! These exercises will help you master error handling, debugging techniques, and defensive programming.
 

@@ -1,4 +1,4 @@
-# Chapter 34: Working with APIs and Data - Exercises
+# Chapter 12: Working with APIs - Exercises
 
 Welcome to the world of dynamic, data-driven web applications! These exercises will teach you to fetch data from real APIs and build interactive apps.
 

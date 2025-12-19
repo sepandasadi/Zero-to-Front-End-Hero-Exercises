@@ -1,4 +1,4 @@
-# Chapter 33: Developer Tools - Exercises
+# Chapter 15: Developer Tools & Professional Workflow - Exercises
 
 Welcome to your professional developer toolkit practice! These exercises will help you master the tools that separate hobbyists from professionals.
 
@@ -15,6 +15,7 @@ Welcome to your professional developer toolkit practice! These exercises will he
 ## 🎯 Learning Objectives
 
 By completing these exercises, you will:
+
 - Master VS Code keyboard shortcuts for 10x productivity
 - Use DevTools to inspect, debug, and reverse-engineer websites
 - Implement professional Git workflows with branches and commits
@@ -25,6 +26,7 @@ By completing these exercises, you will:
 ## 📂 Exercise Structure
 
 Each exercise folder contains:
+
 - `README.md` - Exercise instructions and requirements
 - `starter/` - Starting code (where applicable)
 - `solution/` - Complete solution with explanation
