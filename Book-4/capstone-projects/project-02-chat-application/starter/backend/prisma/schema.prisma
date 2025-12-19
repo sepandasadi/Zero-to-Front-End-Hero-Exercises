@@ -1,0 +1,132 @@
+// Prisma Schema for Chat Application
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String        @id @default(uuid())
+  email           String        @unique
+  username        String        @unique
+  password        String
+  name            String
+  avatar          String?
+  status          UserStatus    @default(OFFLINE)
+  lastSeen        DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  messages        Message[]
+  channelMembers  ChannelMember[]
+  reactions       Reaction[]
+  sentDMs         DirectMessage[] @relation("SentDMs")
+  receivedDMs     DirectMessage[] @relation("ReceivedDMs")
+
+  @@map("users")
+}
+
+model Channel {
+  id          String    @id @default(uuid())
+  name        String
+  description String?
+  isPrivate   Boolean   @default(false)
+  creatorId   String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  members     ChannelMember[]
+  messages    Message[]
+
+  @@map("channels")
+}
+
+model ChannelMember {
+  id          String      @id @default(uuid())
+  channelId   String
+  userId      String
+  role        ChannelRole @default(MEMBER)
+  joinedAt    DateTime    @default(now())
+
+  channel     Channel     @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([channelId, userId])
+  @@map("channel_members")
+}
+
+model Message {
+  id          String      @id @default(uuid())
+  content     String
+  type        MessageType @default(TEXT)
+  fileUrl     String?
+  channelId   String
+  senderId    String
+  parentId    String?     // For threads
+  edited      Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  channel     Channel     @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  sender      User        @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  parent      Message?    @relation("MessageReplies", fields: [parentId], references: [id])
+  replies     Message[]   @relation("MessageReplies")
+  reactions   Reaction[]
+
+  @@index([channelId, createdAt])
+  @@map("messages")
+}
+
+model DirectMessage {
+  id          String      @id @default(uuid())
+  content     String
+  type        MessageType @default(TEXT)
+  fileUrl     String?
+  senderId    String
+  recipientId String
+  read        Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  sender      User        @relation("SentDMs", fields: [senderId], references: [id], onDelete: Cascade)
+  recipient   User        @relation("ReceivedDMs", fields: [recipientId], references: [id], onDelete: Cascade)
+
+  @@index([senderId, recipientId, createdAt])
+  @@map("direct_messages")
+}
+
+model Reaction {
+  id        String   @id @default(uuid())
+  emoji     String
+  messageId String
+  userId    String
+  createdAt DateTime @default(now())
+
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId, emoji])
+  @@map("reactions")
+}
+
+enum UserStatus {
+  ONLINE
+  AWAY
+  OFFLINE
+}
+
+enum ChannelRole {
+  ADMIN
+  MEMBER
+}
+
+enum MessageType {
+  TEXT
+  FILE
+  IMAGE
+  SYSTEM
+}
+

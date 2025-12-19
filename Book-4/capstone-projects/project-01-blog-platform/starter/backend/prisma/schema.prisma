@@ -1,0 +1,132 @@
+// Prisma Schema for Blog Platform
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  username      String    @unique
+  password      String
+  name          String?
+  bio           String?
+  avatar        String?
+  role          Role      @default(USER)
+  emailVerified Boolean   @default(false)
+
+  posts         Post[]
+  comments      Comment[]
+  likes         Like[]
+  bookmarks     Bookmark[]
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("users")
+}
+
+model Post {
+  id            String    @id @default(uuid())
+  title         String
+  slug          String    @unique
+  content       String    @db.Text
+  excerpt       String?
+  coverImage    String?
+  published     Boolean   @default(false)
+  publishedAt   DateTime?
+  views         Int       @default(0)
+  readingTime   Int       // in minutes
+
+  author        User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId      String
+
+  categories    Category[]
+  tags          Tag[]
+  comments      Comment[]
+  likes         Like[]
+  bookmarks     Bookmark[]
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("posts")
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  content   String
+
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  String
+
+  parent    Comment? @relation("CommentReplies", fields: [parentId], references: [id])
+  parentId  String?
+  replies   Comment[] @relation("CommentReplies")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("comments")
+}
+
+model Category {
+  id    String @id @default(uuid())
+  name  String @unique
+  slug  String @unique
+  posts Post[]
+
+  @@map("categories")
+}
+
+model Tag {
+  id    String @id @default(uuid())
+  name  String @unique
+  slug  String @unique
+  posts Post[]
+
+  @@map("tags")
+}
+
+model Like {
+  id        String   @id @default(uuid())
+
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  createdAt DateTime @default(now())
+
+  @@unique([postId, userId])
+  @@map("likes")
+}
+
+model Bookmark {
+  id        String   @id @default(uuid())
+
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  createdAt DateTime @default(now())
+
+  @@unique([postId, userId])
+  @@map("bookmarks")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+

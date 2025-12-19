@@ -1,0 +1,144 @@
+// Prisma Schema for SaaS Starter Template
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String    @id @default(uuid())
+  email           String    @unique
+  password        String
+  name            String
+  avatar          String?
+  emailVerified   Boolean   @default(false)
+  twoFactorEnabled Boolean  @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  workspaceMembers WorkspaceMember[]
+  ownedWorkspaces  Workspace[]       @relation("WorkspaceOwner")
+  invitations      Invitation[]
+
+  @@map("users")
+}
+
+model Workspace {
+  id          String    @id @default(uuid())
+  name        String
+  slug        String    @unique
+  logo        String?
+  ownerId     String
+  owner       User      @relation("WorkspaceOwner", fields: [ownerId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  members      WorkspaceMember[]
+  subscription Subscription?
+  invitations  Invitation[]
+  apiKeys      ApiKey[]
+
+  @@map("workspaces")
+}
+
+model WorkspaceMember {
+  id          String        @id @default(uuid())
+  workspaceId String
+  workspace   Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role        WorkspaceRole @default(MEMBER)
+  joinedAt    DateTime      @default(now())
+
+  @@unique([workspaceId, userId])
+  @@map("workspace_members")
+}
+
+model Subscription {
+  id                  String             @id @default(uuid())
+  workspaceId         String             @unique
+  workspace           Workspace          @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  stripeCustomerId    String             @unique
+  stripeSubscriptionId String?           @unique
+  stripePriceId       String?
+  status              SubscriptionStatus @default(TRIALING)
+  plan                Plan               @default(FREE)
+  currentPeriodStart  DateTime?
+  currentPeriodEnd    DateTime?
+  cancelAtPeriodEnd   Boolean            @default(false)
+  trialEndsAt         DateTime?
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+
+  @@map("subscriptions")
+}
+
+model Invitation {
+  id          String        @id @default(uuid())
+  workspaceId String
+  workspace   Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  email       String
+  role        WorkspaceRole @default(MEMBER)
+  invitedBy   String
+  inviter     User          @relation(fields: [invitedBy], references: [id])
+  token       String        @unique
+  expiresAt   DateTime
+  accepted    Boolean       @default(false)
+  createdAt   DateTime      @default(now())
+
+  @@index([workspaceId, email])
+  @@map("invitations")
+}
+
+model ApiKey {
+  id          String    @id @default(uuid())
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  name        String
+  key         String    @unique
+  lastUsedAt  DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@map("api_keys")
+}
+
+model Invoice {
+  id                   String   @id @default(uuid())
+  stripeInvoiceId      String   @unique
+  stripeCustomerId     String
+  amount               Int
+  currency             String   @default("usd")
+  status               String
+  invoicePdf           String?
+  hostedInvoiceUrl     String?
+  createdAt            DateTime @default(now())
+
+  @@map("invoices")
+}
+
+enum WorkspaceRole {
+  OWNER
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+enum SubscriptionStatus {
+  TRIALING
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  INCOMPLETE
+  INCOMPLETE_EXPIRED
+  UNPAID
+}
+
+enum Plan {
+  FREE
+  PRO
+  ENTERPRISE
+}
+
