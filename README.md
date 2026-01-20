@@ -19,6 +19,45 @@ This repository contains **all exercises, projects, and quizzes** for the **Zero
 
 ---
 
+## 🚀 NEW: Interactive Learning Platform
+
+**Work on exercises directly in your browser with our new interactive platform!**
+
+We've built a complete interactive coding environment where you can:
+
+- ✨ **Live Code Editor** - VS Code-style Monaco Editor with syntax highlighting
+- 🧪 **Automated Testing** - Run tests and get instant feedback
+- 👁️ **Live Preview** - See your HTML/CSS changes in real-time
+- 💡 **Progressive Hints** - Get help when you're stuck
+- 📊 **Progress Tracking** - Never lose your place
+- 🎨 **Beautiful UI** - Professional design with dark/light themes
+- ⌨️ **Keyboard Shortcuts** - Navigate efficiently
+
+### Quick Start
+
+```bash
+cd interactive-platform
+npm install
+npm run generate-catalog
+npm run dev
+```
+
+Then open **http://localhost:5173** in your browser!
+
+**[📖 Full Documentation →](./interactive-platform/README.md)** | **[⚡ Quick Start Guide →](./interactive-platform/QUICK_START.md)**
+
+### Features Highlight
+
+- **299 exercises** automatically loaded and organized
+- **Multi-file editing** with tabs for HTML, CSS, and JavaScript
+- **Test runner** validates your JavaScript code instantly
+- **Live preview** for HTML/CSS exercises in sandboxed iframe
+- **Auto-save** to browser localStorage - never lose your work
+- **Hints system** - unlock progressive hints as you work
+- **Completion tracking** - see your progress across all exercises
+
+---
+
 ## 📖 The Four Volumes
 
 ### **Volume 1: The UI Architect** 📘
@@ -140,13 +179,41 @@ Volume 4
 
 ## 🚀 Getting Started
 
-### **Prerequisites:**
-- Text editor (VS Code recommended)
-- Modern web browser (Chrome recommended)
-- Basic computer literacy
-- **No coding experience needed!**
+You can work through the exercises in **two ways**:
 
-### **Installation:**
+### **Option 1: Interactive Platform** (Recommended for Beginners)
+
+Use our browser-based interactive platform with live code editor, testing, and progress tracking:
+
+```bash
+# Clone this repository
+git clone https://github.com/yourusername/Zero-to-Front-End-Hero-Exercises.git
+
+# Navigate to the interactive platform
+cd Zero-to-Front-End-Hero-Exercises/interactive-platform
+
+# Install dependencies
+npm install
+
+# Generate exercise catalog
+npm run generate-catalog
+
+# Start the platform
+npm run dev
+```
+
+Open **http://localhost:5173** and start coding immediately!
+
+**Benefits:**
+- No setup required for individual exercises
+- Instant feedback with automated testing
+- Progress tracking across all exercises
+- Built-in hints and solutions
+- Professional code editor (Monaco/VS Code)
+
+### **Option 2: Traditional Method**
+
+Work directly with exercise files in your own editor:
 
 ```bash
 # Clone this repository
@@ -160,7 +227,13 @@ cd Book-1  # Start with Volume 1
 code .     # Open in VS Code
 ```
 
-### **For Later Volumes:**
+**Prerequisites:**
+- Text editor (VS Code recommended)
+- Modern web browser (Chrome recommended)
+- Basic computer literacy
+- **No coding experience needed!**
+
+**For Later Volumes:**
 - **Volume 2+**: Node.js and npm
 - **Volume 3+**: React/Vue CLI tools
 - **Volume 4**: Docker, cloud accounts
@@ -216,6 +289,17 @@ Zero-to-Front-End-Hero-Exercises/
 ├── README.md (you are here)
 ├── LICENSE
 ├── VALIDATION.md
+├── interactive-platform/ ⭐ NEW! Interactive coding environment
+│   ├── README.md (full documentation)
+│   ├── QUICK_START.md (get started quickly)
+│   ├── src/ (React application)
+│   │   ├── components/ (UI components)
+│   │   ├── contexts/ (state management)
+│   │   ├── lib/ (test runner, utilities)
+│   │   └── data/ (exercise catalog)
+│   ├── scripts/
+│   │   └── generate-catalog.js (auto-generates exercise data)
+│   └── package.json
 ├── Book-1/ (Volume 1: The UI Architect)
 │   ├── README.md
 │   ├── chapter-04/ through chapter-16/
@@ -237,6 +321,19 @@ Zero-to-Front-End-Hero-Exercises/
 ---
 
 ## 💡 How to Use This Repository
+
+### Using the Interactive Platform
+
+1. **Start the platform** - Run `npm run dev` in the `interactive-platform/` directory
+2. **Select an exercise** - Browse the sidebar and click any exercise
+3. **Read instructions** - Review the exercise requirements in the left panel
+4. **Write code** - Use the Monaco editor to write your solution
+5. **Test your code** - Click "Run Tests" for instant feedback
+6. **Use hints** - Unlock progressive hints if you get stuck
+7. **Track progress** - Your completion status is saved automatically
+8. **Move forward** - Click "Next Exercise" when you're done
+
+### Using Traditional Method
 
 1. **Follow the books** - Read the corresponding chapter before attempting exercises
 2. **Try first** - Attempt exercises before checking solutions
@@ -289,6 +386,14 @@ After completing all 4 volumes:
 ## 🆘 Getting Help
 
 **Stuck on something?**
+
+### Using Interactive Platform:
+1. **Use the hints system** - Unlock progressive hints in the platform
+2. **Run tests** - Error messages provide valuable clues
+3. **Check the preview** - For HTML/CSS exercises, see live results
+4. **Show solution** - Last resort, but learn from it!
+
+### General Help:
 1. Re-read the relevant chapter
 2. Check the exercise README for hints
 3. Use browser DevTools to debug
@@ -301,6 +406,7 @@ After completing all 4 volumes:
 - [JavaScript.info](https://javascript.info/)
 - [React Docs](https://react.dev/)
 - [Vue Docs](https://vuejs.org/)
+- [Interactive Platform Docs](./interactive-platform/README.md)
 
 ---
 
@@ -367,8 +473,31 @@ From Zero to Hero requires:
 
 **Ready to begin?**
 
-### [📘 Start with Volume 1: The UI Architect →](./Book-1/README.md)
+### 🚀 [Launch Interactive Platform →](./interactive-platform/README.md)
+
+### 📘 [Start with Volume 1: The UI Architect →](./Book-1/README.md)
 
 ---
 
-*Last updated: December 2025*
+## 🎮 Interactive Platform Features
+
+Built with modern web technologies for the best learning experience:
+
+| Feature | Description |
+|---------|-------------|
+| **Monaco Editor** | VS Code's editor with IntelliSense and syntax highlighting |
+| **Live Preview** | Real-time HTML/CSS rendering in sandboxed iframe |
+| **Test Runner** | Automated testing for JavaScript exercises |
+| **Progress Tracking** | LocalStorage persistence - pick up where you left off |
+| **Hints System** | Progressive hints unlock one at a time |
+| **Multi-file Support** | Edit HTML, CSS, and JS files with tabs |
+| **Dark/Light Theme** | Toggle with `Ctrl/⌘ + Shift + T` |
+| **Keyboard Shortcuts** | Navigate efficiently with hotkeys |
+| **Auto-save** | Code saved automatically as you type |
+| **299 Exercises** | All exercises from 4 books automatically loaded |
+
+**Tech Stack:** React 18, Vite, Tailwind CSS, Monaco Editor, Vitest
+
+---
+
+*Last updated: January 2026*
