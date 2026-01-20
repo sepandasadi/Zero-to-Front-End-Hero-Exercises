@@ -62,7 +62,7 @@ export function CodeEditor({ theme = 'vs-dark' }) {
   }
 
   const files = Object.keys(code);
-  
+
   // Check if there are any files to display
   if (files.length === 0) {
     return (

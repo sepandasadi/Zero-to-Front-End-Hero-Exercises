@@ -25,7 +25,7 @@ export function ExerciseItem({
   const { dispatch } = useProgress();
   const status = progress.status || 'not_started';
   const Icon = statusIcons[status];
-  
+
   // Check if this is an instruction-only exercise
   const hasCodeFiles = Object.keys(exercise.starterFiles || {}).length > 0;
   const ExerciseTypeIcon = hasCodeFiles ? Code2 : FileText;
@@ -33,7 +33,7 @@ export function ExerciseItem({
   // Handle status icon click to toggle completion
   const handleStatusClick = (e) => {
     e.stopPropagation(); // Prevent opening the exercise
-    
+
     if (status === 'completed') {
       // If completed, mark as in_progress
       dispatch({

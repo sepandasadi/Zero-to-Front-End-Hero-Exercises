@@ -15,12 +15,12 @@ export function ChapterItem({
   const progress = useChapterProgress(bookId, chapter.id, chapter.exercises.length);
 
   // Sort exercises by difficulty: Easy → Medium → Hard
-  const difficultyOrder = { 
-    'easy': 1, 
-    'medium': 2, 
+  const difficultyOrder = {
+    'easy': 1,
+    'medium': 2,
     'hard': 3,
-    'E': 1, 
-    'M': 2, 
+    'E': 1,
+    'M': 2,
     'H': 3
   };
   const sortedExercises = [...chapter.exercises].sort((a, b) => {

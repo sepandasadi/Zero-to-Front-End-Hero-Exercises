@@ -29,17 +29,22 @@ export class TestRunner {
   }
 
   expect(actual) {
-    return {
+    const matchers = {
+      // Strict equality
       toBe: (expected) => {
         if (actual !== expected) {
           throw new Error(`Expected ${JSON.stringify(expected)} but got ${JSON.stringify(actual)}`);
         }
       },
+
+      // Deep equality
       toEqual: (expected) => {
         if (JSON.stringify(actual) !== JSON.stringify(expected)) {
           throw new Error(`Expected ${JSON.stringify(expected)} but got ${JSON.stringify(actual)}`);
         }
       },
+
+      // Truthiness
       toBeTruthy: () => {
         if (!actual) {
           throw new Error(`Expected truthy value but got ${JSON.stringify(actual)}`);
@@ -50,11 +55,37 @@ export class TestRunner {
           throw new Error(`Expected falsy value but got ${JSON.stringify(actual)}`);
         }
       },
-      toContain: (expected) => {
-        if (!actual.includes(expected)) {
-          throw new Error(`Expected to contain ${JSON.stringify(expected)}`);
+
+      // Null/Undefined
+      toBeNull: () => {
+        if (actual !== null) {
+          throw new Error(`Expected null but got ${JSON.stringify(actual)}`);
         }
       },
+      toBeUndefined: () => {
+        if (actual !== undefined) {
+          throw new Error(`Expected undefined but got ${JSON.stringify(actual)}`);
+        }
+      },
+      toBeDefined: () => {
+        if (actual === undefined) {
+          throw new Error('Expected value to be defined');
+        }
+      },
+
+      // Arrays and Strings
+      toContain: (expected) => {
+        if (!actual || !actual.includes(expected)) {
+          throw new Error(`Expected to contain ${JSON.stringify(expected)} in ${JSON.stringify(actual)}`);
+        }
+      },
+      toHaveLength: (expected) => {
+        if (!actual || actual.length !== expected) {
+          throw new Error(`Expected length ${expected} but got ${actual?.length}`);
+        }
+      },
+
+      // Numbers
       toBeGreaterThan: (expected) => {
         if (actual <= expected) {
           throw new Error(`Expected ${actual} to be greater than ${expected}`);
@@ -65,15 +96,120 @@ export class TestRunner {
           throw new Error(`Expected ${actual} to be less than ${expected}`);
         }
       },
-      toThrow: () => {
-        try {
-          actual();
-          throw new Error('Expected function to throw an error');
-        } catch (e) {
-          // Expected behavior
+      toBeGreaterThanOrEqual: (expected) => {
+        if (actual < expected) {
+          throw new Error(`Expected ${actual} to be greater than or equal to ${expected}`);
         }
       },
+      toBeLessThanOrEqual: (expected) => {
+        if (actual > expected) {
+          throw new Error(`Expected ${actual} to be less than or equal to ${expected}`);
+        }
+      },
+      toBeCloseTo: (expected, precision = 2) => {
+        const diff = Math.abs(actual - expected);
+        const threshold = Math.pow(10, -precision) / 2;
+        if (diff >= threshold) {
+          throw new Error(`Expected ${actual} to be close to ${expected} (precision: ${precision})`);
+        }
+      },
+
+      // Objects
+      toHaveProperty: (key, value) => {
+        if (!actual || !(key in actual)) {
+          throw new Error(`Expected object to have property "${key}"`);
+        }
+        if (value !== undefined && actual[key] !== value) {
+          throw new Error(`Expected property "${key}" to be ${JSON.stringify(value)} but got ${JSON.stringify(actual[key])}`);
+        }
+      },
+      toMatchObject: (expected) => {
+        for (const key in expected) {
+          if (actual[key] !== expected[key]) {
+            throw new Error(`Expected object to match. Property "${key}" is ${JSON.stringify(actual[key])} but expected ${JSON.stringify(expected[key])}`);
+          }
+        }
+      },
+
+      // Functions
+      toThrow: (expectedError) => {
+        let thrown = false;
+        let error = null;
+        try {
+          actual();
+        } catch (e) {
+          thrown = true;
+          error = e;
+        }
+        if (!thrown) {
+          throw new Error('Expected function to throw an error');
+        }
+        if (expectedError && !error.message.includes(expectedError)) {
+          throw new Error(`Expected error message to include "${expectedError}" but got "${error.message}"`);
+        }
+      },
+
+      // Type checking
+      toBeInstanceOf: (expected) => {
+        if (!(actual instanceof expected)) {
+          throw new Error(`Expected ${actual} to be instance of ${expected.name}`);
+        }
+      },
+
+      // Promises (async)
+      resolves: {
+        toBe: async (expected) => {
+          const resolved = await actual;
+          if (resolved !== expected) {
+            throw new Error(`Expected promise to resolve to ${JSON.stringify(expected)} but got ${JSON.stringify(resolved)}`);
+          }
+        },
+        toEqual: async (expected) => {
+          const resolved = await actual;
+          if (JSON.stringify(resolved) !== JSON.stringify(expected)) {
+            throw new Error(`Expected promise to resolve to ${JSON.stringify(expected)} but got ${JSON.stringify(resolved)}`);
+          }
+        },
+      },
+      rejects: {
+        toThrow: async (expectedError) => {
+          let thrown = false;
+          let error = null;
+          try {
+            await actual;
+          } catch (e) {
+            thrown = true;
+            error = e;
+          }
+          if (!thrown) {
+            throw new Error('Expected promise to reject');
+          }
+          if (expectedError && !error.message.includes(expectedError)) {
+            throw new Error(`Expected error message to include "${expectedError}" but got "${error.message}"`);
+          }
+        },
+      },
     };
+
+    // Add .not modifier
+    const not = {};
+    for (const [key, matcher] of Object.entries(matchers)) {
+      if (typeof matcher === 'object') continue; // Skip resolves/rejects for .not
+      not[key] = (...args) => {
+        try {
+          matcher(...args);
+          throw new Error(`Expected assertion to fail`);
+        } catch (e) {
+          if (e.message.includes('Expected assertion to fail')) {
+            throw e;
+          }
+          // Assertion failed as expected, so .not passes
+        }
+      };
+    }
+
+    matchers.not = not;
+    return matchers;
   }
 
   async run(code) {

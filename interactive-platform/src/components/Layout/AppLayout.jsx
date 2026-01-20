@@ -46,7 +46,7 @@ export function AppLayout({ catalog }) {
   }, []);
 
   const sidebarWidth = sidebarOpen ? 320 : 0;
-  
+
   return (
     <div className="flex h-screen overflow-hidden bg-background">
       {/* Sidebar */}

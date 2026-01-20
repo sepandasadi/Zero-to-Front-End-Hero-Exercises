@@ -54,7 +54,7 @@ export function BookCard({ book, currentExerciseId, onExerciseSelect }) {
               <span className="text-muted-foreground">exercises</span>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-3 flex-shrink-0">
             <div className="text-right min-w-[60px]">
               <div className={cn('text-base font-bold leading-tight', colorClasses.text)}>
