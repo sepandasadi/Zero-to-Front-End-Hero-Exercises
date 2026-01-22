@@ -1,0 +1,21 @@
+{
+  "name": "npm-basics-solution",
+  "version": "1.0.0",
+  "description": "Complete npm basics exercise with dependencies and scripts",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["npm", "package-manager", "learning"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2"
+  }
+}

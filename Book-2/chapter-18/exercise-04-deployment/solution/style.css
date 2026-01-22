@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e4e4e7;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #64ffda;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  color: #64ffda;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.deployment-checklist ul {
+  list-style: none;
+  padding: 0;
+}
+
+.deployment-checklist li {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s;
+}
+
+.deployment-checklist li.completed {
+  background: rgba(100, 255, 218, 0.1);
+}
+
+.deployment-checklist li:hover {
+  transform: translateX(4px);
+}
+
+.check-icon {
+  font-size: 1.5rem;
+}
+
+.env-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #64ffda;
+}
+
+.env-card p {
+  margin: 0.75rem 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.badge.production {
+  background: #10b981;
+  color: white;
+}
+
+.badge.development {
+  background: #f59e0b;
+  color: white;
+}
+
+.note {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(100, 255, 218, 0.05);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #64ffda;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(100, 255, 218, 0.2);
+}
+
+.icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  color: #64ffda;
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.feature p {
+  color: #a1a1aa;
+  font-size: 0.9rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: #71717a;
+  margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  section {
+    padding: 1.5rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "build-bundle-solution",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "analyze": "vite build --mode analyze"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8",
+    "rollup-plugin-visualizer": "^5.12.0"
+  }
+}

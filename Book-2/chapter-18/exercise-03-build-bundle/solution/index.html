@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build & Bundle - Solution</title>
+</head>
+<body>
+  <div id="app">
+    <h1>⚡ Build & Bundle Optimization</h1>
+    <p>This demonstrates code splitting, lazy loading, and bundle analysis.</p>
+    
+    <div class="info-box">
+      <h3>📦 What's Happening:</h3>
+      <ul>
+        <li>Main bundle loads immediately</li>
+        <li>Heavy modules load only when needed (code splitting)</li>
+        <li>Each dynamic import creates a separate chunk</li>
+        <li>Run <code>npm run build</code> to see optimized output</li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button id="load-module">Load Heavy Module (Lazy)</button>
+      <button id="load-chart">Load Chart Module (Lazy)</button>
+      <button id="show-stats">Show Bundle Info</button>
+    </div>
+    
+    <div id="output"></div>
+    <div id="stats"></div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

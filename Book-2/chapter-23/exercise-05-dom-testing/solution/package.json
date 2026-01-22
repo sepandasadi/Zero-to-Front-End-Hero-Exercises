@@ -1,0 +1,15 @@
+{
+  "name": "dom-testing-solution",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "@testing-library/dom": "^9.3.3",
+    "@testing-library/user-event": "^14.5.1"
+  }
+}

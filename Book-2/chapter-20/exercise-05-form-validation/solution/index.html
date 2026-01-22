@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation Solution</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>✅ Signup Form - Solution</h1>
+    <form id="signup-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="3-16 characters" required>
+        <span class="validation"></span>
+        <span class="error">Username must be 3-16 characters (letters, numbers, underscore)</span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="user@example.com" required>
+        <span class="validation"></span>
+        <span class="error">Please enter a valid email address</span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="8+ chars, mixed case, number, special" required>
+        <span class="validation"></span>
+        <span class="error">Password must be 8+ chars with uppercase, lowercase, number, and special character</span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+        <span class="validation"></span>
+        <span class="error">Please enter a valid US phone number</span>
+      </div>
+
+      <div class="form-group">
+        <label for="website">Website (optional)</label>
+        <input type="url" id="website" name="website" placeholder="https://example.com">
+        <span class="validation"></span>
+        <span class="error">Please enter a valid URL</span>
+      </div>
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <div id="success-message" class="success-message" style="display: none;">
+      ✅ Form submitted successfully!
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

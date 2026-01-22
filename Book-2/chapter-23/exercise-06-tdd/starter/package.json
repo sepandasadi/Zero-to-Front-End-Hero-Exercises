@@ -1,0 +1,11 @@
+{
+  "name": "tdd-starter",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

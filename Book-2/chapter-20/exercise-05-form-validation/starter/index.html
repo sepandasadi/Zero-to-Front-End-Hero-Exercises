@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation Exercise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Signup Form</h1>
+    <form id="signup-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="3-16 characters">
+        <span class="validation"></span>
+        <span class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="user@example.com">
+        <span class="validation"></span>
+        <span class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="8+ chars, mixed case, number, special">
+        <span class="validation"></span>
+        <span class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+        <span class="validation"></span>
+        <span class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="website">Website (optional)</label>
+        <input type="url" id="website" name="website" placeholder="https://example.com">
+        <span class="validation"></span>
+        <span class="error"></span>
+      </div>
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
