@@ -1,0 +1,254 @@
+/* ==========================================================================
+   CSS Reset & Base Styles
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   CSS Variables - Customize these!
+   ========================================================================== */
+
+:root {
+    /* Colors */
+    --primary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --text-muted: #7f8c8d;
+    --border-color: #ecf0f1;
+    
+    /* Typography */
+    --font-body: Georgia, 'Times New Roman', serif;
+    --font-heading: 'Helvetica Neue', Arial, sans-serif;
+    
+    /* Type Scale (1.25 ratio - Major Third) */
+    --font-size-base: 1.125rem; /* 18px */
+    --font-size-sm: 0.9rem;
+    --font-size-lg: 1.4rem;
+    --font-size-xl: 1.75rem;
+    --font-size-2xl: 2.2rem;
+    --font-size-3xl: 2.75rem;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-xxl: 4rem;
+    
+    /* Layout */
+    --content-width: 700px;
+    --sidebar-width: 300px;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --text-muted: #999999;
+    --border-color: #333333;
+    --primary-color: #61dafb;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+    /* TODO: Add additional styling */
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    line-height: 1.3;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+}
+
+h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    line-height: 1.4;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+}
+
+p {
+    margin-bottom: var(--space-md);
+}
+
+/* ==========================================================================
+   Reading Progress Bar
+   ========================================================================== */
+
+.progress-bar {
+    /* TODO: Add fixed position at top of page */
+    /* TODO: Add height and background */
+    /* TODO: Add transition for smooth animation */
+}
+
+/* ==========================================================================
+   Article Header
+   ========================================================================== */
+
+.article-header {
+    /* TODO: Add padding and max-width */
+    /* TODO: Style hero image */
+    /* TODO: Style category badge */
+    /* TODO: Style headline */
+    /* TODO: Style author info */
+}
+
+/* ==========================================================================
+   Article Container (Main Grid)
+   ========================================================================== */
+
+.article-container {
+    /* TODO: Set up CSS Grid for desktop layout */
+    /* TODO: Define grid template columns (content + sidebar) */
+    /* TODO: Add gap and max-width */
+}
+
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+
+.table-of-contents {
+    /* TODO: Add sticky positioning */
+    /* TODO: Style links */
+}
+
+/* ==========================================================================
+   Article Body
+   ========================================================================== */
+
+.article-body {
+    max-width: var(--content-width);
+    /* TODO: Add additional styling */
+}
+
+/* Drop Cap - First letter of first paragraph */
+.article-body p:first-of-type::first-letter {
+    /* TODO: Add drop cap styling */
+    /* Hint: float, font-size, line-height, margin */
+}
+
+/* ==========================================================================
+   Visual Elements
+   ========================================================================== */
+
+/* Figures */
+figure {
+    /* TODO: Add margins and styling */
+}
+
+figcaption {
+    /* TODO: Add caption styling */
+}
+
+/* Pull Quotes */
+.pull-quote {
+    /* TODO: Add pull quote styling */
+    /* Hint: larger font, border, padding, different color */
+}
+
+/* Blockquotes */
+blockquote {
+    /* TODO: Add blockquote styling */
+}
+
+/* Multi-Column Section */
+.multi-column {
+    /* TODO: Add column-count and column-gap */
+    /* TODO: Add column-rule */
+}
+
+/* Image Grid */
+.image-grid {
+    /* TODO: Add CSS Grid layout */
+    /* TODO: Make images equal height with object-fit */
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.article-sidebar {
+    /* TODO: Add sticky positioning */
+    /* TODO: Add styling */
+}
+
+/* ==========================================================================
+   Interactive Elements
+   ========================================================================== */
+
+/* Back to Top Button */
+.back-to-top {
+    /* TODO: Add fixed positioning */
+    /* TODO: Initially hidden, show on scroll */
+    /* TODO: Add styling */
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    /* TODO: Add fixed positioning */
+    /* TODO: Add styling */
+}
+
+/* ==========================================================================
+   Responsive Media Queries
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .article-container {
+        /* TODO: Adjust grid for tablet */
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .article-container {
+        /* TODO: Single column layout */
+    }
+    
+    .table-of-contents {
+        /* TODO: Adjust or hide for mobile */
+    }
+    
+    .article-sidebar {
+        /* TODO: Move below content or hide */
+    }
+}

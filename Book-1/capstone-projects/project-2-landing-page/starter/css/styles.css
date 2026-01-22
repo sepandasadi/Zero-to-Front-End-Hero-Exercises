@@ -1,0 +1,293 @@
+/* ==========================================================================
+   CSS Reset & Base Styles
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+/* ==========================================================================
+   CSS Variables (Customize these!)
+   ========================================================================== */
+
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #333;
+    --accent-color: #ff6b6b;
+    --text-color: #333;
+    --text-light: #666;
+    --background-light: #f5f5f5;
+    --white: #ffffff;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    
+    --border-radius: 8px;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-sm);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   Reusable Components
+   ========================================================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #0052a3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+
+.site-header {
+    /* TODO: Add header styles */
+}
+
+.main-nav {
+    /* TODO: Add navigation styles */
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero {
+    min-height: 100vh;
+    /* TODO: Add hero section styles */
+    /* Hint: Use flexbox to center content */
+    /* Hint: Consider a background image or gradient */
+}
+
+/* ==========================================================================
+   Features Section
+   ========================================================================== */
+
+.features {
+    padding: var(--spacing-xxl) 0;
+    /* TODO: Add features section styles */
+}
+
+.features-grid {
+    /* TODO: Add grid layout for feature cards */
+    /* Hint: Use CSS Grid with auto-fit */
+}
+
+.feature-card {
+    /* TODO: Add feature card styles */
+}
+
+/* ==========================================================================
+   How It Works Section
+   ========================================================================== */
+
+.how-it-works {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--background-light);
+    /* TODO: Add how-it-works section styles */
+}
+
+.steps-container {
+    /* TODO: Add steps layout */
+}
+
+.step {
+    /* TODO: Add individual step styles */
+}
+
+/* ==========================================================================
+   Pricing Section
+   ========================================================================== */
+
+.pricing {
+    padding: var(--spacing-xxl) 0;
+    /* TODO: Add pricing section styles */
+}
+
+.pricing-grid {
+    /* TODO: Add grid layout for pricing cards */
+    /* Hint: 3 columns on desktop, 1 on mobile */
+}
+
+.pricing-card {
+    /* TODO: Add pricing card styles */
+    /* Hint: Add padding, border, and shadow */
+}
+
+.pricing-card.featured {
+    /* TODO: Highlight the recommended plan */
+    /* Hint: Add transform, box-shadow, or border color */
+}
+
+/* ==========================================================================
+   Testimonials Section
+   ========================================================================== */
+
+.testimonials {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--background-light);
+    /* TODO: Add testimonials section styles */
+}
+
+.testimonials-grid {
+    /* TODO: Add grid layout for testimonial cards */
+}
+
+.testimonial-card {
+    /* TODO: Add testimonial card styles */
+}
+
+.testimonial-photo {
+    /* TODO: Make photos circular */
+    /* Hint: border-radius: 50% and object-fit: cover */
+}
+
+/* ==========================================================================
+   FAQ Section
+   ========================================================================== */
+
+.faq {
+    padding: var(--spacing-xxl) 0;
+    /* TODO: Add FAQ section styles */
+}
+
+details {
+    /* TODO: Add details styles for accordion */
+}
+
+summary {
+    /* TODO: Add summary styles */
+    /* Hint: Make it look clickable with cursor: pointer */
+}
+
+/* ==========================================================================
+   Final CTA Section
+   ========================================================================== */
+
+.final-cta {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    /* TODO: Add final CTA styles */
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    /* TODO: Add footer styles */
+}
+
+/* ==========================================================================
+   Responsive Media Queries
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    /* TODO: Add tablet-specific styles */
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* TODO: Add mobile-specific styles */
+}
