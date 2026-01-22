@@ -10,9 +10,10 @@ export class TestResult {
 }
 
 export class TestRunner {
-  constructor() {
+  constructor(options = {}) {
     this.tests = [];
     this.results = [];
+    this.timeout = options.timeout || 5000; // Default 5 second timeout
   }
 
   describe(suiteName, callback) {
@@ -26,6 +27,11 @@ export class TestRunner {
       name: testName,
       callback,
     });
+  }
+
+  // Alias for it() - Jest compatibility
+  test(testName, callback) {
+    this.it(testName, callback);
   }
 
   expect(actual) {
@@ -217,6 +223,26 @@ export class TestRunner {
     this.results = [];
 
     try {
+      // Create test.each for parameterized tests
+      const testEach = (cases) => {
+        return (testName, callback) => {
+          cases.forEach((testCase, index) => {
+            const args = Array.isArray(testCase) ? testCase : [testCase];
+            const formattedName = testName.replace(/%s|%d|%j|%o/g, (match) => {
+              const arg = args.shift();
+              if (match === '%j' || match === '%o') {
+                return JSON.stringify(arg);
+              }
+              return String(arg);
+            });
+            this.it(`${formattedName} [case ${index + 1}]`, () => callback(...(Array.isArray(testCase) ? testCase : [testCase])));
+          });
+        };
+      };
+
+      const test = this.test.bind(this);
+      test.each = testEach;
+
       // Create a sandboxed environment
       const sandbox = {
         console: {
@@ -225,18 +251,31 @@ export class TestRunner {
         },
         describe: this.describe.bind(this),
         it: this.it.bind(this),
+        test: test,
         expect: this.expect.bind(this),
+        // Add require mock for module-based exercises
+        require: (path) => {
+          // For browser environment, modules should be passed via context
+          throw new Error('require() not available in browser. Use ES modules or pass functions via context.');
+        },
       };
 
       // Execute user code
       const userFunc = new Function(...Object.keys(sandbox), code);
       userFunc(...Object.values(sandbox));
 
-      // Run all collected tests
+      // Run all collected tests with timeout
       for (const test of this.tests) {
         const startTime = performance.now();
         try {
-          await test.callback();
+          // Add timeout wrapper
+          const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => reject(new Error(`Test timeout: exceeded ${this.timeout}ms`)), this.timeout);
+          });
+          const testPromise = Promise.resolve(test.callback());
+          
+          await Promise.race([testPromise, timeoutPromise]);
+          
           const duration = performance.now() - startTime;
           this.results.push(
             new TestResult(`${test.suite} > ${test.name}`, true, null, duration)

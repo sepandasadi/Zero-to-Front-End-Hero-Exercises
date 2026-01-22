@@ -1,12 +1,12 @@
 # Zero to Front-End Hero - Interactive Learning Platform
 
-An interactive coding platform for working through all 299+ exercises from the Zero to Front-End Hero book series. Features a live code editor, automated testing, progress tracking, and more!
+An interactive coding platform for working through all 333 exercises from the Zero to Front-End Hero book series (Edition 2). Features a live code editor, automated testing, progress tracking, and more!
 
 ## Features
 
-- **📚 Complete Catalog**: All 4 books, 51 chapters, 299 exercises automatically loaded
+- **📚 Complete Catalog**: All 4 books, 56 chapters, 333 exercises automatically loaded (Edition 2)
 - **✨ Live Code Editor**: Monaco Editor (VS Code) with syntax highlighting and multi-file support
-- **🧪 Automated Testing**: Built-in test runner for JavaScript exercises
+- **🧪 Automated Testing**: Built-in test runner for JavaScript exercises with Jest compatibility
 - **👁️ Live Preview**: Real-time HTML/CSS preview in an isolated iframe
 - **💡 Progressive Hints**: Unlock hints one at a time as you work through exercises
 - **📊 Progress Tracking**: Automatically saves your progress to localStorage
@@ -14,6 +14,8 @@ An interactive coding platform for working through all 299+ exercises from the Z
 - **🌗 Dark/Light Theme**: Toggle between themes with keyboard shortcut
 - **⌨️ Keyboard Shortcuts**: Navigate quickly with hotkeys
 - **📱 Responsive**: Works on desktop and tablet screens
+- **🎯 Test Patterns**: Supports `test()`, `test.each()`, and parameterized tests
+- **⏱️ Smart Timeouts**: Automatic test timeout protection (5s default)
 
 ## Getting Started
 
@@ -197,11 +199,14 @@ Your progress is stored in localStorage with the following data:
 The built-in test runner supports:
 
 - **Basic assertions**: `toBe`, `toEqual`, `toBeTruthy`, `toBeFalsy`
-- **Collections**: `toContain`
-- **Comparisons**: `toBeGreaterThan`, `toBeLessThan`
+- **Collections**: `toContain`, `toHaveLength`
+- **Comparisons**: `toBeGreaterThan`, `toBeLessThan`, `toBeCloseTo`
+- **Objects**: `toHaveProperty`, `toMatchObject`
 - **Exceptions**: `toThrow`
-- **Async tests**: Full async/await support
-- **Error reporting**: Detailed error messages and stack traces
+- **Async tests**: Full async/await support with `resolves`/`rejects`
+- **Jest compatibility**: Supports `test()` alias and `test.each()` for parameterized tests
+- **Timeout protection**: Automatic 5-second timeout to prevent hanging tests
+- **Error reporting**: Detailed error messages with helpful hints
 
 ### Live Preview
 
@@ -212,6 +217,32 @@ For HTML/CSS exercises:
 - **CSS injection**: Automatically combines HTML and CSS files
 - **JavaScript execution**: Runs JS code with proper scoping
 - **Open in new tab**: View full-screen preview
+
+## 📈 Exercise Statistics (Edition 2)
+
+The platform currently includes:
+
+- **4 Volumes** covering beginner to professional skills
+- **56 Chapters** with comprehensive coverage (6 new chapters in Volume 2!)
+- **333 Exercises** available in the interactive platform
+  - 📘 **Volume 1: The UI Architect** - 14 chapters, 66 exercises
+  - 📗 **Volume 2: The JavaScript Developer** - 17 chapters, 104 exercises
+  - 📕 **Volume 3: Modern Mastery** - 17 chapters, 120 exercises
+  - 📙 **Volume 4: The Full-Stack Professional** - 8 chapters, 43 exercises
+
+### What's New in Edition 2 (Volume 2)
+
+Volume 2 has been expanded with **6 brand new chapters**:
+- Chapter 7: Modern JavaScript (ES6+) - 7 exercises
+- Chapter 11: Browser APIs & Web Features - 7 exercises
+- Chapter 18: Build Tools & Module Bundlers - 6 exercises
+- Chapter 20: Regular Expressions - 6 exercises
+- Chapter 22: Functional Programming Patterns - 7 exercises
+- Chapter 23: Testing Your JavaScript - 7 exercises
+
+Total: **40 new exercises** focused on modern JavaScript development!
+
+---
 
 ## Browser Support
 
