@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification API Demo</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px 10px 10px 0;
+      font-size: 1rem;
+    }
+    button:hover { background: #2980b9; }
+    button:disabled { background: #95a5a6; cursor: not-allowed; }
+    .status {
+      padding: 15px;
+      background: #e8f5e9;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .denied {
+      background: #ffebee;
+      color: #c62828;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔔 Notification API Demo</h1>
+    
+    <div id="permission-status" class="status"></div>
+    
+    <h2>Actions</h2>
+    <button id="request-permission">Request Permission</button>
+    <button id="send-basic">Send Basic Notification</button>
+    <button id="send-rich">Send Rich Notification</button>
+    <button id="send-action">Notification with Actions</button>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

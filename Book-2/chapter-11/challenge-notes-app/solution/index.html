@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progressive Notes App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <h1>📝 Notes</h1>
+        <button id="new-note-btn" class="btn-primary">+ New Note</button>
+      </header>
+
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="🔍 Search notes..."
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="notes-list" id="notes-list">
+        <!-- Notes will be rendered here -->
+      </div>
+
+      <footer class="sidebar-footer">
+        <button id="export-btn" class="btn-small">Export</button>
+        <button id="import-btn" class="btn-small">Import</button>
+        <input type="file" id="import-file" accept=".json" style="display:none">
+      </footer>
+    </aside>
+
+    <!-- Editor -->
+    <main class="editor">
+      <div id="editor-empty" class="editor-empty">
+        <h2>Select a note or create a new one</h2>
+        <p>Use the sidebar to get started</p>
+      </div>
+
+      <div id="editor-content" class="editor-content" style="display:none;">
+        <input 
+          type="text" 
+          id="note-title" 
+          placeholder="Note title..." 
+          class="note-title-input"
+        >
+        
+        <div class="editor-toolbar">
+          <button id="delete-note-btn" class="btn-danger">🗑️ Delete</button>
+          <span class="note-meta" id="note-meta"></span>
+        </div>
+
+        <div 
+          id="note-editor" 
+          class="note-editor" 
+          contenteditable="true"
+          data-placeholder="Start writing..."
+        ></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
